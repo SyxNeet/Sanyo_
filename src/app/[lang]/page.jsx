@@ -2,6 +2,7 @@ import {getDictionary} from '../../dictionaries/dictionaries'
 
 export default async function Home({params}) {
   const t = await getDictionary(params.lang)
+  console.log('test')
   return (
     <main className='pt-[5.5rem]'>
       <div className='flex flex-col items-center justify-between min-h-screen p-24'>
