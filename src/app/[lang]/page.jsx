@@ -1,7 +1,6 @@
 import {getDictionary} from '../../dictionaries/dictionaries'
 
 export default async function Home({params}) {
-  console.log('🚀 ~ Home ~ params:', params)
   const t = await getDictionary(params.lang)
   return (
     <main className='pt-[5.5rem]'>
