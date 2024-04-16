@@ -17,8 +17,10 @@ export function middleware(request) {
   nextUrl.searchParams.set('pathname', pathname)
 
   const url = request.nextUrl
-  if (!url.pathname.includes('commingSoon')) {
-    return NextResponse.redirect(new URL('/commingSoon', request.url))
+
+  if (!/(\/|^)commingSoon(\/|$)/i.test(pathname)) {
+    const newUrl = new URL('/commingSoon', url.origin)
+    return Response.redirect(newUrl, 302)
   }
   url.searchParams.set('pathname', url.pathname)
 
