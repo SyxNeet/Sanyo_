@@ -74,3 +74,18 @@
     @apply bg-background text-foreground;
   }
 }
+html {
+  font-size: 1vw;
+}
+@media (max-width: 767px) {
+  html {
+    font-size: 3.6426667vw;
+  }
+  body {
+    overflow-x: hidden !important;
+    --removed-body-scroll-bar-size: 0px !important;
+  }
+  html body {
+    margin-right: 0 !important;
+  }
+}

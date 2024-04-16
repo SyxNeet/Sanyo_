@@ -11,10 +11,23 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      // padding: '2rem',
       screens: {
         '2xl': '1400px',
       },
+    },
+    screens: {
+      '3xl': '1800px',
+      '2xl': '1600px',
+      xl: '1367px',
+      lg: '1024px',
+      md: '768px',
+      x3xl: {max: '1799px'},
+      x2xl: {max: '1599px'},
+      xxl: {max: '1366px'},
+      xlg: {max: '1023px'},
+      xmd: {max: '767px'},
+      tablet: {min: '768px', max: '1023px'},
     },
     extend: {
       colors: {
