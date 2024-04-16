@@ -16,6 +16,12 @@ export function middleware(request) {
   nextUrl.searchParams.set('viewport', viewport)
   nextUrl.searchParams.set('pathname', pathname)
 
+  const url = request.nextUrl
+  if (!url.pathname.includes('commingSoon')) {
+    return NextResponse.redirect(new URL('/commingSoon', request.url))
+  }
+  url.searchParams.set('pathname', url.pathname)
+
   if (
     ['/manifest.json', '/favicon.ico', '/robots.txt', '/sitemap.xml'].includes(
       pathname,
