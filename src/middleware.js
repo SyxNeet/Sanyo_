@@ -18,11 +18,11 @@ export function middleware(request) {
 
   const url = request.nextUrl
 
-  if (!/(\/|^)commingSoon(\/|$)/i.test(pathname)) {
-    const newUrl = new URL('/commingSoon', url.origin)
-    return Response.redirect(newUrl, 302)
-  }
-  url.searchParams.set('pathname', url.pathname)
+  // if (!/(\/|^)commingSoon(\/|$)/i.test(pathname)) {
+  //   const newUrl = new URL('/commingSoon', url.origin)
+  //   return Response.redirect(newUrl, 302)
+  // }
+  // url.searchParams.set('pathname', url.pathname)
 
   if (
     ['/manifest.json', '/favicon.ico', '/robots.txt', '/sitemap.xml'].includes(
