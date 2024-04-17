@@ -1,0 +1,35 @@
+.reason_item .reason_overlay > div > img {
+  transition: all 0.3s;
+}
+@media screen and (min-width: 1024px) {
+  .reason_item .reason_overlay > div > img:last-child {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+}
+.reason_item:hover .reason_overlay > div > img:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+.reason_item:hover .reason_overlay > div > img:last-child {
+  transform: translateX(0%);
+  opacity: 1;
+  visibility: visible;
+}
+.reason_item .reason_overlay {
+  transition: border-image 0.3s;
+  border: 1px solid transparent;
+}
+.reason_item:hover .reason_overlay {
+  border-width: 1px;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-image: linear-gradient(
+      rgb(255, 255, 255),
+      rgb(255, 255, 255),
+      rgb(255, 255, 255, 0.4)
+    )
+    1;
+}
