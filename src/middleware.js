@@ -18,6 +18,8 @@ export function middleware(request) {
 
   const url = request.nextUrl
 
+
+
   // if (!/(\/|^)commingSoon(\/|$)/i.test(pathname)) {
   //   const newUrl = new URL('/commingSoon', url.origin)
   //   return Response.redirect(newUrl, 302)

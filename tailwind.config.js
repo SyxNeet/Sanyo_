@@ -35,6 +35,8 @@ module.exports = {
         'grey-500': '#484F57',
         'grey-700': '#33383E',
         'grey-900': '#1E2125',
+        'grey-50': '#EDEDED',
+        white: '#fff',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -91,6 +93,14 @@ module.exports = {
       fontFamily: {
         SVNLagu: ['var(--font-svn-lagusans)', 'sans-serif'],
         Iciel: ['var(--font-iciel-steradian)', 'sans-serif'],
+      },
+      backgroundImage: {
+        overlayReason:
+          'linear-gradient(lightgray -450.418px -356.646px / 214.465% 234.583% no-repeat, #D9D9D9)',
+        hover_button: 'linear-gradient(180deg, #D1B37B 0%, #E4B867 100%)',
+      },
+      background: {
+        blur_Reason: 'rgba(0, 0, 0, 0.30)',
       },
     },
   },

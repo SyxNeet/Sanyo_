@@ -79,7 +79,7 @@ html {
 }
 @media (max-width: 767px) {
   html {
-    font-size: 3.6426667vw;
+    font-size: 4.27vw;
   }
   body {
     overflow-x: hidden !important;
@@ -88,4 +88,9 @@ html {
   html body {
     margin-right: 0 !important;
   }
+}
+
+/* button hover */
+.button_hover:hover .box_button_hover {
+  transform: translateY(0);
 }
