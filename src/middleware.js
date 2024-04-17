@@ -18,14 +18,14 @@ export function middleware(request) {
 
   const url = request.nextUrl
 
-  // start config
+
+
   // if (!/(\/|^)commingSoon(\/|$)/i.test(pathname)) {
   //   const newUrl = new URL('/commingSoon', url.origin)
   //   return Response.redirect(newUrl, 302)
   // }
   // url.searchParams.set('pathname', url.pathname)
 
-  // end config
   if (
     ['/manifest.json', '/favicon.ico', '/robots.txt', '/sitemap.xml'].includes(
       pathname,

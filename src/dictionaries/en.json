@@ -1,4 +1,12 @@
 {
   "hello":"hello okhub",
-  "comming":"The Sanyo Yusoki website is soon to be launched."
+  "comming":"The Sanyo Yusoki website is soon to be launched.",
+  "form":{
+    "formTilte":"Để lại thông tin để chúng tôi ",
+    "formSupportText":"hỗ trợ bạn",
+    "formSpanDes":"Để tìm hiểu thêm, vui lòng để lại thông tin liên hệ của bạn. Bộ phận Kinh doanh sẽ liên hệ với bạn trong thời gian sớm nhất.",
+    "formLabelName":"Tên của bạn",
+    "formLabelSdt":"Số điện thoại",
+    "formLabelNote":"Nội dung ghi chú"
+  }
 }
