@@ -53,7 +53,7 @@ const Button = React.forwardRef(
           {text}
         </span>
         <Image
-          src={'/images/layout/button/rowBtn.svg'}
+          src={'/images/button/rowBtn.svg'}
           alt='row'
           width={100}
           height={100}
