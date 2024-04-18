@@ -9,5 +9,6 @@
 }
 .btn-next-custom:hover,
 .btn-prev-custom:hover {
-  /* background: ; */
+  background: #dab571;
+  border-color: transparent;
 }

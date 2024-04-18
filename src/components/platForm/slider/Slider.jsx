@@ -78,7 +78,7 @@ function Slider() {
         <div className='md:mt-[10.54rem]'>
           <button
             onClick={handlePrevSlide}
-            className='btn-next-custom md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative'
+            className='btn-next-custom md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative transition-all duration-300'
           >
             <svg
               className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem] absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2'
@@ -95,7 +95,7 @@ function Slider() {
             </svg>
           </button>
           <button
-            className='btn-prev-custom md:ml-[0.88rem]  md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative'
+            className='btn-prev-custom md:ml-[0.88rem]  md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative  transition-all duration-300'
             onClick={handleNextSlide}
           >
             <svg
