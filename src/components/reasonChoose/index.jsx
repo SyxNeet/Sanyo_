@@ -5,22 +5,22 @@ import Link from 'next/link'
 
 export default function ReasonChoose() {
   return (
-
-    <div className='rounded-[1.25rem] w-full relative reason_item'>
+    <div className='md:rounded-[1.25rem] rounded-[0.75rem] flex justify-center items-end relative reason_item w-full md:h-[33.125rem] object-cover h-[24.6875rem]'>
       <Image
         src={'/images/reasonChoose/lydoluachon1.png'}
         alt='reason'
         width={800}
         height={500}
-        className='md:w-full md:h-[33.125rem] object-cover rounded-[1.25rem] w-[23.49927rem] h-[28.91654rem]'
+        className='w-full absolute h-full object-cover rounded-[1.25rem]'
       />
+
       <Link
         className=' max-md:flex-col flex overflow-hidden relative h-fit backdrop-blur-[12.5px] rounded-[0.75rem] justify-between md:items-center
           md:pl-[1.44rem] md:pr-[2.06rem]
           bottom-[0.59rem] pt-[1.19rem] pl-[1.06rem] pb-[1.06rem] pr-[1.12rem] reason_overlay'
         href={'/'}
       >
-       <Image
+        <Image
           src={'/images/reasonChoose/Hoverbox.svg'}
           alt='box'
           width={200}

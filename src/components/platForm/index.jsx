@@ -14,7 +14,6 @@ export default function PlatFormElevator() {
       />
 
       {/* Component Slider platform */}
-
       <Slider />
     </div>
   )

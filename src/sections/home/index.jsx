@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div>
       {/* component Reason  */}
-      <ReasonChoose></ReasonChoose>
+      {/* <ReasonChoose></ReasonChoose> */}
 
       {/* Component Button */}
       <Button
