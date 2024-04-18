@@ -50,7 +50,7 @@ const Button = React.forwardRef(
         {...props}
       >
         <span
-          className={`font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900 ${props?.classText}`}
+          className={`font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900 ${props?.classtext}`}
         >
           {text}
         </span>

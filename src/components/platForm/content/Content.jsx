@@ -15,7 +15,7 @@ export default function Content({title, description}) {
         className='h-fit bg-transparent border-white'
         isHover={true}
         text={'XEM TẤT CẢ'}
-        classText={'text-white'}
+        classtext={'text-white'}
       />
     </div>
   )
