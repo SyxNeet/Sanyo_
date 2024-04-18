@@ -66,7 +66,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -129,9 +128,9 @@ html {
   transform: translateY(0);
 }
 
-
 .transition-300 {
   @apply transition-all duration-300 ease-out;
+}
 /* border radius for section */
 
 .box-container-border {
