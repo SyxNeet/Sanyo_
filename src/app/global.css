@@ -74,20 +74,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .sub-heading {
+    @apply text-grey-500 font-SVNLagu lg:text-[1.25rem] font-medium leading-[1.5] md:tracking-[0.1rem] uppercase text-[0.625rem] tracking-[0.05rem] opacity-80;
+  }
+
+  .breadcrumb {
+    @apply text-justify text-grey-700 font-Iciel lg:text-[0.875rem] md:leading-[1.5] text-[0.625rem] leading-[1.4];
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+}
+
 html {
   font-size: 1vw;
+  scroll-behavior: smooth;
 }
 @media (max-width: 767px) {
   html {
     font-size: 4.27vw;
   }
-  /* body {
-    overflow-x: hidden !important;
-    --removed-body-scroll-bar-size: 0px !important;
-  }
-  html body {
-    margin-right: 0 !important;
-  } */
 }
 
 /* button hover */

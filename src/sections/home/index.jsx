@@ -1,6 +1,4 @@
 import PlatFormElevator from '@/components/platForm'
-import Content from '@/components/platForm/content/Content'
-import Slider from '@/components/platForm/slider/Slider'
 import ReasonChoose from '@/components/reasonChoose'
 import {Button} from '@/components/ui/button'
 import React from 'react'
