@@ -5,13 +5,13 @@ import Link from 'next/link'
 
 export default function ReasonChoose() {
   return (
-    <div className='rounded-[1.25rem] w-fit relative reason_item'>
+    <div className='rounded-[1.25rem] w-full relative reason_item'>
       <Image
         src={'/images/reasonChoose/lydoluachon1.png'}
         alt='reason'
         width={800}
         height={500}
-        className='md:w-[49.1875rem] md:h-[33.125rem] object-cover rounded-[1.25rem] w-[23.49927rem] h-[28.91654rem]'
+        className='md:w-full md:h-[33.125rem] object-cover rounded-[1.25rem] w-[23.49927rem] h-[28.91654rem]'
       />
 
       <Link
@@ -21,14 +21,14 @@ export default function ReasonChoose() {
           bottom-[0.59rem] left-[0.51rem] right-[0.51rem] pt-[1.39rem] pl-[1.24rem] pb-[1.24rem] pr-[1.32rem] reason_overlay'
         href={'/'}
       >
-        <Image
+        {/* <Image
           src={'/images/reasonChoose/Hoverbox.svg'}
           alt='box'
           width={200}
           height={200}
           quality={100}
           className='absolute'
-        />
+        /> */}
         <div className='md:w-[21.875rem] max-md:mb-[1.24rem]'>
           <h4 className='font-SVNLagu md:text-[1.25rem] font-[600] md:leading-[1.5] text-grey-50'>
             SMART SHARING CORE
