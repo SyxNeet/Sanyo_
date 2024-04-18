@@ -1,10 +1,9 @@
-import SixReasons from '@/layout/sixReasons'
-import SLideAutoPlay from '@/components/slideAutoPlay'
+
+import DichVu from '@/sections/dichvu'
 import React from 'react'
 
 export default function page() {
   return <div>
-    <SLideAutoPlay/>
-    <SixReasons/>
+   <DichVu/>
   </div>
 }
