@@ -1,4 +1,5 @@
 import PlatFormElevator from '@/components/platForm'
+import ProjectItem from '@/components/projectItem'
 import ReasonChoose from '@/components/reasonChoose'
 import {Button} from '@/components/ui/button'
 import React from 'react'
@@ -18,6 +19,8 @@ export default function HomePage() {
 
       {/* Component  platform  */}
       <PlatFormElevator />
+
+      <ProjectItem />
     </div>
   )
 }
