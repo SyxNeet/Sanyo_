@@ -81,16 +81,27 @@ html {
   html {
     font-size: 4.27vw;
   }
-  body {
+  /* body {
     overflow-x: hidden !important;
     --removed-body-scroll-bar-size: 0px !important;
   }
   html body {
     margin-right: 0 !important;
-  }
+  } */
 }
 
 /* button hover */
 .button_hover:hover .box_button_hover {
   transform: translateY(0);
+}
+
+/* border radius for section */
+
+.box-container-border {
+  border-radius: 3rem 3rem 0rem 0rem;
+}
+
+/* set width slide thang máy trang chủ và chi tiết tin tức */
+.slideElevator {
+  width: calc(100% - 21.625rem - 2.37rem);
 }

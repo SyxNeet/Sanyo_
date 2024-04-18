@@ -10,7 +10,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: `relative overflow-hidden rounded-[6.25rem] border-[1px] solid border-[#1E2125] hover:border-transparent bg-[#fff]  h-auto `,
+        default: `relative overflow-hidden rounded-[6.25rem] border-[1px] solid border-[#1E2125] hover:border-transparent hover:bg-transparent bg-[#fff]  h-auto `,
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         outline:
@@ -49,16 +49,24 @@ const Button = React.forwardRef(
         ref={ref}
         {...props}
       >
-        <span className='font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900'>
+        <span
+          className={`font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900 ${props?.classText}`}
+        >
           {text}
         </span>
-        <Image
-          src={'/images/layout/button/rowBtn.svg'}
-          alt='row'
-          width={100}
-          height={100}
-          className='md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1]'
-        />
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='15'
+          height='16'
+          viewBox='0 0 15 16'
+          fill='none'
+          className='md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] '
+        >
+          <path
+            d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
+            fill={`${props?.isBlack ? '#1E2125' : 'white'}`}
+          />
+        </svg>
         <div className='absolute inset-0 bg-hover_button translate-y-[100%] box_button_hover transition-all duration-300 '></div>
       </Comp>
     )
