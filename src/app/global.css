@@ -66,31 +66,20 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 html {
   font-size: 1vw;
 }
 @media (max-width: 767px) {
   html {
-    font-size: 4.27vw;
-  }
-  body {
-    overflow-x: hidden !important;
-    --removed-body-scroll-bar-size: 0px !important;
-  }
-  html body {
-    margin-right: 0 !important;
+    font-size: 4.267vw;
   }
 }
 
 /* button hover */
 .button_hover:hover .box_button_hover {
   transform: translateY(0);
+}
+
+.transition-300 {
+  @apply transition-all duration-300 ease-out;
 }

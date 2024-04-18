@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   darkMode: ['class'],
   content: [
@@ -9,33 +9,20 @@ module.exports = {
   ],
   prefix: '',
   theme: {
-    container: {
-      center: true,
-      // padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
+    lineHeight: {
+      1.5: '150%',
+      1.4: '140%',
     },
-    // screens: {
-    //   '3xl': '1800px',
-    //   '2xl': '1600px',
-    //   xl: '1367px',
-    //   md: '768px',
-    //   lg: '1024px',
-    //   x3xl: {max: '1799px'},
-    //   x2xl: {max: '1599px'},
-    //   xxl: {max: '1366px'},
-    //   xlg: {max: '1023px'},
-    //   xmd: {max: '767px'},
-    //   tablet: {min: '768px', max: '1023px'},
-    // },
     extend: {
       colors: {
         'yellow-500': '#DAB571',
+        'grey-0': '#FFF',
+        'grey-50': '#EDEDED',
+        'grey-300': '#84898E',
         'grey-500': '#484F57',
+        'grey-600': '#42484F',
         'grey-700': '#33383E',
         'grey-900': '#1E2125',
-        'grey-50': '#EDEDED',
         white: '#fff',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -101,6 +88,20 @@ module.exports = {
       },
       background: {
         blur_Reason: 'rgba(0, 0, 0, 0.30)',
+      },
+      letterSpacing: {
+        0.1: '0.1rem',
+        0.5: '0.5rem',
+      },
+      fontSize: {
+        0.625: '0.625rem',
+        1: '1rem',
+        1.125: '1.125rem',
+        1.25: '1.25rem',
+        1.375: '1.375rem',
+        2: '2rem',
+        2.25: '2.25rem',
+        3: '3rem',
       },
     },
   },
