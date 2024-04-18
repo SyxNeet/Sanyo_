@@ -1,5 +1,5 @@
 'use client'
-import React, {useRef, useState, useMemo} from 'react'
+import React, {useRef, useState} from 'react'
 import ButtonSLide from '../../components/buttonSlideSixReasons/ButtonSLide'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation,Pagination} from 'swiper/modules'
@@ -12,23 +12,20 @@ const SixReasons = () => {
   const handleSlideChange = (swiper) => {
     setActiveSlide(swiper.activeIndex);
   };
-  const breakpoints = useMemo(
-    () => ({
-      0: {
-        slidesPerView: 1.1,
-        spaceBetween: 0,
-      },
-      768: {
-        slidesPerView: 1.6,
-        spaceBetween: 0,
-      },
-      1024: {
-        slidesPerView: 1.6,
-        spaceBetween: 0,
-      },
-    }),
-    [],
-  )
+  const breakpoints = {
+    0: {
+      slidesPerView: 1.1,
+      spaceBetween: 0,
+    },
+    768: {
+      slidesPerView: 1.6,
+      spaceBetween: 0,
+    },
+    1024: {
+      slidesPerView: 1.6,
+      spaceBetween: 0,
+    },
+  };
   return (
     <section className='pl-[6.25rem] flex flex-col max-md:pl-0'>
       <div>
