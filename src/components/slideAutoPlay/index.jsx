@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image';
 import 'swiper/css';
-import slideImg  from "../../../public/images/slideAutoplay/slide.png"
+import slideImg  from "../../../public/images/layout/slideAutoplay/slide.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 const SLideAutoPlay = ({image=[slideImg,slideImg,slideImg,slideImg],className}) => {
