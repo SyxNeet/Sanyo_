@@ -1,11 +1,12 @@
-import SLideAutoPlay from '@/components/slideAutoPlay'
+
 import React from 'react'
 import SixReasons from '@/components/sixReasons'
+import SlideOnlyImages from '@/components/slideOnlyImages'
 export default function DichVu() {
   return (
-    <div>
+    <div className='pt-9'>
       {/* component Slide auto play  */}
-    <SLideAutoPlay/>
+    <SlideOnlyImages/>
     {/* component 6 reasons  */}
     <SixReasons/>
     </div>
