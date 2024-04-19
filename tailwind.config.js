@@ -10,21 +10,22 @@ module.exports = {
   prefix: '',
   theme: {
     lineHeight: {
-      1.5: '150%',
+      1.3: '130%',
       1.4: '140%',
+      1.5: '150%',
     },
     extend: {
       colors: {
         'yellow-500': '#DAB571',
         'grey-0': '#FFF',
         'grey-50': '#EDEDED',
+        'grey-200': '#ABAEB2',
         'grey-300': '#84898E',
         'grey-500': '#484F57',
         'grey-600': '#42484F',
         'grey-700': '#33383E',
+        'grey-800': '#282B30',
         'grey-900': '#1E2125',
-        'grey-200': '#ABAEB2',
-        'grey-600': '#42484F',
         'c-nht': '#FE4127',
         white: '#fff',
         border: 'hsl(var(--border))',

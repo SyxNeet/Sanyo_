@@ -1,26 +1,10 @@
-import PlatFormElevator from '@/components/platForm'
-import ProjectItem from '@/components/projectItem'
-import ReasonChoose from '@/components/reasonChoose'
-import {Button} from '@/components/ui/button'
 import React from 'react'
+import SlideOnPage from './slideOnPage/SlideOnPage'
 
-export default function HomePage() {
+export default function HomePage({isMobile}) {
   return (
     <div>
-      {/* component Reason  */}
-      {/* <ReasonChoose></ReasonChoose> */}
-
-      {/* Component Button */}
-      <Button
-        isHover={true}
-        text={'LIÊN HỆ NGAY'}
-        isBlack={true}
-      ></Button>
-
-      {/* Component  platform  */}
-      <PlatFormElevator />
-
-      <ProjectItem />
+      <SlideOnPage />
     </div>
   )
 }

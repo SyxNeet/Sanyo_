@@ -1,10 +1,12 @@
 import HomePage from '@/sections/home'
 import {getDictionary} from '../../dictionaries/dictionaries'
-export default async function Home({params}) {
+export default async function Home({params, searchParams}) {
   const t = await getDictionary(params.lang)
+  const {viewport} = searchParams
+  const isMobile = viewport?.includes('mobile')
   return (
     <main>
-      <HomePage />
+      <HomePage isMobile={isMobile} />
     </main>
   )
 }
