@@ -7,7 +7,7 @@ export default function ReasonChoose() {
   return (
     <div className='md:rounded-[1.25rem] rounded-[0.75rem] flex justify-center items-end relative reason_item w-full md:h-[33.125rem] object-cover h-[24.6875rem]'>
       <Image
-        src={'/images//reasonChoose/lydoluachon1.png'}
+        src={'/images/components/reasonChoose/lydoluachon1.png'}
         alt='reason'
         width={800}
         height={500}
@@ -21,7 +21,7 @@ export default function ReasonChoose() {
         href={'/'}
       >
         <Image
-          src={'/images/reasonChoose/Hoverbox.svg'}
+          src={'/images/components/reasonChoose/Hoverbox.svg'}
           alt='box'
           width={200}
           height={200}
@@ -43,7 +43,7 @@ export default function ReasonChoose() {
             Tìm hiểu thêm
           </span>
           <Image
-            src='/images/reasonChoose/iconPlus.svg'
+            src='/images/components//reasonChoose/iconPlus.svg'
             width={100}
             height={100}
             className='md:w-[2.125rem] md:h-[2.125rem] max-md:hidden'
@@ -51,7 +51,7 @@ export default function ReasonChoose() {
           />
           <Image
             alt='icon'
-            src='/images/reasonChoose/row.svg'
+            src='/images/components/reasonChoose/row.svg'
             width={100}
             height={100}
             className='w-[0.875rem] h-[0.74975rem] md:w-[2.125rem] md:h-[2.125rem] max-md:ml-[0.51rem]'
