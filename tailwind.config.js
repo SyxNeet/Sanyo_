@@ -10,8 +10,9 @@ module.exports = {
   prefix: '',
   theme: {
     lineHeight: {
-      1.5: '150%',
+      1.3: '130%',
       1.4: '140%',
+      1.5: '150%',
     },
     extend: {
       colors: {
@@ -25,6 +26,7 @@ module.exports = {
         'grey-900': '#1E2125',
         'grey-200': '#ABAEB2',
         'grey-600': '#42484F',
+        'grey-900': '#1E2125',
         'c-nht': '#FE4127',
         white: '#fff',
         border: 'hsl(var(--border))',
