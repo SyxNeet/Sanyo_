@@ -39,4 +39,28 @@ export const coreValues = [
       'Sử dụng năng lượng ở mức thấp nhất giúp tiết kiệm năng lượng, bảo vệ môi trường',
     href: '/',
   },
+  {
+    src: '/images/layout/support/core-values-5.jpg',
+    alt: '',
+    title: 'Bảo vệ môi trường',
+    content:
+      'Sử dụng năng lượng ở mức thấp nhất giúp tiết kiệm năng lượng, bảo vệ môi trường',
+    href: '/',
+  },
+  {
+    src: '/images/layout/support/core-values-5.jpg',
+    alt: '',
+    title: 'Bảo vệ môi trường',
+    content:
+      'Sử dụng năng lượng ở mức thấp nhất giúp tiết kiệm năng lượng, bảo vệ môi trường',
+    href: '/',
+  },
+  {
+    src: '/images/layout/support/core-values-5.jpg',
+    alt: '',
+    title: 'Bảo vệ môi trường',
+    content:
+      'Sử dụng năng lượng ở mức thấp nhất giúp tiết kiệm năng lượng, bảo vệ môi trường',
+    href: '/',
+  },
 ]
