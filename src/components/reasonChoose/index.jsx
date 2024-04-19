@@ -7,7 +7,7 @@ export default function ReasonChoose() {
   return (
     <div className='md:rounded-[1.25rem] rounded-[0.75rem] flex justify-center items-end relative reason_item w-full md:h-[33.125rem] object-cover h-[24.6875rem]'>
       <Image
-        src={'/images/reasonChoose/lydoluachon1.png'}
+        src={'/images//reasonChoose/lydoluachon1.png'}
         alt='reason'
         width={800}
         height={500}

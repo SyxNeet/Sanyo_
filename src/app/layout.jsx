@@ -69,13 +69,25 @@ const icielSteradian = localFont({
   display: 'swap',
 })
 
+const avertaStdCy = localFont({
+  src: [
+    {
+      path: './font/std/stdcy.otf',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-averta-std-cy',
+  display: 'swap',
+})
+
 export default function RootLayout({children, params, searchParams}) {
   return (
     <html lang={params.lang}>
       <body
         suppressHydrationWarning={true}
         suppressContentEditableWarning={true}
-        className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable}`}
+        className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} ${avertaStdCy.variable}`}
       >
         <GsapProvider>
           <Nav />

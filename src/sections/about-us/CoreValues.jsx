@@ -57,10 +57,13 @@ export default function CoreValues({isMobile}) {
                 <Image
                   src={item.src}
                   alt={item.alt}
-                  className={clsx('absolute top-0 left-0 object-cover w-full transition-300', {
-                    'opacity-100': activeImage === i,
-                    'opacity-0': activeImage !== i,
-                  })}
+                  className={clsx(
+                    'absolute top-0 left-0 object-cover w-full transition-300',
+                    {
+                      'opacity-100': activeImage === i,
+                      'opacity-0': activeImage !== i,
+                    },
+                  )}
                   width={1920}
                   height={1080}
                 />
