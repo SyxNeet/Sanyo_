@@ -1,5 +1,5 @@
 'use client'
-import React, {useRef, useState} from 'react'
+import React, {useState} from 'react'
 import ButtonSLide from '../../components/buttonSlideSixReasons/ButtonSLide'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation,Pagination} from 'swiper/modules'

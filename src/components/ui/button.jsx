@@ -36,7 +36,7 @@ const buttonVariants = cva(
 
 const Button = React.forwardRef(
   (
-    {className, variant, size, asChild = false, text, isHover, ...props},
+    {className, variant, size, asChild = false, text, isHover,isBlack, ...props},
     ref,
   ) => {
     const Comp = asChild ? Slot : 'button'
@@ -64,7 +64,7 @@ const Button = React.forwardRef(
         >
           <path
             d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
-            fill={`${props?.isBlack ? '#1E2125' : 'white'}`}
+            fill={`${isBlack ? '#1E2125' : 'white'}`}
           />
         </svg>
         <div className='absolute inset-0 bg-hover_button translate-y-[100%] box_button_hover transition-all duration-300 '></div>

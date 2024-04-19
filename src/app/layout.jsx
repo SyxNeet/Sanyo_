@@ -69,7 +69,7 @@ const icielSteradian = localFont({
   display: 'swap',
 })
 
-export default function RootLayout({children, params}) {
+export default function RootLayout({children, params, searchParams}) {
   return (
     <html lang={params.lang}>
       <body
