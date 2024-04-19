@@ -27,6 +27,9 @@ const LeadershipMesssage = () => {
       className='sharingLeader relative pt-12  flex flex-col'
       id='sharingLeader'
     >
+      <div className='absolute w-[4rem] h-[2.3125rem] bg-yellow-500 bg-opacity-10 top-0 left-0'>
+        <div className='absolute w-4 h-4 bg-yellow-500 bg-opacity-10 top-[2.3125rem] left-[4rem]'></div>
+      </div>
       <Image
         src={imgBgLeadership}
         alt='bgLeadership'
@@ -37,16 +40,16 @@ const LeadershipMesssage = () => {
         alt='bgLeadership'
         className='absolute -z-10 top-0 left-0 w-full h-full hidden max-md:block object-cover'
       />
-      <div className='flex overflow-hidden w-full max-md:flex-row-reverse max-md:px-4 max-md:items-center pt-12'>
+      <div className='flex overflow-hidden w-full max-md:flex-row-reverse max-md:px-4 max-md:items-center pt-12 max-md:pr-0'>
         <div className='relative w-[40%] flex justify-end '>
           <div
-            className='sunImg w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_#DAB571_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'
+            className='sunImg w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_#DAB571_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-[-3%]'
             id='sunImg'
           ></div>
           <Image
             src={imgLeadership}
             alt='leadership'
-            className='w-[20.9375rem] h-[40.375rem] max-md:w-[7.375rem] max-md:h-[12.625rem]'
+            className='w-[20.9375rem] h-[40.375rem] max-md:w-[7.375rem] max-md:h-[12.625rem] max-md:mr-2'
           />
         </div>
         <div className='w-[60%] pl-[3.12rem] pt-[5%] max-md:pl-0'>
