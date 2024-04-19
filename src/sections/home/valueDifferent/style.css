@@ -1,0 +1,26 @@
+.slide_value .swiper-slide {
+  width: 49.1875rem !important;
+}
+.shadow_btn {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all 0.3s;
+}
+.shadow_btn > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.shadow_btn {
+  top: 50%;
+  position: absolute;
+}
+.shadow_btn > svg path {
+  transition: all 0.3s;
+}
+.shadow_btn:hover {
+  background: #dab571;
+}
+.shadow_btn:hover > svg path {
+  fill: #fff;
+}
