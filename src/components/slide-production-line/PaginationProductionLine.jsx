@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import {useSwiper} from 'swiper/react'
 import gsap from 'gsap'
-import {useEffect} from 'react'
+import {useGSAP} from '@gsap/react'
 
 export default function PaginationProductionLine({activeImage, direction}) {
   const swiper = useSwiper()
-  useEffect(() => {
+  useGSAP(() => {
     if (swiper.slides) {
       const paginationContainer = document.querySelector(
         '.pagination-bar-container',
@@ -144,18 +144,18 @@ export default function PaginationProductionLine({activeImage, direction}) {
   }, [activeImage, swiper.slides])
 
   return (
-    <div className='pagination-bar-container absolute flex flex-row w-[92%] left-1/2 -translate-x-1/2 z-20 bottom-[5%]'>
+    <ul className='pagination-bar-container absolute flex flex-row w-[92%] left-1/2 -translate-x-1/2 z-20 bottom-[5%]'>
       {Array.from({length: swiper.slides.length}, (_, i) => i + 1).map(
-        (item, i) => {
+        (_, i) => {
           return (
-            <div
+            <li
               className={clsx(
-                `pagination-bar pagination-bar-${i} grow rounded-none bg-white h-[0.25rem] mx-3 opacity-40`,
+                `pagination-bar pagination-bar-${i} grow rounded-none bg-white h-[0.125rem] md:h-[0.25rem] mx-1 md:mx-3 opacity-40`,
               )}
             />
           )
         },
       )}
-    </div>
+    </ul>
   )
 }

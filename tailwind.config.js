@@ -10,8 +10,9 @@ module.exports = {
   prefix: '',
   theme: {
     lineHeight: {
-      1.5: '150%',
+      1.3: '130%',
       1.4: '140%',
+      1.5: '150%',
     },
     extend: {
       colors: {

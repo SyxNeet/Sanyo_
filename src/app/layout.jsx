@@ -3,6 +3,7 @@ import './global.css'
 import localFont from 'next/font/local'
 import Footer from '@/layout/footer'
 import Nav from '@/layout/nav'
+import GsapProvider from '@/components/gsap/GsapProvider'
 
 export const metadata = {
   title: 'Sanyo Yosuki',
@@ -76,9 +77,11 @@ export default function RootLayout({children, params, searchParams}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable}`}
       >
-        <Nav />
-        {children}
-        <Footer />
+        <GsapProvider>
+          <Nav />
+          {children}
+          <Footer />
+        </GsapProvider>
       </body>
     </html>
   )
