@@ -2,6 +2,7 @@
 import React from 'react'
 import SixReasons from '@/components/sixReasons'
 import SlideOnlyImages from '@/components/slideOnlyImages'
+import LeadershipMesssage from '@/components/LeadershipMessage'
 export default function DichVu() {
   return (
     <div className='pt-9'>
@@ -9,6 +10,8 @@ export default function DichVu() {
     <SlideOnlyImages/>
     {/* component 6 reasons  */}
     <SixReasons/>
+    {/* component chia sẻ từ ban lãnh đạo  */}
+    <LeadershipMesssage/>
     </div>
   )
 }
