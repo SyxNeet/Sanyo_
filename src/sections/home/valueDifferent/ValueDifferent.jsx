@@ -16,27 +16,12 @@ function ValueDifferent() {
       <h4 className='sub-heading md:pl-[10.6rem] md:mb-[1.31rem]'>
         KIẾN TẠO GIÁ TRỊ KHÁC BIỆT
       </h4>
-      <div className='relative md:pl-[6.31rem] md:w-[61.25rem]'>
-        {/* <Image
-          src={'/images/home/giaTriKhacBiet/nhaykep.svg'}
-          alt='icon'
-          width={100}
-          height={100}
-          className='md:w-[1.5625rem] md:h-[1.0625rem] absolute top-[1rem]'
-        /> */}
+      <div className='relative md:pl-[6.31rem] md:w-[61.25rem] md:mb-[4.44rem]'>
         <p className=' text-grey-700 font-SVNLagu md:text-[2.5rem] font-semibold leading-1.4'>
           "Mong muốn của chúng tôi là bảo đảm những tiêu chuẩn cao nhất nhằm
           phục vụ khách hàng cho mọi nhu cầu liên quan đến thang máy"
         </p>
-        {/* <Image
-          src={'/images/home/giaTriKhacBiet/nhaykep.svg'}
-          alt='icon'
-          width={100}
-          height={100}
-          className='md:w-[1.5625rem] md:h-[1.0625rem] rotate-180'
-        /> */}
       </div>
-
       {/* slide */}
       <SlideValue />
     </section>

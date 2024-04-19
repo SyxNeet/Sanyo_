@@ -12,7 +12,6 @@ export default function PlatFormElevator() {
           'Chúng tôi tin rằng với một nền móng vững chắc sẽ cho ra đời những sản phẩm thang máy chất lượng nhất. SANYO YUSOKI vẫn liên tục đầu tư cho Nghiên cứu Phát triển (R&D) tất cả các dòng thang máy'
         }
       />
-
       {/* Component Slider platform */}
       <Slider />
     </div>

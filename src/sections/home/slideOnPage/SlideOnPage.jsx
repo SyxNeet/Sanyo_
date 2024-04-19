@@ -93,9 +93,9 @@ export default function SlideOnPage() {
         slidesPerView={1}
         spaceBetween={0}
         loop={true}
-        autoplay={{
-          delay: 3000,
-        }}
+        // autoplay={{
+        //   delay: 3000,
+        // }}
         onSlideChange={handleSlideChange}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
