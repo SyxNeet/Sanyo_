@@ -5,6 +5,7 @@ import imgBgLeadership from '../../../public/images/aboutUs/bglanhdao.png'
 import imgDaupphay from '../../../public/images/aboutUs/dauphay.png'
 import imgBgMbLeadership from '../../../public/images/aboutUs/bgmblandao.png'
 import Image from 'next/image'
+
 const LeadershipMesssage = () => {
   //xử lý mặt trời mọc
   if (typeof window !== 'undefined') {

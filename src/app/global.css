@@ -115,7 +115,6 @@ button {
 
 html {
   font-size: 1vw;
-  scroll-behavior: smooth;
 }
 @media (max-width: 767px) {
   html {
@@ -135,6 +134,11 @@ html {
 
 .box-container-border {
   border-radius: 3rem 3rem 0rem 0rem;
+}
+@media screen and (max-width: 767px) {
+  .box-container-border {
+    border-radius: 1rem 1rem 0rem 0rem;
+  }
 }
 /* set width slide thang máy trang chủ và chi tiết tin tức */
 .slideElevator {

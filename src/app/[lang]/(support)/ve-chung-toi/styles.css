@@ -17,3 +17,24 @@
 .swiper-production-line .swiper-slide {
   @apply flex justify-center items-center !important;
 }
+
+.swiper-core-values {
+  @apply ml-3 !important;
+}
+
+.swiper-core-values .swiper-wrapper {
+  @apply flex flex-row items-stretch !important;
+}
+
+.swiper-core-values .swiper-slide {
+  @apply p-2 w-[20.6875rem] rounded-lg border-[0.514px] h-[23.9375rem] border-yellow-500 !important;
+  background: linear-gradient(
+    0deg,
+    rgba(209, 179, 123, 0.4) 0%,
+    rgba(255, 255, 255, 0.4) 19.12%
+  ) !important;
+}
+
+.bg-achieved-text {
+  background-image: url('../../../../../public/images/layout/support/achieved-background.jpg');
+}

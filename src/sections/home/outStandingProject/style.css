@@ -1,0 +1,37 @@
+.maquee .maquee-animate {
+  animation: maquee_image 30s linear infinite;
+}
+.maquee .maquee-animate2 {
+  animation: maquee_image_reverse 30s linear infinite;
+}
+
+.overlay_slide_outstanding {
+  height: 14.1875rem;
+  opacity: 0.97;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 16.98%,
+    rgba(255, 255, 255, 0.8) 25.31%,
+    #fff 46.15%
+  );
+  z-index: 11;
+}
+@keyframes maquee_image {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(calc(-100% - 20px));
+  }
+}
+@keyframes maquee_image_reverse {
+  0% {
+    transform: translateY(calc(-100% - 20px));
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
