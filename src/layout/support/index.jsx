@@ -179,7 +179,7 @@ export default function Support() {
             <Button
               isHover={true}
               text={'GỬI THÔNG TIN'}
-              isblack={true}
+              isBlack={true}
               className='max-md:bg-yellow-500 max-md:border-none'
               onClick={handleSubmit}
             ></Button>

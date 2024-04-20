@@ -70,7 +70,7 @@ export default function CountUp() {
       >
         <Button
           text={'VỀ CHÚNG TÔI'}
-          isblack={true}
+          isBlack={true}
           isHover={true}
         />
       </Link>
