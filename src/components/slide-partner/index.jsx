@@ -4,7 +4,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import {Grid, Autoplay} from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/grid'
-import {doiTac} from '../../../data/doi-tac'
+import {doiTac} from '../../../data/ve-chung-toi/doi-tac'
 import Image from 'next/image'
 
 export default function SlidePartner() {

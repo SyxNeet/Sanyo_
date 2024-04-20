@@ -75,7 +75,7 @@ export default function RootLayout({children, params, searchParams}) {
       <body
         suppressHydrationWarning={true}
         suppressContentEditableWarning={true}
-        className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable}`}
+        className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
         <GsapProvider>
           <Nav />

@@ -1,11 +1,13 @@
 import ProductionLineSection from './ProductionLineSection'
 import PartnerSection from './PartnerSection'
-import CoreValues from './CoreValues'
+import Achieved from './Achieved'
+import LeaderShipMessageAndCoreValues from './LeaderShipMessageAndCoreValues'
 
 export default function AboutUs({isMobile}) {
   return (
     <>
-      <CoreValues isMobile={isMobile} />
+      <LeaderShipMessageAndCoreValues isMobile={isMobile} />
+      <Achieved isMobile={isMobile} />
       <ProductionLineSection isMobile={isMobile} />
       <PartnerSection isMobile={isMobile} />
     </>

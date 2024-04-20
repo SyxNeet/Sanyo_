@@ -6,7 +6,7 @@ import {Autoplay, EffectFade} from 'swiper/modules'
 import 'swiper/css/effect-fade'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
 import {useState} from 'react'
-import {productionLine} from '../../../data/day-chuyen-san-xuat'
+import {productionLine} from '../../../data/ve-chung-toi/day-chuyen-san-xuat'
 
 export default function ProductionLineSection({isMobile}) {
   const [activeImage, setActiveImage] = useState(0)
@@ -73,7 +73,6 @@ export default function ProductionLineSection({isMobile}) {
             </SwiperSlide>
           )
         })}
-
         <PaginationProductionLine
           activeImage={activeImage}
           direction={direction}
