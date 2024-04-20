@@ -36,6 +36,7 @@ export default function SlideOnPage() {
     setIndexSlider(swiper.realIndex)
   }
   return (
+
     <section className='md:h-screen h-[23.6875rem] w-full relative'>
       {/* pagination */}
       <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>

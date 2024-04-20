@@ -6,11 +6,11 @@ import {cn} from '@/lib/utils'
 import Image from 'next/image'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: `relative overflow-hidden rounded-[6.25rem] border-[1px] solid border-[#1E2125] hover:border-transparent hover:bg-transparent bg-[#fff]  h-auto `,
+        default: `relative overflow-hidden rounded-[6.25rem] border-[1px] solid border-[#1E2125] hover:border-transparent hover:bg-transparent bg-[#fff] h-auto`,
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         outline:
@@ -36,7 +36,16 @@ const buttonVariants = cva(
 
 const Button = React.forwardRef(
   (
-    {className, variant, size, asChild = false, text, isHover,isBlack, ...props},
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      text,
+      isHover,
+      isBlack,
+      ...props
+    },
     ref,
   ) => {
     const Comp = asChild ? Slot : 'button'
