@@ -1,0 +1,20 @@
+.news_item_home > a > img {
+  transition: all 0.3s;
+}
+.news_item_home:hover a > img {
+  transform: scale(1.1);
+}
+.news_item_home h3 a {
+  position: relative;
+  transition: background-size 0.35s;
+  background: linear-gradient(0deg, currentColor, currentColor) no-repeat 100%
+    100% / 0 1px;
+}
+.news_item_home h3 a:hover {
+  --tw-text-opacity: 1;
+  color: #dab571;
+}
+.news_item_home h3 a:hover {
+  background-size: 100% 1px;
+  background-position-x: left;
+}
