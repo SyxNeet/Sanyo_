@@ -41,6 +41,7 @@ export default function SlideOnPage() {
       <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>
         {Array?.from(slideImages)?.map((item, index) => (
           <div
+            key={index}
             className={`md:w-[1rem] w-[0.6rem] h-[0.6rem] md:h-[1rem] md:mr-[1rem] mr-[0.58rem]  rounded-[50%] bg-gray-800 bg-opacity-20 relative ${
               indexSlider === index ? 'border-[0.25rem] solid border-white' : ''
             }`}
@@ -53,11 +54,12 @@ export default function SlideOnPage() {
           </div>
         ))}
       </div>
-      <div className='bottom-[1.44rem] right-[1.37rem] md:w-[3.625rem] w-[1.94194rem] h-[4.6875rem] absolute md:top-[50%] md:right-[3.25rem] pt-[0.17rem] md:-translate-x-1/2 md:-translate-y-1/2 z-[2] flex flex-col items-center md:h-[8.75rem] md:rounded-[0.35rem] rounded-[0.1875rem] bg-white bg-opacity-20 md:pt-[0.31rem] max-md:border-[0.3px] md:solid border-grey-50'>
+      <div className='bottom-[1.44rem] right-[1.37rem] md:w-[3.625rem] w-[1.94194rem] h-[4.6875rem] absolute md:top-[50%] md:right-[3.25rem] pt-[0.17rem] md:-translate-x-1/2 md:-translate-y-1/2 z-[2] flex flex-col items-center md:h-[8.75rem] md:rounded-[0.35rem] rounded-[0.1875rem] bg-[rgba(255,255,255,0.20)] bg-opacity-20 md:pt-[0.31rem] max-md:border-[0.3px] md:solid border-grey-50 backdrop-blur-[14px]'>
         {/* <div className='absolute blur-[14px] inset-0 bg-white bg-opacity-20'></div> */}
         <div className='md:w-[2.9375rem] w-[1.57369rem] flex items-center justify-center md:h-[3.4375rem] md:rounded-[0.25rem] bg-white relative'>
           {Array.from(slideImages)?.map((item, index) => (
             <span
+              key={index}
               className={`${
                 indexSlider === index
                   ? 'font-grey-800 font-SVNLagu lg:text-[1.25rem] font-[800] leading-1.5'

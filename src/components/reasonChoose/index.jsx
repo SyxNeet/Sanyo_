@@ -43,7 +43,7 @@ export default function ReasonChoose() {
             Tìm hiểu thêm
           </span>
           <Image
-            src='/images/components//reasonChoose/iconPlus.svg'
+            src='/images/components/reasonChoose/iconPlus.svg'
             width={100}
             height={100}
             className='md:w-[2.125rem] md:h-[2.125rem] max-md:hidden'
