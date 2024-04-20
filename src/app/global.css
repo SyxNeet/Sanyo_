@@ -140,3 +140,37 @@ html {
 .slideElevator {
   width: calc(100% - 21.625rem - 2.37rem);
 }
+.productLineJE .dowloadfileJE::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FE4127;
+  scale: 1;
+  border-radius: 50%;
+  transition: 0.7s ease;
+  z-index: -1;
+}
+.productLineJE .dowloadfileJE:hover .dowloadfileJE::before {
+scale: 1.3;
+transition: 0.7s ease;
+}
+.productLineJE .dowloadfileJE:hover::before {
+  transform: scale(1.2);
+}
+.downArrowTop {
+  transition: 0.3s ease;
+}
+.downArrowBottom {
+  transition: 0.3s ease;
+}
+.productLineJE .dowloadfileJE:hover .downArrowTop {
+  bottom: 5%;
+  transition: 0.3s ease;
+}
+.productLineJE .dowloadfileJE:hover .downArrowBottom {
+  bottom: -95%;
+  transition: 0.3s ease;
+}

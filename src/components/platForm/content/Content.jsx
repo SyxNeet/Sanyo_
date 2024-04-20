@@ -1,6 +1,6 @@
 import {Button} from '@/components/ui/button'
 
-export default function Content({title, description}) {
+export default function Content({title, description,classNameBtn,classText,classHover,isBlack,isRed}) {
   return (
     <div className='flex justify-between items-end md:mb-[4.13rem] md:pr-[3.81rem]'>
       <div className='md:w-[58rem]'>
@@ -12,10 +12,13 @@ export default function Content({title, description}) {
         </p>
       </div>
       <Button
-        className='h-fit bg-transparent border-white'
+        className={`h-fit bg-transparent border-white ${classNameBtn}`}
         isHover={true}
         text={'XEM TẤT CẢ'}
-        classtext={'text-white'}
+        classtext={`${classText || 'text-white'}`}
+        isBlack={isBlack}
+        classHover={classHover}
+        isRed={isRed}
       />
     </div>
   )
