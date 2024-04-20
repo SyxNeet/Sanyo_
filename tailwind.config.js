@@ -93,6 +93,7 @@ module.exports = {
         overlayReason:
           'linear-gradient(lightgray -450.418px -356.646px / 214.465% 234.583% no-repeat, #D9D9D9)',
         hover_button: 'linear-gradient(180deg, #D1B37B 0%, #E4B867 100%)',
+        hover_button_red: 'linear-gradient(180deg, #FE4127 90%, rgb(255 86 62) 100%)',
       },
       background: {
         blur_Reason: 'rgba(0, 0, 0, 0.30)',

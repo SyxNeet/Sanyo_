@@ -5,7 +5,7 @@ import {Autoplay} from 'swiper/modules'
 import 'swiper/css'
 import Image from 'next/image'
 import slideImg from "../../../public/images/components/slideAutoplay/slide.png"
-const SlideOnlyImages = (className) => {
+const SlideOnlyImages = ({className}) => {
     const image = [slideImg, slideImg, slideImg, slideImg];
   return (
     <div className='w-full mx-auto max-w-[100rem]'>
@@ -24,7 +24,7 @@ const SlideOnlyImages = (className) => {
 
       }}
       spaceBetween={0}
-      speed={10000}
+      speed={15000}
       autoplay={{
         delay: 0,
       }}
@@ -34,7 +34,7 @@ const SlideOnlyImages = (className) => {
       {image.map((img, index) => (
         <SwiperSlide
           key={index}
-          className={`!h-[42.92581rem] mr-[1.7rem] max-md:mr-3 max-md:h-[13.76756rem] ${className}`}
+          className={`${className} mr-[1.7rem] max-md:mr-3 max-md:!h-[13.76756rem]`}
         >
           <Image
             src={img}

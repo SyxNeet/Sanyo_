@@ -36,22 +36,14 @@ const buttonVariants = cva(
 
 const Button = React.forwardRef(
   (
-    {
-      className,
-      variant,
-      size,
-      asChild = false,
-      text,
-      isHover,
-      isBlack,
-      ...props
-    },
+    {className, variant, size, asChild = false, text, isHover,isBlack,classHover,isRed, ...props},
     ref,
   ) => {
     const Comp = asChild ? Slot : 'button'
     return (
       <Comp
         className={cn(
+          'group',
           isHover && 'button_hover',
           buttonVariants({variant, size, className}),
         )}
@@ -69,14 +61,14 @@ const Button = React.forwardRef(
           height='16'
           viewBox='0 0 15 16'
           fill='none'
-          className='md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] '
+          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover}`}
         >
           <path
             d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
             fill={`${isBlack ? '#1E2125' : 'white'}`}
           />
         </svg>
-        <div className='absolute inset-0 bg-hover_button translate-y-[100%] box_button_hover transition-all duration-300 '></div>
+        <div className={`absolute inset-0 ${ isRed ? 'bg-hover_button_red' : 'bg-hover_button'} translate-y-[100%] box_button_hover transition-all duration-300`}></div>
       </Comp>
     )
   },
