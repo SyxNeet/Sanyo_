@@ -149,6 +149,7 @@ export default function PaginationProductionLine({activeImage, direction}) {
         (_, i) => {
           return (
             <li
+              key={`pagination-bar-${i}`}
               className={clsx(
                 `pagination-bar pagination-bar-${i} grow rounded-none bg-white h-[0.125rem] md:h-[0.25rem] mx-1 md:mx-3 opacity-40`,
               )}
