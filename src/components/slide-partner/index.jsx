@@ -4,7 +4,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import {Grid, Autoplay} from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/grid'
-import { doiTac } from '../../../data/doi-tac'
+import {doiTac} from '../../../data/doi-tac'
 import Image from 'next/image'
 
 export default function SlidePartner() {
@@ -29,9 +29,9 @@ export default function SlidePartner() {
       }}
       className='swiper-partner'
     >
-      {doiTac.map((item) => {
+      {doiTac.map((item, index) => {
         return (
-          <SwiperSlide key={item.alt}>
+          <SwiperSlide key={index}>
             <Image
               src={item.src}
               alt={item.alt}
