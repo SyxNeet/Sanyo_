@@ -24,6 +24,7 @@ import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 import PlatFormElevator from '@/components/platForm'
 import Slider from '@/components/platForm/slider/Slider'
+import { Button } from '@/components/ui/button'
 
 const JapanElevator = ({isMobile}) => {
   const firstRef = useRef(null)
@@ -289,7 +290,9 @@ const JapanElevator = ({isMobile}) => {
         </div>
       </section>
       <section className='relative '>
-        <div className='pl-[6.31rem]'>header</div>
+        <div className='pl-[6.31rem]'>
+          <Button isRed={true}  text={'XEM TẤT CẢ'}  isHover={true} isBlack={true} classHover={'group-hover'} classtext={'group-hover:text-white'}/>
+        </div>
 
         <Slider />
       </section>
