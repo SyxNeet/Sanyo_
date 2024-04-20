@@ -14,6 +14,7 @@ module.exports = {
       1.3: '130%',
       1.4: '140%',
       1.5: '150%',
+      1.7: '170%',
     },
     extend: {
       colors: {
@@ -22,6 +23,7 @@ module.exports = {
         'grey-50': '#EDEDED',
         'grey-200': '#ABAEB2',
         'grey-300': '#84898E',
+        'grey-400': '#6D7279',
         'grey-500': '#484F57',
         'grey-600': '#42484F',
         'grey-700': '#33383E',
@@ -85,6 +87,7 @@ module.exports = {
       fontFamily: {
         SVNLagu: ['var(--font-svn-lagusans)', 'sans-serif'],
         Iciel: ['var(--font-iciel-steradian)', 'sans-serif'],
+        averta: ['var(--font-averta-std-cy)', 'sans-serif'],
       },
       backgroundImage: {
         overlayReason:

@@ -1,0 +1,24 @@
+@keyframes moveSun {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-54%); /* Adjust this value as needed */
+    }
+  }
+  @keyframes moveSunMb {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-76%); /* Adjust this value as needed */
+    }
+  }
+  #sunRiseImg {
+    animation: moveSun 2s ease-out forwards;
+  }
+  @media (max-width: 768px) {
+    #sunRiseImg {
+      animation: moveSunMb 2s ease-out forwards;
+    }
+  }
