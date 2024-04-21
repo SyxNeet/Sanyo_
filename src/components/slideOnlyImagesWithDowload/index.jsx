@@ -13,11 +13,11 @@ const SlideOnlyImagesDownload = ({
   className,
 }) => {
   return (
-    <div>
+    <div className='mt-6 md:mt-[4.12rem]'>
       <div className='flex px-[6.25rem] max-md:w-full max-md:px-4'>
         <div className='relative w-[70%] border-r max-md:w-full max-md:border-none '>
           <h1 className='font-SVNLagu text-[4rem] text-black font-semibold leading-[130%] w-[50.9375rem] mb-[1.19rem] max-md:w-[18.3125rem] max-md:text-2xl max-md:mb-3 max-md:border-none'>
-            Creating your Excellence Trải nghiệm tuyệt vời
+            Creating your Excellence <strong className='font-semibold text-yellow-500'>Trải nghiệm tuyệt vời</strong>
           </h1>
           <span className='w-[40.125rem] font-Iciel text-base font-normal leading-[188%] text-justify mb-20 block max-md:w-full max-md:text-[0.875rem] max-md:mb-5'>
             Bằng nhiệt huyết và tinh thần không ngừng đổi mới, SANYO YUSOKI đã
@@ -32,7 +32,7 @@ const SlideOnlyImagesDownload = ({
             <Image
               src={imgThangmay}
               alt='imgThangmay'
-              className='absolute top-0 left-0 w-full h-full object-fill'
+              className='absolute top-0 left-0 object-fill w-full h-full'
             />
             <div className='cirleElevatorBg absolute w-[11.875rem] h-[11.875rem] rounded-[50%]  bottom-[36%] left-[106%] opacity-30'></div>
             <div className='absolute flex flex-col w-56 left-[106%] bottom-[46%]'>

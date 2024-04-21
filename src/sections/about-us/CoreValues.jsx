@@ -73,7 +73,7 @@ export default function CoreValues({isMobile}) {
           <div className='basis-[35%]'>
             <h2 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem]'>
               Giá trị cốt lõi của{' '}
-              <strong className='text-yellow-500'>SANYO YUSOKI</strong>
+              <strong className='font-semibold text-yellow-500'>SANYO YUSOKI</strong>
             </h2>
             <nav>
               {coreValues.map((item, i) => {
