@@ -1,5 +1,10 @@
-.slide_value .swiper-slide {
-  width: 49.1875rem !important;
+@media screen and (min-width: 768px) {
+  .slide_value .swiper-slide {
+    width: 49.1875rem !important;
+  }
+  .shadow_btn {
+    top: 62%;
+  }
 }
 .shadow_btn {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -11,10 +16,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.shadow_btn {
-  top: 50%;
-  position: absolute;
-}
+
 .shadow_btn > svg path {
   transition: all 0.3s;
 }
@@ -23,4 +25,7 @@
 }
 .shadow_btn:hover > svg path {
   fill: #fff;
+}
+.box_count_slide {
+  background: rgba(218, 181, 113, 0.12);
 }

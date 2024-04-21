@@ -11,7 +11,7 @@ export default function ReasonChoose() {
         alt='reason'
         width={800}
         height={500}
-        className='w-full absolute h-full object-cover rounded-[1.25rem]'
+        className='w-full absolute h-full object-cover md:rounded-[1.25rem] rounded-[0.75rem]'
       />
 
       <Link

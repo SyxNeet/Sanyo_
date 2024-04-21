@@ -25,6 +25,11 @@
   border-bottom: 1px solid transparent;
   transition: all 0.3s;
 }
+@media screen and (max-width: 767px) {
+  .reason_overlay {
+    width: calc(100% - 0.44rem * 2);
+  }
+}
 .reason_overlay > img {
   opacity: 0;
   z-index: -1;
