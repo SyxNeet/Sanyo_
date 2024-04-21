@@ -79,10 +79,6 @@
   .sub-heading {
     @apply text-grey-500 font-SVNLagu lg:text-[1.25rem] font-medium leading-[1.5] md:tracking-[0.1rem] uppercase text-[0.625rem] tracking-[0.05rem] opacity-80;
   }
-
-  .breadcrumb {
-    @apply text-justify text-grey-700 font-Iciel lg:text-[0.875rem] md:leading-[1.5] text-[0.625rem] leading-[1.4];
-  }
 }
 *,
 *:before,
@@ -130,6 +126,11 @@ html {
 .transition-300 {
   @apply transition-all duration-300 ease-out;
 }
+
+.hover-opacity {
+  @apply transition-300 hover:opacity-60;
+}
+
 /* border radius for section */
 
 .box-container-border {

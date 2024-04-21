@@ -25,6 +25,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           start: 'top top',
           end: 'bottom top',
           pinSpacing: false,
+          anticipatePin: 1,
         },
       })
       gsap.to(secondRef.current, {
@@ -34,54 +35,55 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           pin: true,
           start: 'top top',
           end: 'bottom bottom',
+          anticipatePin: 1,
         },
       })
     }
   }, [isMobile])
 
   useEffect(() => {
-    const fnc = () => {
-      const sectionLeaderMessageContainer = document.querySelector(
-        '.section-leader-message-container',
-      )
-      const rect = sectionLeaderMessageContainer.getBoundingClientRect()
-      if (
-        rect.top > 0 &&
-        rect.top <=
-          parseFloat(window.innerHeight) - parseFloat(rect.height) / 2
-      ) {
-        console.log(1)
-        gsap.fromTo('.sun', {
-          top: '100%',
-        }, {top: "17%", duration: 0.8})
-      }
-    }
-    window.addEventListener('scroll', fnc)
-    return () => window.removeEventListener('scroll', fnc)
-  }, [])
-
-  useEffect(() => {
-    const coreValuesLinks = document.querySelectorAll('.core-value-link')
-    const fnc = () => {
-      for (let i = 0; i < coreValuesLinks.length; i++) {
-        const rect = coreValuesLinks[i].getBoundingClientRect()
-        if (Math.abs(rect.top) <= coreValuesLinks[i].offsetHeight / 2) {
-          setActiveImage(i)
-          break
+    if (!isMobile) {
+      const fnc = () => {
+        const sectionLeaderMessageContainer = document.querySelector(
+          '.section-leader-message-container',
+        )
+        const rect = sectionLeaderMessageContainer.getBoundingClientRect()
+        if (
+          rect.top > 0 &&
+          rect.top <=
+            parseFloat(window.innerHeight) - parseFloat(rect.height) / 2
+        ) {
+          gsap.to('.sun', {top: '17%', duration: 0.5})
         }
       }
+      window.addEventListener('scroll', fnc)
+      return () => window.removeEventListener('scroll', fnc)
     }
-    window.addEventListener('scroll', fnc)
-    return () => window.removeEventListener('scroll', fnc)
-  }, [])
+  }, [isMobile])
+
+  useEffect(() => {
+    if (!isMobile) {
+      const coreValuesLinks = document.querySelectorAll('.core-value-link')
+      const fnc = () => {
+        for (let i = 0; i < coreValuesLinks.length; i++) {
+          const rect = coreValuesLinks[i].getBoundingClientRect()
+          if (Math.abs(rect.top) <= coreValuesLinks[i].offsetHeight / 2) {
+            setActiveImage(i)
+            break
+          }
+        }
+      }
+      window.addEventListener('scroll', fnc)
+      return () => window.removeEventListener('scroll', fnc)
+    }
+  }, [isMobile])
 
   return (
     <>
-      <div className='h-screen' />
-      <div className='mb-[5.2rem]'>
+      <div className='mb-[3.2rem] md:mb-[5.2rem]'>
         <section
           ref={firstRef}
-          className='relative flex flex-col pt-12 section-leader-message-container -z-10'
+          className='relative flex flex-col pt-6 mb-12 md:pt-12 section-leader-message-container -z-10'
         >
           <Image
             src={`/images/aboutUs/bglanhdao.png`}
@@ -98,12 +100,12 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
             height={1080}
           />
           <div className='flex w-full pt-12 overflow-hidden max-md:flex-row-reverse max-md:px-4 max-md:items-center'>
-            <div className='relative w-[40%] flex justify-end '>
-              <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[17%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_#DAB571_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
+            <div className='relative w-[40%] flex justify-end'>
+              <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[-5%] md:top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_#DAB571_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
               <Image
                 src={`/images/aboutUs/lanhdao.png`}
                 alt='leadership'
-                className='w-[20.9375rem] h-[40.375rem] max-md:w-[7.375rem] max-md:h-[12.625rem]'
+                className='w-[20.9375rem] max-md:w-[7.375rem] max-md:h-[12.625rem] object-contain'
                 width={1920}
                 height={1080}
               />
@@ -121,8 +123,11 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                   chia sẻ từ BAN lãnh đạo
                 </h2>
                 <h3 className='w-[44.25rem] font-SVNLagu text-[2.25rem] font-semibold leading-1.4 mb-2 max-md:w-[14.4375rem] max-md:text-[0.9375rem]'>
-                  Tập đoàn thang máy Sanyo luôn tôn trọng niềm tin rằng "nền
-                  tảng vững chắc là nền tảng của sự phát triển chất lượng"
+                  Tập đoàn{' '}
+                  <strong className='font-semibold text-yellow-500'>
+                    thang máy Sanyo luôn tôn trọng niềm tin rằng
+                  </strong>{' '}
+                  "nền tảng vững chắc là nền tảng của sự phát triển chất lượng"
                 </h3>
                 <p className='w-[43.125rem] font-Iciel text-base leading-1.5 font-normal mb-[3.12rem] text-grey-900 max-md:hidden'>
                   Tập đoàn thang máy Sanyo luôn tôn trọng niềm tin rằng "nền
@@ -139,8 +144,8 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
               </div>
             </div>
           </div>
-          <div className='w-full px-4 md:hidden '>
-            <div className='bg-[linear-gradient(180deg,_rgba(209,179,123,0.40)_0%,_rgba(255,255,255,0.40)_19.12%)] border-yellow-500 border-[1px] px-4 pt-6 rounded-xl border-opacity-60 pb-6'>
+          <div className='w-full px-3 md:hidden'>
+            <div className='bg-[linear-gradient(180deg,_rgba(209,179,123,0.40)_0%,_rgba(255,255,255,0.40)_19.12%)] border-yellow-500 border-[1px] px-3 pt-6 rounded-xl border-opacity-60 pb-6'>
               <p className='text-justify font-Iciel text-xs font-normal leading-1.5 pb-4'>
                 Tập đoàn thang máy Sanyo luôn tôn trọng niềm tin rằng "nền tảng
                 vững chắc là nền tảng của sự phát triển chất lượng". Chúng tôi
@@ -164,7 +169,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           <section className='z-10 flex flex-row items-start bg-white section-container'>
             <div
               ref={secondRef}
-              className='basis-[65%] h-screen top-0'
+              className='relative basis-[65%] h-screen top-0'
             >
               {coreValues.map((item, i) => {
                 return (
