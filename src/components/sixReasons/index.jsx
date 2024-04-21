@@ -60,9 +60,9 @@ const SixReasons = () => {
             
         </div>
       </div>
-      <div>
+      <div className='overflow-hidden'>
         <Swiper
-          className='mySwiperSix'
+          className='mySwiperSix overflow-hidden'
           pagination={{
             type: 'fraction',
             el: ".swiper-pagination-sixReasons",

@@ -11,7 +11,7 @@
       transform: translateY(0);
     }
     100% {
-      transform: translateY(-76%); /* Adjust this value as needed */
+      transform: translateY(-35%); /* Adjust this value as needed */
     }
   }
   .swiper-pagination-progressbar-fill{
@@ -43,4 +43,21 @@
   }
   .button_hover:hover .group-hover path {
         fill: #Ffff;
+  }
+  @media (min-width: 769px) and (max-width: 1024px){
+    #sunRiseImg {
+    top:100%;
+      }
+  }
+  .sixReasonsJE .swiper-pagination-sixReasons{
+   width: 4.3125rem;
+   background: rgba(255, 239, 239, 0.32);
+   color: #FF2727;
+  }
+  .sixReasonsJE .group{
+    background-color: #fff;
+    border:1px solid #FF2727;
+  } 
+  .sixReasonsJE .group svg path{
+    fill: #FF2727;
   }

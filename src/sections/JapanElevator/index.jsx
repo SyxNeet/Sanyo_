@@ -1,19 +1,19 @@
 'use client'
 import React, {useRef} from 'react'
 import Link from 'next/link'
-import Content from '@/components/platForm/content/Content'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Pagination} from 'swiper/modules'
 import Image from 'next/image'
 import logoImgJE from '../../../public/images/japanElevator/logo.png'
 import logoImgTextJE from '../../../public/images/japanElevator/logotext.png'
 import sunImg from '../../../public/images/japanElevator/sun.png'
-import {exampleSLideJpElevator} from '../../../data/japanElevator'
+import {exampleSLideJpElevator,outStandingProject} from '../../../data/japanElevator'
 import imgHoaSen from '../../../public/images/japanElevator/hoasen.png'
 import imgDownArrow from '../../../public/images/japanElevator/down.png'
 import imgItem1 from '../../../public/images/japanElevator/item1.png'
 import imgItem2 from '../../../public/images/japanElevator/item2.png'
 import dauphayImg from '../../../public/images/japanElevator/dauphayje.png'
+import bgImgSixReasons from '../../../public/images/japanElevator/bg6reasons.png'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import 'swiper/css'
@@ -24,10 +24,15 @@ import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 import PlatFormElevator from '@/components/platForm'
 import Slider from '@/components/platForm/slider/Slider'
-import { Button } from '@/components/ui/button'
+import {Button} from '@/components/ui/button'
+import SixReasons from '@/components/sixReasons'
+import ItemOutStandingProject from '@/components/itemOutstandingProject'
+import Support from '@/layout/support'
 
 const JapanElevator = ({isMobile}) => {
   const firstRef = useRef(null)
+  const outStandingProjectRef = useRef(null)
+  const outStandingProjectEndRef = useRef(null)
   useGSAP(() => {
     gsap.to(firstRef.current, {
       scrollTrigger: {
@@ -38,9 +43,21 @@ const JapanElevator = ({isMobile}) => {
         pinSpacing: false,
       },
     })
+    !isMobile&& gsap.to(outStandingProjectRef.current, {
+        scrollTrigger: {
+          trigger: outStandingProjectRef.current,
+          pin: true,
+          start:'top-=150 top',
+          endTrigger: outStandingProjectEndRef.current,
+          end: 'bottom center+=20%',
+          pinSpacing: false,
+        },
+      })
+    
   }, [])
+  
   return (
-    <div className=''>
+    <div className='overflow-hidden'>
       <section
         className='pt-4'
         id='sectionSunRise'
@@ -63,7 +80,7 @@ const JapanElevator = ({isMobile}) => {
           <Image
             src={sunImg}
             alt='Sun image'
-            className='absolute top-[65%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
+            className='absolute lg:top-[65%] md:top-[100%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
             id='sunRiseImg'
           />
           <Image
@@ -240,7 +257,7 @@ const JapanElevator = ({isMobile}) => {
             className='w-[51%] h-full object-cover max-md:w-full max-md:h-[15.625rem]'
           />
           <div className='relative w-[49%] pt-[13.94rem] pl-[4rem] pr-[3.44rem] pb-[7.94rem]  max-md:pt-[0] max-md:pb-2 max-md:pl-[4.56rem] max-md:pr-[1.31rem] max-md:w-full max-md:translate-y-[-2rem]'>
-            <div className='md:hidden bg-[linear-gradient(0deg,_rgba(255,255,255,1)_35%,_rgba(204,204,204,0)_100%)] w-full absolute bottom-[78%] left-0 h-[6rem] '></div>
+            <div className='md:hidden bg-[linear-gradient(0deg,_rgba(255,255,255,1)_24%,_rgba(255,255,255,0)_100%)] w-full absolute bottom-[66%] left-0 h-[6rem] '></div>
             <div className='absolute left-0 top-0 w-[6.0625rem] h-[5.75rem] max-md:top:[0] bg-c-nht opacity-10 max-md:w-[2.375rem] max-md:h-[2.5rem]'></div>
             <div className='absolute left-[6.0625rem] top-[5.75rem] w-[3.5625rem] h-[3.5625rem] bg-c-nht opacity-10 max-md:w-[1.25rem] max-md:h-[1.0625rem] max-md:top-[2.5rem] max-md:left-[2.375rem]'></div>
             <div className='h-full w-full relative'>
@@ -289,12 +306,93 @@ const JapanElevator = ({isMobile}) => {
           />
         </div>
       </section>
-      <section className='relative '>
-        <div className='pl-[6.31rem]'>
-          <Button isRed={true}  text={'XEM TẤT CẢ'}  isHover={true} isBlack={true} classHover={'group-hover'} classtext={'group-hover:text-white'}/>
+      <section className='relative pt-[7.5rem] max-md:pt-[2.37rem]'>
+        <div className='absolute w-[6.0625rem] h-[5.75rem] top-0 left-0 bg-c-nht opacity-10 max-md:hidden'></div>
+        <div className='w-[112.25rem] h-[112.25rem] rounded-[50%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,65,39,0.60)_0%,_rgba(254,65,39,0.00)_100%)] absolute right-[80%] top-[-25%] -z-10'></div>
+        <div className='w-[112.25rem] h-[112.25rem] rounded-[50%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,65,39,0.60)_0%,_rgba(254,65,39,0.00)_100%)] absolute left-[80%] top-[-25%] -z-10 max-md:w-[29.125rem] max-md:h-[29.125rem] max-md:top-[-30%] max-md:left-[57%]'></div>
+        <div className='pl-[6.31rem] flex items-end justify-between pr-[3.56rem] max-md:px-3'>
+          <div className='w-[55.625rem]'>
+            <h2 className='text-[3.125rem] font-SVNLagu font-semibold leading-1.3 text-grey-900 mb-4 max-md:text-2xl max-md:leading-1.3  max-md:mb-[0.62rem]' >
+              Thang máy Nhật Bản SANYO YUSOKI
+            </h2>
+            <span className='text-[1.125rem] font-Iciel leading-1.7 font-normal uppercase text-[#42484F] max-md:text-[0.875rem]'>
+              Chúng tôi tin rằng với một nền móng vững chắc sẽ cho ra đời những
+              sản phẩm thang máy chất lượng nhất. SANYO YUSOKI vẫn liên tục đầu
+              tư cho Nghiên cứu Phát triển (R&D) tất cả các dòng thang máy
+            </span>
+          </div>
+          <Button
+            isRed={true}
+            text={'XEM TẤT CẢ'}
+            isHover={true}
+            isBlack={true}
+            classHover={'group-hover'}
+            classtext={'group-hover:text-white'}
+            className='max-md:hidden'
+          />
         </div>
 
         <Slider />
+      </section>
+      <div className='relative sixReasonsJE'>
+        <div className='absolute bottom-0 left-0 bg-[linear-gradient(0deg,rgba(255,255,255,1)_3%,_rgba(255,255,255,0)_100%)] w-full h-[30%] -z-[1]'>
+        </div>
+        <Image
+          src={bgImgSixReasons}
+          alt='bg-6reason'
+          className='w-full h-full -z-10 absolute object-cover'
+        />
+        <SixReasons />
+      </div>
+      <section className='pt-[8.69rem] pl-[5.38rem] pr-[3.5rem] flex w-full max-md:flex-col max-md:px-0 max-md:pt-12'>
+        <div className='w-[25%] flex flex-col h-fit mr-[2%]' ref={outStandingProjectRef} >
+          {
+            isMobile ? (<div>
+              <h2 className='text-[1.5rem font-SVNLagu font-semibold leading-1.3 px-3]'>Dự án NỔI BẬT</h2>
+            </div>):(<div>
+              <h2 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem]'>Dự án NỔI BẬT của chúng tôi</h2>
+          <span className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'>
+            Thang máy Sanyo vẫn liên tục đầu tư cho Nghiên cứu Phát triển (R&D)
+            tất cả các dòng thang máy để phù hợp với thị hiếu người tiêu dùng và
+            đảm bảo an toàn và chất lượng vận hành cao nhất xứng đáng với niềm
+            tin và sự ghi nhận của người tiêu dùng cũng như đóng góp vào sự phát
+            triển của ngành thang máy trên toàn thế giới
+          </span>
+            </div>)
+          }
+          <Button
+            className='w-fit max-md:hidden'
+            isRed={true}
+            text={'XEM TẤT CẢ'}
+            isHover={true}
+            isBlack={true}
+            classHover={'group-hover'}
+            classtext={'group-hover:text-white'}
+          />
+        </div>
+        {isMobile ? (
+            <div>PC</div>
+          ) : (
+            <div  className='flex flex-wrap w-[73%]'
+            ref={outStandingProjectEndRef}>
+              {outStandingProject.map((item, index) => (
+                <ItemOutStandingProject
+                  key={index}
+                  width='32.1875rem'
+                  height='25.5rem'
+                  imgFlagUrl={item.imgFlagUrl}
+                  className={`rounded-[0.75rem] w-[32.1875rem] h-[25.5rem] ${
+                    (index + 1) % 2 === 0 ? 'lg:ml-4 mb-4 md:ml-2 ' : ''
+                  }`}
+                  altImageFlag={item.altFlag}
+                  nameProject={item.nameProject}
+                  imgProjectUrl={item.imgProjectUrl}
+                  altImageProject={item.alt}
+                  link={item.link}
+                />
+              ))}
+            </div>
+          )}
       </section>
     </div>
   )
