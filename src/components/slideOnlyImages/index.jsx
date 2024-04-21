@@ -8,7 +8,7 @@ import slideImg from "../../../public/images/components/slideAutoplay/slide.png"
 const SlideOnlyImages = ({className}) => {
     const image = [slideImg, slideImg, slideImg, slideImg];
   return (
-    <div className='w-full mx-auto max-w-[100rem]'>
+    <div className='w-full mx-auto max-w-[100rem] overflow-hidden'>
     <Swiper
       slidesPerView={1.3}
       loop={true}
@@ -29,7 +29,7 @@ const SlideOnlyImages = ({className}) => {
         delay: 0,
       }}
       modules={[Autoplay]}
-      className={`mySwiperOnlyImages`}
+      className={`mySwiperOnlyImages overflow-hidden`}
     >
       {image.map((img, index) => (
         <SwiperSlide
