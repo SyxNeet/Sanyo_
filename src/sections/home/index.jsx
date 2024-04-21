@@ -12,8 +12,8 @@ export default function HomePage({isMobile}) {
   return (
     <div>
       <SlideBanner />
-      <CountUp />
-      <ValueDifferent />
+      <CountUp isMobile={isMobile} />
+      <ValueDifferent isMobile={isMobile} />
       {!isMobile ? <PlatFormElevator /> : <PlatFormMobile />}
       <OutStandingProject />
       <News />
