@@ -118,6 +118,18 @@ html {
   }
 }
 
+*::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-[#e6e6e6] my-1;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-[#737373] rounded-full transition-colors;
+}
+
 /* button hover */
 .button_hover:hover .box_button_hover {
   transform: translateY(0);
@@ -125,6 +137,10 @@ html {
 
 .transition-300 {
   @apply transition-all duration-300 ease-out;
+}
+
+.transition-500 {
+  @apply transition-all duration-500 ease-out;
 }
 
 .hover-opacity {

@@ -102,12 +102,12 @@ export default function CoreValues({isMobile}) {
                       <path
                         d='M1 37.001L31.001 7'
                         stroke='#DAB571'
-                        stroke-width='2.57143'
+                        strokeWidth='2.57143'
                       />
                       <path
                         d='M4.00439 7H31.0053V34.0009'
                         stroke='#DAB571'
-                        stroke-width='2.57143'
+                        strokeWidth='2.57143'
                       />
                     </svg>
                   </Link>
