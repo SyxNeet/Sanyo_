@@ -12,3 +12,11 @@
   background: #dab571;
   border-color: transparent;
 }
+.btnPrevJE:hover svg path,
+.btnNextJE:hover svg path {
+  fill: #fff;
+}
+.btnPrevJE:hover svg,
+.btnNextJE:hover svg {
+  transition: all 0.3s;
+}
