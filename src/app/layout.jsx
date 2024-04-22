@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import Footer from '@/layout/footer'
 import Header from '@/layout/header'
 import GsapProvider from '@/components/gsap/GsapProvider'
+import {headers} from 'next/headers'
 
 export const metadata = {
   title: 'Sanyo Yosuki',
@@ -81,7 +82,13 @@ const avertaStdCy = localFont({
   display: 'swap',
 })
 
-export default function RootLayout({children, params, searchParams}) {
+export default function RootLayout({children, params}) {
+  const headersList = headers()
+  const userAgent = headersList.get('user-agent')
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
+      userAgent,
+    )
   return (
     <html lang={params.lang}>
       <body
@@ -89,10 +96,13 @@ export default function RootLayout({children, params, searchParams}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
-        {/* <Header /> */}
+
+
+        {/* TODO: lazy loading, suspense for all pages */}
+        <Header />
         <GsapProvider>
           {children}
-          <Footer />
+          <Footer isMobile={isMobile} />
         </GsapProvider>
       </body>
     </html>

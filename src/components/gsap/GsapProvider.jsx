@@ -16,7 +16,7 @@ export default function GsapProvider({children}) {
   }, [])
   return (
     <div id='smooth-wrapper'>
-      <div id='smooth-content'>{children}</div>
+      <div id='smooth-content' className='pt-[5.5rem]'>{children}</div>
     </div>
   )
 }
