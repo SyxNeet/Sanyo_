@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import imglogo from '../../../../public/images/japanElevator/logoText.png'
+import imglogo from '/public/images/japanElevator/logotext.png'
 const OutStandingProjectMb = () => {
   return (
     <div>
