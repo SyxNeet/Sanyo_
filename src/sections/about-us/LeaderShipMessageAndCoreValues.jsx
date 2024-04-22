@@ -25,7 +25,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           start: 'top top',
           end: 'bottom top',
           pinSpacing: false,
-          anticipatePin: 1,
+          anticipatePin: 1
         },
       })
       gsap.to(secondRef.current, {
@@ -35,7 +35,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           pin: true,
           start: 'top top',
           end: 'bottom bottom',
-          anticipatePin: 1,
+          anticipatePin: 1
         },
       })
     }
@@ -65,12 +65,31 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
     if (!isMobile) {
       const coreValuesLinks = document.querySelectorAll('.core-value-link')
       const fnc = () => {
+        let rectArray = []
         for (let i = 0; i < coreValuesLinks.length; i++) {
           const rect = coreValuesLinks[i].getBoundingClientRect()
+          rectArray.push(rect)
+        }
+        let count = {
+          positive: 0,
+          negative: 0,
+        }
+        rectArray.forEach((rect, i) => {
           if (Math.abs(rect.top) <= coreValuesLinks[i].offsetHeight / 2) {
-            setActiveImage(i)
-            break
+            setActiveImage(i + 1)
+          } else if (rect.top > 0) {
+            count = {...count, positive: count.positive + 1}
+          } else if (rect.top < 0) {
+            count = {...count, negative: count.negative + 1}
           }
+        })
+        if (count.negative === 0 && count.positive === coreValuesLinks.length) {
+          setActiveImage(0)
+        } else if (
+          count.positive < 1 &&
+          count.negative >= coreValuesLinks.length - 1
+        ) {
+          setActiveImage(coreValuesLinks.length - 1)
         }
       }
       window.addEventListener('scroll', fnc)
@@ -83,17 +102,17 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
       <div className='mb-[3.2rem] md:mb-[5.2rem]'>
         <section
           ref={firstRef}
-          className='relative flex flex-col pt-6 mb-12 md:pt-12 section-leader-message-container -z-10'
+          className='relative flex flex-col pt-6 mb-12 md:mb-24 md:pt-12 section-leader-message-container -z-10'
         >
           <Image
-            src={`/images/aboutUs/bglanhdao.png`}
+            src={`/images/about-us/bglanhdao.png`}
             alt='bgLeadership'
             className='absolute top-0 left-0 object-cover w-full h-full -z-10 max-md:hidden'
             width={1920}
             height={1080}
           />
           <Image
-            src={`/images/aboutUs/bgmblandao.png`}
+            src={`/images/about-us/bgmblandao.png`}
             alt='bgLeadership'
             className='absolute top-0 left-0 hidden object-cover w-full h-full -z-10 max-md:block'
             width={1920}
@@ -103,7 +122,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
             <div className='relative w-[40%] flex justify-end'>
               <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[-5%] md:top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_#DAB571_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
               <Image
-                src={`/images/aboutUs/lanhdao.png`}
+                src={`/images/about-us/lanhdao.png`}
                 alt='leadership'
                 className='w-[20.9375rem] max-md:w-[7.375rem] max-md:h-[12.625rem] object-contain'
                 width={1920}
@@ -113,7 +132,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
             <div className='w-[60%] pl-[3.12rem] pt-[5%] max-md:pl-0'>
               <div className='w-[47rem] relative'>
                 <Image
-                  src={`/images/aboutUs/dauphay.png`}
+                  src={`/images/about-us/dauphay.png`}
                   alt='dauphay'
                   className='w-16 h-[3.3125rem] top-0 right-0 absolute max-md:hidden'
                   width={1920}
@@ -328,7 +347,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                     transform='matrix(-1 0 0 1 40 0)'
                     fill='#DAB571'
                     stroke='#DAB571'
-                    stroke-width='0.7'
+                    strokeWidth='0.7'
                   />
                   <path
                     d='M14.2864 20.1221L21.939 14V18.5915L25 20.1221L21.939 21.6526V26.2441L14.2864 20.1221Z'
@@ -354,7 +373,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                     r='19.65'
                     fill='#DAB571'
                     stroke='#DAB571'
-                    stroke-width='0.7'
+                    strokeWidth='0.7'
                   />
                   <path
                     d='M25.7136 20.1221L18.061 14V18.5915L15 20.1221L18.061 21.6526V26.2441L25.7136 20.1221Z'
