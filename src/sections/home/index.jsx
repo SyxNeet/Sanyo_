@@ -7,6 +7,7 @@ import PartnerSection from '@/sections/about-us/PartnerSection'
 import SlideBanner from './slideBanner/SlideBanner'
 import OutStandingProject from './outStandingProject/OutStandingProject'
 import News from './news/News'
+import OutStandingProjectMb from './outStandingProjectMb'
 
 export default function HomePage({isMobile}) {
   return (
@@ -15,7 +16,7 @@ export default function HomePage({isMobile}) {
       <CountUp isMobile={isMobile} />
       <ValueDifferent isMobile={isMobile} />
       {!isMobile ? <PlatFormElevator /> : <PlatFormMobile />}
-      <OutStandingProject />
+      {!isMobile? <OutStandingProject /> : <OutStandingProjectMb/>}
       <News />
       {/* <PartnerSection isMobile={isMobile} /> */}
     </div>

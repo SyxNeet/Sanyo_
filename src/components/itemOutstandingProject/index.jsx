@@ -28,7 +28,7 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
           className='w-[3.375rem] h-[2.25rem] mr-3 max-md:w-[1.62794rem] max-md:h-[1.08531rem] max-md:mb-[0.36rem]'
         />
         <Image
-          src={'/images/components/reasonChoose/Hoverbox.svg'}
+          src={'/images/components/reasonChoose/test.svg'}
           alt='box'
           width={200}
           height={200}

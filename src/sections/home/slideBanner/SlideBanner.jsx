@@ -47,25 +47,21 @@ export default function SlideBanner({isMobile}) {
           {Array?.from(slideImages)?.map((item, index) => (
             <div
               key={index}
-              className={`w-[0.6rem] h-[0.6rem] transition-transform duration-1000 ${
-                indexSlider === index
-                  ? 'transform translate-x-0 mr-[0.58rem] duration-1000 '
-                  : 'transform -translate-x-full ml-[0.58rem] duration-1000 '
-              }`}
+              className={`w-[0.6rem] h-[0.6rem] transition-transform duration-1000 mr-[0.58rem]`}
             >
               {indexSlider === index ? (
                 <Image
-                  src='/images/home/slideFirstPage/tabActive.svg'
+                  src='/images/home/slideFirstPage/tabActive.png'
                   width={500}
                   height={500}
-
+                  alt='tabActive'
                 />
               ) : (
                 <Image
-                  src='/images/home/slideFirstPage/tabNormal.svg'
+                  src='/images/home/slideFirstPage/tabNormal.png'
                   width={500}
                   height={500}
-
+                  alt='tabNormal'
                 />
               )}
             </div>

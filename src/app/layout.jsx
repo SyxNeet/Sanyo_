@@ -85,10 +85,11 @@ const avertaStdCy = localFont({
 export default function RootLayout({children, params}) {
   const headersList = headers()
   const userAgent = headersList.get('user-agent')
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
-      userAgent,
-    )
+  // const isMobile =
+  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
+  //     userAgent,
+  //   )
+  const isMobile = true;
   return (
     <html lang={params.lang}>
       <body
@@ -99,7 +100,7 @@ export default function RootLayout({children, params}) {
 
 
         {/* TODO: lazy loading, suspense for all pages */}
-        <Header />
+        {/* <Header /> */}
         <GsapProvider>
           {children}
           <Footer isMobile={isMobile} />

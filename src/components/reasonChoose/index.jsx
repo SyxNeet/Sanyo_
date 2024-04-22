@@ -21,7 +21,7 @@ export default function ReasonChoose() {
         href={'/'}
       >
         <Image
-          src={'/images/components/reasonChoose/Hoverbox.svg'}
+          src={'/images/components/reasonChoose/test.svg'}
           alt='box'
           width={200}
           height={200}
