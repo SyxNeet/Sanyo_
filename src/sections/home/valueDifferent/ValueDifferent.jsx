@@ -7,7 +7,7 @@ function ValueDifferent({isMobile}) {
     <section className='md:h-[76.6rem] box-container-border w-full  relative max-md:pb-[3.25rem]'>
       <div className='relative  pt-[3.19rem] md:pt-[12.63rem] md:pb-[11.69rem]'>
         <Image
-          src={'/images/home/giaTriKhacBiet/background.png'}
+          src={!isMobile?'/images/home/giaTriKhacBiet/background.png':'/images/home/giaTriKhacBiet/backgroundMb.png'}
           alt='bg'
           width={1920}
           height={1500}

@@ -1,27 +1,31 @@
+'use client'
 import {Button} from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import NewsItemHome from './NewsItemHome'
 import './style.css'
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 export default function News() {
   const listNews = Array(3).fill(0)
   return (
-    <section className='md:pt-[5.44rem] md:px-[4.69rem]'>
-      <h4 className='sub-heading md:mb-[0.38rem]'>DANH SÁCH TIN TỨC</h4>
-      <div className='flex justify-between md:mb-[2.5rem] items-end'>
-        <h2 className='font-text-grey-700 font-SVNLagu text-[3rem] font-semibold leading-1.4'>
+    <section className='md:pt-[5.44rem] md:px-[4.69rem] pt-[2.94rem] '>
+      <h4 className='sub-heading md:mb-[0.38rem] px-3'>DANH SÁCH TIN TỨC</h4>
+      <div className='flex justify-between md:mb-[2.5rem] items-end px-3 max-md:pb-[0.88rem]'>
+        <h2 className='font-text-grey-700 font-SVNLagu text-[3rem] font-semibold leading-1.4  max-md:text-[1.5rem]'>
           Dòng chảy SANYO YUSOKI
         </h2>
         <Button
-          className='h-[3.5rem]'
+          className='h-[3.5rem] max-md:hidden'
           isHover={true}
           isBlack={true}
           text={'XEM TẤT CẢ'}
         />
       </div>
 
-      <div className='flex justify-between'>
+      <div className='flex justify-between max-md:hidden'>
         <div className='w-[61.5rem] news_item_home h-[36rem] flex rounded-[0.625rem] mr-[2rem] overflow-hidden'>
           <Link href={'/'}>
             <Image
@@ -34,8 +38,8 @@ export default function News() {
             />
           </Link>
 
-          <div className='pt-[3.31rem] w-[19.3125] pl-[2rem] bg-grey-600 flex-1 relative'>
-            <div className='absolute right-0 bottom-0'>
+          <div className='pt-[3.31rem] w-[19.3125] pl-[2rem] bg-grey-600 flex-1 relative '>
+            <div className='absolute right-0 bottom-0 '>
               <Image
                 src={'/images/home/danhSachTinTuc/Intersect.svg'}
                 width={100}
@@ -86,6 +90,22 @@ export default function News() {
             />
           ))}
         </div>
+      </div>
+      <div className='md:hidden'>
+      <Swiper
+        navigation={false}
+        className="mySwiperNewsHome"
+        slidesPerView={1.6}
+        spaceBetween={0}
+      >
+        {listNews?.slice(1)?.map((item, index) => (
+          <SwiperSlide key={index} className='pl-3'>
+            <NewsItemHome
+              className={`${index === 0 ? 'mb-[1.5rem]' : ''}`}
+            />
+            </SwiperSlide>
+          ))}
+      </Swiper>
       </div>
     </section>
   )

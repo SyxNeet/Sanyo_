@@ -7,20 +7,20 @@ function NewsItemHome({className}) {
     <div
       className={`h-[17.25rem] rounded-[0.625rem] news_item_home relative flex items-end overflow-hidden ${className}`}
     >
-      <div className='absolute z-[1] right-0 bottom-0'>
+      <div className='absolute z-[1] right-0 bottom-0 max-md:bottom-[unset] max-md:top-0 max-md:bg-yellow-500 max-md:w-[3.70063rem] max-md:h-[2.835rem] max-md:rounded-bl-full'>
         <Image
-          src={'/images/home/danhSachTinTuc/Intersect.svg'}
+          src={'/images/home/danhSachTinTuc/Intersect.svg '}
           width={100}
           height={100}
           alt='icon'
-          className='w-[4.55769rem] h-[3.49163rem]'
+          className='w-[4.55769rem] h-[3.49163rem] max-md:hidden'
         />
         <Image
           src={'/images/home/danhSachTinTuc/arrow.svg'}
           width={100}
           height={100}
           alt='icon'
-          className='w-[1.01875rem] h-[1.126rem] absolute top-[50%] left-[50%] object-cover'
+          className='w-[1.01875rem] h-[1.126rem] absolute top-[50%] left-[50%] object-cover max-md:top-[25%]'
         />
       </div>
       <Link
@@ -37,7 +37,7 @@ function NewsItemHome({className}) {
         />
       </Link>
 
-      <div className='md:pl-[1.19rem] md:pb-[1.5rem] relative'>
+      <div className='md:pl-[1.19rem] md:pb-[1.5rem] relative max-md:px-3 max-md:mb-[1.13rem]'>
         <div className='flex items-center mb-[0.5rem]'>
           <Image
             src={'/images/home/danhSachTinTuc/callendar.svg'}
