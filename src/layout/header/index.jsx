@@ -8,9 +8,12 @@ import HeaderDropdown from './HeaderDropdown'
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
 import HeaderModalLink from './HeaderModalLink'
+import {modalMenu} from '../../../data/header/modal-menu'
 
 export default function Header() {
   const [isOpenModalMenu, setIsOpenModalMenu] = useState(false)
+  const [activeModalMenuLink, setActiveModalMenuLink] = useState('')
+  const [activeModalMenuChildLink, setActiveModalMenuChildLink] = useState('')
   useEffect(() => {
     if (isOpenModalMenu) {
       document.querySelector('.header-container').style.paddingRight = '0.5rem'
@@ -22,13 +25,14 @@ export default function Header() {
       document.body.style.overflow = 'auto'
     }
   }, [isOpenModalMenu])
+  const handleClickModalLink = () => setIsOpenModalMenu(false)
   return (
     <>
       <header className='header-container sticky top-0 left-0 z-30 h-[5.5rem] bg-white border-b border-grey-50'>
         <nav className='px-10 py-[1.13rem] flex flex-row items-center'>
           {!isOpenModalMenu ? (
             <button
-              className='w-8 h-[1.15rem] grid grid-cols-1 gap-[0.5625rem] hover-opacity'
+              className='w-9 h-4 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
               onClick={() => setIsOpenModalMenu(true)}
             >
               <span className='w-3/4 h-[0.12rem] bg-grey-900'></span>
@@ -37,7 +41,7 @@ export default function Header() {
             </button>
           ) : (
             <button
-              className='w-8 h-[1.15rem] hover-opacity'
+              className='flex items-center justify-center h-4 w-9 hover-opacity'
               onClick={() => setIsOpenModalMenu(false)}
             >
               <svg
@@ -282,20 +286,24 @@ export default function Header() {
             'opacity-100 pointer-events-auto': isOpenModalMenu,
           },
         )}
+        onClick={() => setIsOpenModalMenu(false)}
       />
       <div
         className={clsx(
-          'pt-[5.5rem] max-w-[74.5rem] z-20 bg-grey-600 h-screen transition-500 fixed top-0 left-0',
+          'navbar-container pt-[5.5rem] transition-500 z-20 bg-grey-600 h-screen transition-500 fixed top-0 left-0',
           {
             '-translate-x-full pointer-events-none': !isOpenModalMenu,
             'translate-x-0 pointer-events-auto': isOpenModalMenu,
+            'max-w-[74.5rem]': activeModalMenuLink,
+            'max-w-[27rem]': !activeModalMenuLink,
           },
         )}
       >
         <div className='flex flex-col pl-10 pt-11'>
           <Link
             href={`/`}
-            className='flex flex-col mb-[1.74rem] hover-opacity'
+            className='flex flex-col mb-[1.74rem] hover-opacity w-fit'
+            onClick={handleClickModalLink}
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -440,41 +448,146 @@ export default function Header() {
               />
             </svg>
           </Link>
-          <div className='flex flex-row items-center border-y-[0.0625rem] border-white/10'>
-            <nav className='py-12 grid grid-cols-1 gap-[1.81rem] w-[27rem]'>
-              <HeaderModalLink
-                text='THANG MÁY NHẬT BẢN'
-                isLink={false}
-              />
-              <HeaderModalLink
-                text='GIỚI THIỆU'
-                isLink
-                href={`/`}
-              />
-              <HeaderModalLink
-                text='DỊCH VỤ'
-                isLink
-                href={`/`}
-              />
-              <HeaderModalLink
-                text='DỰ ÁN NỔI BẬT'
-                isLink
-                href={`/`}
-              />
-              <HeaderModalLink
-                text='BLOG'
-                isLink
-                href={`/`}
-              />
-              <HeaderModalLink
-                text='LIÊN HỆ'
-                isLink
-                href={`/`}
-              />
+          <div className='flex flex-row items-center border-y-[0.0625rem] border-white/10 overflow-hidden'>
+            <nav className='flex-none grid grid-cols-1 w-[24.5rem]'>
+              {modalMenu.map((item, i) => {
+                return (
+                  <HeaderModalLink
+                    key={i}
+                    href={item.href}
+                    text={item.text}
+                    isLink={!!item.href}
+                    handleOnMouseEnter={() => setActiveModalMenuLink(item.text)}
+                    handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                    isActive={activeModalMenuLink === item.text}
+                  />
+                )
+              })}
             </nav>
+            <div className='relative w-[41.25rem]'>
+              {modalMenu.map((item1, i1) => {
+                return (
+                  <div
+                    className={clsx(
+                      'flex flex-row items-center transition-500',
+                      {
+                        'opacity-0 pointer-events-none':
+                          activeModalMenuLink !== item1.text,
+                        'opacity-100 pointer-events-auto':
+                          activeModalMenuLink === item1.text,
+                        'absolute top-0 left-0 w-full h-full': i1 !== 0,
+                      },
+                    )}
+                    onMouseEnter={() => setActiveModalMenuLink(item1.text)}
+                    onMouseLeave={() => setActiveModalMenuLink('')}
+                  >
+                    {item1.child && (
+                      <>
+                        <nav
+                          className='flex-none flex flex-col w-[19.375rem] border-x-[0.0625rem] border-white/10 h-full grow'
+                          onMouseOver={() => {
+                            setActiveModalMenuLink(item1.text)
+                          }}
+                          onMouseLeave={() => setActiveModalMenuLink('')}
+                        >
+                          {item1.child.map((item2, i2) => {
+                            return (
+                              <Link
+                                href={item2.href}
+                                className='font-Iciel text-0.875 leading-1.5 uppercase opacity-60 px-6 py-[0.62rem] text-white border-b-[0.0625rem] border-white/10 hover:text-yellow-500 transition-300 hover:opacity-100 flex flex-row items-center group'
+                                onMouseEnter={() => {
+                                  setActiveModalMenuLink(item1.text)
+                                  setActiveModalMenuChildLink(item2.text)
+                                }}
+                                onMouseLeave={() => {
+                                  setActiveModalMenuLink('')
+                                  setActiveModalMenuChildLink('')
+                                }}
+                              >
+                                {item2.text}
+                                <svg
+                                  xmlns='http://www.w3.org/2000/svg'
+                                  width='14'
+                                  height='16'
+                                  viewBox='0 0 14 16'
+                                  fill='none'
+                                  className='size-[0.75rem] ml-auto opacity-0 group-hover:opacity-100 transition-300'
+                                >
+                                  <path
+                                    d='M14 8L4 0L4 6L0 8L4 10L4 16L14 8Z'
+                                    fill='#DAB571'
+                                  />
+                                </svg>
+                              </Link>
+                            )
+                          })}
+                          {item1.showMore && (
+                            <Link
+                              href={`/`}
+                              className='font-Iciel text-0.875 leading-1.5 uppercase pl-6 py-[0.8rem] text-white font-bold underline hover:bg-yellow-500 transition-300'
+                              onMouseEnter={() =>
+                                setActiveModalMenuLink(item1.text)
+                              }
+                              onMouseLeave={() => setActiveModalMenuLink('')}
+                            >
+                              XEM TẤT CẢ
+                            </Link>
+                          )}
+                        </nav>
+                        <div
+                          className='relative flex-none w-[21.875rem] self-stretch'
+                          onMouseEnter={() =>
+                            setActiveModalMenuLink(item1.text)
+                          }
+                        >
+                          {item1.child.map((item2, i2) => {
+                            return (
+                              <Image
+                                src={item2.src}
+                                alt=''
+                                className={clsx(
+                                  'object-cover w-full h-full transition-500',
+                                  {
+                                    'absolute top-0 left-0': i2 !== 0,
+                                    'opacity-0 pointer-events-none':
+                                      activeModalMenuChildLink !== item2.text,
+                                    'opacity-100 pointer-events-auto':
+                                      activeModalMenuChildLink === item2.text,
+                                  },
+                                )}
+                                onMouseEnter={() => {
+                                  setActiveModalMenuLink(item1.text)
+                                  setActiveModalMenuChildLink(item2.text)
+                                }}
+                                onMouseLeave={() => {
+                                  setActiveModalMenuLink('')
+                                  setActiveModalMenuChildLink('')
+                                }}
+                                width={1920}
+                                height={1080}
+                              />
+                            )
+                          })}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
           </div>
-          <div className='py-8'>
-            <div className='flex flex-col'>
+          <div
+            className='flex flex-row overflow-hidden pt-9'
+            onMouseEnter={() => {
+              setActiveModalMenuLink(activeModalMenuLink)
+              setActiveModalMenuChildLink(activeModalMenuChildLink)
+            }}
+            onMouseLeave={() => {
+              setActiveModalMenuLink('')
+              setActiveModalMenuChildLink('')
+            }}
+          >
+            <div className='flex flex-col w-[27rem] shrink-0'>
               <span className='text-white text-1'>Theo dõi chúng tôi</span>
               <nav className='flex flex-row items-center mt-1'>
                 <Link
@@ -529,6 +642,25 @@ export default function Header() {
                 </Link>
               </nav>
             </div>
+            <button className='relative w-[20.4375rem] h-[5.3125rem] flex flex-row justify-center items-center hover-opacity flex-none ml-[20rem]'>
+              <Image
+                src={`/images/layout/header/contact-now.svg`}
+                alt=''
+                className='absolute top-0 left-0 object-cover w-full h-full -z-10'
+                width={100}
+                height={100}
+              />
+              <p className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center'>
+                liên hệ ngay
+              </p>
+              <Image
+                src={`/images/layout/header/arrow-right-white.svg`}
+                alt=''
+                className='w-[0.95rem] h-[1.05rem] ml-3'
+                width={100}
+                height={100}
+              />
+            </button>
           </div>
         </div>
       </div>
