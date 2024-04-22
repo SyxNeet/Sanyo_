@@ -1,11 +1,21 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 
-export default function HeaderModalLink({isLink, href, text}) {
+export default function HeaderModalLink({
+  isLink,
+  href,
+  text,
+  handleOnMouseEnter,
+  handleOnMouseLeave,
+  handleOnClick,
+  isActive,
+}) {
   if (isLink) {
     return (
       <Link
         href={href}
-        className='relative w-full font-Iciel text-1.25 flex flex-row items-center group opacity-60 hover:opacity-100 transition-300'
+        className='relative w-full font-Iciel text-1.25 flex flex-row items-center group opacity-60 hover:opacity-100 transition-300 py-[0.9rem]'
+        onClick={handleOnClick}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -68,14 +78,28 @@ export default function HeaderModalLink({isLink, href, text}) {
     )
   } else {
     return (
-      <button className='relative w-full font-Iciel text-1.25 flex flex-row items-center group opacity-60 hover:opacity-100 transition-300'>
+      <button
+        className={clsx(
+          'relative w-full font-Iciel text-1.25 flex flex-row items-center group py-[0.9rem] transition-300',
+          {
+            'opacity-60 hover:opacity-100': !isActive,
+          },
+        )}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='38'
           height='8'
           viewBox='0 0 38 8'
           fill='none'
-          className='w-[2.3125rem] h-[0.4375rem] absolute top-1/2 left-0 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-500'
+          className={clsx(
+            'w-[2.3125rem] h-[0.4375rem] absolute top-1/2 left-0 -translate-y-1/2 transition-500',
+            {
+              'opacity-0 group-hover:opacity-100': !isActive,
+            },
+          )}
         >
           <rect
             x='34'
@@ -123,7 +147,13 @@ export default function HeaderModalLink({isLink, href, text}) {
             </linearGradient>
           </defs>
         </svg>
-        <span className='text-white translate-x-0 group-hover:translate-x-11 transition-500 group-hover:text-yellow-500'>
+        <span
+          className={clsx('text-white transition-500', {
+            'text-white group-hover:text-yellow-500 group-hover:translate-x-11 ':
+              !isActive,
+            'text-yellow-500 translate-x-11': isActive,
+          })}
+        >
           {text}
         </span>
       </button>

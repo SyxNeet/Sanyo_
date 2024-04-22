@@ -2,7 +2,7 @@ export default function HeaderDropdown({text, ...props}) {
   return (
     <button
       {...props}
-      className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity'
+      className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'
     >
       {text}
       <svg
