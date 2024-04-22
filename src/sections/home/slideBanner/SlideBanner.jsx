@@ -4,10 +4,11 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import {Navigation, Pagination, Autoplay} from 'swiper/modules'
+import {Navigation, Pagination, Autoplay, Thumbs} from 'swiper/modules'
 import Image from 'next/image'
 import './style.css'
-export default function SlideBanner() {
+export default function SlideBanner({isMobile}) {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const slideImages = [
     {
       heading: 'KẾT NỐI YÊU THƯƠNG',
@@ -32,44 +33,91 @@ export default function SlideBanner() {
   ]
   const swiperRef = useRef()
   const [indexSlider, setIndexSlider] = useState(0)
+  
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.realIndex)
   }
+  
   return (
-
     <section className='md:h-screen h-[23.6875rem] w-full relative'>
       {/* pagination */}
-      <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>
-        {Array?.from(slideImages)?.map((item, index) => (
-          <div
-            key={index}
-            className={`md:w-[1rem] w-[0.6rem] h-[0.6rem] md:h-[1rem] md:mr-[1rem] mr-[0.58rem]  rounded-[50%] bg-gray-800 bg-opacity-20 relative ${
-              indexSlider === index ? 'border-[0.25rem] solid border-white' : ''
-            }`}
-          >
+
+      {isMobile ? (
+        <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>
+          {Array?.from(slideImages)?.map((item, index) => (
             <div
-              className={`md:w-[0.25rem] md:h-[0.25rem] w-[0.15rem] h-[0.15rem] flex flex-shrink-0 rounded-[50%] ${
-                indexSlider === index ? '' : 'bg-white'
-              } absolute -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%]`}
-            ></div>
-          </div>
-        ))}
-      </div>
+              key={index}
+              className={`w-[0.6rem] h-[0.6rem] transition-transform duration-1000 ${
+                indexSlider === index
+                  ? 'transform translate-x-0 mr-[0.58rem] duration-1000 '
+                  : 'transform -translate-x-full ml-[0.58rem] duration-1000 '
+              }`}
+            >
+              {indexSlider === index ? (
+                <Image
+                  src='/images/home/slideFirstPage/tabActive.svg'
+                  width={500}
+                  height={500}
+
+                />
+              ) : (
+                <Image
+                  src='/images/home/slideFirstPage/tabNormal.svg'
+                  width={500}
+                  height={500}
+
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>
+          {Array?.from(slideImages)?.map((item, index) => (
+            <div
+              key={index}
+              className={`md:w-[1rem] w-[0.6rem] h-[0.6rem] md:h-[1rem] md:mr-[1rem] mr-[0.58rem]  rounded-[50%] bg-gray-800 bg-opacity-20 relative ${
+                indexSlider === index
+                  ? 'border-[0.25rem] solid border-white'
+                  : ''
+              }`}
+            >
+              <div
+                className={`md:w-[0.25rem] md:h-[0.25rem] w-[0.15rem] h-[0.15rem] flex flex-shrink-0 rounded-[50%] ${
+                  indexSlider === index ? '' : 'bg-white'
+                } absolute -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%]`}
+              ></div>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className='bottom-[1.44rem] right-[1.37rem] md:w-[3.625rem] w-[1.94194rem] h-[4.6875rem] absolute md:top-[50%] md:right-[3.25rem] pt-[0.17rem] md:-translate-x-1/2 md:-translate-y-1/2 z-[2] flex flex-col items-center md:h-[8.75rem] md:rounded-[0.35rem] rounded-[0.1875rem] bg-[rgba(255,255,255,0.20)] bg-opacity-20 md:pt-[0.31rem] max-md:border-[0.3px] md:solid border-grey-50 backdrop-blur-[14px]'>
         {/* <div className='absolute blur-[14px] inset-0 bg-white bg-opacity-20'></div> */}
         <div className='md:w-[2.9375rem] w-[1.57369rem] flex items-center justify-center md:h-[3.4375rem] md:rounded-[0.25rem] bg-white relative'>
-          {Array.from(slideImages)?.map((item, index) => (
-            <span
-              key={index}
-              className={`${
-                indexSlider === index
-                  ? 'font-grey-800 font-SVNLagu lg:text-[1.25rem] font-[800] leading-1.5'
-                  : 'hidden'
-              }`}
-            >
-              0{index + 1}
-            </span>
-          ))}
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            spaceBetween={10}
+            slidesPerView={1}
+            speed={500}
+            watchSlidesProgress={true}
+            modules={[Navigation, Thumbs]}
+            className='mySwiperNumberElevator h-[1.875rem]'
+            direction='vertical'
+          >
+            {Array.from(slideImages)?.map((item, index) => (
+              <SwiperSlide
+                key={index}
+                className='h-[1.875rem] max-md:!flex max-md:items-center'
+              >
+                <span
+                  className={`font-grey-800 font-SVNLagu lg:text-[1.25rem] font-[800] leading-1.5`}
+                >
+                  0{index + 1}
+                </span>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <button className='md:mt-[0.82rem] mt-[0.47rem] swiper-button-next-custom-home'>
           <Image
@@ -91,11 +139,12 @@ export default function SlideBanner() {
         </button>
       </div>
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay, Thumbs]}
         className='slide_first_onPage size-full'
         slidesPerView={1}
         spaceBetween={0}
         loop={true}
+        thumbs={{swiper: thumbsSwiper}}
         // autoplay={{
         //   delay: 3000,
         // }}

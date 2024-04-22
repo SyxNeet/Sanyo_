@@ -5,7 +5,7 @@ export default function Content({title, description,classNameBtn,classText,class
     <div
       className={`flex justify-between items-end md:mb-[4.13rem] md:pr-[3.81rem] pl-[0.75rem] pr-[2.5rem]`}
     >
-      <div className='md:w-[58rem] w-full'>
+      <div className='md:w-[58rem] w-full max-md:mb-5'>
         <h2 className='text-white md:text-[3.214rem] max-md:w-[15.25rem] text-[1.5rem] font-SVNLagu font-semibold leading-[1.3] md:mb-[0.62rem] mb-[0.25rem]'>
           {title}
         </h2>
@@ -14,7 +14,7 @@ export default function Content({title, description,classNameBtn,classText,class
         </p>
       </div>
       <Button
-        className={`h-fit bg-transparent border-white ${classNameBtn}`}
+        className={`h-fit bg-transparent border-white ${classNameBtn} max-md:hidden`}
         isHover={true}
         text={'XEM TẤT CẢ'}
         classtext={`${classText || 'text-white'}`}

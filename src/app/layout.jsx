@@ -89,7 +89,7 @@ export default function RootLayout({children, params, searchParams}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
-        <Header />
+        {/* <Header /> */}
         <GsapProvider>
           {children}
           <Footer />
