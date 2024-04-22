@@ -5,6 +5,8 @@ import Footer from '@/layout/footer'
 import Header from '@/layout/header'
 import GsapProvider from '@/components/gsap/GsapProvider'
 import {headers} from 'next/headers'
+import {Toaster} from '@/components/ui/sonner'
+// import {Toaster} from '@/components/ui/sonner'
 
 export const metadata = {
   title: 'Sanyo Yosuki',
@@ -89,6 +91,7 @@ export default function RootLayout({children, params}) {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
       userAgent,
     )
+  // const isMobile = true
   return (
     <html lang={params.lang}>
       <body
@@ -96,14 +99,13 @@ export default function RootLayout({children, params}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
-
-
         {/* TODO: lazy loading, suspense for all pages */}
-        <Header />
+        {/* <Header /> */}
         <GsapProvider>
           {children}
           <Footer isMobile={isMobile} />
         </GsapProvider>
+        <Toaster />
       </body>
     </html>
   )
