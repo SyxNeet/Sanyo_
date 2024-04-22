@@ -6,7 +6,7 @@ import flagImg from '../../../public/images/components/itemOutstandingProject/fl
 import './styles.css'
 const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,imgProjectUrl,altImageProject,link}) => {
   return (
-    <div className={`itemOutstandingProject relative  ${className||'md:rounded-[1.25rem] rounded-[0.75rem] w-[32.1875rem] h-[25.5rem]'} overflow-hidden flex justify-center items-end max-md:w-[19.10188rem] max-md:h-[17.125rem]`}>
+    <div className={`itemOutstandingProject relative  ${className||'md:rounded-[1.25rem] rounded-[0.75rem] w-[32.1875rem] h-[25.5rem]'} overflow-hidden flex justify-center items-end max-md:w-full max-md:h-[17.125rem]`}>
       <Image
         src={imgProjectUrl||bgItemOutStandingProject}
         alt={altImageProject||''}

@@ -2,12 +2,15 @@
 import React, {useRef} from 'react'
 import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {Navigation, Pagination} from 'swiper/modules'
+import {Navigation, Pagination, Autoplay} from 'swiper/modules'
 import Image from 'next/image'
 import logoImgJE from '../../../public/images/japanElevator/logo.png'
 import logoImgTextJE from '../../../public/images/japanElevator/logotext.png'
 import sunImg from '../../../public/images/japanElevator/sun.png'
-import {exampleSLideJpElevator,outStandingProject} from '../../../data/japanElevator'
+import {
+  exampleSLideJpElevator,
+  outStandingProject,
+} from '../../../data/japanElevator'
 import imgHoaSen from '../../../public/images/japanElevator/hoasen.png'
 import imgDownArrow from '../../../public/images/japanElevator/down.png'
 import imgItem1 from '../../../public/images/japanElevator/item1.png'
@@ -28,6 +31,7 @@ import {Button} from '@/components/ui/button'
 import SixReasons from '@/components/sixReasons'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
 import Support from '@/layout/support'
+import SliderJapanElevator from '@/components/platForm/sliderJapanElevator/SLiderJapanElevator'
 
 const JapanElevator = ({isMobile}) => {
   const firstRef = useRef(null)
@@ -43,21 +47,21 @@ const JapanElevator = ({isMobile}) => {
         pinSpacing: false,
       },
     })
-    !isMobile&& gsap.to(outStandingProjectRef.current, {
+    !isMobile &&
+      gsap.to(outStandingProjectRef.current, {
         scrollTrigger: {
           trigger: outStandingProjectRef.current,
           pin: true,
-          start:'top-=150 top',
+          start: 'top-=150 top',
           endTrigger: outStandingProjectEndRef.current,
           end: 'bottom center+=20%',
           pinSpacing: false,
         },
       })
-    
   }, [])
-  
+
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden janpanElevator'>
       <section
         className='pt-4'
         id='sectionSunRise'
@@ -242,7 +246,7 @@ const JapanElevator = ({isMobile}) => {
                 'w-[3.5rem] h-[3.5rem] border-[#282B30] group-hover:border-[#FE4127] max-md:w-[2.11056rem] max-md:h-[2.11056rem]'
               }
               classNameSvg={
-                'svgDance group-hover:text-[#FE4127] max-d:w-[0.75rem] max-md:h-[0.75rem]'
+                'svgDance group-hover:text-[#FE4127] max-d:w-[0.75rem] max-md:h-[0.75rem] md:w-[1rem] lg:w-[1.25rem] lg:h-[1.25rem]'
               }
             />
             <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-c-nht max-md:text-[0.67838rem]'>
@@ -312,7 +316,7 @@ const JapanElevator = ({isMobile}) => {
         <div className='w-[112.25rem] h-[112.25rem] rounded-[50%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,65,39,0.60)_0%,_rgba(254,65,39,0.00)_100%)] absolute left-[80%] top-[-25%] -z-10 max-md:w-[29.125rem] max-md:h-[29.125rem] max-md:top-[-30%] max-md:left-[57%]'></div>
         <div className='pl-[6.31rem] flex items-end justify-between pr-[3.56rem] max-md:px-3'>
           <div className='w-[55.625rem]'>
-            <h2 className='text-[3.125rem] font-SVNLagu font-semibold leading-1.3 text-grey-900 mb-4 max-md:text-2xl max-md:leading-1.3  max-md:mb-[0.62rem]' >
+            <h2 className='text-[3.125rem] font-SVNLagu font-semibold leading-1.3 text-grey-900 mb-4 max-md:text-2xl max-md:leading-1.3  max-md:mb-[0.62rem]'>
               Thang máy Nhật Bản SANYO YUSOKI
             </h2>
             <span className='text-[1.125rem] font-Iciel leading-1.7 font-normal uppercase text-[#42484F] max-md:text-[0.875rem]'>
@@ -332,11 +336,10 @@ const JapanElevator = ({isMobile}) => {
           />
         </div>
 
-        <Slider />
+        <SliderJapanElevator />
       </section>
-      <div className='relative sixReasonsJE'>
-        <div className='absolute bottom-0 left-0 bg-[linear-gradient(0deg,rgba(255,255,255,1)_3%,_rgba(255,255,255,0)_100%)] w-full h-[30%] -z-[1]'>
-        </div>
+      <div className='relative sixReasonsJE pt-[9.06rem] max-md:pt-[2.19rem]'>
+        <div className='absolute bottom-0 left-0 bg-[linear-gradient(0deg,rgba(255,255,255,1)_3%,_rgba(255,255,255,0)_100%)] w-full h-[30%] -z-[1]'></div>
         <Image
           src={bgImgSixReasons}
           alt='bg-6reason'
@@ -345,23 +348,33 @@ const JapanElevator = ({isMobile}) => {
         <SixReasons />
       </div>
       <section className='pt-[8.69rem] pl-[5.38rem] pr-[3.5rem] flex w-full max-md:flex-col max-md:px-0 max-md:pt-12'>
-        <div className='w-[25%] flex flex-col h-fit mr-[2%]' ref={outStandingProjectRef} >
-          {
-            isMobile ? (<div>
-              <h2 className='text-[1.5rem font-SVNLagu font-semibold leading-1.3 px-3]'>Dự án NỔI BẬT</h2>
-            </div>):(<div>
-              <h2 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem]'>Dự án NỔI BẬT của chúng tôi</h2>
-          <span className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'>
-            Thang máy Sanyo vẫn liên tục đầu tư cho Nghiên cứu Phát triển (R&D)
-            tất cả các dòng thang máy để phù hợp với thị hiếu người tiêu dùng và
-            đảm bảo an toàn và chất lượng vận hành cao nhất xứng đáng với niềm
-            tin và sự ghi nhận của người tiêu dùng cũng như đóng góp vào sự phát
-            triển của ngành thang máy trên toàn thế giới
-          </span>
-            </div>)
-          }
+        <div
+          className='w-[25%] flex flex-col mr-[2%] max-md:w-full'
+          ref={outStandingProjectRef}
+        >
+          {isMobile ? (
+            <div>
+              <h2 className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem]'>
+                Dự án NỔI BẬT
+              </h2>
+            </div>
+          ) : (
+            <div className=''>
+              <h2 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem]'>
+                Dự án NỔI BẬT của chúng tôi
+              </h2>
+              <span className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'>
+                Thang máy Sanyo vẫn liên tục đầu tư cho Nghiên cứu Phát triển
+                (R&D) tất cả các dòng thang máy để phù hợp với thị hiếu người
+                tiêu dùng và đảm bảo an toàn và chất lượng vận hành cao nhất
+                xứng đáng với niềm tin và sự ghi nhận của người tiêu dùng cũng
+                như đóng góp vào sự phát triển của ngành thang máy trên toàn thế
+                giới
+              </span>
+            </div>
+          )}
           <Button
-            className='w-fit max-md:hidden'
+            className='w-fit max-md:hidden mt-[2.44rem]'
             isRed={true}
             text={'XEM TẤT CẢ'}
             isHover={true}
@@ -371,28 +384,86 @@ const JapanElevator = ({isMobile}) => {
           />
         </div>
         {isMobile ? (
-            <div>PC</div>
-          ) : (
-            <div  className='flex flex-wrap w-[73%]'
-            ref={outStandingProjectEndRef}>
+          <div className='mbOutStandingSLide'>
+            <Swiper
+              speed={15000}
+              pagination={{
+                type: 'progressbar',
+                el: '.processSlideOutStandingJE',
+              }}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 0,
+                },
+              }}
+              modules={[Pagination, Navigation, Autoplay]}
+              className='mySwiperOnlyImages w-screen order-1 overflow-hidden'
+            >
               {outStandingProject.map((item, index) => (
-                <ItemOutStandingProject
+                <SwiperSlide
                   key={index}
-                  width='32.1875rem'
-                  height='25.5rem'
-                  imgFlagUrl={item.imgFlagUrl}
-                  className={`rounded-[0.75rem] w-[32.1875rem] h-[25.5rem] ${
-                    (index + 1) % 2 === 0 ? 'lg:ml-4 mb-4 md:ml-2 ' : ''
-                  }`}
-                  altImageFlag={item.altFlag}
-                  nameProject={item.nameProject}
-                  imgProjectUrl={item.imgProjectUrl}
-                  altImageProject={item.alt}
-                  link={item.link}
-                />
+                  className={`h-[17.125rem] pl-3`}
+                >
+                  <ItemOutStandingProject
+                    key={index}
+                    width='full'
+                    height='full'
+                    imgFlagUrl={item.imgFlagUrl}
+                    className={`rounded-[0.75rem] w-full h-full `}
+                    altImageFlag={item.altFlag}
+                    nameProject={item.nameProject}
+                    imgProjectUrl={item.imgProjectUrl}
+                    altImageProject={item.alt}
+                    link={item.link}
+                  />
+                </SwiperSlide>
               ))}
+            </Swiper>
+            <div className='mt-[1.31rem] flex px-3 justify-between mbOutStandingSLideBtn'>
+  <Link href={'/'}>
+              <Button
+                className='w-fit border-[#FE4127] hover:border-[#FE4127]'
+                isRed={true}
+                text={'XEM TẤT CẢ'}
+                isHover={false}
+                isBlack={true}
+                classHover={'group-hover'}
+                classtext={'!text-c-nht'}
+
+              /></Link>
+              <div className='relative w-[6.25rem]'>
+                <div className='processSlideOutStandingJE rounded-full'></div>
+              </div>
             </div>
-          )}
+          </div>
+        ) : (
+          <div
+            className='flex flex-wrap w-[73%]'
+            ref={outStandingProjectEndRef}
+          >
+            {outStandingProject.map((item, index) => (
+              <ItemOutStandingProject
+                key={index}
+                width='32.1875rem'
+                height='25.5rem'
+                imgFlagUrl={item.imgFlagUrl}
+                className={`rounded-[0.75rem] w-[32.1875rem] h-[25.5rem] ${
+                  (index + 1) % 2 === 0 ? 'lg:ml-4 mb-4 md:ml-2 ' : ''
+                }`}
+                altImageFlag={item.altFlag}
+                nameProject={item.nameProject}
+                imgProjectUrl={item.imgProjectUrl}
+                altImageProject={item.alt}
+                link={item.link}
+              />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   )

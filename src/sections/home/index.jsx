@@ -11,7 +11,7 @@ import News from './news/News'
 export default function HomePage({isMobile}) {
   return (
     <div>
-      <SlideBanner />
+      <SlideBanner  isMobile={isMobile} />
       <CountUp isMobile={isMobile} />
       <ValueDifferent isMobile={isMobile} />
       {!isMobile ? <PlatFormElevator /> : <PlatFormMobile />}
