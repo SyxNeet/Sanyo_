@@ -93,7 +93,10 @@ module.exports = {
         overlayReason:
           'linear-gradient(lightgray -450.418px -356.646px / 214.465% 234.583% no-repeat, #D9D9D9)',
         hover_button: 'linear-gradient(180deg, #D1B37B 0%, #E4B867 100%)',
-        hover_button_red: 'linear-gradient(180deg, #FE4127 90%, rgb(255 86 62) 100%)',
+        hover_button_red:
+          'linear-gradient(180deg, #FE4127 90%, rgb(255 86 62) 100%)',
+        home_count:
+          'linear-gradient(180deg, rgba(209, 179, 123, 0.40) 0%, rgba(255, 255, 255, 0.40) 45.75%)',
       },
       background: {
         blur_Reason: 'rgba(0, 0, 0, 0.30)',
@@ -104,6 +107,7 @@ module.exports = {
       },
       fontSize: {
         0.625: '0.625rem',
+        0.75: '0.75rem',
         0.875: '0.875rem',
         1: '1rem',
         1.15: '1.15rem',
@@ -111,8 +115,10 @@ module.exports = {
         1.25: '1.25rem',
         1.375: '1.375rem',
         1.5: '1.5rem',
+        1.625: '1.625rem',
         2: '2rem',
         2.25: '2.25rem',
+        2.5: '2.5rem',
         3: '3rem',
         4.62: '4.62rem',
         6.7: '6.7rem',

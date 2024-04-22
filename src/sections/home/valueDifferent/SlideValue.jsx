@@ -8,57 +8,50 @@ import {Navigation, Pagination} from 'swiper/modules'
 import Image from 'next/image'
 import ReasonChoose from '@/components/reasonChoose'
 import './style.css'
-export default function SlideValue() {
+export default function SlideValue({isMobile}) {
   const slideImages = Array(4)?.fill(0)
+  const [activeSlide, setActiveSlide] = useState(slideImages?.length)
+  const swiperRef = useRef()
+  const handleChangeSlide = (swiper) => {
+    setActiveSlide(swiper?.activeIndex)
+  }
   return (
-    <div className='relative'>
-      <Swiper
-        modules={[Navigation, Pagination]}
-        className='slide_value size-full'
-        slidesPerView={'auto'}
-        spaceBetween={35}
-        centeredSlides={true}
-        initialSlide={slideImages?.length}
-        navigation={{
-          nextEl: '.btn-prev-cus-value',
-          prevEl: '.btn-next-cus-value',
-        }}
-      >
-        {slideImages.map((item, index) => (
-          <SwiperSlide key={index}>
-            <ReasonChoose />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <button className='md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] bg-white shadow_btn left-[6.13rem] z-[1] btn-prev-cus-value'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='17'
-          height='18'
-          viewBox='0 0 17 18'
-          fill='none'
+    <>
+      <div className='relative'>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          className='slide_value size-full max-md:!pl-[0.76rem]'
+          slidesPerView={1.2}
+          spaceBetween={12}
+          centeredSlides={!isMobile && true}
+          initialSlide={slideImages?.length}
+          onSlideChange={handleChangeSlide}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper
+          }}
+          navigation={{
+            nextEl: '.btn-prev-cus-value',
+            prevEl: '.btn-next-cus-value',
+          }}
+          breakpoints={{
+            768: {
+              slidesPerView: 'auto',
+              spaceBetween: 35,
+            },
+          }}
         >
-          <path
-            d='M0.809772 8.94723L12.3742 0V6.71042L17 8.94723L12.3742 11.184V17.8945L0.809772 8.94723Z'
-            fill='#DAB571'
-          />
-        </svg>
-      </button>
-      <button className='md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] bg-white right-[6.13rem] z-[1] shadow_btn btn-next-cus-value'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='14'
-          height='16'
-          viewBox='0 0 14 16'
-          fill='none'
-        >
-          <path
-            d='M14 8L4 0L4 6L0 8L4 10L4 16L14 8Z'
-            fill='#DAB571'
-          />
-        </svg>
-      </button>
-    </div>
+          {slideImages.map((item, index) => (
+            <SwiperSlide key={index}>
+              <ReasonChoose />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className='flex absolute right-[0.75rem] text-yellow-500 text-[0.875rem] font-medium leading-1.2 bottom-[-4rem] justify-center items-center md:hidden w-[4.3125rem] h-[2.5rem] rounded-[2.0625rem] box_count_slide'>
+        <span>{activeSlide + 1}</span>
+        <span className='ml-[0.25rem] mr-[0.25rem]'>/</span>
+        <span>{slideImages?.length}</span>
+      </div>
+    </>
   )
 }

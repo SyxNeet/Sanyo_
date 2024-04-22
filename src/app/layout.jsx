@@ -2,7 +2,7 @@ import './global.css'
 
 import localFont from 'next/font/local'
 import Footer from '@/layout/footer'
-import Nav from '@/layout/nav'
+import Header from '@/layout/header'
 import GsapProvider from '@/components/gsap/GsapProvider'
 
 export const metadata = {
@@ -88,10 +88,9 @@ export default function RootLayout({children, params, searchParams}) {
         suppressHydrationWarning={true}
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
-       
       >
+        <Header />
         <GsapProvider>
-          <Nav />
           {children}
           <Footer />
         </GsapProvider>

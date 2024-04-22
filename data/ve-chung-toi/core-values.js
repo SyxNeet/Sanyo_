@@ -1,6 +1,6 @@
 export const coreValues = [
   {
-    src: '/images/layout/support/core-values-1.jpg',
+    src: '/images/about-us/core-values-1.jpg',
     alt: '',
     title: 'Nghiên cứu phát triển',
     titleMobile: 'R&D',
@@ -9,7 +9,7 @@ export const coreValues = [
     href: '/',
   },
   {
-    src: '/images/layout/support/core-values-2.jpg',
+    src: '/images/about-us/core-values-2.jpg',
     alt: '',
     title: 'Đào tạo',
     titleMobile: 'Training',
@@ -18,7 +18,7 @@ export const coreValues = [
     href: '/',
   },
   {
-    src: '/images/layout/support/core-values-3.jpg',
+    src: '/images/about-us/core-values-3.jpg',
     alt: '',
     title: 'Kiểm soát chất lượng',
     titleMobile: 'Quality',
@@ -27,7 +27,7 @@ export const coreValues = [
     href: '/',
   },
   {
-    src: '/images/layout/support/core-values-4.jpg',
+    src: '/images/about-us/core-values-4.jpg',
     alt: '',
     title: 'Văn hóa',
     titleMobile: 'Culture',
@@ -36,7 +36,7 @@ export const coreValues = [
     href: '/',
   },
   {
-    src: '/images/layout/support/core-values-5.jpg',
+    src: '/images/about-us/core-values-5.jpg',
     alt: '',
     title: 'Bảo vệ môi trường',
     titleMobile: 'Environment',

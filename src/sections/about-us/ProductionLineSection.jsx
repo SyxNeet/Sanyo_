@@ -13,7 +13,21 @@ export default function ProductionLineSection({isMobile}) {
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
-    <section>
+    <section className='mt-14 md:mt-[8.3rem]'>
+      <div className='w-[93%] md:w-auto mx-auto md:ml-[6.25rem] mb-6 md:mb-10'>
+        <h3 className='text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5'>
+          CÁC BƯỚC TIẾN HÀNH DỊCH VỤ
+        </h3>
+        <h2 className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4'>
+          Chúng tôi cam kết{' '}
+          <strong className='font-semibold text-yellow-500'>
+            không ngừng nỗ lực
+          </strong>{' '}
+          để đảm bảo chất lượng tốt nhất cho thang máy. Điều này là{' '}
+          <strong className='font-semibold text-yellow-500'>sứ mệnh</strong>{' '}
+          mang lại sự hài lòng và niềm tin cho khách hàng.
+        </h2>
+      </div>
       <Swiper
         slidesPerView={1}
         effect={'fade'}
