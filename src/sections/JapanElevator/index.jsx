@@ -246,7 +246,7 @@ const JapanElevator = ({isMobile}) => {
                 'w-[3.5rem] h-[3.5rem] border-[#282B30] group-hover:border-[#FE4127] max-md:w-[2.11056rem] max-md:h-[2.11056rem]'
               }
               classNameSvg={
-                'svgDance group-hover:text-[#FE4127] max-d:w-[0.75rem] max-md:h-[0.75rem]'
+                'svgDance group-hover:text-[#FE4127] max-d:w-[0.75rem] max-md:h-[0.75rem] md:w-[1rem] lg:w-[1.25rem] lg:h-[1.25rem]'
               }
             />
             <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-c-nht max-md:text-[0.67838rem]'>
@@ -338,7 +338,7 @@ const JapanElevator = ({isMobile}) => {
 
         <SliderJapanElevator />
       </section>
-      <div className='relative sixReasonsJE'>
+      <div className='relative sixReasonsJE pt-[9.06rem] max-md:pt-[2.19rem]'>
         <div className='absolute bottom-0 left-0 bg-[linear-gradient(0deg,rgba(255,255,255,1)_3%,_rgba(255,255,255,0)_100%)] w-full h-[30%] -z-[1]'></div>
         <Image
           src={bgImgSixReasons}
@@ -349,7 +349,7 @@ const JapanElevator = ({isMobile}) => {
       </div>
       <section className='pt-[8.69rem] pl-[5.38rem] pr-[3.5rem] flex w-full max-md:flex-col max-md:px-0 max-md:pt-12'>
         <div
-          className='w-[25%] flex flex-col h-fit mr-[2%] max-md:w-full'
+          className='w-[25%] flex flex-col mr-[2%] max-md:w-full'
           ref={outStandingProjectRef}
         >
           {isMobile ? (
@@ -359,7 +359,7 @@ const JapanElevator = ({isMobile}) => {
               </h2>
             </div>
           ) : (
-            <div>
+            <div className=''>
               <h2 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem]'>
                 Dự án NỔI BẬT của chúng tôi
               </h2>
@@ -374,7 +374,7 @@ const JapanElevator = ({isMobile}) => {
             </div>
           )}
           <Button
-            className='w-fit max-md:hidden'
+            className='w-fit max-md:hidden mt-[2.44rem]'
             isRed={true}
             text={'XEM TẤT CẢ'}
             isHover={true}
