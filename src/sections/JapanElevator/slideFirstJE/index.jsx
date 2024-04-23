@@ -12,8 +12,8 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
-const slideFirstJE = ({isMobile}) => {
-  const firstRef = useRef(null)
+const slideFirstJE = ({isMobile,data}) => {
+    const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
   useGSAP(() => {
@@ -26,17 +26,6 @@ const slideFirstJE = ({isMobile}) => {
         pinSpacing: false,
       },
     })
-    !isMobile &&
-      gsap.to(outStandingProjectRef.current, {
-        scrollTrigger: {
-          trigger: outStandingProjectRef.current,
-          pin: true,
-          start: 'top-=150 top',
-          endTrigger: outStandingProjectEndRef.current,
-          end: 'bottom center+=20%',
-          pinSpacing: false,
-        },
-      })
   }, [])
   return (
     <section
@@ -76,14 +65,17 @@ const slideFirstJE = ({isMobile}) => {
             alt='logo Sanyo'
             className='absolute w-[5.5rem] h-[5.5rem] left-full bottom-[70%] max-md:hidden'
           />
-          <h1 className=' text-[5.71719rem] font-SVNLagu font-semibold leading-[130%] max-md:text-[1.875rem] max-md:mb-3'>
-            Thang máy Nhật Bản
-          </h1>
-          <p className='text-right w-[37.625rem] text-[1rem] text-[#6D7279] font-normal leading-1.5 max-md:text-[0.875rem] max-md:text-left max-md:w-[20.4375rem]'>
-            {isMobile
-              ? 'SANYO YUSOKI đã và đang tiếp tục cống hiến và liên tục đổi mới để góp phần vào sự phát triển của ngành thang máy. Chúng tôi tin rằng với một nền móng vững chắc sẽ cho ra đời những sản phẩm thang máy chất lượng nhất'
-              : 'SANYO YUSOKI đã và đang tiếp tục cống hiến và liên tục đổi mới để góp phần vào sự phát triển của ngành thang máy.'}
-          </p>
+          <div className='relative flex flex-col w-fit pl-[10.25rem] items-end max-md:pl-3 max-md:items-start'>
+            <Image
+              src={logoImgJE}
+              alt='logo Sanyo'
+              className='absolute w-[5.5rem] h-[5.5rem] left-full bottom-[70%] max-md:hidden'
+            />
+            <h1 className=' text-[5.71719rem] font-SVNLagu font-semibold leading-[130%] max-md:text-[1.875rem] max-md:mb-3 [&>p>strong]:text-c-nht [&>p>strong]:font-semibold [&>p>strong]:font-SVNLagu' dangerouslySetInnerHTML={{__html:data?.heading}} >
+           </h1>
+            <div className='text-right w-[37.625rem] text-[1rem] text-[#6D7279] font-normal leading-1.5 max-md:text-[0.875rem] max-md:text-left max-md:w-[20.4375rem] [&>div>div>strong]:text-grey-900' dangerouslySetInnerHTML={{__html:!isMobile?data?.desc:data?.desc_mb}}>
+            </div>
+          </div>
         </div>
       </div>
       <div

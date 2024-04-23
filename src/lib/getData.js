@@ -19,5 +19,6 @@ export default async function getData(
     return res.json()
   } catch (error) {
     console.log(`${process.env.API}${api}`)
+    console.log('Error:', error);
   }
 }

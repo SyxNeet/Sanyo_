@@ -146,7 +146,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
               <h2 className='heading-slide font-averta'>
-                <span>{item?.heading1}</span> <span>{item?.heading2}</span>
+                <span>{item?.heading1}</span> <span className='text-white drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>{item?.heading2}</span>
               </h2>
               <p className='md:w-[45.5rem] max-md:hidden md:mt-[0.37rem] text-white lg:text-[1.125rem] font-medium leading-1.5 font-Iciel'>
                 {item?.description}
