@@ -1,22 +1,18 @@
 'use client'
-import React, {useRef} from 'react'
+import React from 'react'
 import Link from 'next/link'
 
 import Image from 'next/image'
 import logoImgJE from '/public/images/japanElevator/logo.png'
 import logoImgTextJE from '/public/images/japanElevator/logotext.png'
-
-
-import imgItem1 from '/public/images/japanElevator/item1.png'
-import imgItem2 from '/public/images/japanElevator/item2.png'
 import dauphayImg from '/public/images/japanElevator/dauphayje.png'
-
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
-const PerfectChoiceJE = () => {
+import './styles.css'
+const PerfectChoiceJE = ({data,lang}) => {
   return (
     <div>
               <section className='relative z-10 pt-[10.18rem] max-md:pt-[4.07rem]'>
@@ -34,8 +30,7 @@ const PerfectChoiceJE = () => {
             alt='logoText'
             className='w-full h-[7.37475rem] mb-[1.76rem] max-md:h-[2.76038rem] max-md:mb-[0.44rem]'
           />
-          <span className='block font-SVNLagu text-[3rem] text-grey-700 font-semibold leading-1.2 max-md:text-[1.12288rem] '>
-            sự lựa chọn hoàn hảo dành cho bạn
+          <span className='block font-SVNLagu text-[3rem] text-grey-700 font-semibold leading-1.2 max-md:text-[1.12288rem] ' dangerouslySetInnerHTML={{__html:data?.heading}}>
           </span>
         </div>
         <div className='w-full h-[3.5rem] relative mb-[3.63rem] max-md:h-[2.11056rem] max-md:mb-[1.71rem] max-md:ml-3 max-md:mt-[1.1rem]'>
@@ -52,14 +47,16 @@ const PerfectChoiceJE = () => {
               }
             />
             <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-c-nht max-md:text-[0.67838rem]'>
-              Khám phá ngay
+              {lang==="vi"?"Khám phá ngay":"Discover now"}
             </span>
           </Link>
         </div>
         <div className='flex h-[35.9375rem] w-full max-md:flex-col max-md:h-fit'>
           <Image
-            src={imgItem1}
-            alt='item1'
+            src={data?.image_1?.link}
+            alt={data?.image_1?.alt}
+            width={1000}
+            height={1000}
             className='w-[51%] h-full object-cover max-md:w-full max-md:h-[15.625rem]'
           />
           <div className='relative w-[49%] pt-[13.94rem] pl-[4rem] pr-[3.44rem] pb-[7.94rem]  max-md:pt-[0] max-md:pb-2 max-md:pl-[4.56rem] max-md:pr-[1.31rem] max-md:w-full max-md:translate-y-[-2rem]'>
@@ -77,12 +74,9 @@ const PerfectChoiceJE = () => {
                 alt='dau phay'
                 className='w-[1.375rem] h-[1.375rem] absolute bottom-[5%] left-[37%] dauphay2 max-md:w-[0.92688rem] max-md:h-[0.92688rem] max-md:left-[68%]'
               />
-              <p className='font-SVNLagu text-gray-900 font-semibold leading-1.4 text-[2rem] max-md:text-[1.125rem]'>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thang máy
-                gia đình không chỉ là phương tiện di chuyển, mà còn là cầu nối
-                giữa các khoảnh khắc yêu thương, làm tình cảm gia đình trở nên
-                gần gũi và ấm áp hơn bao giờ hết.
-              </p>
+              <div className='pragraphJE font-SVNLagu text-gray-900 font-semibold leading-1.4 text-[2rem] max-md:text-[1.125rem] [&>p>strong]:text-c-nht [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:data?.description_1}}>
+              
+              </div>
             </div>
           </div>
         </div>
@@ -92,22 +86,18 @@ const PerfectChoiceJE = () => {
             <div className='absolute top-0 right-0 w-[3.5625rem] h-[3.5625rem] bg-c-nht opacity-10 max-md:top-[unset] max-md:bottom-0 max-md:w-[2.1875rem] max-md:h-[2.125rem]'></div>
             <div className='md:hidden w-[0.875rem] h-[0.6875rem] bg-c-nht opacity-10 absolute bottom-[2.125rem] right-[2.1875rem]'></div>
             <div className='w-full pt-[7.13rem] pl-[6.19rem] pr-[7.62rem] pb-[8.31rem] max-md:pt-[2.63rem] max-md:px-3 max-md:pb-[3.38rem]'>
-              <h2 className='text-c-nht font-SVNLagu text-xl font-medium tracking-[0.1rem] uppercase leading-1.5 mb-6 max-md:mb-3'>
-                chăm sóc <br className='md:hidden' /> những người yêu thương
+              <h2 className='text-c-nht font-SVNLagu text-xl font-medium tracking-[0.1rem] uppercase leading-1.5 mb-6 max-md:mb-3 md:[&>p>br]:hidden flex max-md:flex-col [&>p>strong]:font-medium max-md:[&>p>strong]:text-grey-900' dangerouslySetInnerHTML={{__html:data?.title}}>
+                
               </h2>
-              <p className='font-Iciel font-normal text-lg leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem]'>
-                Rất nhiều các căn hộ thông tầng hay Duplex hay các Vilas biệt
-                thự được hưởng lợi ích từ việc lắp thang máy. Thang máy giúp
-                việc đi lại giữa các tầng hay các toà nhà thuận tiện hơn, điều
-                này đặc biệt có ý nghĩa khi chủ nhà có người già hay trẻ em, đi
-                thang máy sẽ an toàn hơn hạn chế việc ngã hay trượt chân như khi
-                đi thang bộ.
+              <p className='font-Iciel font-normal text-lg leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem] ' dangerouslySetInnerHTML={{__html:data?.desc_2}}>
               </p>
             </div>
           </div>
           <Image
-            src={imgItem2}
-            alt='item2'
+            src={data?.image_2?.link}
+            alt={data?.image_2?.alt}
+            width={500}
+            height={500}
             className='w-[49%] object-cover h-full max-md:w-full'
           />
         </div>
