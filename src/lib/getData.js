@@ -8,7 +8,7 @@ export default async function getData(
       headers: {
         'Content-Type': 'application/json',
       },
-      next:revalidate,
+      next: revalidate,
     })
 
     if (!res.ok) {

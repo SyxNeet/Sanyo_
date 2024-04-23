@@ -7,44 +7,22 @@ import 'swiper/css/navigation'
 import {Navigation, Pagination, Autoplay, Thumbs} from 'swiper/modules'
 import Image from 'next/image'
 import './style.css'
-export default function SlideBanner({isMobile}) {
+export default function SlideBanner({isMobile, dataBanner}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
-  const slideImages = [
-    {
-      heading: 'KẾT NỐI YÊU THƯƠNG',
-      desc: 'Thang máy gia đình không chỉ là phương tiện di chuyển, mà còn là cầu nối giữa các khoảnh khắc yêu thương, làm tình cảm gia đình trở nên ấm áp gần gũi hơn',
-    },
-    {
-      heading: 'DỊCH VỤ TẬN TÂM',
-      desc: 'Chúng tôi cung cấp dịch vụ hỗ trợ 24/7. Đội ngũ kĩ sư bảo trì bảo dưỡng chuyên môn cao, giàu kinh nghiệm và tận tâm với khách',
-    },
-    {
-      heading: 'CÔNG NGHỆ NHẬT BẢN',
-      desc: 'Chúng tôi sản xuất 20.000 thang máy hàng năm với công nghệ xử lý theo Nhật Bản và dây chuyển xử lý tự động PSBB của Phần Lan',
-    },
-    {
-      heading: 'BẢO VỆ MÔI TRƯỜNG',
-      desc: 'Chúng tôi sử dụng 100% lớp phủ năng lượng quang. Điều này giúp tiết kiệm 80% năng lượng so với truyền thống',
-    },
-    {
-      heading: 'CÔNG NGHỆ IOT HIỆN ĐẠI',
-      desc: 'Thang máy được điều khiển bằng hệ thống lái thông minh và quá trình vận hành được kiểm soát theo thời gian thực bằng máy tính và hệ thống an toàn nhiều lớp bảo đảm an toàn tuyệt đối khi vận hành',
-    },
-  ]
   const swiperRef = useRef()
   const [indexSlider, setIndexSlider] = useState(0)
-  
+
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.realIndex)
   }
-  
+
   return (
     <section className='md:h-screen h-[23.6875rem] w-full relative'>
       {/* pagination */}
 
       {isMobile ? (
         <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>
-          {Array?.from(slideImages)?.map((item, index) => (
+          {dataBanner?.map((item, index) => (
             <div
               key={index}
               className={`w-[0.6rem] h-[0.6rem] transition-transform duration-1000 mr-[0.58rem]`}
@@ -69,7 +47,7 @@ export default function SlideBanner({isMobile}) {
         </div>
       ) : (
         <div className='absolute md:left-[5.62rem] md:bottom-[2.81rem] bottom-[1.25rem] left-[1.25rem] z-[2] flex'>
-          {Array?.from(slideImages)?.map((item, index) => (
+          {dataBanner?.map((item, index) => (
             <div
               key={index}
               className={`md:w-[1rem] w-[0.6rem] h-[0.6rem] md:h-[1rem] md:mr-[1rem] mr-[0.58rem]  rounded-[50%] bg-gray-800 bg-opacity-20 relative ${
@@ -101,7 +79,7 @@ export default function SlideBanner({isMobile}) {
             className='mySwiperNumberElevator h-[1.875rem]'
             direction='vertical'
           >
-            {Array.from(slideImages)?.map((item, index) => (
+            {dataBanner?.map((item, index) => (
               <SwiperSlide
                 key={index}
                 className='h-[1.875rem] max-md:!flex max-md:items-center'
@@ -141,9 +119,9 @@ export default function SlideBanner({isMobile}) {
         spaceBetween={0}
         loop={true}
         thumbs={{swiper: thumbsSwiper}}
-        // autoplay={{
-        //   delay: 3000,
-        // }}
+        autoplay={{
+          delay: 3000,
+        }}
         onSlideChange={handleSlideChange}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
@@ -156,20 +134,22 @@ export default function SlideBanner({isMobile}) {
           prevEl: '.swiper-button-prev-custom-home',
         }}
       >
-        {slideImages.map((item, index) => (
+        {dataBanner.map((item, index) => (
           <SwiperSlide key={index}>
             <Image
-              src={'/images/home/slideFirstPage/slide1.png'}
-              alt='image'
+              src={item?.background?.url}
+              alt={item?.background?.alt || 'thang máy gia đình'}
               width={1920}
               height={1000}
               quality={100}
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
-              <h2 className='heading-slide font-averta'>{item.heading}</h2>
+              <h2 className='heading-slide font-averta'>
+                <span>{item?.heading1}</span> <span>{item?.heading2}</span>
+              </h2>
               <p className='md:w-[45.5rem] max-md:hidden md:mt-[0.37rem] text-white lg:text-[1.125rem] font-medium leading-1.5 font-Iciel'>
-                {item.desc}
+                {item?.description}
               </p>
             </div>
           </SwiperSlide>

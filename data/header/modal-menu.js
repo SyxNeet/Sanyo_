@@ -73,38 +73,17 @@ export const modalMenu = [
   },
   {
     text: 'DỰ ÁN NỔI BẬT',
-    showMore: true,
-    child: [
-      {
-        href: '/',
-        src: '/images/layout/header/service.png',
-        text: 'Thiết kế và lắp đặt thang máy theo yêu cầu 2',
-      },
-      {
-        href: '/',
-        src: '/images/layout/header/service.png',
-        text: 'Thang máy tải khách 2',
-      },
-    ],
+    showMore: false,
+    href: '/',
   },
   {
     text: 'BLOG',
-    showMore: true,
-    child: [
-      {
-        href: '/',
-        src: '/images/layout/header/thang-tai-thuc-pham.png',
-        text: 'Thiết kế và lắp đặt thang máy theo yêu cầu 3',
-      },
-      {
-        href: '/',
-        src: '/images/layout/header/thang-tai-thuc-pham.png',
-        text: 'Thang máy tải khách 3',
-      },
-    ],
+    showMore: false,
+    href: '/',
   },
   {
     text: 'LIÊN HỆ',
+    showMore: false,
     href: '/',
   },
 ]

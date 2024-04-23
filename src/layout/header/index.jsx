@@ -3,8 +3,6 @@
 import clsx from 'clsx'
 import {useEffect, useState} from 'react'
 import Image from 'next/image'
-import HeaderDivider from './HeaderDivider'
-import HeaderDropdown from './HeaderDropdown'
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
 import HeaderModalLink from './HeaderModalLink'
@@ -32,8 +30,12 @@ export default function Header() {
         <nav className='px-10 py-[1.13rem] flex flex-row items-center'>
           {!isOpenModalMenu ? (
             <button
-              className='w-9 h-4 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
-              onClick={() => setIsOpenModalMenu(true)}
+              className='w-9 h-5 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
+              onClick={() => {
+                setIsOpenModalMenu(true)
+                setActiveModalMenuLink('')
+                setActiveModalMenuChildLink('')
+              }}
             >
               <span className='w-3/4 h-[0.12rem] bg-grey-900'></span>
               <span className='w-full h-[0.12rem] bg-grey-900'></span>
@@ -41,8 +43,12 @@ export default function Header() {
             </button>
           ) : (
             <button
-              className='flex items-center justify-center h-4 w-9 hover-opacity'
-              onClick={() => setIsOpenModalMenu(false)}
+              className='flex items-center justify-center h-5 w-9 hover-opacity'
+              onClick={() => {
+                setIsOpenModalMenu(false)
+                setActiveModalMenuLink('')
+                setActiveModalMenuChildLink('')
+              }}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -71,12 +77,42 @@ export default function Header() {
               </svg>
             </button>
           )}
-          <HeaderDivider className='mx-10' />
-          <HeaderDropdown text={'THANG MÁY NHẬT BẢN'} />
-          <HeaderDropdown text={'DỊCH VỤ'} />
+          <div className='w-[0.0625rem] h-[2.375rem] opacity-10 bg-grey-900 mx-10' />
+          <button
+            className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'
+            onClick={() => {
+              setIsOpenModalMenu(!isOpenModalMenu)
+              setActiveModalMenuLink('THANG MÁY NHẬT BẢN')
+            }}
+          >
+            THANG MÁY NHẬT BẢN
+            <Image
+              src={`/images/layout/header/arrow-down.svg`}
+              alt='arrow down'
+              className='w-2 h-1 ml-2'
+              width={100}
+              height={100}
+            />
+          </button>
+          <button
+            className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'
+            onClick={() => {
+              setIsOpenModalMenu(!isOpenModalMenu)
+              setActiveModalMenuLink('DỊCH VỤ')
+            }}
+          >
+            DỊCH VỤ
+            <Image
+              src={`/images/layout/header/arrow-down.svg`}
+              alt='arrow down'
+              className='w-2 h-1 ml-2'
+              width={100}
+              height={100}
+            />
+          </button>
           <Link
             href={`/`}
-            className='flex flex-row items-center mx-auto hover-opacity'
+            className='absolute flex flex-row items-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
           >
             <svg
               className='size-[2.6rem]'
@@ -236,21 +272,18 @@ export default function Header() {
               </svg>
             </div>
           </Link>
-          <div className='flex flex-row items-center'>
+          <div className='flex flex-row items-center ml-auto'>
             <Button
               text='LIÊN HỆ NGAY'
               isHover
               isBlack
             />
-            <HeaderDivider className='mx-7' />
+            <div className='w-[0.0625rem] h-[2.375rem] opacity-10 bg-grey-900 mx-7' />
             <div className='flex flex-col'>
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
                 Chọn ngôn ngữ
               </p>
-              <Link
-                href={`/en`}
-                className='text-grey-700 font-Iciel text-1.25 font-medium leading-1.5 flex flex-row items-center'
-              >
+              <button className='relative text-grey-700 font-Iciel text-1.25 font-medium leading-1.5 flex flex-row items-center group'>
                 <Image
                   src={`/images/layout/header/vietnam-lang.png`}
                   alt=''
@@ -272,7 +305,47 @@ export default function Header() {
                     fill='#33383E'
                   />
                 </svg>
-              </Link>
+                <div className='absolute bottom-0 pt-2 -translate-x-1/2 translate-y-full opacity-0 pointer-events-none left-1/2 group-hover:opacity-100 group-hover:pointer-events-auto transition-300'>
+                  <ul
+                    className='w-max bg-grey-0 px-[1.24rem] py-3 rounded-[0.375rem]'
+                    style={{
+                      boxShadow:
+                        'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
+                    }}
+                  >
+                    <li className=''>
+                      <Link
+                        href={`/`}
+                        className='flex flex-row items-center font-Iciel text-[1.1713rem] leading-1.5 text-grey-700'
+                      >
+                        <Image
+                          src={`/images/layout/header/radio-active.svg`}
+                          alt='vietnam'
+                          className='mr-[0.88rem] size-[1.1713rem]'
+                          width={100}
+                          height={100}
+                        />
+                        Việt Nam
+                      </Link>
+                    </li>
+                    <li className='mt-[0.3rem]'>
+                      <Link
+                        href={`/`}
+                        className='flex flex-row items-center font-Iciel text-[1.1713rem] leading-1.5 text-grey-700'
+                      >
+                        <Image
+                          src={`/images/layout/header/radio.svg`}
+                          alt='english'
+                          className='mr-[0.88rem] size-[1.1713rem]'
+                          width={100}
+                          height={100}
+                        />
+                        English
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </button>
             </div>
           </div>
         </nav>
