@@ -26,7 +26,7 @@ export default async function Home({params, searchParams}) {
   const dataCountUp = getDataHomeReq?.acf?.tinh_hoa_thang_may
   const dataValueDifferent = getDataHomeReq?.acf?.gia_tri_khac_biet
   const dataPlatForm = getDataHomeReq?.acf?.danh_sach_thang_may
-  console.log(dataPlatForm)
+
   return (
     <main>
       <SlideBanner
