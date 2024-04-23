@@ -22,8 +22,8 @@ function FollowUs() {
         <Image
           src={'/images/layout/footer/insFooter.png'}
           alt='facebook'
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           className='w-[2.31494rem] h-[2.31494rem] object-cover'
         />
       </Link>

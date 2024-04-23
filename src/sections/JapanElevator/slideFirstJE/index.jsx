@@ -4,10 +4,7 @@ import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Pagination, Autoplay} from 'swiper/modules'
 import Image from 'next/image'
-import logoImgJE from '/public/images/japanElevator/logo.png'
-import sunImg from '/public/images/japanElevator/sun.png'
 import {exampleSLideJpElevator} from '/data/japanElevator'
-import imgHoaSen from '/public/images/japanElevator/hoasen.png'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import 'swiper/css'
@@ -31,36 +28,42 @@ const slideFirstJE = ({isMobile,data}) => {
     })
   }, [])
   return (
-              <section
-        className='pt-4'
-        id='sectionSunRise'
-      >
-        <div className='pl-[6.25rem] max-md:pl-3'>
-          <Link
-            href='/'
-            className='text-[#33383E] opacity-50 font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
-          >
-            Trang chủ /
-          </Link>
-          <Link
-            href='/'
-            className='text-[#33383E]  font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
-          >
-            thang máy nhật bản
-          </Link>
-        </div>
-        <div className='relative pt-[7.5rem] pb-[5rem] overflow-hidden max-md:pt-[3.96rem] max-md:pb-[1.55rem]'>
+    <section
+      className='pt-4'
+      id='sectionSunRise'
+    >
+      <div className='pl-[6.25rem] max-md:pl-3'>
+        <Link
+          href='/'
+          className='text-[#33383E] opacity-50 font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
+        >
+          Trang chủ /
+        </Link>
+        <Link
+          href='/'
+          className='text-[#33383E]  font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
+        >
+          thang máy nhật bản
+        </Link>
+      </div>
+      <div className='relative pt-[7.5rem] pb-[5rem] overflow-hidden max-md:pt-[3.96rem] max-md:pb-[1.55rem]'>
+        <Image
+          src={'/images/japanElevator/sun.png'}
+          alt='Sun image'
+          className='absolute lg:top-[65%] md:top-[68%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
+          id='sunRiseImg'
+        />
+        <Image
+          src={'/images/japanElevator/hoasen.png'}
+          alt='Hoa Sen'
+          className='absolute right-[-7%] bottom-[-22%] md:hidden'
+          id='hoaSenImg'
+        />
+        <div className='relative flex flex-col w-fit pl-[10.25rem] items-end max-md:pl-3 max-md:items-start'>
           <Image
-            src={sunImg}
-            alt='Sun image'
-            className='absolute lg:top-[65%] md:top-[68%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
-            id='sunRiseImg'
-          />
-          <Image
-            src={imgHoaSen}
-            alt='Hoa Sen'
-            className='absolute right-[-7%] bottom-[-22%] md:hidden'
-            id='hoaSenImg'
+            src={'/images/japanElevator/logo.png'}
+            alt='logo Sanyo'
+            className='absolute w-[5.5rem] h-[5.5rem] left-full bottom-[70%] max-md:hidden'
           />
           <div className='relative flex flex-col w-fit pl-[10.25rem] items-end max-md:pl-3 max-md:items-start'>
             <Image
@@ -74,7 +77,8 @@ const slideFirstJE = ({isMobile,data}) => {
             </div>
           </div>
         </div>
-        <div
+      </div>
+      <div
         className='max-md:flex max-md:flex-col w-full'
         ref={firstRef}
       >
@@ -82,7 +86,7 @@ const slideFirstJE = ({isMobile,data}) => {
           <div className='flex justify-between'>
             <ButtonSlide
               className={
-                ' swiper-button-prev-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-white md:hover:border-[white] md:hover:bg-[#FE4127] max-md:bg-white max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] left-[9%] max-md:relative max-md:left-[unset] max-md:top-[unset] '
+                ' swiper-button-prev-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-grey-0 md:hover:border-[white] md:hover:bg-[#FE4127] max-md:bg-grey-0 max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] left-[9%] max-md:relative max-md:left-[unset] max-md:top-[unset] '
               }
               classNameSvg={
                 'w-[1rem] h-[1rem] text-[#FE4127] md:group-hover:text-white max-md:text-[#FE4127] max-md:w-[0.875rem] max-md:h-[0.875rem]'
@@ -90,7 +94,7 @@ const slideFirstJE = ({isMobile,data}) => {
             />
             <ButtonSlide
               className={
-                ' swiper-button-next-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-white md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-white max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] right-[9%] max-md:relative max-md:right-[unset] max-md:top-[unset] '
+                ' swiper-button-next-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-grey-0 md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-grey-0 max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] right-[9%] max-md:relative max-md:right-[unset] max-md:top-[unset] '
               }
               classNameSvg={
                 'w-[1rem] h-[1rem] text-[#FE4127] md:group-hover:text-white max-md:text-[#FE4127] max-md:w-[0.875rem] max-md:h-[0.875rem] rotate-180'
@@ -142,7 +146,7 @@ const slideFirstJE = ({isMobile,data}) => {
           ))}
         </Swiper>
       </div>
-      </section>
+    </section>
   )
 }
 

@@ -68,8 +68,8 @@ export default function SliderMbJapanElevator() {
                   <Image
                     src={'/images/layout/platForm/iconPlform1.svg'}
                     alt='icon'
-                    width={100}
-                    height={100}
+                    width={120}
+                    height={120}
                     quality={100}
                     className='w-[1.55225rem] h-[1.55225rem] mr-[0.38rem]'
                   />
@@ -87,8 +87,8 @@ export default function SliderMbJapanElevator() {
                   <Image
                     src={'/images/layout/platForm/iconPlform1.svg'}
                     alt='icon'
-                    width={100}
-                    height={100}
+                    width={120}
+                    height={120}
                     quality={100}
                     className='w-[1.55225rem] h-[1.55225rem] mr-[0.38rem]'
                   />

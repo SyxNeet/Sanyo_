@@ -68,8 +68,8 @@ export default function Slider() {
                   <Image
                     src={'/images/layout/platForm/iconPlform1.svg'}
                     alt='icon'
-                    width={100}
-                    height={100}
+                    width={120}
+                    height={120}
                     quality={100}
                     className='w-[1.55225rem] h-[1.55225rem] mr-[0.38rem]'
                   />
@@ -89,8 +89,8 @@ export default function Slider() {
                   <Image
                     src={'/images/layout/platForm/iconPlform1.svg'}
                     alt='icon'
-                    width={100}
-                    height={100}
+                    width={120}
+                    height={120}
                     quality={100}
                     className='w-[1.55225rem] h-[1.55225rem] mr-[0.38rem]'
                   />
@@ -109,7 +109,7 @@ export default function Slider() {
         ))}
       </Swiper>
       <div className='w-[6.25rem] relative mx-auto mt-8 '>
-        <div className='paginationPlatFormMb rounded-full w-full !bg-white'></div>
+        <div className='paginationPlatFormMb rounded-full w-full !bg-grey-0'></div>
       </div>
       <Link href={'/'} className='mt-[3.12rem] flex justify-center'>
         <Button

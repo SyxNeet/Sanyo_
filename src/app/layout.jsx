@@ -101,8 +101,8 @@ export default function RootLayout({children, params}) {
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
         {/* TODO: lazy loading, suspense for all pages */}
-        {/* <Header /> */}
-        <GsapProvider>
+        <Header isMobile={isMobile} />
+        <GsapProvider isMobile={isMobile}>
           {children}
           <Footer isMobile={isMobile} />
         </GsapProvider>

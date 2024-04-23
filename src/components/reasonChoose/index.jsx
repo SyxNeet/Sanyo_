@@ -44,16 +44,16 @@ export default function ReasonChoose() {
           </span>
           <Image
             src='/images/components/reasonChoose/iconPlus.svg'
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             className='md:w-[2.125rem] md:h-[2.125rem] max-md:hidden'
             alt='icon'
           />
           <Image
             alt='icon'
             src='/images/components/reasonChoose/row.svg'
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             className='w-[0.875rem] h-[0.74975rem] md:w-[2.125rem] md:h-[2.125rem] max-md:ml-[0.51rem]'
           />
         </div>

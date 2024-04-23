@@ -40,7 +40,7 @@ const ProductLine = ({data,lang}) => {
             alt='download'
             className='downArrowBottom absolute left-0 bottom-[5%]'
           />
-          <div className='absolute w-[68%] left-[17%] bottom-0 h-[2px] rounded-full bg-white'></div>
+          <div className='absolute w-[68%] left-[17%] bottom-0 h-[2px] rounded-full bg-grey-0'></div>
         </div>
       </Link>
     </div>

@@ -9,8 +9,8 @@ import PlatFormMobile from '@/components/platFormMobile'
 import OutStandingProject from '@/sections/home/outStandingProject/OutStandingProject'
 import OutStandingProjectMb from '@/sections/home/outStandingProjectMb'
 import News from '@/sections/home/news/News'
-import PartnerSection from '@/sections/about-us/PartnerSection'
 import {Suspense} from 'react'
+import PartnerSection from '@/components/partner/PartnerSection'
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const {lang} = params

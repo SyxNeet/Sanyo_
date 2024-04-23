@@ -58,7 +58,7 @@ export default function CountItem({num, desc, className}) {
         >
           {number < 10 ? `0${number}` : number}
         </span>
-        {/* <Image src={'/images/home/sectionCount/plus.svg'} alt="plus" width={100} height={100} className='' /> */}
+        {/* <Image src={'/images/home/sectionCount/plus.svg'} alt="plus" width={120} height={120} className='' /> */}
         <span className='text-yellow-500 font-SVNLagu font-[300] md:text-[2.79488rem] text-[1.7rem] leading-1.2 absolute'>
           +
         </span>
