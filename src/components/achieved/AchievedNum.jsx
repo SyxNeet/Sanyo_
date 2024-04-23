@@ -3,7 +3,7 @@
 import {useEffect, useRef, useState} from 'react'
 import {formatNumber} from '../../../utils/formatNumber'
 
-const duration = 1500
+const duration = 1200
 const numRun = 20
 
 export default function AchievedNum({num, text, startCounting, style}) {
