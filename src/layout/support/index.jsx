@@ -95,7 +95,7 @@ export default function Support() {
     }
   }, [])
   return (
-    <section className='w-full bg-white h-[34.8rem] relative flex justify-center items-center max-md:px-[1rem] max-md:h-fit'>
+    <section className='w-full bg-grey-0 h-[34.8rem] relative flex justify-center items-center max-md:px-[1rem] max-md:h-fit'>
       <Image
         src={imgBgForm}
         className='absolute  w-full h-full'

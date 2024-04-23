@@ -42,15 +42,15 @@ export default function News() {
             <div className='absolute right-0 bottom-0 '>
               <Image
                 src={'/images/home/danhSachTinTuc/Intersect.svg'}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 alt='icon'
                 className='w-[4.55769rem] h-[3.49163rem]'
               />
               <Image
                 src={'/images/home/danhSachTinTuc/arrow.svg'}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 alt='icon'
                 className='w-[1.01875rem] h-[1.126rem] absolute top-[50%] left-[50%] object-cover'
               />
@@ -59,8 +59,8 @@ export default function News() {
               <Image
                 src={'/images/home/danhSachTinTuc/callendar.svg'}
                 alt='callendar'
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 className='w-[0.75rem] h-[0.75rem] object-cover'
               />
               <span className='text-white font-Iciel text-[0.75rem] leading-1.3 ml-[0.25rem]'>

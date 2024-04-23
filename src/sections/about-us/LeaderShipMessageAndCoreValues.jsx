@@ -25,7 +25,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           start: 'top top',
           end: 'bottom top',
           pinSpacing: false,
-          anticipatePin: 1
+          anticipatePin: 1,
         },
       })
       gsap.to(secondRef.current, {
@@ -35,7 +35,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           pin: true,
           start: 'top top',
           end: 'bottom bottom',
-          anticipatePin: 1
+          anticipatePin: 1,
         },
       })
     }
@@ -185,7 +185,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
           </div>
         </section>
         {!isMobile && (
-          <section className='z-10 flex flex-row items-start bg-white section-container'>
+          <section className='z-10 flex flex-row items-start bg-grey-0 section-container'>
             <div
               ref={secondRef}
               className='relative basis-[65%] h-screen top-0'
@@ -332,54 +332,25 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
             </Swiper>
             <div className='flex flex-row mx-3 mt-5'>
               <button onClick={() => swiperRef.current.swiper.slidePrev()}>
-                <svg
+                <Image
+                  src={`/images/about-us/next-button-core-value-slide.svg`}
+                  alt='previous slide'
                   className='size-10'
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='40'
-                  height='40'
-                  viewBox='0 0 40 40'
-                  fill='none'
-                >
-                  <circle
-                    cx='20'
-                    cy='20'
-                    r='19.65'
-                    transform='matrix(-1 0 0 1 40 0)'
-                    fill='#DAB571'
-                    stroke='#DAB571'
-                    strokeWidth='0.7'
-                  />
-                  <path
-                    d='M14.2864 20.1221L21.939 14V18.5915L25 20.1221L21.939 21.6526V26.2441L14.2864 20.1221Z'
-                    fill='#1E2125'
-                  />
-                </svg>
+                  width={120}
+                  height={120}
+                />
               </button>
               <button
                 className='ml-[0.38rem]'
                 onClick={() => swiperRef.current.swiper.slideNext()}
               >
-                <svg
+                <Image
+                  src={`/images/about-us/next-button-core-value-slide.svg`}
+                  alt='next slide'
                   className='size-10'
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='40'
-                  height='40'
-                  viewBox='0 0 40 40'
-                  fill='none'
-                >
-                  <circle
-                    cx='20'
-                    cy='20'
-                    r='19.65'
-                    fill='#DAB571'
-                    stroke='#DAB571'
-                    strokeWidth='0.7'
-                  />
-                  <path
-                    d='M25.7136 20.1221L18.061 14V18.5915L15 20.1221L18.061 21.6526V26.2441L25.7136 20.1221Z'
-                    fill='#1E2125'
-                  />
-                </svg>
+                  width={120}
+                  height={120}
+                />
               </button>
               <div
                 className='rounded-full flex justify-center items-center ml-auto w-[4.3125rem] h-10 text-yellow-500 font-Iciel text-0.875 font-medium leading-1.2'

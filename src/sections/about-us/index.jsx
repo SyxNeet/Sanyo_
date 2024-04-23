@@ -1,5 +1,5 @@
 import ProductionLineSection from './ProductionLineSection'
-import PartnerSection from './PartnerSection'
+import PartnerSection from '@/components/partner/PartnerSection'
 import Achieved from './Achieved'
 import LeaderShipMessageAndCoreValues from './LeaderShipMessageAndCoreValues'
 import SlideOnlyImagesDownload from '@/components/slideOnlyImagesWithDowload'

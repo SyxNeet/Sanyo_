@@ -11,7 +11,7 @@ import '../styles.css'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 const ProductLine = () => {
   return (
-    <section className='mt-[2.25rem] relative z-10 box-container-border bg-white productLineJE max-md:mt-[1.25rem]'>
+    <section className='mt-[2.25rem] relative z-10 box-container-border bg-grey-0 productLineJE max-md:mt-[1.25rem]'>
     <div className='w-[114.75rem] h-[114.75rem] absolute z-10 top-0 left-[60%] max-md:left-[62%] max-md:w-[29.125rem] max-md:h-[29.125rem] rounded-[50%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,_65,_39,_0.60)_0%,_rgba(254,_65,_39,_0.00)_100%)]'></div>
     <div className='pt-[9rem] pl-[6.25rem] flex max-md:px-4 max-md:pt-[2rem]'>
       <div className='border-r-[1px] border-[rgba(28,32,28,0.10)] pb-[5.38rem] pr-[6.63rem] max-md:border-none max-md:px-0 max-md:pb-5'>
@@ -44,7 +44,7 @@ const ProductLine = () => {
             alt='download'
             className='downArrowBottom absolute left-0 bottom-[5%]'
           />
-          <div className='absolute w-[68%] left-[17%] bottom-0 h-[2px] rounded-full bg-white'></div>
+          <div className='absolute w-[68%] left-[17%] bottom-0 h-[2px] rounded-full bg-grey-0'></div>
         </div>
       </Link>
     </div>
