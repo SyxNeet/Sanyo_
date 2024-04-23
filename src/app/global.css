@@ -147,6 +147,14 @@ html {
   @apply transition-300 hover:opacity-60;
 }
 
+.swiper.swiper-partner {
+  @apply absolute bottom-[2.93rem] md:bottom-[4rem] left-1/2 -translate-x-1/2 w-[21.75rem] h-[11rem] md:w-[85.0625rem] md:h-[22rem] bg-white/90 md:bg-white rounded-[0.58565rem] md:rounded-2xl !important;
+}
+
+.swiper-partner .swiper-slide {
+  @apply flex justify-center items-center p-[1.5rem] md:p-[4rem] md:border border-[#E6E6E6] !important;
+}
+
 /* border radius for section */
 
 .box-container-border {

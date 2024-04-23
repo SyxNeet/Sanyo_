@@ -12,13 +12,13 @@ import OutStandingProjectMb from './outStandingProjectMb'
 export default function HomePage({isMobile}) {
   return (
     <div>
-      <SlideBanner  isMobile={isMobile} />
+      <SlideBanner isMobile={isMobile} />
       <CountUp isMobile={isMobile} />
       <ValueDifferent isMobile={isMobile} />
       {!isMobile ? <PlatFormElevator /> : <PlatFormMobile />}
-      {!isMobile? <OutStandingProject /> : <OutStandingProjectMb/>}
+      {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
       <News />
-      {/* <PartnerSection isMobile={isMobile} /> */}
+      <PartnerSection isMobile={isMobile} />
     </div>
   )
 }
