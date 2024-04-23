@@ -26,7 +26,7 @@ function ValueDifferent({isMobile}) {
         {/* slide */}
         <SlideValue isMobile={isMobile} />
       </div>
-      <button className='md:w-[3.5rem] max-md:mt-[1.5rem] max-md:ml-[0.75rem] max-md:mr-[0.38rem] md:h-[3.5rem] rounded-[50%] bg-white shadow_btn md:absolute left-[6.13rem] z-[1] btn-prev-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
+      <button className='md:w-[3.5rem] max-md:mt-[1.5rem] max-md:ml-[0.75rem] max-md:mr-[0.38rem] md:h-[3.5rem] rounded-[50%] bg-grey-0 shadow_btn md:absolute left-[6.13rem] z-[1] btn-prev-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='17'
@@ -41,7 +41,7 @@ function ValueDifferent({isMobile}) {
           />
         </svg>
       </button>
-      <button className='md:w-[3.5rem] max-md:mt-[1.5rem] md:h-[3.5rem] rounded-[50%] bg-white right-[6.13rem] z-[1] shadow_btn md:absolute btn-next-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
+      <button className='md:w-[3.5rem] max-md:mt-[1.5rem] md:h-[3.5rem] rounded-[50%] bg-grey-0 right-[6.13rem] z-[1] shadow_btn md:absolute btn-next-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='14'

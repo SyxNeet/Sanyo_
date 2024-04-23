@@ -45,7 +45,7 @@ export default function SubmitMail() {
       <p className='md:mb-[0.62rem] mb-[0.94rem] font-Iciel text-white md:text-[1.3rem] text-[0.875rem] max-md:w-[14.5rem] lg:text-[1rem] leading-1.5 uppercase'>
         Để lại email của bạn để chúng tôi hỗ trợ bạn tốt nhất
       </p>
-      <div className='md:w-[35.1875rem] h-[3.1875rem] bg-white relative rounded-[0.25rem]'>
+      <div className='md:w-[35.1875rem] h-[3.1875rem] bg-grey-0 relative rounded-[0.25rem]'>
         <input
           type='text'
           name='email'

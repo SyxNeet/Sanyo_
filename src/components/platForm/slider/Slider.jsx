@@ -35,8 +35,8 @@ function Slider() {
           <Image
             src={'/images/layout/platForm/iconPlform1.svg'}
             alt='icon'
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             quality={100}
             className='md:w-[2rem] md:h-[2rem] md:mr-[0.5rem]'
           />
@@ -54,8 +54,8 @@ function Slider() {
           <Image
             src={'/images/layout/platForm/iconPlform1.svg'}
             alt='icon'
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             quality={100}
             className='md:w-[2rem] md:h-[2rem] md:mr-[0.5rem]'
           />

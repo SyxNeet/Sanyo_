@@ -97,7 +97,7 @@ const slideFirstJE = ({isMobile}) => {
           <div className='flex justify-between'>
             <ButtonSlide
               className={
-                ' swiper-button-prev-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-white md:hover:border-[white] md:hover:bg-[#FE4127] max-md:bg-white max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] left-[9%] max-md:relative max-md:left-[unset] max-md:top-[unset] '
+                ' swiper-button-prev-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-grey-0 md:hover:border-[white] md:hover:bg-[#FE4127] max-md:bg-grey-0 max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] left-[9%] max-md:relative max-md:left-[unset] max-md:top-[unset] '
               }
               classNameSvg={
                 'w-[1rem] h-[1rem] text-[#FE4127] md:group-hover:text-white max-md:text-[#FE4127] max-md:w-[0.875rem] max-md:h-[0.875rem]'
@@ -105,7 +105,7 @@ const slideFirstJE = ({isMobile}) => {
             />
             <ButtonSlide
               className={
-                ' swiper-button-next-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-white md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-white max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] right-[9%] max-md:relative max-md:right-[unset] max-md:top-[unset] '
+                ' swiper-button-next-thumbJE border-[#fff] transition ease-in cursor-pointer w-[3.20513rem] h-[3.20513rem] mr-[0.75rem] bg-grey-0 md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-grey-0 max-md:border-[#FE4127] max-md:w-[2.5rem] max-md:h-[2.5rem] absolute z-20  top-[54%] right-[9%] max-md:relative max-md:right-[unset] max-md:top-[unset] '
               }
               classNameSvg={
                 'w-[1rem] h-[1rem] text-[#FE4127] md:group-hover:text-white max-md:text-[#FE4127] max-md:w-[0.875rem] max-md:h-[0.875rem] rotate-180'

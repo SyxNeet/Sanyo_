@@ -10,15 +10,15 @@ function NewsItemHome({className}) {
       <div className='absolute z-[1] right-0 bottom-0 max-md:bottom-[unset] max-md:top-0 max-md:bg-yellow-500 max-md:w-[3.70063rem] max-md:h-[2.835rem] max-md:rounded-bl-full'>
         <Image
           src={'/images/home/danhSachTinTuc/Intersect.svg '}
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           alt='icon'
           className='w-[4.55769rem] h-[3.49163rem] max-md:hidden'
         />
         <Image
           src={'/images/home/danhSachTinTuc/arrow.svg'}
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           alt='icon'
           className='w-[1.01875rem] h-[1.126rem] absolute top-[50%] left-[50%] object-cover max-md:top-[25%]'
         />
@@ -42,8 +42,8 @@ function NewsItemHome({className}) {
           <Image
             src={'/images/home/danhSachTinTuc/callendar.svg'}
             alt='callendar'
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             className='w-[0.75rem] h-[0.75rem] object-cover'
           />
           <span className='text-white font-Iciel text-[0.75rem] leading-1.3 ml-[0.25rem]'>

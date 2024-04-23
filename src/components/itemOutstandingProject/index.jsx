@@ -45,14 +45,14 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
             <Image
               alt='icon'
               src='/images/components/reasonChoose/row.svg'
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className='iconArrowOutstanding absolute w-full h-full right-full top-0'
             />
             <Image
               src='/images/components/reasonChoose/iconPlus.svg'
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className='iconPlusOutstanding absolute w-full h-full top-0 left-0'
               alt='icon'
             />
