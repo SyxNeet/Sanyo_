@@ -10,6 +10,7 @@ import News from './news/News'
 import OutStandingProjectMb from './outStandingProjectMb'
 
 export default function HomePage({isMobile}) {
+    console.log(isMobile);
   return (
     <div>
       <SlideBanner  isMobile={isMobile} />

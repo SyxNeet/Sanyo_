@@ -63,7 +63,7 @@ export default function Slider() {
                 của thang gia đình rất cao
               </p>
 
-              <div className='flex justify-between max-md:px-[0.88rem] max-md:mb-[4.75rem]'>
+              <div className='flex items-center max-md:px-[0.88rem] max-md:mb-[4.75rem]'>
                 <div className='flex items-center md:mb-[1.25rem] md:pb-[1.25rem] border-b-[1px] solid border-white border-opacity-10 max-md:border-none'>
                   <Image
                     src={'/images/layout/platForm/iconPlform1.svg'}
@@ -82,7 +82,9 @@ export default function Slider() {
                     </span>
                   </div>
                 </div>
-
+                  <div className='w-[0.0485rem] h-[1.60075rem] bg-[rgba(112,112,112,0.10);] mx-8'>
+                    
+                  </div>
                 <div className='flex items-center md:mb-[1.25rem] md:pb-[1.25rem] border-b-[1px] solid border-white border-opacity-10 max-md:border-none'>
                   <Image
                     src={'/images/layout/platForm/iconPlform1.svg'}
