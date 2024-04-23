@@ -143,9 +143,9 @@ html {
   @apply transition-all duration-500 ease-out;
 }
 
-.hover-opacity {
+/* .hover-opacity {
   @apply transition-300 hover:opacity-60;
-}
+} */
 
 /* border radius for section */
 
