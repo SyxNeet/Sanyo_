@@ -14,9 +14,7 @@ import {Button} from '@/components/ui/button'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
 
 
-const OutStandingProjectJE = ({isMobile,data,lang}) => {
-    console.log(lang)
-    const outStandingProjectRef = useRef(null)
+const OutStandingProjectJE = ({isMobile,data,lang}) => {    const outStandingProjectRef = useRef(null)
     const outStandingProjectEndRef = useRef(null)
     useGSAP(() => {
       !isMobile &&
