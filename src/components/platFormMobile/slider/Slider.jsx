@@ -113,7 +113,7 @@ export default function Slider() {
       </div>
       <Link href={'/'} className='mt-[3.12rem] flex justify-center'>
         <Button
-          isHover={true}
+          isHover={false}
           text={'XEM TẤT CẢ'}
           isBlack={true}
           className='max-md:bg-yellow-500 max-md:border-none '

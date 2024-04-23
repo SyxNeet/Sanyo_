@@ -26,7 +26,7 @@ export default function ReasonChoose() {
           width={200}
           height={200}
           quality={100}
-          className='absolute inset-0 w-full'
+          className='absolute inset-0 w-full max-lg:hidden'
         />
         <div className='md:w-[21.875rem] max-md:mb-[1.06rem]'>
           <h4 className='font-SVNLagu md:text-[0.875rem] font-[600] md:leading-[1.5] text-grey-50'>

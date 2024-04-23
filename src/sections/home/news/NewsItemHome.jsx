@@ -7,14 +7,14 @@ function NewsItemHome({className}) {
     <div
       className={`h-[17.25rem] rounded-[0.625rem] news_item_home relative flex items-end overflow-hidden ${className}`}
     >
-      <div className='absolute z-[1] right-0 bottom-0 max-md:bottom-[unset] max-md:top-0 max-md:bg-yellow-500 max-md:w-[3.70063rem] max-md:h-[2.835rem] max-md:rounded-bl-full'>
-        <Image
+      <div className='absolute z-[1] right-0 bg-yellow-500 w-[4.55769rem] h-[3.49163rem] rounded-tl-full bottom-0 max-md:bottom-[unset] max-md:top-0 max-md:bg-yellow-500 max-md:w-[3.70063rem] max-md:h-[2.835rem] max-md:rounded-bl-full'>
+        {/* <Image
           src={'/images/home/danhSachTinTuc/Intersect.svg '}
           width={100}
           height={100}
           alt='icon'
           className='w-[4.55769rem] h-[3.49163rem] max-md:hidden'
-        />
+        /> */}
         <Image
           src={'/images/home/danhSachTinTuc/arrow.svg'}
           width={100}
