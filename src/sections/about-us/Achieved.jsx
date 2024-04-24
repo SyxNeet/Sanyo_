@@ -35,21 +35,17 @@ export default function Achieved({isMobile}) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.achieved-num-container',
-          start: 'top bottom-=20%',
+          start: 'top bottom',
           end: 'bottom top',
           once: true,
         },
       })
-      tl.to('.japan', {
-        scale: 6,
-        duration: 1.2,
-      })
+      tl.set('.japan', {scale: 6})
       tl.to(
         '.japan',
         {
           scale: 1,
-          duration: 1.2,
-          ease: 'power1.in',
+          duration: 0.8,
         },
         '>+=0.4',
       )

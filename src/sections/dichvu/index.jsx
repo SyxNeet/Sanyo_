@@ -1,6 +1,6 @@
 import React from 'react'
 import SixReasons from '@/components/sixReasons'
-// import LeadershipMesssage from '@/components/LeadershipMessage'
+import LeadershipMessage from '@/components/LeadershipMessage'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
 import SlideOnlyImagesDownload from '@/components/slideOnlyImagesWithDowload'
 export default function DichVu() {
@@ -11,7 +11,7 @@ export default function DichVu() {
       {/* component 6 reasons  */}
       <SixReasons />
       {/* component chia sẻ từ ban lãnh đạo  */}
-      {/* <LeadershipMesssage /> */}
+      <LeadershipMesssage />
       {/* component item outstanding project  */}
       <ItemOutStandingProject />
     </div>
