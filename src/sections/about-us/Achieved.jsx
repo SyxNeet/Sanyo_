@@ -35,11 +35,12 @@ export default function Achieved({isMobile}) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.achieved-num-container',
-          start: 'top bottom-=20%',
+          start: 'top bottom',
           end: 'bottom top',
           once: true,
         },
       })
+      tl.set('.japan', {scale: 6})
       tl.to(
         '.japan',
         {
@@ -110,7 +111,7 @@ export default function Achieved({isMobile}) {
             <Image
               src={`/images/about-us/japan.png`}
               alt=''
-              className='absolute object-contain h-full scale-[6] -translate-x-1/2 -translate-y-1/2 japan top-1/2 left-1/2'
+              className='absolute object-contain h-full -translate-x-1/2 -translate-y-1/2 japan top-1/2 left-1/2'
               style={{transformOrigin: '49% 65%'}}
               width={1920}
               height={1080}

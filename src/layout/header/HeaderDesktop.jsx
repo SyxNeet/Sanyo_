@@ -6,8 +6,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
 import HeaderModalLink from './HeaderModalLink'
-import {modalMenu} from '../../../data/header/modal-menu'
+import {
+  modalMenuJapanElevator,
+  modalMenuService,
+} from '../../../data/header/modal-menu'
 import LangDropdown from '@/components/header/LangDropdown'
+import HeaderModalExpand from './HeaderModalExpand'
 
 export default function HeaderDesktop({isMobile}) {
   const headerRef = useRef(null)
@@ -188,124 +192,82 @@ export default function HeaderDesktop({isMobile}) {
           </Link>
           <div className='flex flex-row items-center border-y-[0.0625rem] border-white/10 overflow-hidden'>
             <nav className='flex-none grid grid-cols-1 w-[24.5rem]'>
-              {modalMenu.map((item, i) => {
-                return (
-                  <HeaderModalLink
-                    key={i}
-                    href={item.href}
-                    text={item.text}
-                    isLink={!!item.href}
-                    handleOnMouseEnter={() => setActiveModalMenuLink(item.text)}
-                    handleOnMouseLeave={() => setActiveModalMenuLink('')}
-                    isActive={activeModalMenuLink === item.text}
-                  />
-                )
-              })}
+              <HeaderModalLink
+                href={modalMenuJapanElevator.href}
+                text={modalMenuJapanElevator.text}
+                isLink={false}
+                handleOnMouseEnter={() =>
+                  setActiveModalMenuLink(modalMenuJapanElevator.text)
+                }
+                handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                isActive={activeModalMenuLink === modalMenuJapanElevator.text}
+              />
+              <HeaderModalLink
+                href={`/`}
+                text={`GIỚI THIỆU`}
+                isLink={true}
+                handleOnMouseEnter={() => setActiveModalMenuLink(`GIỚI THIỆU`)}
+                handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                isActive={activeModalMenuLink === `GIỚI THIỆU`}
+              />
+              <HeaderModalLink
+                href={modalMenuService.href}
+                text={modalMenuService.text}
+                isLink={false}
+                handleOnMouseEnter={() =>
+                  setActiveModalMenuLink(modalMenuService.text)
+                }
+                handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                isActive={activeModalMenuLink === modalMenuService.text}
+              />
+              <HeaderModalLink
+                href={`/`}
+                text={`DỰ ÁN NỔI BẬT`}
+                isLink={true}
+                handleOnMouseEnter={() =>
+                  setActiveModalMenuLink(`DỰ ÁN NỔI BẬT`)
+                }
+                handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                isActive={activeModalMenuLink === `DỰ ÁN NỔI BẬT`}
+              />
+              <HeaderModalLink
+                href={`/`}
+                text={`BLOG`}
+                isLink={true}
+                handleOnMouseEnter={() => setActiveModalMenuLink(`BLOG`)}
+                handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                isActive={activeModalMenuLink === `BLOG`}
+              />
+              <HeaderModalLink
+                href={`/`}
+                text={`LIÊN HỆ`}
+                isLink={true}
+                handleOnMouseEnter={() => setActiveModalMenuLink(`LIÊN HỆ`)}
+                handleOnMouseLeave={() => setActiveModalMenuLink('')}
+                isActive={activeModalMenuLink === `LIÊN HỆ`}
+              />
             </nav>
             <div className='relative w-[41.25rem]'>
-              {modalMenu.map((item1, i1) => {
-                return (
-                  <div
-                    className={clsx(
-                      'flex flex-row items-center transition-500',
-                      {
-                        'opacity-0 pointer-events-none':
-                          activeModalMenuLink !== item1.text,
-                        'opacity-100 pointer-events-auto':
-                          activeModalMenuLink === item1.text,
-                        'absolute top-0 left-0 w-full h-full': i1 !== 0,
-                      },
-                    )}
-                    onMouseEnter={() => setActiveModalMenuLink(item1.text)}
-                    onMouseLeave={() => setActiveModalMenuLink('')}
-                  >
-                    {item1.child && (
-                      <>
-                        <nav
-                          className='flex-none flex flex-col w-[21rem] border-x-[0.0625rem] border-white/10 h-full grow'
-                          onMouseOver={() => {
-                            setActiveModalMenuLink(item1.text)
-                          }}
-                          onMouseLeave={() => setActiveModalMenuLink('')}
-                        >
-                          {item1.child.map((item2, i2) => {
-                            return (
-                              <Link
-                                href={item2.href}
-                                className='font-Iciel text-0.875 leading-1.5 uppercase opacity-60 px-6 py-[0.62rem] text-white border-b-[0.0625rem] border-white/10 hover:text-yellow-500 transition-300 hover:opacity-100 flex flex-row items-center group'
-                                onMouseEnter={() => {
-                                  setActiveModalMenuLink(item1.text)
-                                  setActiveModalMenuChildLink(item2.text)
-                                }}
-                                onMouseLeave={() => {
-                                  setActiveModalMenuLink('')
-                                  setActiveModalMenuChildLink('')
-                                }}
-                              >
-                                {item2.text}
-                                <Image
-                                  src={`/images/layout/header/arrow-right-yellow.svg`}
-                                  alt={item2.text}
-                                  className='size-[0.75rem] ml-auto opacity-0 group-hover:opacity-100 transition-300'
-                                  width={120}
-                                  height={120}
-                                />
-                              </Link>
-                            )
-                          })}
-                          {item1.showMore && (
-                            <Link
-                              href={`/`}
-                              className='font-Iciel text-0.875 leading-1.5 uppercase pl-6 py-[0.8rem] text-white font-bold underline hover:bg-yellow-500 transition-300'
-                              onMouseEnter={() =>
-                                setActiveModalMenuLink(item1.text)
-                              }
-                              onMouseLeave={() => setActiveModalMenuLink('')}
-                            >
-                              XEM TẤT CẢ
-                            </Link>
-                          )}
-                        </nav>
-                        <div
-                          className='relative flex-none w-[21.875rem] self-stretch'
-                          onMouseEnter={() =>
-                            setActiveModalMenuLink(item1.text)
-                          }
-                        >
-                          {item1.child.map((item2, i2) => {
-                            return (
-                              <Image
-                                src={item2.src}
-                                alt=''
-                                className={clsx(
-                                  'object-cover w-full h-full transition-500',
-                                  {
-                                    'absolute top-0 left-0': i2 !== 0,
-                                    'opacity-0 pointer-events-none':
-                                      activeModalMenuChildLink !== item2.text,
-                                    'opacity-100 pointer-events-auto':
-                                      activeModalMenuChildLink === item2.text,
-                                  },
-                                )}
-                                onMouseEnter={() => {
-                                  setActiveModalMenuLink(item1.text)
-                                  setActiveModalMenuChildLink(item2.text)
-                                }}
-                                onMouseLeave={() => {
-                                  setActiveModalMenuLink('')
-                                  setActiveModalMenuChildLink('')
-                                }}
-                                width={1920}
-                                height={1080}
-                              />
-                            )
-                          })}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                )
-              })}
+              <HeaderModalExpand
+                activeModalMenuLink={activeModalMenuLink}
+                activeModalMenuChildLink={activeModalMenuChildLink}
+                setActiveModalMenuLink={setActiveModalMenuLink}
+                setActiveModalMenuChildLink={setActiveModalMenuChildLink}
+                text={modalMenuJapanElevator.text}
+                data={modalMenuJapanElevator.child}
+                href={modalMenuJapanElevator.href}
+                isFirst
+              />
+              <HeaderModalExpand
+                activeModalMenuLink={activeModalMenuLink}
+                activeModalMenuChildLink={activeModalMenuChildLink}
+                setActiveModalMenuLink={setActiveModalMenuLink}
+                setActiveModalMenuChildLink={setActiveModalMenuChildLink}
+                text={modalMenuService.text}
+                data={modalMenuService.child}
+                href={modalMenuService.href}
+                isFirst={false}
+              />
             </div>
           </div>
           <div

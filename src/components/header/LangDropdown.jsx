@@ -16,7 +16,7 @@ export default function LangDropdown({isMobile}) {
       <Image
         src={`/images/layout/header/vietnam-lang.png`}
         alt='vietnam language'
-        className={clsx('', {
+        className={clsx('rounded-[0.0625rem]', {
           'w-[1.75rem] h-[1.125rem] mr-[0.56rem]': !isMobile,
           'w-[1.1875rem] h-[0.6875rem] mr-[0.2rem]': isMobile,
         })}
