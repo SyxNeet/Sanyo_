@@ -7,7 +7,7 @@ import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import {useRef} from 'react'
 
-export default function CountUp({isMobile}) {
+export default function CountUp({dataCountUp, lang}) {
   const dataLayout = [
     {
       num: '70',
@@ -72,7 +72,7 @@ export default function CountUp({isMobile}) {
               className='w-[11.30481rem] h-[1.51363rem] object-contain'
             />
             <h4 className='text-[0.632rem] font-Iciel text-white leading-1.3 uppercase'>
-              THƯƠNG HIỆU THANG MÁY NHẬT BẢN
+              {dataCountUp?.title}
             </h4>
           </div>
         </div>
@@ -99,14 +99,13 @@ export default function CountUp({isMobile}) {
           className='md:w-[30.75rem] md:h-[4.06rem] object-contain max-md:hidden'
         />
         <h3 className='font-SVNLagu  max-md:px-[0.75rem] md:text-[2.125rem] text-[0.625rem] leading-1.5 max-md:tracking-[0.05rem] font-semibold md:leading-[1.2] uppercase md:text-yellow-500 text-grey-500 opacity-80 md:mt-[0.75rem]'>
-          Tinh hoa thang máy Nhật Bản
+          {dataCountUp?.title}
         </h3>
         <p className='text-grey-400  max-md:px-[0.75rem] max-md:text-grey-800 font-Iciel leading-1.7 md:uppercase md:mt-[0.75rem] mt-[0.5rem] md:text-[1.3rem] lg:text-[0.875rem] text-[1.125rem] max-md:font-semibold max-md:leading-1.4 max-md:pb-[1.69rem] max-md:border-b-[1px] border-grey-500 border-opacity-10'>
-          Thang máy Sanyo Yusoki - trải qua 70 năm lịch sử hình thành Sanyo
-          Yusoki là một trong những thương hiệu hàng đầu trong ngành thang máy.
+          {dataCountUp?.description}
         </p>
         <div className='grid grid-cols-2 max-md:px-[0.81rem] max-md:mt-[1.81rem] md:gap-x-[1.17rem] md:gap-y-[1.48rem] gap-x-[3.31rem] gap-y-[1.75rem] md:mt-[3.4rem]'>
-          {dataLayout?.map((item, index) => (
+          {dataCountUp?.list_info?.map((item, index) => (
             <CountItem
               key={index}
               num={item?.num}
@@ -121,10 +120,10 @@ export default function CountUp({isMobile}) {
 
       <Link
         className='absolute md:bottom-[5.88rem] md:right-[28%] bottom-[6rem] max-md:left-[7rem]'
-        href='/ve-chung-toi'
+        href={`/${lang}/ve-chung-toi`}
       >
         <Button
-          text={'VỀ CHÚNG TÔI'}
+          text={lang === 'vi' ? 'VỀ CHÚNG TÔI' : 'ABOUT US'}
           isBlack={true}
           isHover={true}
           className={'max-md:border-none'}

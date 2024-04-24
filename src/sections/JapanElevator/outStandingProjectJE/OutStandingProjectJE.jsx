@@ -14,8 +14,7 @@ import {Button} from '@/components/ui/button'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
 
 
-const OutStandingProjectJE = ({isMobile}) => {
-    const outStandingProjectRef = useRef(null)
+const OutStandingProjectJE = ({isMobile,data,lang}) => {    const outStandingProjectRef = useRef(null)
     const outStandingProjectEndRef = useRef(null)
     useGSAP(() => {
       !isMobile &&
@@ -38,29 +37,24 @@ const OutStandingProjectJE = ({isMobile}) => {
     >
       {isMobile ? (
         <div>
-          <h2 className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem]'>
-            Dự án NỔI BẬT
+          <h2 className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht' dangerouslySetInnerHTML={{__html:data?.title_mb}}>
           </h2>
         </div>
       ) : (
         <div className=''>
-          <h2 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem]'>
-            Dự án NỔI BẬT của chúng tôi
+          <h2 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht' dangerouslySetInnerHTML={{__html:data?.title}}>
+          
           </h2>
-          <span className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'>
-            Thang máy Sanyo vẫn liên tục đầu tư cho Nghiên cứu Phát triển
-            (R&D) tất cả các dòng thang máy để phù hợp với thị hiếu người
-            tiêu dùng và đảm bảo an toàn và chất lượng vận hành cao nhất
-            xứng đáng với niềm tin và sự ghi nhận của người tiêu dùng cũng
-            như đóng góp vào sự phát triển của ngành thang máy trên toàn thế
-            giới
+          <span className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'dangerouslySetInnerHTML={{__html:data?.desc}} >
+            
+
           </span>
         </div>
       )}
       <Button
         className='w-fit max-md:hidden mt-[2.44rem]'
         isRed={true}
-        text={'XEM TẤT CẢ'}
+        text={lang==="vi"?"Xem tất cả":"VIEW ALL"}
         isHover={true}
         isBlack={true}
         classHover={'group-hover'}
@@ -113,7 +107,7 @@ const OutStandingProjectJE = ({isMobile}) => {
           <Button
             className='w-fit border-[#FE4127] hover:border-[#FE4127]'
             isRed={true}
-            text={'XEM TẤT CẢ'}
+            text={lang==="vi"?"Xem tất cả":"VIEW ALL"}
             isHover={false}
             isBlack={true}
             classHover={'group-hover'}

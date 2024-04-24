@@ -4,10 +4,7 @@ import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Pagination, Autoplay} from 'swiper/modules'
 import Image from 'next/image'
-import logoImgJE from '/public/images/japanElevator/logo.png'
-import sunImg from '/public/images/japanElevator/sun.png'
 import {exampleSLideJpElevator} from '/data/japanElevator'
-import imgHoaSen from '/public/images/japanElevator/hoasen.png'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import 'swiper/css'
@@ -15,7 +12,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
-const slideFirstJE = ({isMobile}) => {
+const slideFirstJE = ({isMobile,data}) => {
     const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
@@ -29,67 +26,60 @@ const slideFirstJE = ({isMobile}) => {
         pinSpacing: false,
       },
     })
-    !isMobile &&
-      gsap.to(outStandingProjectRef.current, {
-        scrollTrigger: {
-          trigger: outStandingProjectRef.current,
-          pin: true,
-          start: 'top-=150 top',
-          endTrigger: outStandingProjectEndRef.current,
-          end: 'bottom center+=20%',
-          pinSpacing: false,
-        },
-      })
   }, [])
   return (
-              <section
-        className='pt-4'
-        id='sectionSunRise'
-      >
-        <div className='pl-[6.25rem] max-md:pl-3'>
-          <Link
-            href='/'
-            className='text-[#33383E] opacity-50 font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
-          >
-            Trang chủ /
-          </Link>
-          <Link
-            href='/'
-            className='text-[#33383E]  font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
-          >
-            thang máy nhật bản
-          </Link>
-        </div>
-        <div className='relative pt-[7.5rem] pb-[5rem] overflow-hidden max-md:pt-[3.96rem] max-md:pb-[1.55rem]'>
+    <section
+      className='pt-4'
+      id='sectionSunRise'
+    >
+      <div className='pl-[6.25rem] max-md:pl-3'>
+        <Link
+          href='/'
+          className='text-[#33383E] opacity-50 font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
+        >
+          Trang chủ /
+        </Link>
+        <Link
+          href='/'
+          className='text-[#33383E]  font-Iciel font-medium text-sm leading-1.5 mr-[0.44rem] uppercase max-md:text-[0.625rem]'
+        >
+          thang máy nhật bản
+        </Link>
+      </div>
+      <div className='relative pt-[7.5rem] pb-[5rem] overflow-hidden max-md:pt-[3.96rem] max-md:pb-[1.55rem]'>
+        <Image
+          src={'/images/japanElevator/sun.png'}
+          alt='Sun image'
+          width={500}
+          height={500}
+          className='absolute lg:top-[65%] md:top-[68%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
+          id='sunRiseImg'
+        />
+        <Image
+          src={'/images/japanElevator/hoasen.png'}
+          width={500}
+          height={500}
+          alt='Hoa Sen'
+          className='absolute right-[-7%] bottom-[-22%] md:hidden max-md:w-[6.9375rem] max-md:h-[6.875rem]'
+          id='hoaSenImg'
+        />
+        <div className='relative flex flex-col w-fit items-end max-md:pl-3 max-md:items-start'>
           <Image
-            src={sunImg}
-            alt='Sun image'
-            className='absolute lg:top-[65%] md:top-[68%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
-            id='sunRiseImg'
-          />
-          <Image
-            src={imgHoaSen}
-            alt='Hoa Sen'
-            className='absolute right-[-7%] bottom-[-22%] md:hidden'
-            id='hoaSenImg'
+            src={'/images/japanElevator/logo.png'}
+            width={500}
+            height={500}
+            alt='logo Sanyo'
+            className='absolute w-[5.5rem] h-[5.5rem] left-full bottom-[70%] max-md:hidden'
           />
           <div className='relative flex flex-col w-fit pl-[10.25rem] items-end max-md:pl-3 max-md:items-start'>
-            <Image
-              src={logoImgJE}
-              alt='logo Sanyo'
-              className='absolute w-[5.5rem] h-[5.5rem] left-full bottom-[70%] max-md:hidden'
-            />
-            <h1 className=' text-[5.71719rem] font-SVNLagu font-semibold leading-[130%] max-md:text-[1.875rem] max-md:mb-3'>
-              Thang máy Nhật Bản
-            </h1>
-            <p className='text-right w-[37.625rem] text-[1rem] text-[#6D7279] font-normal leading-1.5 max-md:text-[0.875rem] max-md:text-left max-md:w-[20.4375rem]'>
-              {isMobile
-                ? 'SANYO YUSOKI đã và đang tiếp tục cống hiến và liên tục đổi mới để góp phần vào sự phát triển của ngành thang máy. Chúng tôi tin rằng với một nền móng vững chắc sẽ cho ra đời những sản phẩm thang máy chất lượng nhất'
-                : 'SANYO YUSOKI đã và đang tiếp tục cống hiến và liên tục đổi mới để góp phần vào sự phát triển của ngành thang máy.'}
-            </p>
-          </div>
-        </div>
-        <div
+            <h1 className=' text-[5.71719rem] font-SVNLagu font-semibold leading-[130%] max-md:text-[1.875rem] max-md:mb-3 [&>p>strong]:text-c-nht [&>p>strong]:font-semibold [&>p>strong]:font-SVNLagu' dangerouslySetInnerHTML={{__html:data?.heading}} >
+           </h1>
+            <div className='text-right w-[37.625rem] text-[1rem] text-[#6D7279] font-normal leading-1.5 max-md:text-[0.875rem] max-md:text-left max-md:w-[20.4375rem] [&>div>div>strong]:text-grey-900' dangerouslySetInnerHTML={{__html:!isMobile?data?.desc:data?.desc_mb}}>
+            </div>
+            </div>
+      </div>
+      </div>
+      <div
         className='max-md:flex max-md:flex-col w-full'
         ref={firstRef}
       >
@@ -157,7 +147,7 @@ const slideFirstJE = ({isMobile}) => {
           ))}
         </Swiper>
       </div>
-      </section>
+    </section>
   )
 }
 

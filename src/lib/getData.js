@@ -8,7 +8,7 @@ export default async function getData(
       headers: {
         'Content-Type': 'application/json',
       },
-      next: {revalidate},
+      next: revalidate,
     })
 
     if (!res.ok) {
@@ -19,5 +19,6 @@ export default async function getData(
     return res.json()
   } catch (error) {
     console.log(`${process.env.API}${api}`)
+    console.log('Error:', error);
   }
 }

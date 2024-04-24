@@ -39,14 +39,14 @@ export default function News() {
           </Link>
 
           <div className='pt-[3.31rem] w-[19.3125] pl-[2rem] bg-grey-600 flex-1 relative '>
-            <div className='absolute right-0 bottom-0 '>
-              <Image
+            <div className='absolute right-0 bottom-0 bg-yellow-500 w-[4.55769rem] h-[3.49163rem] rounded-tl-full '>
+              {/* <Image
                 src={'/images/home/danhSachTinTuc/Intersect.svg'}
                 width={120}
                 height={120}
                 alt='icon'
                 className='w-[4.55769rem] h-[3.49163rem]'
-              />
+              /> */}
               <Image
                 src={'/images/home/danhSachTinTuc/arrow.svg'}
                 width={120}
