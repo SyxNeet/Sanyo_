@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import SlideValue from './SlideValue'
 
-function ValueDifferent({isMobile, dataValueDifferent}) {
+function ValueDifferent({isMobile, dataValueDifferent}) {  
   return (
     <section className='md:h-[76.6rem] box-container-border w-full  relative max-md:pb-[3.25rem]'>
       <div className='relative  pt-[3.19rem] md:pt-[12.63rem] md:pb-[11.69rem]'>

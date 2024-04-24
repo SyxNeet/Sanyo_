@@ -4,3 +4,13 @@
 .swiper-pagination-sixReasons .swiper-pagination-total{
     margin-left: 0.25rem;
 }
+@media (min-width: 769px) {
+    .mySwiperSix .swiper-wrapper {
+        margin-left: 6.25rem;
+    }
+}
+@media (max-width: 768px) {
+    .mySwiperSix .swiper-wrapper {
+        margin-left: 0;
+    }
+}
