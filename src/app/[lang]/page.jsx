@@ -1,5 +1,4 @@
 import HomePage from '@/sections/home'
-import {getDictionary} from '../../dictionaries/dictionaries'
 import getData from '@/lib/getData'
 import SlideBanner from '@/sections/home/slideBanner/SlideBanner'
 import CountUp from '@/sections/home/countUp/CountUp'

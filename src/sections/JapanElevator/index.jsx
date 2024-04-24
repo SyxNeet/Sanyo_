@@ -15,7 +15,7 @@ const JapanElevator = ({isMobile,data,lang}) => {
   return (
     <main className='overflow-hidden janpanElevator'>
         <SlideFirstJE isMobile={isMobile} data={banner}/>
-        <ProductLine data={productLine} lang={lang}/>
+        <ProductLine data={productLine} lang={lang} isMobile={isMobile}/>
         <PerfectChoiceJE data={perfect_choice} lang={lang}/>
         <ElevatorJapan isMobile={isMobile} data={japan_elevator}/>
         <SixReasonJE isMobile={isMobile}/>
