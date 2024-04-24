@@ -1,14 +1,11 @@
-export default async function getData(
-  api,
-  revalidate = process.env.NEXT_PUBLIC_REVALIDATE,
-) {
+export default async function getData(api, revalidate = 60) {
   try {
     const res = await fetch(`${process.env.API}${api}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      next: revalidate,
+      next: {revalidate},
     })
 
     if (!res.ok) {
@@ -19,6 +16,6 @@ export default async function getData(
     return res.json()
   } catch (error) {
     console.log(`${process.env.API}${api}`)
-    console.log('Error:', error);
+    console.log('Error:', error)
   }
 }

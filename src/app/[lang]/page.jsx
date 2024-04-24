@@ -10,6 +10,8 @@ import OutStandingProjectMb from '@/sections/home/outStandingProjectMb'
 import News from '@/sections/home/news/News'
 import {Suspense} from 'react'
 import PartnerSection from '@/components/partner/PartnerSection'
+import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
+
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const {lang} = params
@@ -38,15 +40,10 @@ export default async function Home({params, searchParams}) {
           dataCountUp={dataCountUp}
           lang={lang}
         />
-        <ValueDifferent
-          isMobile={isMobile}
+        <ValueDifferentAndJapanElevator
           dataValueDifferent={dataValueDifferent}
+          dataPlatForm={dataPlatForm}
         />
-        {!isMobile ? (
-          <PlatFormElevator dataPlatForm={dataPlatForm} />
-        ) : (
-          <PlatFormMobile dataPlatForm={dataPlatForm} />
-        )}
         {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
         <News />
         <PartnerSection isMobile={isMobile} />

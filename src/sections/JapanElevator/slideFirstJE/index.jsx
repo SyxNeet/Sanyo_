@@ -24,6 +24,7 @@ const slideFirstJE = ({isMobile,data}) => {
         start: isMobile ? 'top top' : 'center top',
         end: 'bottom top',
         pinSpacing: false,
+        anticipatePin: 1
       },
     })
   }, [])

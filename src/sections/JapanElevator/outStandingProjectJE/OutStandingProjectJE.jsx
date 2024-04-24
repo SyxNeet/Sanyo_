@@ -26,6 +26,7 @@ const OutStandingProjectJE = ({isMobile,data,lang}) => {    const outStandingPro
             endTrigger: outStandingProjectEndRef.current,
             end: 'bottom center+=20%',
             pinSpacing: false,
+            anticipatePin: 1
           },
         })
     }, [])

@@ -5,7 +5,6 @@ let locales = ['vi', 'en']
 export function middleware(request) {
   const nextUrl = request.nextUrl
   const pathname = nextUrl.pathname
-  console.log(pathname)
 
   const {device} = userAgent(request)
   const viewport =

@@ -70,7 +70,7 @@ export default function HeaderDesktop({isMobile}) {
               />
             </button>
           )}
-          <div className='w-[0.0625rem] h-[2.5rem] opacity-20 bg-grey-900 mx-10' />
+          <div className='w-[0.075rem] h-[2.5rem] opacity-10 bg-grey-900 mx-10' />
           <button
             className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'
             onClick={() => {
@@ -137,7 +137,7 @@ export default function HeaderDesktop({isMobile}) {
               isHover
               isBlack
             />
-            <div className='w-[0.0625rem] h-[2.5rem] opacity-20 bg-grey-900 mx-7' />
+            <div className='w-[0.075rem] h-[2.5rem] opacity-10 bg-grey-900 mx-7' />
             <div className='flex flex-col'>
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
                 Chọn ngôn ngữ
