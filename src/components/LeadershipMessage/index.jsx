@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import {forwardRef, useEffect} from 'react'
 import gsap from 'gsap'

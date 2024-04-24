@@ -7,11 +7,11 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import LangDropdown from '@/components/header/LangDropdown'
 import {
-  modalMenu,
   modalMenuJapanElevator,
   modalMenuService,
 } from '../../../data/header/modal-menu'
 import Accordion from './Accordion'
+import LangDropdownPopup from '@/components/header/LangDropdownPopup'
 
 export default function HeaderMobile({isMobile}) {
   const headerMobileRef = useRef(null)
@@ -183,11 +183,11 @@ export default function HeaderMobile({isMobile}) {
             <p className='mb-1 text-grey-0/60 text-0.625 font-Iciel leading-1.4'>
               Chọn ngôn ngữ
             </p>
-            <button className='flex flex-row items-center text-grey-0 text-0.75 font-medium leading-1.5 font-Iciel'>
+            <button className='relative flex flex-row items-center text-grey-0 text-0.75 font-medium leading-1.5 font-Iciel group'>
               <Image
                 src={`/images/layout/header/vietnam-lang.png`}
                 alt='vietnam language'
-                className='w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
+                className='rounded-[0.0625rem] w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
                 width={120}
                 height={120}
               />
@@ -199,6 +199,7 @@ export default function HeaderMobile({isMobile}) {
                 width={120}
                 height={120}
               />
+              <LangDropdownPopup isMobile={isMobile} />
             </button>
           </div>
         </div>
