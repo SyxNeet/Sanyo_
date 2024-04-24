@@ -14,9 +14,6 @@ export default function Support() {
   const [nameError, setNameError] = useState('')
   const [phoneError, setPhoneError] = useState('')
   const [messageError, setMessageError] = useState('')
-  useEffect(() => {
-    console.log(windowWidth)
-  }, [windowWidth])
   const handleNameChange = (e) => {
     setName(e.target.value)
     setNameError('')

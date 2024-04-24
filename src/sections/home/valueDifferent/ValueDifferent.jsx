@@ -3,7 +3,6 @@ import React from 'react'
 import SlideValue from './SlideValue'
 
 function ValueDifferent({isMobile, dataValueDifferent}) {
-  console.log('dataValueDifferent', dataValueDifferent)
   return (
     <section className='md:h-[76.6rem] box-container-border w-full  relative max-md:pb-[3.25rem]'>
       <div className='relative  pt-[3.19rem] md:pt-[12.63rem] md:pb-[11.69rem]'>
@@ -17,7 +16,7 @@ function ValueDifferent({isMobile, dataValueDifferent}) {
           width={1920}
           height={1500}
           quality={100}
-          className='absolute object-cover size-full inset-0 box-container-border'
+          className='absolute inset-0 object-cover size-full box-container-border'
         />
         <h4
           className='sub-heading md:pl-[10.6rem] md:mb-[1.31rem] max-md:px-[0.75rem] mb-[0.44rem]'
