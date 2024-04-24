@@ -12,7 +12,6 @@ export default function DichVu() {
       <SixReasons />
       {/* component chia sẻ từ ban lãnh đạo  */}
       <LeadershipMesssage />
-=======
       {/* component item outstanding project  */}
       <ItemOutStandingProject />
     </div>
