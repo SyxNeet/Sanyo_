@@ -1,11 +1,14 @@
 import Image from 'next/image'
-import React from 'react'
+import React, {forwardRef} from 'react'
 import SlideValue from './SlideValue'
 
-function ValueDifferent({isMobile, dataValueDifferent}) {  
+const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
   return (
-    <section className='md:h-[76.6rem] box-container-border w-full  relative max-md:pb-[3.25rem]'>
-      <div className='relative  pt-[3.19rem] md:pt-[12.63rem] md:pb-[11.69rem]'>
+    <section
+      ref={ref}
+      className='md:h-[76.6rem] box-container-border w-full relative max-md:pb-[3.25rem] -z-10'
+    >
+      <div className='relative pt-[3.19rem] md:pt-[12.63rem] md:pb-[11.69rem]'>
         <Image
           src={
             !isMobile
@@ -20,11 +23,13 @@ function ValueDifferent({isMobile, dataValueDifferent}) {
         />
         <h4
           className='sub-heading md:pl-[10.6rem] md:mb-[1.31rem] max-md:px-[0.75rem] mb-[0.44rem]'
-          dangerouslySetInnerHTML={{__html:dataValueDifferent?.title}}
+          dangerouslySetInnerHTML={{__html: dataValueDifferent?.title}}
         ></h4>
         <div className='relative md:pl-[6.31rem] md:w-[61.25rem] md:mb-[4.44rem] mb-[1.94rem] max-md:ml-[0.75rem] w-[17.4375rem]'>
-          <div className=' text-grey-700 font-SVNLagu md:text-[2.5rem] text-[1.125rem] font-semibold leading-1.4' dangerouslySetInnerHTML={{__html:dataValueDifferent?.desc}}>
-          </div>
+          <div
+            className=' text-grey-700 font-SVNLagu md:text-[2.5rem] text-[1.125rem] font-semibold leading-1.4'
+            dangerouslySetInnerHTML={{__html: dataValueDifferent?.desc}}
+          ></div>
         </div>
         {/* slide */}
         <SlideValue isMobile={isMobile} />
@@ -61,6 +66,6 @@ function ValueDifferent({isMobile, dataValueDifferent}) {
       </button>
     </section>
   )
-}
+})
 
 export default ValueDifferent

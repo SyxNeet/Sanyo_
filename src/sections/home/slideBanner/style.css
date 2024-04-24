@@ -1,18 +1,20 @@
-.heading-slide {
+/* .heading-slide {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 4.97469rem;
   font-weight: 800;
   line-height: 120%;
   letter-spacing: -0.24875rem;
   text-transform: uppercase;
-  -webkit-text-stroke: 1px white; /* Cho các trình duyệt WebKit */
-  text-stroke: 1px white; /* Tiêu chuẩn */
+  -webkit-text-stroke: 1px white; 
+  text-stroke: 1px white; 
   color: transparent;
 }
 
 .heading-slide ~ p {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+} */
+
+
 .swiper-pagination-custom-home {
   display: flex;
   z-index: 2;
@@ -27,10 +29,10 @@
 }
 
 @media screen and (max-width: 767px) {
-  .heading-slide {
+  /* .heading-slide {
     text-shadow: 0px 1.269px 1.269px rgba(0, 0, 0, 0.25);
     font-size: 2rem;
-  }
+  } */
 
   .slide_first_onPage .swiper-slide {
     display: flex;

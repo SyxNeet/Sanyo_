@@ -1,27 +1,63 @@
 'use client'
-import React, {useRef, useState,useEffect} from 'react'
+
+import React, {useRef, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import {Navigation, Pagination, Autoplay, Thumbs} from 'swiper/modules'
+import 'swiper/css/effect-fade'
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Thumbs,
+  EffectFade,
+} from 'swiper/modules'
 import Image from 'next/image'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import './style.css'
+import gsap from 'gsap'
+import {useGSAP} from '@gsap/react'
+
 export default function SlideBanner({isMobile, dataBanner}) {
-  useEffect(() => {
-    AOS.init({
-      disable: function () {
-        var maxWidth = 769
-        return window.innerWidth < maxWidth
-      }
-    })
-    AOS.refresh()
-  }, [])
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const swiperRef = useRef()
   const [indexSlider, setIndexSlider] = useState(0)
+  const {contextSafe} = useGSAP()
+
+  useGSAP(() => {
+    const tl = gsap.timeline({})
+    tl.set(['.heading-1', '.heading-2'], {autoAlpha: 1})
+    tl.from('.heading-1', {
+      yPercent: 100,
+      duration: 0.5,
+    }).from('.heading-2', {
+      yPercent: 100,
+      duration: 0.5,
+    })
+  }, [])
+
+  const transitionSlideStart = contextSafe(() => {
+    gsap.set(['.heading-1', '.heading-2'], {autoAlpha: 0})
+  })
+  const transitionSlideEnd = contextSafe(() => {
+    gsap.killTweensOf(['.heading-1', '.heading-2'])
+    const tl = gsap.timeline({})
+    tl.set(['.heading-1', '.heading-2'], {autoAlpha: 1})
+    tl.fromTo(
+      '.heading-1',
+      {yPercent: 100},
+      {
+        yPercent: 0,
+        duration: 0.6,
+      },
+    ).fromTo(
+      '.heading-2',
+      {yPercent: 100},
+      {
+        yPercent: 0,
+        duration: 0.6,
+      },
+    )
+  })
 
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.realIndex)
@@ -124,16 +160,19 @@ export default function SlideBanner({isMobile, dataBanner}) {
         </button>
       </div>
       <Swiper
-        modules={[Navigation, Pagination, Autoplay, Thumbs]}
+        modules={[Navigation, Pagination, Autoplay, Thumbs, EffectFade]}
         className='slide_first_onPage size-full'
         slidesPerView={1}
         spaceBetween={0}
         loop={true}
+        effect={'fade'}
         thumbs={{swiper: thumbsSwiper}}
         autoplay={{
           delay: 3000,
         }}
         onSlideChange={handleSlideChange}
+        onTransitionStart={transitionSlideStart}
+        onTransitionEnd={transitionSlideEnd}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
@@ -156,9 +195,27 @@ export default function SlideBanner({isMobile, dataBanner}) {
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
-              <h2 className='heading-slide font-averta flex'>
-                <div data-aos="fade-up" >{item?.heading1}</div> <div data-aos="fade-up" data-aos-delay="500" className='text-white drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] ml-2'>{item?.heading2}</div>
-              </h2>
+              <div className='flex flex-row'>
+                <div className='overflow-hidden'>
+                  <h2
+                    className='text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'
+                    style={{
+                      WebkitTextStroke: '1px #FFF',
+                      filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+                    }}
+                  >
+                    {item?.heading1}
+                  </h2>
+                </div>
+                <div className='overflow-hidden'>
+                  <h2
+                    className='text-4.975 text-grey-0 ml-4 font-averta font-bold leading-1.2 tracking-[-0.25rem] uppercase heading-2 opacity-0'
+                    style={{textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+                  >
+                    {item?.heading2}
+                  </h2>
+                </div>
+              </div>
               <p className='md:w-[45.5rem] max-md:hidden md:mt-[0.37rem] text-white lg:text-[1.125rem] font-medium leading-1.5 font-Iciel'>
                 {item?.description}
               </p>

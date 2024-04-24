@@ -39,6 +39,7 @@ export default function CountUp({dataCountUp, lang}) {
           endTrigger: rightRef?.current,
           end: 'bottom bottom',
           pinSpacing: false,
+          anticipatePin: 1
         },
       })
     }
