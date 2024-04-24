@@ -56,8 +56,16 @@
    font-weight: 500;
   }
   .sixReasonsJE .group{
-    background-color: #fff;
+    background-color: transparent;
     border:1px solid #FF2727;
+  } 
+  .sixReasonsJE .group:hover{
+    background-color: #FF2727;
+
+  } 
+  .sixReasonsJE .group:hover svg path{
+  fill: #fff;
+
   } 
   .sixReasonsJE .group svg path{
     fill: #FF2727;

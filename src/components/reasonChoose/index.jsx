@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function ReasonChoose() {
   return (
-    <div className='md:rounded-[1.25rem] rounded-[0.75rem] flex justify-center items-end relative reason_item w-full md:h-[33.125rem] object-cover h-[24.6875rem]'>
+    <div className='md:rounded-[1.25rem] rounded-[0.75rem] flex justify-center items-end relative reason_item w-full md:h-[32.262rem] object-cover h-[24.6875rem]'>
       <Image
         src={'/images/components/reasonChoose/lydoluachon1.png'}
         alt='reason'

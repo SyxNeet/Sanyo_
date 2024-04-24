@@ -1,13 +1,24 @@
 'use client'
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState,useEffect} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Pagination, Autoplay, Thumbs} from 'swiper/modules'
 import Image from 'next/image'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './style.css'
 export default function SlideBanner({isMobile, dataBanner}) {
+  useEffect(() => {
+    AOS.init({
+      disable: function () {
+        var maxWidth = 769
+        return window.innerWidth < maxWidth
+      }
+    })
+    AOS.refresh()
+  }, [])
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const swiperRef = useRef()
   const [indexSlider, setIndexSlider] = useState(0)
@@ -145,8 +156,8 @@ export default function SlideBanner({isMobile, dataBanner}) {
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
-              <h2 className='heading-slide font-averta'>
-                <span>{item?.heading1}</span> <span className='text-white drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>{item?.heading2}</span>
+              <h2 className='heading-slide font-averta flex'>
+                <div data-aos="fade-up" >{item?.heading1}</div> <div data-aos="fade-up" data-aos-delay="500" className='text-white drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] ml-2'>{item?.heading2}</div>
               </h2>
               <p className='md:w-[45.5rem] max-md:hidden md:mt-[0.37rem] text-white lg:text-[1.125rem] font-medium leading-1.5 font-Iciel'>
                 {item?.description}

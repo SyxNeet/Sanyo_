@@ -5,7 +5,6 @@ import {Autoplay} from 'swiper/modules'
 import 'swiper/css'
 import Image from 'next/image'
 const SlideOnlyImages = ({className,data}) => {
-  console.log(data)
   return (
     <div className='w-full mx-auto max-w-[100rem]'>
     <Swiper
