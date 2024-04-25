@@ -4,7 +4,7 @@ export default function SupportLayout({children}) {
   return (
     <>
       {children}
-      {/* <Support/> */}
+      <Support/>
     </>
   )
 }
