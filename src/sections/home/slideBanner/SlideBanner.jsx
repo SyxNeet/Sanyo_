@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useRef, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -99,11 +99,9 @@ export default function SlideBanner({isMobile, dataBanner}) {
       )}
 
       <div className='bottom-[1.44rem] right-[1.37rem] md:w-[3.625rem] w-[1.94194rem] h-[4.6875rem] absolute md:top-[50%] md:right-[3.25rem] pt-[0.17rem] md:-translate-x-1/2 md:-translate-y-1/2 z-[2] flex flex-col items-center md:h-[8.75rem] md:rounded-[0.35rem] rounded-[0.1875rem] bg-[rgba(255,255,255,0.20)] bg-opacity-20 md:pt-[0.31rem] max-md:border-[0.3px] md:solid border-grey-50 backdrop-blur-[14px]'>
-        {/* <div className='absolute blur-[14px] inset-0 bg-grey-0 bg-opacity-20'></div> */}
         <div className='md:w-[2.9375rem] w-[1.57369rem] flex items-center justify-center md:h-[3.4375rem] md:rounded-[0.25rem] bg-grey-0 relative'>
           <Swiper
             onSwiper={setThumbsSwiper}
-            spaceBetween={10}
             slidesPerView={1}
             speed={500}
             watchSlidesProgress={true}
@@ -114,10 +112,10 @@ export default function SlideBanner({isMobile, dataBanner}) {
             {dataBanner?.map((item, index) => (
               <SwiperSlide
                 key={index}
-                className='h-[1.875rem] max-md:!flex max-md:items-center'
+                className='h-[1.875rem] max-md:!flex max-md:!items-center'
               >
                 <span
-                  className={`font-grey-800 font-SVNLagu lg:text-[1.25rem] font-[800] leading-1.5`}
+                  className={`font-grey-800 font-SVNLagu lg:text-[1.25rem] font-[800] leading-1.5 w-full`}
                 >
                   0{index + 1}
                 </span>
@@ -174,14 +172,14 @@ export default function SlideBanner({isMobile, dataBanner}) {
               alt={item?.background?.alt || 'thang máy gia đình'}
               width={1920}
               height={1080}
-              quality={100}
+              priority={index < 1}
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
-              <div className='flex flex-row'>
+              <div className='flex flex-col md:flex-row'>
                 <div className='overflow-hidden h-max'>
                   <h2
-                    className='text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'
+                    className='text-2 md:text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'
                     style={{
                       WebkitTextStroke: '1px #FFF',
                       filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
@@ -192,7 +190,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
                 </div>
                 <div className='overflow-hidden h-max'>
                   <h2
-                    className='text-4.975 text-grey-0 ml-4 font-averta font-bold leading-1.2 tracking-[-0.25rem] uppercase heading-2 opacity-0'
+                    className='text-2 md:text-4.975 text-grey-0 md:ml-4 font-averta font-bold leading-1.2 tracking-[-0.25rem] uppercase heading-2 opacity-0'
                     style={{textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
                   >
                     {item?.heading2}

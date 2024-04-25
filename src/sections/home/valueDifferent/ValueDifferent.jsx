@@ -6,7 +6,7 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
   return (
     <section
       ref={ref}
-      className='md:h-[76.6rem] box-container-border w-full relative max-md:pb-[3.25rem] -z-10'
+      className='md:h-[76.6rem] box-container-border w-full relative max-md:pb-[3.25rem]'
     >
       <div className='relative pt-[3.19rem] md:pt-[12.63rem] md:pb-[11.69rem]'>
         <Image
@@ -18,7 +18,6 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
           alt={dataValueDifferent?.background?.alt}
           width={1920}
           height={1500}
-          quality={100}
           className='absolute inset-0 object-cover size-full box-container-border'
         />
         <h4

@@ -5,6 +5,7 @@ import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
 import {useEffect} from 'react'
+import clsx from 'clsx'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
 
@@ -15,17 +16,14 @@ export default function GsapProvider({children, isMobile}) {
       smoothTouch: 0.1,
     })
   }, [])
-  useEffect(() => {
-    if (isMobile) {
-      document.querySelector('#smooth-content').style.paddingTop = '3.9375rem'
-    } else {
-      document.querySelector('#smooth-content').style.paddingTop = '5.5rem'
-    }
-  }, [])
   return (
     <div id='smooth-wrapper'>
       <div
         id='smooth-content'
+        className={clsx('', {
+          'pt-[3.9375rem]': isMobile,
+          'pt-[5.5rem]': !isMobile,
+        })}
       >
         {children}
       </div>

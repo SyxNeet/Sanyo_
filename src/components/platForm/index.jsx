@@ -6,7 +6,10 @@ import './style.css'
 const PlatFormElevator = forwardRef(
   ({classNameBtn, classText, isBlack, isRed, dataPlatForm}, ref) => {
     return (
-      <div ref={ref} className='bg-grey-600 md:py-[7.19rem] md:pl-[6.31rem] box-container-border z-10'>
+      <div
+        ref={ref}
+        className='relative bg-grey-600 md:py-[7.19rem] md:pl-[6.31rem] box-container-border z-10'
+      >
         <Content
           title={dataPlatForm?.title}
           description={dataPlatForm?.desc}

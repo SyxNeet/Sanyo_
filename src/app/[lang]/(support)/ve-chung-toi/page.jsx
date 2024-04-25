@@ -23,15 +23,15 @@ async function getAchieved(pageId) {
 async function getService(pageId) {
   return getData(`/pages/${pageId}/service`)
 }
-async function getPartnerEn(pageId) {
+async function getPartnerEn() {
   return getData(`/options/options/partnerEn`)
 }
-async function getPartnerVi(pageId) {
+async function getPartnerVi() {
   return getData(`/options/options/partnerVi`)
 }
 let pageId
 
-export default async function AboutUsPage({searchParams, params}) {
+export default async function AboutUsPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
   const {lang} = params
@@ -58,7 +58,7 @@ export default async function AboutUsPage({searchParams, params}) {
   return (
     <main>
       <BreadcrumbContainer>
-        <BreadcrumbLink href={`/`}>TRANG CHỦ /</BreadcrumbLink>
+        <BreadcrumbLink href={`/${lang}`}>TRANG CHỦ /</BreadcrumbLink>
         <BreadcrumbLink isLastLink>VỀ CHÚNG TÔI</BreadcrumbLink>
       </BreadcrumbContainer>
       <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} />

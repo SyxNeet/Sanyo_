@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import LangDropdownPopup from './LangDropdownPopup'
 
-export default function LangDropdown({isMobile}) {
+export default function LangDropdown({isMobile, lang}) {
   return (
     <button
       className={clsx(
@@ -14,16 +14,30 @@ export default function LangDropdown({isMobile}) {
       )}
     >
       <Image
-        src={`/images/layout/header/vietnam-lang.png`}
-        alt='vietnam language'
+        src={
+          lang === 'vi'
+            ? `/images/layout/header/vietnam-lang.png`
+            : `/images/layout/header/english-lang.png`
+        }
+        alt={lang === 'vi' ? 'vietnam language' : 'english language'}
         className={clsx('rounded-[0.0625rem]', {
           'w-[1.75rem] h-[1.125rem] mr-[0.56rem]': !isMobile,
           'w-[1.1875rem] h-[0.6875rem] mr-[0.2rem]': isMobile,
         })}
         width={120}
         height={120}
+        priority
       />
-      {isMobile ? 'VIE' : 'Việt Nam'}
+      {isMobile && lang === 'vi'
+        ? 'VIE'
+        : !isMobile && lang === 'vi'
+        ? 'Việt Nam'
+        : ''}
+      {isMobile && lang === 'en'
+        ? 'ENG'
+        : !isMobile && lang === 'en'
+        ? 'English'
+        : ''}
       <Image
         src={`/images/layout/header/arrow-down.svg`}
         alt='arrow down'
@@ -33,8 +47,12 @@ export default function LangDropdown({isMobile}) {
         })}
         width={120}
         height={120}
+        priority
       />
-      <LangDropdownPopup isMobile={isMobile} />
+      <LangDropdownPopup
+        isMobile={isMobile}
+        lang={lang}
+      />
     </button>
   )
 }

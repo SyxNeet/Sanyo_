@@ -10,9 +10,16 @@
   background: linear-gradient(0deg, currentColor, currentColor) no-repeat 100%
     100% / 0 1px;
 }
+
+.news_item_home h3 {
+  transition: all 0.3s;
+}
+.news_item_home h3:hover {
+  color: #dab571;
+}
+
 .news_item_home h3 a:hover {
   --tw-text-opacity: 1;
-  color: #dab571;
 }
 .news_item_home h3 a:hover {
   background-size: 100% 1px;

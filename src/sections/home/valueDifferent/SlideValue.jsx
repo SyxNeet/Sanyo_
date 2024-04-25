@@ -5,7 +5,6 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Pagination} from 'swiper/modules'
-import Image from 'next/image'
 import ReasonChoose from '@/components/reasonChoose'
 import './style.css'
 export default function SlideValue({isMobile}) {

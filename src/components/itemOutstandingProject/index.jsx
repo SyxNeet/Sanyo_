@@ -12,7 +12,7 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
         alt={altImageProject||''}
         width={1500}
         height={1000}
-        className='absolute -z-10 w-full h-full object-cover'
+        className='absolute object-cover w-full h-full -z-10'
       />
       <Link
         className='itemOutStandingProject_overlay max-md:flex-col flex relative h-fit backdrop-blur-[12.5px] rounded-[0.5rem] justify-between md:items-center
@@ -32,7 +32,6 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
           alt='box'
           width={200}
           height={200}
-          quality={100}
           className='absolute inset-0 w-full borderImgItemoutStandingProject max-md:hidden'
 
         />
@@ -47,13 +46,13 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
               src='/images/components/reasonChoose/row.svg'
               width={120}
               height={120}
-              className='iconArrowOutstanding absolute w-full h-full right-full top-0'
+              className='absolute top-0 w-full h-full iconArrowOutstanding right-full'
             />
             <Image
               src='/images/components/reasonChoose/iconPlus.svg'
               width={120}
               height={120}
-              className='iconPlusOutstanding absolute w-full h-full top-0 left-0'
+              className='absolute top-0 left-0 w-full h-full iconPlusOutstanding'
               alt='icon'
             />
           </div>
