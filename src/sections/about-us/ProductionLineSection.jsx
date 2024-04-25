@@ -6,27 +6,21 @@ import {Autoplay, EffectFade} from 'swiper/modules'
 import 'swiper/css/effect-fade'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
 import {useState} from 'react'
-import {productionLine} from '../../../data/ve-chung-toi/day-chuyen-san-xuat'
 
-export default function ProductionLineSection({isMobile}) {
+export default function ProductionLineSection({isMobile, data}) {
   const [activeImage, setActiveImage] = useState(0)
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
-    <section className='mt-14 md:mt-[8.3rem]'>
+    <section className='mt-14 md:mt-[6.5rem]'>
       <div className='w-[93%] md:w-auto mx-auto md:ml-[6.25rem] mb-6 md:mb-10'>
         <h3 className='text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5'>
           CÁC BƯỚC TIẾN HÀNH DỊCH VỤ
         </h3>
-        <h2 className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4'>
-          Chúng tôi cam kết{' '}
-          <strong className='font-semibold text-yellow-500'>
-            không ngừng nỗ lực
-          </strong>{' '}
-          để đảm bảo chất lượng tốt nhất cho thang máy. Điều này là{' '}
-          <strong className='font-semibold text-yellow-500'>sứ mệnh</strong>{' '}
-          mang lại sự hài lòng và niềm tin cho khách hàng.
-        </h2>
+        <h2
+          className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
+          dangerouslySetInnerHTML={{__html: data.heading}}
+        ></h2>
       </div>
       <Swiper
         slidesPerView={1}
@@ -57,12 +51,12 @@ export default function ProductionLineSection({isMobile}) {
           setPreviousActiveImage(swiper.activeIndex)
         }
       >
-        {productionLine.map((item, i) => {
+        {data.slide.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Image
-                src={item.src}
-                alt={item.alt}
+                src={item.image.url}
+                alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
                 className='object-cover w-full h-full'
                 width={1920}
                 height={1080}
@@ -77,10 +71,10 @@ export default function ProductionLineSection({isMobile}) {
               >
                 <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full'>
                   <h3 className='font-SVNLagu text-grey-0 text-0.625 md:text-1.375 tracking-0.1 font-semibold text-center mb-1 md:mb-2'>
-                    {item.title}
+                    {item.heading}
                   </h3>
                   <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0'>
-                    {item.content}
+                    {item.description}
                   </h2>
                 </div>
               </div>

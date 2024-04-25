@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import SlidePartner from '@/components/slide-partner'
 
-export default function PartnerSection({isMobile}) {
+export default function PartnerSection({isMobile, data}) {
   return (
     <section className='relative h-[27.5rem] w-[23.4375rem] md:w-full md:h-screen'>
       {!isMobile && (
@@ -26,13 +26,12 @@ export default function PartnerSection({isMobile}) {
         <h3 className='font-SVNLagu font-medium leading-1.5 tracking-0.1 text-0.625 md:text-1.25 text-gray-500 text-center mb-[0.59rem] md:mb-4 uppercase opacity-80'>
           ABOUT SANYO YUSOKI
         </h3>
-        <h2 className='w-[20.5rem] md:w-[51.875rem] font-SVNLagu text-1.125 md:text-2 font-semibold leading-1.4 text-center text-gray-600 [&_strong]:text-yellow-500 md:[&_strong]:uppercase'>
-          Tận tâm đồng hành cùng các{' '}
-          <strong className='font-semibold'>đối tác toàn cầu</strong>. Mang đến
-          trải nghiệm thang máy và chất lượng dịch vụ một cách tốt nhất
-        </h2>
+        <h2
+          className='w-[20.5rem] md:w-[51.875rem] font-SVNLagu text-1.125 md:text-2 font-semibold leading-1.4 text-center text-gray-600 [&_strong]:text-yellow-500 [&_strong]:font-semibold md:[&_strong]:uppercase'
+          dangerouslySetInnerHTML={{__html: data.heading}}
+        ></h2>
       </div>
-      <SlidePartner />
+      <SlidePartner data={data} />
     </section>
   )
 }

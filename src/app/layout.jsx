@@ -92,7 +92,6 @@ export default function RootLayout({children, params}) {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
       userAgent,
     )
-  // const isMobile = true
   return (
     <html lang={params.lang}>
       <body

@@ -4,12 +4,15 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import {useEffect, useRef, useState} from 'react'
-import {coreValues} from '../../../data/ve-chung-toi/core-values'
 import clsx from 'clsx'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import LeadershipMessage from '@/components/LeadershipMessage'
 
-export default function LeaderShipMessageAndCoreValues({isMobile}) {
+export default function LeaderShipMessageAndCoreValues({
+  isMobile,
+  dataLeadershipMessage,
+  dataCoreValues,
+}) {
   const firstRef = useRef(null)
   const secondRef = useRef(null)
   const [activeImage, setActiveImage] = useState(0)
@@ -80,19 +83,22 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
   return (
     <>
       <div className='mb-[3.2rem] md:mb-[5.2rem]'>
-        <LeadershipMessage ref={firstRef} />
+        <LeadershipMessage
+          ref={firstRef}
+          data={dataLeadershipMessage}
+        />
         {!isMobile && (
           <section className='z-10 flex flex-row items-start bg-grey-0 section-container'>
             <div
               ref={secondRef}
               className='relative basis-[65%] h-screen top-0'
             >
-              {coreValues.map((item, i) => {
+              {dataCoreValues.coreValue.map((item, i) => {
                 return (
                   <Image
                     key={i}
-                    src={item.src}
-                    alt={item.alt}
+                    src={item.image.url}
+                    alt={item.image.alt ?? 'Giá trị cốt lõi của SANYO YUSOKI'}
                     className={clsx(
                       'absolute top-0 left-0 object-cover w-full h-full transition-300',
                       {
@@ -107,14 +113,12 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
               })}
             </div>
             <div className='ml-auto basis-[35%]'>
-              <h2 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem]'>
-                Giá trị cốt lõi của{' '}
-                <strong className='font-semibold text-yellow-500'>
-                  SANYO YUSOKI
-                </strong>
-              </h2>
+              <h2
+                className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'
+                dangerouslySetInnerHTML={{__html: dataCoreValues.heading}}
+              ></h2>
               <nav>
-                {coreValues.map((item, i) => {
+                {dataCoreValues.coreValue.map((item, i) => {
                   return (
                     <div
                       key={i}
@@ -134,7 +138,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                             },
                           )}
                         >
-                          {item.title}
+                          {item.heading}
                         </h3>
                         <p
                           className={clsx(
@@ -144,7 +148,7 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                             },
                           )}
                         >
-                          {item.content}
+                          {item.description}
                         </p>
                       </div>
                       <svg
@@ -155,9 +159,6 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                         xmlns='http://www.w3.org/2000/svg'
                         className={clsx(
                           'ml-[1.69rem] w-[1.875rem] h-[2.3125rem] shrink-0',
-                          // {
-                          //   '[&_path]:stroke-white': activeImage === i,
-                          // },
                         )}
                       >
                         <path
@@ -180,12 +181,10 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
         )}
         {isMobile && (
           <section>
-            <h2 className='ml-3 text-1.5 font-semibold leading-1.3 font-SVNLagu text-grey-900 w-2/3 mb-6'>
-              Giá trị cốt lõi của{' '}
-              <strong className='font-semibold text-yellow-500'>
-                SANYO YUSOKI
-              </strong>
-            </h2>
+            <h2
+              className='ml-3 text-1.5 font-semibold leading-1.3 font-SVNLagu text-grey-900 w-2/3 mb-6 [&_strong]:font-semibold [&_strong]:text-yellow-500'
+              dangerouslySetInnerHTML={{__html: dataCoreValues.heading}}
+            ></h2>
             <Swiper
               ref={swiperRef}
               spaceBetween={(window.innerWidth / 100) * 4.267 * 0.75}
@@ -196,23 +195,23 @@ export default function LeaderShipMessageAndCoreValues({isMobile}) {
                 setActiveSlide(swiper.activeIndex)
               }}
             >
-              {coreValues.map((item, i) => {
+              {dataCoreValues.coreValue.map((item, i) => {
                 return (
                   <SwiperSlide key={i}>
                     <div className='relative w-[19.5625rem] h-[17.625rem] rounded-lg mb-4'>
                       <Image
-                        src={item.src}
-                        alt={item.alt}
+                        src={item.image.url}
+                        alt={item.image.alt}
                         className='object-cover w-full h-full rounded-lg'
                         width={1920}
                         height={1080}
                       />
                       <div className='absolute bottom-3 left-3 px-3 py-1.5 text-1.25 text-grey-0 leading-1.5 font-medium bg-black/30 backdrop-blur-lg rounded-md z-10 font-SVNLagu'>
-                        {item.titleMobile}
+                        {item.headingMobile}
                       </div>
                     </div>
                     <p className='text-grey-700 font-Iciel text-0.875 leading-1.5 line-clamp-3'>
-                      {item.content}
+                      {item.description}
                     </p>
                   </SwiperSlide>
                 )

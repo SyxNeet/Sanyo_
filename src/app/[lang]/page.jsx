@@ -2,9 +2,6 @@ import HomePage from '@/sections/home'
 import getData from '@/lib/getData'
 import SlideBanner from '@/sections/home/slideBanner/SlideBanner'
 import CountUp from '@/sections/home/countUp/CountUp'
-import ValueDifferent from '@/sections/home/valueDifferent/ValueDifferent'
-import PlatFormElevator from '@/components/platForm'
-import PlatFormMobile from '@/components/platFormMobile'
 import OutStandingProject from '@/sections/home/outStandingProject/OutStandingProject'
 import OutStandingProjectMb from '@/sections/home/outStandingProjectMb'
 import News from '@/sections/home/news/News'
@@ -27,6 +24,7 @@ export default async function Home({params, searchParams}) {
   const dataCountUp = getDataHomeReq?.acf?.tinh_hoa_thang_may
   const dataValueDifferent = getDataHomeReq?.acf?.gia_tri_khac_biet
   const dataPlatForm = getDataHomeReq?.acf?.danh_sach_thang_may
+  // const dataPartner = getDataHomeReq?.acf?.partner
 
   return (
     <main>

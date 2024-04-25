@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -21,43 +21,28 @@ export default function SlideBanner({isMobile, dataBanner}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const swiperRef = useRef()
   const [indexSlider, setIndexSlider] = useState(0)
-  const {contextSafe} = useGSAP()
 
   useGSAP(() => {
-    const tl = gsap.timeline({})
-    tl.set(['.heading-1', '.heading-2'], {autoAlpha: 1})
-    tl.from('.heading-1', {
-      yPercent: 100,
-      duration: 0.5,
-    }).from('.heading-2', {
-      yPercent: 100,
-      duration: 0.5,
-    })
-  }, [])
-
-  const transitionSlideStart = contextSafe(() => {
-    gsap.set(['.heading-1', '.heading-2'], {autoAlpha: 0})
-  })
-  const transitionSlideEnd = contextSafe(() => {
-    gsap.killTweensOf(['.heading-1', '.heading-2'])
-    const tl = gsap.timeline({})
-    tl.set(['.heading-1', '.heading-2'], {autoAlpha: 1})
-    tl.fromTo(
+    gsap.fromTo(
       '.heading-1',
-      {yPercent: 100},
+      {yPercent: 103, autoAlpha: 1},
       {
         yPercent: 0,
-        duration: 0.6,
-      },
-    ).fromTo(
-      '.heading-2',
-      {yPercent: 100},
-      {
-        yPercent: 0,
-        duration: 0.6,
+        autoAlpha: 1,
+        duration: 0.5,
       },
     )
-  })
+    gsap.fromTo(
+      '.heading-2',
+      {yPercent: 103, autoAlpha: 1},
+      {
+        yPercent: 0,
+        autoAlpha: 1,
+        duration: 0.5,
+        delay: 0.5,
+      },
+    )
+  }, [indexSlider])
 
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.realIndex)
@@ -171,8 +156,6 @@ export default function SlideBanner({isMobile, dataBanner}) {
           delay: 3000,
         }}
         onSlideChange={handleSlideChange}
-        onTransitionStart={transitionSlideStart}
-        onTransitionEnd={transitionSlideEnd}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
@@ -190,13 +173,13 @@ export default function SlideBanner({isMobile, dataBanner}) {
               src={item?.background?.url}
               alt={item?.background?.alt || 'thang máy gia đình'}
               width={1920}
-              height={1000}
+              height={1080}
               quality={100}
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
               <div className='flex flex-row'>
-                <div className='overflow-hidden'>
+                <div className='overflow-hidden h-max'>
                   <h2
                     className='text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'
                     style={{
@@ -207,7 +190,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
                     {item?.heading1}
                   </h2>
                 </div>
-                <div className='overflow-hidden'>
+                <div className='overflow-hidden h-max'>
                   <h2
                     className='text-4.975 text-grey-0 ml-4 font-averta font-bold leading-1.2 tracking-[-0.25rem] uppercase heading-2 opacity-0'
                     style={{textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
