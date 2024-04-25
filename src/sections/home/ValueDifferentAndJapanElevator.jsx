@@ -7,22 +7,29 @@ import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import {useRef} from 'react'
 
-export default function ValueDifferentAndJapanElevator({isMobile, dataValueDifferent, dataPlatForm}) {
+export default function ValueDifferentAndJapanElevator({
+  isMobile,
+  dataValueDifferent,
+  dataPlatForm,
+}) {
   const firstRef = useRef(null)
   const secondRef = useRef(null)
   useGSAP(() => {
-    gsap.to(firstRef.current, {
-      scrollTrigger: {
-        trigger: firstRef.current,
-        pin: true,
-        anticipatePin: 1,
-        start: 'bottom bottom',
-        endTrigger: secondRef.current,
-        end: 'top top',
-        pinSpacing: false
-      },
-    })
-  }, [])
+    if (!isMobile) {
+      gsap.to(firstRef.current, {
+        scrollTrigger: {
+          trigger: firstRef.current,
+          pin: true,
+          anticipatePin: 1,
+          start: 'bottom bottom',
+          endTrigger: secondRef.current,
+          end: 'top top',
+          pinSpacing: false,
+          pinSpacer: false
+        },
+      })
+    }
+  }, [isMobile])
   return (
     <>
       <ValueDifferent

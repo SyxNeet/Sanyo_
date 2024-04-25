@@ -191,9 +191,12 @@ export default function LeaderShipMessageAndCoreValues({
               speed={800}
               slidesPerView='auto'
               className='swiper-core-values'
+              
               onActiveIndexChange={(swiper) => {
                 setActiveSlide(swiper.activeIndex)
               }}
+              slidesOffsetAfter={(window.innerWidth / 100) * 4.267 * 0.75}
+              slidesOffsetBefore={(window.innerWidth / 100) * 4.267 * 0.75}
             >
               {dataCoreValues.coreValue.map((item, i) => {
                 return (
@@ -220,7 +223,7 @@ export default function LeaderShipMessageAndCoreValues({
             <div className='flex flex-row mx-3 mt-5'>
               <button onClick={() => swiperRef.current.swiper.slidePrev()}>
                 <Image
-                  src={`/images/about-us/next-button-core-value-slide.svg`}
+                  src={`/images/about-us/prev-button-core-value-slide.svg`}
                   alt='previous slide'
                   className='size-10'
                   width={120}

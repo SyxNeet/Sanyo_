@@ -1,4 +1,3 @@
-import HomePage from '@/sections/home'
 import getData from '@/lib/getData'
 import SlideBanner from '@/sections/home/slideBanner/SlideBanner'
 import CountUp from '@/sections/home/countUp/CountUp'
@@ -51,7 +50,6 @@ export default async function Home({params, searchParams}) {
     getDanhSachThangMay(pageId),
     lang === 'vi' ? getPartnerVi() : getPartnerEn(),
   ])
-
   return (
     <main>
       <SlideBanner
@@ -65,11 +63,12 @@ export default async function Home({params, searchParams}) {
           lang={lang}
         />
         <ValueDifferentAndJapanElevator
+          isMobile={isMobile}
           dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
           dataPlatForm={dataPlatForm.danh_sach_thang_may}
         />
         {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
-        <News />
+        <News isMobile={isMobile} />
         <PartnerSection
           isMobile={isMobile}
           data={lang === 'vi' ? dataPartner.partnerVi : dataPartner.partnerEn}

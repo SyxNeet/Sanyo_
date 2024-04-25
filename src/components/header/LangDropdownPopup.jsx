@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import clsx from 'clsx'
 
-export default function LangDropdownPopup({isMobile}) {
+export default function LangDropdownPopup({isMobile, lang}) {
   return (
     <div
       className={clsx(
@@ -35,7 +35,11 @@ export default function LangDropdownPopup({isMobile}) {
             )}
           >
             <Image
-              src={`/images/layout/header/radio-active.svg`}
+              src={
+                lang === 'vi'
+                  ? `/images/layout/header/radio-active.svg`
+                  : `/images/layout/header/radio.svg`
+              }
               alt='vietnam'
               className={clsx('', {
                 'mr-[0.88rem] size-[0.875rem]': !isMobile,
@@ -43,6 +47,7 @@ export default function LangDropdownPopup({isMobile}) {
               })}
               width={120}
               height={120}
+              priority
             />
             Việt Nam
           </Link>
@@ -59,7 +64,11 @@ export default function LangDropdownPopup({isMobile}) {
             )}
           >
             <Image
-              src={`/images/layout/header/radio.svg`}
+              src={
+                lang === 'en'
+                  ? `/images/layout/header/radio-active.svg`
+                  : `/images/layout/header/radio.svg`
+              }
               alt='english'
               className={clsx('', {
                 'mr-[0.88rem] size-[0.875rem]': !isMobile,
@@ -67,6 +76,7 @@ export default function LangDropdownPopup({isMobile}) {
               })}
               width={120}
               height={120}
+              priority
             />
             English
           </Link>

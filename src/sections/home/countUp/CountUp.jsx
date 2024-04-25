@@ -8,27 +8,8 @@ import {useGSAP} from '@gsap/react'
 import {useRef} from 'react'
 
 export default function CountUp({dataCountUp, lang}) {
-  const dataLayout = [
-    {
-      num: '70',
-      desc: 'Năm kinh nghiệm phát triển THƯƠNG HIỆU',
-    },
-    {
-      num: '56',
-      desc: 'Quốc gia phâm phối trên khắp THẾ GIỚI',
-    },
-    {
-      num: '88',
-      desc: 'Đại lí phân phối trên đất nước VIỆT NAM',
-    },
-    {
-      num: '09',
-      desc: 'Loại thang máy phân phối CHÍNH THỨC',
-    },
-  ]
   const imageRef = useRef(null)
   const rightRef = useRef(null)
-
   useGSAP(() => {
     if (window?.innerWidth > 767) {
       gsap.to(imageRef.current, {
@@ -52,7 +33,6 @@ export default function CountUp({dataCountUp, lang}) {
         alt='image'
         width={1000}
         height={1000}
-        quality={100}
         className='md:w-[56rem] md:h-screen max-md:mt-[1.81rem] h-[31.4375rem] w-[21.9375rem] object-cover ml-auto mr-auto max-md:border-[0.579px] max-md:solid border-yellow-500 max-md:rounded-[0.625rem]'
       />
       <div className='md:hidden absolute h-[9.25rem] left-[1.62rem] right-[1.62rem] bottom-[4.37rem] bg-[#000] bg-opacity-30 backdrop-blur-[6px] rounded-[0.5rem]'>
@@ -78,8 +58,6 @@ export default function CountUp({dataCountUp, lang}) {
           </div>
         </div>
       </div>
-      {/* </div> */}
-
       <div
         ref={rightRef}
         className='md:ml-[3rem] md:pr-[3.75rem] md:pt-[6.88rem] max-md:pb-[4.06rem] border-b-[1px] solid border-grey-500 border-opacity-10 relative'

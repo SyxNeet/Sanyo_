@@ -27,7 +27,7 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
   return (
     <section
       ref={ref}
-      className='relative flex flex-col pt-6 mb-12 md:mb-24 md:pt-12 section-leader-message-container -z-10'
+      className='relative flex flex-col pt-6 mb-12 md:mb-24 md:pt-12 section-leader-message-container'
     >
       <Image
         src={`/images/about-us/bglanhdao.png`}

@@ -18,14 +18,13 @@ export default function OutStandingProject() {
         alt='logo'
         width={1500}
         height={400}
-        quality={100}
         className='md:w-[68.5rem] md:h-[8.9375rem] object-cover absolute top-[10.3rem] z-[11]'
       />
 
       {/* slide */}
       <div className='flex relative max-md:flex-col md:h-[75rem] overflow-hidden'>
         <div className='flex md:gap-[0.75rem] overflow-hidden md:w-full max-md:mt-[2rem]'>
-          <div className='flex flex-col relative z-10 maquee'>
+          <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate md:mb-[0.75rem]'>
               {arr?.map((item, index) => (
                 <ItemOutStandingProject key={index} />
@@ -37,7 +36,7 @@ export default function OutStandingProject() {
               ))}
             </div>
           </div>
-          <div className='flex flex-col relative z-10 maquee'>
+          <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate2 md:mb-[0.75rem]'>
               {arr?.map((item, index) => (
                 <ItemOutStandingProject key={index} />
@@ -49,7 +48,7 @@ export default function OutStandingProject() {
               ))}
             </div>
           </div>
-          <div className='flex flex-col relative z-10 maquee'>
+          <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate md:mb-[0.75rem]'>
               {arr?.map((item, index) => (
                 <ItemOutStandingProject key={index} />
@@ -69,7 +68,7 @@ export default function OutStandingProject() {
         className='absolute bottom-0 z-[12]'
       >
         <Button
-          className=' bg-hover_button border-none'
+          className='border-none  bg-hover_button'
           text={'XEM TẤT CẢ'}
           isHover={false}
           isBlack={true}
