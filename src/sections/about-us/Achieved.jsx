@@ -7,7 +7,7 @@ import Image from 'next/image'
 import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 
-export default function Achieved({isMobile}) {
+export default function Achieved({isMobile, data}) {
   const [startCounting, setStartCounting] = useState(true)
   useEffect(() => {
     let firstRun = false
@@ -64,30 +64,27 @@ export default function Achieved({isMobile}) {
             </>
           )}
           {!isMobile && (
-            <h3 className='text-grey-500 font-SVNLagu text-1.25 font-medium tracking-0.1 uppercase pt-[4.2rem] ml-[8.1rem] w-[17.8125rem] mb-[2.2rem]'>
-              Những điều chúng tôi đã đạt được
+            <h3 className='text-grey-500 font-SVNLagu text-1.25 font-medium tracking-0.1 uppercase pt-[4.2rem] ml-[8.1rem] w-[17.8125rem] mb-[2.2rem] [&_strong]:font-normal' dangerouslySetInnerHTML={{__html: data.heading}}>
             </h3>
           )}
           {isMobile && (
             <div className='mb-[1.13rem]'>
-              <h2 className='w-[80%] mx-auto text-grey-900 text-center font-SVNLagu text-1.5 font-semibold leading-1.3 mb-2'>
-                Những điều chúng tôi đã đạt{' '}
-                <strong className='font-semibold leading-1.3 text-yellow-500 uppercase'>
-                  đạt được
-                </strong>
-              </h2>
+              <h2
+                className='w-[80%] mx-auto text-grey-900 text-center font-SVNLagu text-1.5 font-semibold leading-1.3 mb-2 [&_strong]:font-semibold [&_strong]:text-yellow-500'
+                dangerouslySetInnerHTML={{__html: data.heading}}
+              ></h2>
               <p className='w-[88%] mx-auto text-center text-0.75 leading-1.5 font-Iciel text-grey-700'>
-                Đóng góp vào sự phát triển bền vững của ngành thang máy thông
-                qua nghiên cứu và phát triển liên tục
+                {data.description}
               </p>
             </div>
           )}
           <div className='w-[84%] md:w-full mx-auto achieved-num-container grid grid-cols-2 items-center md:ml-[7.56rem] gap-y-[1.56rem] md:gap-x-[11.4rem]'>
-            {achieved.map((item, i) => {
+            {data.content.map((item, i) => {
               return (
                 <AchievedNum
                   key={i}
-                  {...item}
+                  num={item.number}
+                  text={item.content}
                   style={
                     isMobile
                       ? {order: `${i === 1 ? 2 : i === 2 ? 1 : i}`}
