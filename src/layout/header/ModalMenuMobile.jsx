@@ -100,17 +100,32 @@ export default function ModalMenuMobile({
         </div>
         <div className='flex flex-col ml-auto mr-10'>
           <p className='mb-1 text-grey-0/60 text-0.625 font-Iciel leading-1.4'>
-            Chọn ngôn ngữ
+            {lang === 'vi' ? 'Chọn ngôn ngữ' : 'Select language'}
           </p>
           <button className='relative flex flex-row items-center text-grey-0 text-0.75 font-medium leading-1.5 font-Iciel group'>
-            <Image
-              src={`/images/layout/header/vietnam-lang.png`}
-              alt='vietnam language'
-              className='rounded-[0.0625rem] w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
-              width={120}
-              height={120}
-            />
-            VIỆT NAM
+            {lang === 'vi' ? (
+              <>
+                <Image
+                  src={`/images/layout/header/vietnam-lang.png`}
+                  alt='vietnam language'
+                  className='rounded-[0.0625rem] w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
+                  width={120}
+                  height={120}
+                />
+                VIỆT NAM
+              </>
+            ) : (
+              <>
+                <Image
+                  src={`/images/layout/header/english-lang.png`}
+                  alt='vietnam language'
+                  className='rounded-[0.0625rem] w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
+                  width={120}
+                  height={120}
+                />
+                ENGLISH
+              </>
+            )}
             <Image
               src={`/images/layout/header/arrow-down-white.svg`}
               alt='arrow down'
@@ -127,7 +142,7 @@ export default function ModalMenuMobile({
       </div>
       <div className='flex flex-col mb-[0.88rem]'>
         <p className='text-grey-0 font-Iciel text-0.75 leading-1.5 opacity-60'>
-          Địa chỉ:{' '}
+          {lang === 'vi' ? 'Địa chỉ' : 'Address'}:{' '}
         </p>
         <p className='font-Iciel text-0.875 leading-1.5 text-grey-0'>
           Số 8BT2 ngõ 66 Kim Giang - Hoàng Mai - Hà Nội
@@ -145,7 +160,7 @@ export default function ModalMenuMobile({
         href={`/${lang}`}
         className='w-full py-3 text-center border border-yellow-500 bg-yellow-500 rounded-full font-Iciel text-grey-900 text-0.75 font-medium leading-1.5 block mb-[0.88rem]'
       >
-        ĐĂNG KÍ TƯ VẤN
+        {lang === 'vi' ? 'ĐĂNG KÍ TƯ VẤN' : 'REGISTER FOR CONSULTATION'}
       </Link>
       <div className='flex flex-row items-center justify-center'>
         <Link href={`/${lang}`}>
