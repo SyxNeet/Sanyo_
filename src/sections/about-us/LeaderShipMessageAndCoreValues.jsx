@@ -88,7 +88,7 @@ export default function LeaderShipMessageAndCoreValues({
           data={dataLeadershipMessage}
         />
         {!isMobile && (
-          <section className='z-10 flex flex-row items-start bg-grey-0 section-container'>
+          <section className='relative z-10 flex flex-row items-start bg-grey-0 section-container'>
             <div
               ref={secondRef}
               className='relative basis-[65%] h-screen top-0'

@@ -12,7 +12,7 @@
 }
 
 .mySwiperNumberElevator .swiper-wrapper {
-  @apply flex flex-col justify-center items-center !important;
+  @apply flex flex-col items-center !important;
 }
 
 @media screen and (max-width: 767px) {

@@ -14,12 +14,12 @@ export default function Header({isMobile, lang}) {
       if (currentScroll > prevScroll) {
         gsap.to(headerRef.current, {
           yPercent: -103,
-          duration: 0.5,
+          duration: 0.8,
         })
       } else {
         gsap.to(headerRef.current, {
           yPercent: 0,
-          duration: 0.5,
+          duration: 0.8,
         })
       }
       prevScroll = currentScroll

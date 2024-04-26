@@ -3,7 +3,9 @@ import Image from 'next/image'
 import imgBgForm from '../../../public/images/form/bgForm.png'
 import {useState, useEffect} from 'react'
 import {Button} from '@/components/ui/button'
-export default function Support() {
+import {cn} from '@/lib/utils'
+
+export default function Support({className, forLienHePage}) {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -82,40 +84,87 @@ export default function Support() {
     }
   }
   useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    setWindowWidth(window.innerWidth)
   }, [])
   return (
-    <section className='w-full bg-grey-0 h-[34.8rem] relative flex justify-center items-center max-md:px-[1rem] max-md:h-fit'>
-      <Image
-        src={imgBgForm}
-        className='absolute  w-full h-full'
-      />
-      <div className='flex items-start w-[90%] max-md:flex-col max-md:w-full'>
-        <div className='w-[40%] mr-[6.19rem] max-md:w-full max-md:mr-0 max-md:mb-[2rem]'>
-          <h2 className='font-SVNLagu text-[3rem] font-[600] leading-[140%] mb-[1.5rem] max-md:text-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem] '>
-            Để lại thông tin để chúng tôi{' '}
-            <span className='uppercase'>hỗ trợ bạn</span>
+    <section
+      className={cn(
+        'w-full bg-grey-0 h-[34.8rem] relative flex flex-row justify-center max-md:px-[1rem] max-md:h-fit',
+        {'my-12 items-center': !forLienHePage},
+        className,
+      )}
+    >
+      {!forLienHePage && (
+        <Image
+          src={imgBgForm}
+          className='absolute w-full h-full'
+        />
+      )}
+      <div
+        className={cn('flex items-start max-md:w-full', {
+          'w-[90%] max-md:flex-col': !forLienHePage,
+          'flex-col w-full mr-[3.25rem]': forLienHePage,
+        })}
+      >
+        <div
+          className={cn('max-md:w-full max-md:mr-0 max-md:mb-[1.25rem]', {
+            'w-[40%] mr-[6.19rem]': !forLienHePage,
+          })}
+        >
+          <h2
+            className={cn(
+              'font-SVNLagu text-[3rem] font-[600] leading-[140%] mb-[1.5rem] max-md:text-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]',
+              {
+                'mb-[1.5rem]': !forLienHePage,
+                'mb-[0.75rem]': forLienHePage,
+              },
+            )}
+          >
+            {!forLienHePage && (
+              <>
+                Để lại thông tin để chúng tôi{' '}
+                <strong className='font-semibold text-yellow-500 uppercase'>
+                  hỗ trợ bạn
+                </strong>
+              </>
+            )}
+            {forLienHePage && (
+              <>
+                Liên hệ với{' '}
+                <strong className='font-semibold text-yellow-500 uppercase'>
+                  SANYO YUSOKI
+                </strong>
+              </>
+            )}
           </h2>
-          <span className='text-[1rem] font-Iciel text-[#6D7279] font-normal leading-[150%] max-md:block max-md:w-[18.375rem] max-md:text-[0.875rem] max-md:text-justify'>
-            Để tìm hiểu thêm, vui lòng để lại thông tin liên hệ của bạn. Bộ phận
-            Kinh doanh sẽ liên hệ với bạn trong thời gian sớm nhất.
-          </span>
+          <p className='text-[1rem] font-Iciel text-[#6D7279] font-normal leading-[150%] max-md:block max-md:w-[18.375rem] max-md:text-[0.875rem] max-md:text-justify mb-10'>
+            {!forLienHePage
+              ? 'Để tìm hiểu thêm, vui lòng để lại thông tin liên hệ của bạn. Bộ phận Kinh doanh sẽ liên hệ với bạn trong thời gian sớm nhất.'
+              : ` Khách hàng vui lòng điền đầy đủ thông tin ở form bên dưới để được
+              SANYO YUSOKI hỗ trợ và giải đáp thắc mắc nhanh nhất.`}
+          </p>
         </div>
-        <div className='flex flex-wrap w-[50%] max-md:w-full pt-2 max-md:pt-0 '>
-          <div className='flex flex-col w-[48%] mr-[4%] relative max-md:mr-0 max-md:w-full max-md:mb-[1.88rem]'>
+        <div
+          className={cn('max-md:w-full pt-2 max-md:pt-0', {
+            'w-[50%] flex flex-wrap': !forLienHePage,
+            'grid grid-cols-1 gap-8 w-full': forLienHePage,
+          })}
+        >
+          <div
+            className={cn(
+              'flex flex-col mr-[4%] relative max-md:mr-0 max-md:w-full max-md:mb-[1.88rem]',
+              {
+                'w-[48%]': !forLienHePage,
+                'w-full': forLienHePage,
+              },
+            )}
+          >
             <label
               className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] ${
                 windowWidth < 768 && nameFocused && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
-              Tên của bạn <span>*</span>
+              Tên của bạn <span className='text-red-500'>*</span>
             </label>
             <input
               type='text'
@@ -124,19 +173,27 @@ export default function Support() {
               onChange={handleNameChange}
               onBlur={handleNameBlur}
               onFocus={handleNameFocus}
-              className='border-b-2 border-[#6A6A6A] pb-[0.5rem] bg-transparent border-opacity-50 outline-none placeholder:font-Iciel placeholder:text-[1rem]  placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%] max-md:py-[0.75rem]'
+              className='border-b-2 border-[#6A6A6A] pb-[0.5rem] bg-transparent border-opacity-50 outline-none placeholder:font-Iciel placeholder:text-[1rem] placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%] max-md:py-[0.75rem]'
             />
-            <span className='absolute top-full italic text-[#ED2525] text-sm'>
+            <span className='absolute text-sm italic text-red-500 top-full'>
               {nameError}
             </span>
           </div>
-          <div className='flex flex-col w-[48%] relative max-md:w-full '>
+          <div
+            className={cn(
+              'flex flex-col mr-[4%] relative max-md:mr-0 max-md:w-full max-md:mb-[1.88rem]',
+              {
+                'w-[48%]': !forLienHePage,
+                'w-full': forLienHePage,
+              },
+            )}
+          >
             <label
               className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] ${
                 windowWidth < 768 && phoneFocused && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
-              Số điện thoại <span>*</span>
+              Số điện thoại <span className='text-red-500'>*</span>
             </label>
             <input
               type='text'
@@ -145,17 +202,29 @@ export default function Support() {
               onChange={handlePhoneChange}
               onBlur={handlePhoneBlur}
               onFocus={handlePhoneFocus}
-              className='border-b-2 border-[#6A6A6A] pb-[0.5rem] border-opacity-50 bg-transparent outline-none placeholder:font-Iciel placeholder:text-[1rem] placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%]'
+              className='border-b-2 border-[#6A6A6A] pb-[0.5rem] border-opacity-50 bg-transparent outline-none placeholder:font-Iciel placeholder:text-[1rem] placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%] max-md:py-[0.75rem]'
             />
-            <span className='absolute top-full italic text-[#ED2525] text-sm'>
+            <span className='absolute text-sm italic text-red-500 top-full'>
               {phoneError}
             </span>
           </div>
-          <div className='flex flex-col w-full mt-[3.12rem] relative max-md:mt-[1.88rem]'>
+          <div
+            className={cn(
+              'flex flex-col w-full  relative max-md:mt-[1.88rem]',
+              {
+                'mt-[3.12rem]': !forLienHePage,
+              },
+            )}
+          >
             <label
-              className={`mb-[2.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] ${
-                windowWidth < 768 && messageFocused && 'hidden'
-              }  max-md:absolute max-md:top-[23%] pointer-events-none`}
+              className={cn(
+                'font-SVNLagu text-[1rem] max-md:mb-[0.88rem] max-md:absolute max-md:top-[23%] pointer-events-none',
+                {
+                  hidden: windowWidth < 768 && messageFocused,
+                  'mb-[2.88rem]': !forLienHePage,
+                  'mb-[0.88rem]': forLienHePage,
+                },
+              )}
             >
               Nội dung ghi chú
             </label>
@@ -166,13 +235,18 @@ export default function Support() {
               onChange={handleMessageChange}
               onBlur={handleMessageBlur}
               onFocus={handleMessageFocus}
-              className='border-b-2 border-[#6A6A6A] pb-[0.5rem] border-opacity-50 bg-transparent outline-none placeholder:font-Iciel placeholder:text-[1rem] placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%]'
+              className='border-b-2 border-[#6A6A6A] pb-[0.5rem] border-opacity-50 bg-transparent outline-none placeholder:font-Iciel placeholder:text-[1rem] placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%] max-md:py-[0.75rem]'
             />
-            <span className='absolute top-full italic text-[#ED2525] text-sm'>
+            <span className='absolute text-sm italic text-red-500 top-full'>
               {messageError}
             </span>
           </div>
-          <div className='w-full mt-[3.25rem] relative z-10 max-md:mt-[1.81rem]'>
+          <div
+            className={cn(
+              'w-full mt-[3.25rem] relative z-10 max-md:mt-[2.25rem]',
+              {'mt-[1rem]': forLienHePage},
+            )}
+          >
             <Button
               isHover={true}
               text={'GỬI THÔNG TIN'}
