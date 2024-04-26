@@ -89,8 +89,8 @@ export default function Support({className, forLienHePage}) {
   return (
     <section
       className={cn(
-        'w-full bg-grey-0 h-[34.8rem] relative flex flex-row justify-center max-md:px-[1rem] max-md:h-fit',
-        {'my-12 items-center': !forLienHePage},
+        'w-full bg-grey-0 h-[34.8rem] relative flex flex-row justify-center max-md:h-fit',
+        {'my-12 items-center max-md:px-[1rem]': !forLienHePage},
         className,
       )}
     >
@@ -103,20 +103,21 @@ export default function Support({className, forLienHePage}) {
       <div
         className={cn('flex items-start max-md:w-full', {
           'w-[90%] max-md:flex-col': !forLienHePage,
-          'flex-col w-full mr-[3.25rem]': forLienHePage,
+          'flex-col w-full md:mr-[3.25rem]': forLienHePage,
         })}
       >
         <div
-          className={cn('max-md:w-full max-md:mr-0 max-md:mb-[1.25rem]', {
-            'w-[40%] mr-[6.19rem]': !forLienHePage,
+          className={cn('max-md:w-full max-md:mr-0', {
+            'w-[40%] mr-[6.19rem] max-md:mb-[1.25rem]': !forLienHePage,
           })}
         >
           <h2
             className={cn(
-              'font-SVNLagu text-[3rem] font-[600] leading-[140%] mb-[1.5rem] max-md:text-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]',
+              'font-SVNLagu text-[3rem] font-[600] leading-[140%] mb-[1.5rem] max-md:text-[1.5rem]',
               {
-                'mb-[1.5rem]': !forLienHePage,
-                'mb-[0.75rem]': forLienHePage,
+                'mb-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]':
+                  !forLienHePage,
+                'mb-[0.75rem] max-md:mb-[0.5rem]': forLienHePage,
               },
             )}
           >
@@ -137,7 +138,15 @@ export default function Support({className, forLienHePage}) {
               </>
             )}
           </h2>
-          <p className='text-[1rem] font-Iciel text-[#6D7279] font-normal leading-[150%] max-md:block max-md:w-[18.375rem] max-md:text-[0.875rem] max-md:text-justify mb-10'>
+          <p
+            className={cn(
+              'text-[1rem] font-Iciel text-grey-500 font-normal leading-[150%] max-md:block max-md:text-[0.875rem] max-md:text-justify',
+              {
+                'max-md:w-[18.375rem] mb-10': !forLienHePage,
+                'mb-5 md:mb-10': forLienHePage,
+              },
+            )}
+          >
             {!forLienHePage
               ? 'Để tìm hiểu thêm, vui lòng để lại thông tin liên hệ của bạn. Bộ phận Kinh doanh sẽ liên hệ với bạn trong thời gian sớm nhất.'
               : ` Khách hàng vui lòng điền đầy đủ thông tin ở form bên dưới để được
@@ -147,24 +156,25 @@ export default function Support({className, forLienHePage}) {
         <div
           className={cn('max-md:w-full pt-2 max-md:pt-0', {
             'w-[50%] flex flex-wrap': !forLienHePage,
-            'grid grid-cols-1 gap-8 w-full': forLienHePage,
+            'grid grid-cols-1 gap-[1.25rem] md:gap-8 w-full': forLienHePage,
           })}
         >
           <div
             className={cn(
-              'flex flex-col mr-[4%] relative max-md:mr-0 max-md:w-full max-md:mb-[1.88rem]',
+              'flex flex-col mr-[4%] relative max-md:mr-0 max-md:w-full',
               {
-                'w-[48%]': !forLienHePage,
+                'w-[48%] max-md:mb-[1.88rem]': !forLienHePage,
                 'w-full': forLienHePage,
               },
             )}
           >
             <label
-              className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] ${
+              className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] font-semibold ${
                 windowWidth < 768 && nameFocused && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
-              Tên của bạn <span className='text-red-500'>*</span>
+              Tên của bạn{' '}
+              <span className='text-yellow-500 md:text-red-500'>*</span>
             </label>
             <input
               type='text'
@@ -181,19 +191,20 @@ export default function Support({className, forLienHePage}) {
           </div>
           <div
             className={cn(
-              'flex flex-col mr-[4%] relative max-md:mr-0 max-md:w-full max-md:mb-[1.88rem]',
+              'flex flex-col mr-[4%] relative max-md:mr-0 max-md:w-full',
               {
-                'w-[48%]': !forLienHePage,
+                'w-[48%] max-md:mb-[1.88rem]': !forLienHePage,
                 'w-full': forLienHePage,
               },
             )}
           >
             <label
-              className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] ${
+              className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] font-semibold ${
                 windowWidth < 768 && phoneFocused && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
-              Số điện thoại <span className='text-red-500'>*</span>
+              Số điện thoại{' '}
+              <span className='text-yellow-500 md:text-red-500'>*</span>
             </label>
             <input
               type='text'
@@ -209,16 +220,13 @@ export default function Support({className, forLienHePage}) {
             </span>
           </div>
           <div
-            className={cn(
-              'flex flex-col w-full  relative max-md:mt-[1.88rem]',
-              {
-                'mt-[3.12rem]': !forLienHePage,
-              },
-            )}
+            className={cn('flex flex-col w-full  relative', {
+              'mt-[3.12rem] max-md:mt-[1.88rem]': !forLienHePage,
+            })}
           >
             <label
               className={cn(
-                'font-SVNLagu text-[1rem] max-md:mb-[0.88rem] max-md:absolute max-md:top-[23%] pointer-events-none',
+                'font-SVNLagu text-[1rem] max-md:mb-[0.88rem] max-md:absolute max-md:top-[23%] pointer-events-none font-semibold',
                 {
                   hidden: windowWidth < 768 && messageFocused,
                   'mb-[2.88rem]': !forLienHePage,
@@ -242,10 +250,10 @@ export default function Support({className, forLienHePage}) {
             </span>
           </div>
           <div
-            className={cn(
-              'w-full mt-[3.25rem] relative z-10 max-md:mt-[2.25rem]',
-              {'mt-[1rem]': forLienHePage},
-            )}
+            className={cn('w-full mt-[3.25rem] relative z-10', {
+              'mt-[0.75rem] md:mt-[1rem] ': forLienHePage,
+              'max-md:mt-[2.25rem]': !forLienHePage,
+            })}
           >
             <Button
               isHover={true}
