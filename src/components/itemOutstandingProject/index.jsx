@@ -17,7 +17,7 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
       <Link
         className='itemOutStandingProject_overlay max-md:flex-col flex relative h-fit backdrop-blur-[12.5px] rounded-[0.5rem] justify-between md:items-center
           md:pl-[0.94rem] md:pr-[2.06rem]
-          bottom-[0.59rem] pt-[0.945rem] pl-[1.06rem] pb-[0.945rem] pr-[1.38rem]'
+          bottom-[0.59rem] pt-[0.645rem] pl-[1.06rem] pb-[0.645rem] pr-[1.38rem]'
         href={link||'/'}
       >
         <Image
