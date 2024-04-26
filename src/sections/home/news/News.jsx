@@ -8,6 +8,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+
 export default function News({isMobile}) {
   const listNews = Array(3).fill(0)
   return (
@@ -39,21 +40,14 @@ export default function News({isMobile}) {
               />
             </Link>
 
-            <div className='pt-[3.31rem] w-[19.3125] pl-[2rem] bg-grey-600 flex-1 relative '>
-              <div className='absolute right-0 bottom-0 bg-yellow-500 w-[4.55769rem] h-[3.49163rem] rounded-tl-full '>
-                {/* <Image
-                src={'/images/home/danhSachTinTuc/Intersect.svg'}
-                width={120}
-                height={120}
-                alt='icon'
-                className='w-[4.55769rem] h-[3.49163rem]'
-              /> */}
+            <div className='pt-[3.31rem] w-[19.3125] pl-[2rem] bg-grey-600 flex-1 relative'>
+              <div className='absolute right-0 bottom-0 size-[11rem] translate-x-[45%] translate-y-[60%] bg-yellow-500 rounded-full'>
                 <Image
                   src={'/images/home/danhSachTinTuc/arrow.svg'}
                   width={120}
                   height={120}
                   alt='icon'
-                  className='w-[1.01875rem] h-[1.126rem] absolute top-[50%] left-[50%] object-cover'
+                  className='w-[1.1rem] h-[1.2rem] absolute top-[18%] left-[30%] object-cover'
                 />
               </div>
               <div className='flex items-center mb-[1.31rem]'>

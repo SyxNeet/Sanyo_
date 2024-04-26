@@ -17,8 +17,8 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
           }
           alt={dataValueDifferent?.background?.alt}
           width={1920}
-          height={1500}
-          className='absolute inset-0 object-cover size-full box-container-border'
+          height={1080}
+          className='absolute top-0 left-0 object-cover w-full box-container-border'
         />
         <h4
           className='sub-heading md:pl-[10.6rem] md:mb-[1.31rem] max-md:px-[0.75rem] mb-[0.44rem]'

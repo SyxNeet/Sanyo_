@@ -18,7 +18,7 @@ export default function HomePage({isMobile}) {
       {!isMobile ? <PlatFormElevator /> : <PlatFormMobile />}
       {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
       <News />
-      <PartnerSection isMobile={isMobile} />
+      <PartnerSection isMobile={isMobile} lang={lang} />
     </div>
   )
 }

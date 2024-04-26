@@ -7,6 +7,7 @@ import {
 } from '../../../data/header/modal-menu'
 import Accordion from './Accordion'
 import LangDropdownPopup from '@/components/header/LangDropdownPopup'
+import {createPortal} from 'react-dom'
 
 export default function ModalMenuMobile({
   lang,
@@ -14,10 +15,10 @@ export default function ModalMenuMobile({
   isMobile,
   setIsOpenModalMenu,
 }) {
-  return (
+  return createPortal(
     <div
       className={clsx(
-        'fixed top-0 left-0 z-50 w-full h-screen bg-grey-600 transition-500 py-4 px-[0.87rem] overflow-auto',
+        'fixed top-0 left-0 z-50 w-full h-screen bg-grey-600 transition-500 py-4 px-[0.87rem] overflow-y-auto',
         {
           'translate-x-full': !isOpenModalMenu,
         },
@@ -182,6 +183,7 @@ export default function ModalMenuMobile({
           />
         </Link>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

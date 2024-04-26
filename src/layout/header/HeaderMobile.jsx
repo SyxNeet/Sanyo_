@@ -5,7 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LangDropdown from '@/components/header/LangDropdown'
 import dynamic from 'next/dynamic'
-const DynamicModalMenuMobile = dynamic(() => import('./ModalMenuMobile'))
+const DynamicModalMenuMobile = dynamic(() => import('./ModalMenuMobile'), {
+  ssr: false,
+})
 
 export default function HeaderMobile({isMobile, lang}) {
   const [isOpenModalMenu, setIsOpenModalMenu] = useState(false)

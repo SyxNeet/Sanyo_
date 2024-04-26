@@ -10,6 +10,7 @@ const nameReg = /[a-zA-Z\s]{4,}/
 const phoneReg = /\d{6,}/
 
 export default function Support({className, forLienHePage, data, lang}) {
+  console.log("🚀 ~ Support ~ lang:", lang)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
