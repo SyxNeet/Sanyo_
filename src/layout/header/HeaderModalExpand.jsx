@@ -11,6 +11,7 @@ export default function HeaderModalExpand({
   data,
   href,
   isFirst,
+  handleOnClick
 }) {
   return (
     <div
@@ -42,6 +43,7 @@ export default function HeaderModalExpand({
                 setActiveModalMenuLink('')
                 setActiveModalMenuChildLink('')
               }}
+              onClick={handleOnClick}
             >
               {item2.text}
               <Image
@@ -60,6 +62,7 @@ export default function HeaderModalExpand({
             className='font-Iciel text-0.875 leading-1.5 uppercase px-6 py-[0.8rem] text-white font-bold underline hover:bg-yellow-500 transition-300 text-center'
             onMouseEnter={() => setActiveModalMenuLink(text)}
             onMouseLeave={() => setActiveModalMenuLink('')}
+            onClick={handleOnClick}
           >
             XEM TẤT CẢ
           </Link>

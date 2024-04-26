@@ -133,9 +133,9 @@ export default function HeaderDesktop({isMobile, lang}) {
             </div>
           </Link>
           <div className='flex flex-row items-center ml-auto'>
-            <Link href={`/${lang}`}>
+            <Link href={`/${lang}/lien-he`}>
               <Button
-                text='LIÊN HỆ NGAY'
+                text={lang === 'vi' ? 'LIÊN HỆ NGAY' : 'CONTACT NOW'}
                 isHover
                 isBlack
               />
@@ -143,7 +143,7 @@ export default function HeaderDesktop({isMobile, lang}) {
             <div className='w-[0.075rem] h-[2.5rem] opacity-10 bg-grey-900 mx-7' />
             <div className='flex flex-col'>
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
-                Chọn ngôn ngữ
+                {lang === 'vi' ? 'Chọn ngôn ngữ' : 'Select language'}
               </p>
               <LangDropdown
                 isMobile={isMobile}

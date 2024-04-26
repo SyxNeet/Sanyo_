@@ -5,7 +5,7 @@ import 'swiper/css'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Autoplay} from 'swiper/modules'
 import './styles.css'
-const SlideOnlyImagesDownload = ({data, className}) => {
+const SlideOnlyImagesDownload = ({data, className, lang}) => {
   return (
     <div className='mt-6 md:mt-[4.12rem]'>
       <div className='flex px-[6.25rem] max-md:w-full max-md:px-4'>
@@ -16,10 +16,7 @@ const SlideOnlyImagesDownload = ({data, className}) => {
           >
           </h1>
           <span className='w-[40.125rem] font-Iciel text-base font-normal leading-[188%] text-justify mb-20 block max-md:w-full max-md:text-[0.875rem] max-md:mb-5'>
-            Bằng nhiệt huyết và tinh thần không ngừng đổi mới, SANYO YUSOKI đã
-            vươn mình trở thành một biểu tượng của ngành thiết kế và lắp đặt
-            thang máy. Đó là biểu tượng giá trị ưu việt, được minh chứng bởi
-            những sản phẩm bền vững theo thời gian
+            {data.description}
           </span>
           <div className='absolute block w-[4.375rem] h-16 bg-yellow-500 opacity-[0.14] bottom-0 right-0 max-md:hidden'></div>
         </div>
@@ -43,7 +40,7 @@ const SlideOnlyImagesDownload = ({data, className}) => {
             </div>
             <div className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '>
               <span className='uppercase font-Iciel text-base font-medium leading-[120%] mr-[0.87rem]'>
-                tải xuống ngay
+                {lang === 'vi' ? 'tải xuống ngay' : 'Download Now'}
               </span>
               <div className='w-6 h-6  relative overflow-hidden flex items-center justify-center flex-col mb-[0.7rem]'>
                 <Image

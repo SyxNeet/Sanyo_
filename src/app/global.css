@@ -205,3 +205,7 @@ html {
   bottom: -95%;
   transition: 0.3s ease;
 }
+
+.toast {
+  @apply text-1 !important;
+}

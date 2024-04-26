@@ -58,14 +58,15 @@ export default async function AboutUsPage({params, searchParams}) {
   return (
     <main>
       <BreadcrumbContainer>
-        <BreadcrumbLink href={`/${lang}`}>TRANG CHỦ /</BreadcrumbLink>
-        <BreadcrumbLink isLastLink>VỀ CHÚNG TÔI</BreadcrumbLink>
+        <BreadcrumbLink href={`/${lang}`}>{lang === 'vi' ? 'TRANG CHỦ' : 'HOME'} /</BreadcrumbLink>
+        <BreadcrumbLink isLastLink>{lang === 'vi' ? 'VỀ CHÚNG TÔI' : 'ABOUT US'}</BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} />
+      <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} lang={lang} />
       <LeaderShipMessageAndCoreValues
         isMobile={isMobile}
         dataLeadershipMessage={dataLeadershipMessage.leadershipMessage}
         dataCoreValues={dataCoreValues.coreValues}
+        lang={lang}
       />
       <Achieved
         isMobile={isMobile}

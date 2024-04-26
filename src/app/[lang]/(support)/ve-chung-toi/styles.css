@@ -10,10 +10,6 @@
   @apply flex justify-center items-center !important;
 }
 
-/* .swiper-core-values {
-  @apply ml-3 !important;
-} */
-
 .swiper-core-values .swiper-wrapper {
   @apply flex flex-row items-stretch !important;
 }

@@ -73,6 +73,7 @@ export default function ModalMenuDesktop({
                 }
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === modalMenuJapanElevator.text}
+                handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
                 href={`/${lang}`}
@@ -81,6 +82,7 @@ export default function ModalMenuDesktop({
                 handleOnMouseEnter={() => setActiveModalMenuLink(`GIỚI THIỆU`)}
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === `GIỚI THIỆU`}
+                handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
                 href={`${lang}/${modalMenuService.href}`}
@@ -91,6 +93,7 @@ export default function ModalMenuDesktop({
                 }
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === modalMenuService.text}
+                handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
                 href={`/${lang}`}
@@ -101,6 +104,7 @@ export default function ModalMenuDesktop({
                 }
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === `DỰ ÁN NỔI BẬT`}
+                handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
                 href={`/${lang}`}
@@ -109,6 +113,7 @@ export default function ModalMenuDesktop({
                 handleOnMouseEnter={() => setActiveModalMenuLink(`BLOG`)}
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === `BLOG`}
+                handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
                 href={`/${lang}`}
@@ -117,6 +122,7 @@ export default function ModalMenuDesktop({
                 handleOnMouseEnter={() => setActiveModalMenuLink(`LIÊN HỆ`)}
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === `LIÊN HỆ`}
+                handleOnClick={handleClickModalLink}
               />
             </nav>
             <div className='relative w-[41.25rem]'>
@@ -129,6 +135,7 @@ export default function ModalMenuDesktop({
                 data={modalMenuJapanElevator.child}
                 href={`${lang}/${modalMenuJapanElevator.href}`}
                 isFirst
+                handleOnClick={handleClickModalLink}
               />
               <HeaderModalExpand
                 activeModalMenuLink={activeModalMenuLink}
@@ -139,6 +146,7 @@ export default function ModalMenuDesktop({
                 data={modalMenuService.child}
                 href={`${lang}/${modalMenuService.href}`}
                 isFirst={false}
+                handleOnClick={handleClickModalLink}
               />
             </div>
           </div>
@@ -190,9 +198,9 @@ export default function ModalMenuDesktop({
                 width={120}
                 height={120}
               />
-              <p className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center'>
-                liên hệ ngay
-              </p>
+              <Link href={`/${lang}/lien-he`} className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center' onClick={handleClickModalLink}>
+                {lang === 'vi' ? 'LIÊN HỆ NGAY' : 'CONTACT NOW'}
+              </Link>
               <Image
                 src={`/images/layout/header/arrow-right-white.svg`}
                 alt=''

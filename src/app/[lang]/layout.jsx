@@ -109,7 +109,12 @@ export default function RootLayout({children, params}) {
           {children}
           <Footer isMobile={isMobile} />
         </GsapProvider>
-        <Toaster />
+        <Toaster
+          expand={true}
+          toastOptions={{
+            className: 'toast',
+          }}
+        />
       </body>
     </html>
   )
