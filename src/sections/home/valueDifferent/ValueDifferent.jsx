@@ -3,6 +3,7 @@ import React, {forwardRef} from 'react'
 import SlideValue from './SlideValue'
 
 const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
+  console.log('🚀 ~ ValueDifferent ~ isMobile:', isMobile)
   return (
     <section
       ref={ref}
@@ -26,7 +27,7 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
         ></h4>
         <div className='relative md:pl-[6.31rem] md:w-[61.25rem] md:mb-[4.44rem] mb-[1.94rem] max-md:ml-[0.75rem] w-[17.4375rem]'>
           <div
-            className=' text-grey-700 font-SVNLagu md:text-[2.5rem] text-[1.125rem] font-semibold leading-1.4'
+            className='text-grey-700 font-SVNLagu md:text-[2.5rem] text-[1.125rem] font-semibold leading-1.4'
             dangerouslySetInnerHTML={{__html: dataValueDifferent?.desc}}
           ></div>
         </div>
@@ -34,34 +35,54 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
         <SlideValue isMobile={isMobile} />
       </div>
       <button className='md:w-[3.5rem] max-md:mt-[1.5rem] max-md:ml-[0.75rem] max-md:mr-[0.38rem] md:h-[3.5rem] rounded-[50%] bg-grey-0 shadow_btn md:absolute left-[6.13rem] z-[1] btn-prev-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='17'
-          height='18'
-          viewBox='0 0 17 18'
-          fill='none'
-          className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem]'
-        >
-          <path
-            d='M0.809772 8.94723L12.3742 0V6.71042L17 8.94723L12.3742 11.184V17.8945L0.809772 8.94723Z'
-            fill={isMobile ? '#1E2125' : '#DAB571'}
+        {isMobile ? (
+          <Image
+            src={`/images/home/giaTriKhacBiet/prev-button-mobile.svg`}
+            alt='previous slide'
+            className='size-10'
+            width={120}
+            height={120}
           />
-        </svg>
+        ) : (
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='17'
+            height='18'
+            viewBox='0 0 17 18'
+            fill='none'
+            className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem]'
+          >
+            <path
+              d='M0.809772 8.94723L12.3742 0V6.71042L17 8.94723L12.3742 11.184V17.8945L0.809772 8.94723Z'
+              fill={'#1E2125'}
+            />
+          </svg>
+        )}
       </button>
       <button className='md:w-[3.5rem] max-md:mt-[1.5rem] md:h-[3.5rem] rounded-[50%] bg-grey-0 right-[6.13rem] z-[1] shadow_btn md:absolute btn-next-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='14'
-          height='16'
-          viewBox='0 0 14 16'
-          fill='none'
-          className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem]'
-        >
-          <path
-            d='M14 8L4 0L4 6L0 8L4 10L4 16L14 8Z'
-            fill={isMobile ? '#1E2125' : '#DAB571'}
+        {isMobile ? (
+          <Image
+            src={`/images/home/giaTriKhacBiet/next-button-mobile.svg`}
+            alt='previous slide'
+            className='size-10'
+            width={120}
+            height={120}
           />
-        </svg>
+        ) : (
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='14'
+            height='16'
+            viewBox='0 0 14 16'
+            fill='none'
+            className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem]'
+          >
+            <path
+              d='M14 8L4 0L4 6L0 8L4 10L4 16L14 8Z'
+              fill={'#1E2125'}
+            />
+          </svg>
+        )}
       </button>
     </section>
   )
