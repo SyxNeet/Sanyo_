@@ -177,7 +177,7 @@ export default function Support() {
               isHover={true}
               text={'GỬI THÔNG TIN'}
               isBlack={true}
-              className='max-md:bg-yellow-500 max-md:border-none'
+              className='max-md:bg-yellow-500 max-md:border-none bg-transparent'
               onClick={handleSubmit}
             ></Button>
           </div>

@@ -1,0 +1,53 @@
+.detailElevator table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.detailElevator table,
+.detailElevator td,
+.detailElevator th {
+  border: 1px solid black;
+}
+.detailElevator th {
+  width: calc(100% / 9);
+}
+.detailElevator td {
+  text-align: center;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: #6d7279;
+}
+.detailElevator table th {
+  background-color: #ededee;
+  padding-top: 0.69rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.42rem;
+  padding-right: 0.42rem;
+}
+.detailElevator table th .nameLabelTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.detailElevator table th span {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.00688rem;
+  white-space: nowrap;
+}
+.linkdowloadDE img:first-child {
+  transition: 0.3s ease-in;
+}
+.linkdowloadDE img:last-child {
+  transition: 0.3s ease-in;
+}
+.linkdowloadDE:hover img:first-child {
+    bottom: 0;
+    transition: 0.3s ease-in;
+  }
+  .linkdowloadDE:hover img:last-child {
+    bottom: -100%;
+    transition: 0.3s ease-in;
+  }
