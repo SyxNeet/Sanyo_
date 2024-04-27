@@ -7,7 +7,7 @@ export default function BreadcrumbLink({isLastLink, children, href}) {
       <Link
         href={href}
         className={clsx(
-          'text-grey-700 font-Iciel text-0.625 md:text-0.875 font-medium leading-1.5 text-justify',
+          'text-grey-700 font-Iciel text-0.625 md:text-0.875 font-medium leading-1.5 text-justify uppercase',
           {
             'opacity-50': !isLastLink,
           },
@@ -18,7 +18,7 @@ export default function BreadcrumbLink({isLastLink, children, href}) {
     )
   } else {
     return (
-      <p className='text-grey-700 font-Iciel text-0.625 md:text-0.875 font-medium leading-1.5 text-justify'>
+      <p className='text-grey-700 font-Iciel text-0.625 md:text-0.875 font-medium leading-1.5 text-justify uppercase'>
         {children}
       </p>
     )

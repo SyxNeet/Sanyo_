@@ -4,7 +4,7 @@ export default function BreadcrumbContainer({children, className}) {
   return (
     <div
       className={cn(
-        'flex flex-row [&_a]:mr-2 mt-4 md:mt-8 ml-3 md:mx-[6.25rem]',
+        'flex flex-row [&_a]:mr-2 pt-4 md:pt-8 ml-3 md:mx-[6.25rem]',
         className,
       )}
     >

@@ -198,8 +198,12 @@ export default function ModalMenuDesktop({
                 width={120}
                 height={120}
               />
-              <Link href={`/${lang}/lien-he`} className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center' onClick={handleClickModalLink}>
-                {lang === 'vi' ? 'LIÊN HỆ NGAY' : 'CONTACT NOW'}
+              <Link
+                href={`/${lang}/lien-he`}
+                className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center'
+                onClick={handleClickModalLink}
+              >
+                <p className='ml-4 -mb-1'>{lang === 'vi' ? 'LIÊN HỆ NGAY' : 'CONTACT NOW'}</p>
               </Link>
               <Image
                 src={`/images/layout/header/arrow-right-white.svg`}

@@ -19,13 +19,13 @@ function NewsItemHome({className}) {
           height={400}
           className='object-cover size-full'
         />
-        <div className='absolute right-0 top-0 md:bottom-0 md:top-auto size-[8rem] translate-x-[46%] -translate-y-[62%]  md:translate-x-[45%] md:translate-y-[60%] bg-yellow-500 rounded-full'>
+        <div className='absolute right-0 top-0 md:bottom-0 md:top-auto size-[8rem] translate-x-[48%] -translate-y-[62%] md:translate-y-[60%] bg-yellow-500 rounded-full'>
           <Image
             src={'/images/home/danhSachTinTuc/arrow.svg'}
             width={120}
             height={120}
             alt='icon'
-            className='w-[0.9rem] h-[1em] absolute bottom-[18%] md:top-[17%] left-[30%] object-cover'
+            className='w-[0.9rem] h-[1em] absolute bottom-[17%] md:top-[17%] left-[30%] md:left-[29%] object-cover'
           />
         </div>
       </Link>

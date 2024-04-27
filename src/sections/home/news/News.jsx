@@ -41,13 +41,13 @@ export default function News({isMobile}) {
             </Link>
 
             <div className='pt-[3.31rem] w-[19.3125] pl-[2rem] bg-grey-600 flex-1 relative'>
-              <div className='absolute right-0 bottom-0 size-[11rem] translate-x-[45%] translate-y-[60%] bg-yellow-500 rounded-full'>
+              <div className='absolute right-0 bottom-0 size-[11rem] translate-x-[46%] translate-y-[60%] bg-yellow-500 rounded-full'>
                 <Image
                   src={'/images/home/danhSachTinTuc/arrow.svg'}
                   width={120}
                   height={120}
                   alt='icon'
-                  className='w-[1.1rem] h-[1.2rem] absolute top-[18%] left-[30%] object-cover'
+                  className='w-[1.1rem] h-[1.2rem] absolute top-[17%] left-[29%] object-cover'
                 />
               </div>
               <div className='flex items-center mb-[1.31rem]'>

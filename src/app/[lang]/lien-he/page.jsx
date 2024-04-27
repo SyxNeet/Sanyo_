@@ -20,16 +20,20 @@ export default async function LienHePage({params, searchParams}) {
   }
   const [dataContact] = await Promise.all([getLienHe(pageId)])
   return (
-    <>
+    <main>
       <BreadcrumbContainer className='md:ml-[3.75rem]'>
-        <BreadcrumbLink href={`/`}>TRANG CHỦ / </BreadcrumbLink>
-        <BreadcrumbLink isLastLink>LIÊN HỆ</BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>
+          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'} /{' '}
+        </BreadcrumbLink>
+        <BreadcrumbLink isLastLink>
+          {lang === 'vi' ? 'LIÊN HỆ' : 'CONTACT'}
+        </BreadcrumbLink>
       </BreadcrumbContainer>
       <LienHeSection
         isMobile={isMobile}
         lang={lang}
         data={dataContact.contact}
       />
-    </>
+    </main>
   )
 }
