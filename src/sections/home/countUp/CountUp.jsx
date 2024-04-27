@@ -70,12 +70,12 @@ export default function CountUp({dataCountUp, lang}) {
           className='w-[3.25rem] h-[3.125rem] object-cover absolute right-0 bottom-0 md:hidden'
         />
         <Image
-          src={'/images/home/sectionCount/logo.svg'}
+          src={'/images/home/sectionCount/logo.png'}
           alt='logo'
           width={500}
           height={300}
           quality={100}
-          className='md:w-[30.75rem] md:h-[4.06rem] object-contain max-md:hidden'
+          className='w-[30.75rem] h-[4.06rem] object-cover max-md:hidden'
         />
         <h3 className='font-SVNLagu  max-md:px-[0.75rem] md:text-[2.125rem] text-[0.625rem] leading-1.5 max-md:tracking-[0.05rem] font-semibold md:leading-[1.2] uppercase md:text-yellow-500 text-grey-500 opacity-80 md:mt-[0.75rem]'>
           {dataCountUp?.title}

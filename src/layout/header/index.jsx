@@ -3,7 +3,6 @@
 import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
 import {useEffect, useRef} from 'react'
-import gsap from 'gsap'
 
 export default function Header({isMobile, lang}) {
   const headerRef = useRef(null)
@@ -12,15 +11,9 @@ export default function Header({isMobile, lang}) {
     const fnc = () => {
       const currentScroll = document.documentElement.scrollTop
       if (currentScroll > prevScroll) {
-        gsap.to(headerRef.current, {
-          yPercent: -103,
-          duration: 0.8,
-        })
+        headerRef.current.style.transform = 'translateY(-103%)'
       } else {
-        gsap.to(headerRef.current, {
-          yPercent: 0,
-          duration: 0.8,
-        })
+        headerRef.current.style.transform = 'translateY(0%)'
       }
       prevScroll = currentScroll
     }
@@ -30,7 +23,7 @@ export default function Header({isMobile, lang}) {
   return (
     <header
       ref={headerRef}
-      className='fixed top-0 left-0 z-50 w-full'
+      className='fixed top-0 left-0 z-50 w-full transition-500'
     >
       {!isMobile ? (
         <HeaderDesktop

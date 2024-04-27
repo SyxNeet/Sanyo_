@@ -75,10 +75,12 @@ export default async function AboutUsPage({params, searchParams}) {
       <ProductionLineSection
         isMobile={isMobile}
         data={dataService.service}
+        lang={lang}
       />
       <PartnerSection
         isMobile={isMobile}
         data={lang === 'vi' ? dataPartner.partnerVi : dataPartner.partnerEn}
+        lang={lang}
       />
     </main>
   )

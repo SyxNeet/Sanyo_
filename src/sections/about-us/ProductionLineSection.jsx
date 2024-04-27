@@ -7,7 +7,7 @@ import 'swiper/css/effect-fade'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
 import {useState} from 'react'
 
-export default function ProductionLineSection({isMobile, data}) {
+export default function ProductionLineSection({isMobile, data, lang}) {
   const [activeImage, setActiveImage] = useState(0)
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
@@ -15,7 +15,9 @@ export default function ProductionLineSection({isMobile, data}) {
     <section className='mt-14 md:mt-[6.5rem]'>
       <div className='w-[93%] md:w-auto mx-auto md:ml-[6.25rem] mb-6 md:mb-10'>
         <h3 className='text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5'>
-          CÁC BƯỚC TIẾN HÀNH DỊCH VỤ
+          {lang === 'vi'
+            ? 'CÁC BƯỚC TIẾN HÀNH DỊCH VỤ'
+            : 'STEPS IN CONDUCTING SERVICES'}
         </h3>
         <h2
           className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'

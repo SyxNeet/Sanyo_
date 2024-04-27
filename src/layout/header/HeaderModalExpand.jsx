@@ -11,7 +11,7 @@ export default function HeaderModalExpand({
   data,
   href,
   isFirst,
-  handleOnClick
+  handleOnClick,
 }) {
   return (
     <div
@@ -33,6 +33,7 @@ export default function HeaderModalExpand({
         {data.map((item2, i2) => {
           return (
             <Link
+              key={i2}
               href={item2.href}
               className='font-Iciel text-0.875 leading-1.5 uppercase opacity-60 px-6 py-[0.62rem] text-white border-b-[0.0625rem] border-white/10 hover:text-yellow-500 transition-300 hover:opacity-100 flex flex-row items-center group'
               onMouseEnter={() => {
@@ -75,6 +76,7 @@ export default function HeaderModalExpand({
         {data.map((item2, i2) => {
           return (
             <Image
+              key={i2}
               src={item2.src}
               alt=''
               className={clsx('object-cover w-full h-full transition-500', {

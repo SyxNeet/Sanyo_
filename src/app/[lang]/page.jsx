@@ -72,6 +72,7 @@ export default async function Home({params, searchParams}) {
         <PartnerSection
           isMobile={isMobile}
           data={lang === 'vi' ? dataPartner.partnerVi : dataPartner.partnerEn}
+          lang={lang}
         />
       </Suspense>
     </main>

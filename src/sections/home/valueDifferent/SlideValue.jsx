@@ -9,7 +9,7 @@ import ReasonChoose from '@/components/reasonChoose'
 import './style.css'
 export default function SlideValue({isMobile}) {
   const slideImages = Array(4)?.fill(0)
-  const [activeSlide, setActiveSlide] = useState(slideImages?.length)
+  const [activeSlide, setActiveSlide] = useState(0)
   const swiperRef = useRef()
   const handleChangeSlide = (swiper) => {
     setActiveSlide(swiper?.activeIndex)
@@ -23,14 +23,13 @@ export default function SlideValue({isMobile}) {
           slidesPerView={1.2}
           spaceBetween={12}
           centeredSlides={!isMobile && true}
-          initialSlide={slideImages?.length}
           onSlideChange={handleChangeSlide}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
           }}
           navigation={{
-            nextEl: '.btn-prev-cus-value',
-            prevEl: '.btn-next-cus-value',
+            nextEl: '.btn-next-cus-value',
+            prevEl: '.btn-prev-cus-value',
           }}
           breakpoints={{
             768: {
