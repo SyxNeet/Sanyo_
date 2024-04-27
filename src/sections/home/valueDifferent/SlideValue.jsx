@@ -24,14 +24,21 @@ export default function SlideValue({isMobile}) {
           spaceBetween={12}
           centeredSlides={!isMobile && true}
           onSlideChange={handleChangeSlide}
+          initialSlide={isMobile ? 0 : slideImages?.length}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
           }}
           navigation={{
-            nextEl: '.btn-next-cus-value',
-            prevEl: '.btn-prev-cus-value',
+            prevEl: '.btn-next-cus-value',
+            nextEl: '.btn-prev-cus-value',
           }}
           breakpoints={{
+            375: {
+              navigation: {
+                nextEl: '.btn-next-cus-value',
+                prevEl: '.btn-prev-cus-value',
+              },
+            },
             768: {
               slidesPerView: 'auto',
               spaceBetween: 35,
