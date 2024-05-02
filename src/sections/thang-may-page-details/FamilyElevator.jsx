@@ -3,13 +3,15 @@ import HeaderDetailElevator from './headerDetailElevator'
 import ConnectLove from './connectLoves/ConnectLove'
 import ListElevator from './listElevator'
 import ProductionLineSection from '../about-us/ProductionLineSection'
-const FamilyElevator = ({lang}) => {
+import FiveReasonsFamily from './fiveReasonsFamily'
+const FamilyElevator = ({lang,isMobile}) => {
   return (
     <main>
       <HeaderDetailElevator lang={lang}/>
       <ConnectLove lang={lang}/>
-      <ListElevator/>
+      <ListElevator isMobile={isMobile}/>
       {/* <ProductionLineSection/> */}
+      <FiveReasonsFamily lang={lang} isMobile={isMobile}/>
     </main>
   )
 }
