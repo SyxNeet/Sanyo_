@@ -11,7 +11,7 @@ const DetailElevator = ({lang, type = false}) => {
   return (
     <div
       className={`flex border-t border-b border-[rgba(28,32,28,0.10)] detailElevator ${
-        type ? '' : 'flex-row-reverse w-ful justify-end ml-[6.25rem]'
+        type ? '' : 'flex-row-reverse w-ful justify-end pl-[6.25rem] border-t-0'
       } `}
     >
       <div
@@ -179,13 +179,13 @@ const DetailElevator = ({lang, type = false}) => {
         </Link>
       </div>
       <div className='w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ml-[3rem] mr-[5.69rem]'></div>
-      <div className='pt-[1.18rem]'>
+      <div className='pt-[3.5rem]'>
         <Image
           src={'/images/familyElevator/detailFE/imgE.png'}
           width={1000}
           height={1000}
           alt='thang may gia dinh'
-          className='w-[30.625rem] h-[42.25rem] object-full'
+          className='w-[26.82738rem] h-[42.65319rem] object-cover'
         />
       </div>
     </div>
