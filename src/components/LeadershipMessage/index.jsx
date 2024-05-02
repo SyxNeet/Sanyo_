@@ -27,42 +27,51 @@ const LeadershipMessage = forwardRef(({isMobile, data, lang}, ref) => {
   return (
     <section
       ref={ref}
-      className='relative flex flex-col pt-6 mb-12 md:mb-24 md:pt-12 section-leader-message-container'
+      className='relative flex flex-col pt-4 md:pt-12 section-leader-message-container'
     >
-      <Image
-        src={`/images/about-us/bglanhdao.png`}
-        alt='bgLeadership'
-        className='absolute top-0 left-0 object-cover w-full h-full -z-10'
-        width={1920}
-        height={1080}
-      />
-      <Image
-        src={`/images/about-us/bgmblandao.png`}
-        alt='bgLeadership'
-        className='absolute top-0 left-0 hidden object-cover w-full h-full -z-10 max-md:block'
-        width={1920}
-        height={1080}
-      />
+      {isMobile && (
+        <div className='absolute left-0 w-full h-12 bottom-1/3 bg-gradient-to-t from-white to-white/0' />
+      )}
+      {!isMobile && (
+        <Image
+          src={`/images/about-us/bglanhdao.png`}
+          alt='bgLeadership'
+          className='absolute top-0 left-0 object-cover w-full h-full -z-10'
+          width={1920}
+          height={1080}
+        />
+      )}
+      {isMobile && (
+        <Image
+          src={`/images/about-us/bgmblandao.png`}
+          alt='bgLeadership'
+          className='absolute top-0 left-0 object-cover w-full h-2/3 -z-10'
+          width={1920}
+          height={1080}
+        />
+      )}
       <div className='flex w-full pt-12 overflow-hidden max-md:flex-row-reverse max-md:px-4 max-md:items-center'>
         <div className='relative w-[40%] flex justify-end'>
-          <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[-5%] md:top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_#DAB571_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
+          <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[-5%] md:top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_rgba(218,_181,_113,_0.5)_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
           <Image
             src={data.image.url}
             alt={data.image.alt ?? 'lãnh đạo'}
-            className='w-[20.9375rem] max-md:w-[7.375rem] max-md:h-[12.625rem] object-*'
+            className='w-[20.9375rem] max-md:w-[7.375rem] object-cover'
             width={1920}
             height={1080}
           />
         </div>
         <div className='w-[60%] pl-[3.12rem] pt-[5%] max-md:pl-0'>
           <div className='w-[47rem] relative'>
-            <Image
-              src={`/images/about-us/dauphay.png`}
-              alt='dauphay'
-              className='w-16 h-[3.3125rem] top-0 right-0 absolute max-md:hidden'
-              width={1920}
-              height={1080}
-            />
+            {!isMobile && (
+              <Image
+                src={`/images/about-us/dauphay.png`}
+                alt='dauphay'
+                className='w-16 h-[3.3125rem] top-0 right-0 absolute'
+                width={1920}
+                height={1080}
+              />
+            )}
             <h2 className='font-SVNLagu text-[1.25rem] uppercase font-medium leading-1.5 mb-[1.56rem] text-[#484F57] opacity-80 max-md:text-[0.625rem] max-md:mb-2'>
               {lang === 'vi'
                 ? 'chia sẻ từ BAN lãnh đạo'
@@ -81,21 +90,23 @@ const LeadershipMessage = forwardRef(({isMobile, data, lang}, ref) => {
           </div>
         </div>
       </div>
-      <div className='w-full px-3 md:hidden'>
-        <div className='bg-[linear-gradient(180deg,_rgba(209,179,123,0.40)_0%,_rgba(255,255,255,0.40)_19.12%)] border-yellow-500 border-[1px] px-3 pt-6 rounded-xl border-opacity-60 pb-6'>
-          <p className='text-justify font-Iciel text-xs font-normal leading-1.5 pb-4'>
-            {data.description}
-          </p>
-          <div className='flex flex-col'>
-            <span className='font-Iciel text-[0.625rem] font-normal leading-1.5 mb-1'>
-              Chia sẻ từ
-            </span>
-            <span className='italic text-xs font-normal leading-1.5'>
-              {data.name}
-            </span>
+      {isMobile && (
+        <div className='relative z-10 w-full px-3'>
+          <div className='bg-[linear-gradient(180deg,_rgba(209,179,123,0.40)_0%,_rgba(255,255,255,0.40)_19.12%)] border-yellow-500 border-[1px] px-[1.125rem] pt-6 rounded-xl border-opacity-60 pb-6'>
+            <p className='text-justify font-Iciel text-xs font-normal leading-1.5 pb-4'>
+              {data.description}
+            </p>
+            <div className='flex flex-col'>
+              <span className='font-Iciel text-[0.625rem] font-normal leading-1.5 mb-1 text-grey-500'>
+                Chia sẻ từ
+              </span>
+              <span className='italic text-xs font-normal leading-1.5'>
+                {data.name}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   )
 })

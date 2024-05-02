@@ -4,7 +4,7 @@ import Slider from './slider/Slider'
 import './style.css'
 
 const PlatFormElevator = forwardRef(
-  ({classNameBtn, classText, isBlack, isRed, dataPlatForm}, ref) => {
+  ({classNameBtn, classText, isBlack, isRed, dataPlatForm, lang}, ref) => {
     return (
       <div
         ref={ref}
@@ -17,9 +17,10 @@ const PlatFormElevator = forwardRef(
           classText={classText}
           isBlack={isBlack}
           isRed={isRed}
+          lang={lang}
         />
         {/* Component Slider platform */}
-        <Slider />
+        <Slider lang={lang} />
       </div>
     )
   },

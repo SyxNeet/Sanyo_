@@ -2,14 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function FollowUs() {
+function FollowUs({lang, data}) {
   return (
     <div className='flex max-md:mt-[1.53rem] max-md:mb-[2.62rem]'>
       <p className='font-averta text-[1.5rem] font-bold leading-1.4 text-white mr-[1.5rem]'>
-        Theo dõi chúng tôi
+        {lang === 'vi' ? 'Theo dõi chúng tôi' : 'Follow us'}
       </p>
 
-      <Link href={'/'}>
+      <Link href={data.facebookLink}>
         <Image
           src={'/images/layout/footer/fbFooter.png'}
           alt='facebook'
@@ -18,7 +18,7 @@ function FollowUs() {
           className='w-[2.31494rem] h-[2.31494rem] object-cover mr-[0.62rem]'
         />
       </Link>
-      <Link href={'/'}>
+      <Link href={data.instagramLink}>
         <Image
           src={'/images/layout/footer/insFooter.png'}
           alt='facebook'

@@ -10,6 +10,8 @@ module.exports = {
   prefix: '',
   theme: {
     lineHeight: {
+      1: '100%',
+      1.1: '110%',
       1.2: '120%',
       1.3: '130%',
       1.4: '140%',
@@ -22,6 +24,7 @@ module.exports = {
         'red-500': '#ED2525',
         'grey-0': '#FFF',
         'grey-50': '#EDEDED',
+        'grey-100': '#C6C8CB',
         'grey-200': '#ABAEB2',
         'grey-300': '#84898E',
         'grey-400': '#6D7279',
@@ -109,6 +112,7 @@ module.exports = {
       fontSize: {
         0.625: '0.625rem',
         0.75: '0.75rem',
+        0.785: '0.785rem',
         0.875: '0.875rem',
         1: '1rem',
         1.15: '1.15rem',
@@ -117,6 +121,7 @@ module.exports = {
         1.375: '1.375rem',
         1.5: '1.5rem',
         1.625: '1.625rem',
+        1.875: '1.875rem',
         2: '2rem',
         2.25: '2.25rem',
         2.5: '2.5rem',

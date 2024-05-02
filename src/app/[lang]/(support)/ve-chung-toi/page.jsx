@@ -57,11 +57,18 @@ export default async function AboutUsPage({params, searchParams}) {
   ])
   return (
     <main>
-      <BreadcrumbContainer>
-        <BreadcrumbLink href={`/${lang}`}>{lang === 'vi' ? 'TRANG CHỦ' : 'HOME'} /</BreadcrumbLink>
-        <BreadcrumbLink isLastLink>{lang === 'vi' ? 'VỀ CHÚNG TÔI' : 'ABOUT US'}</BreadcrumbLink>
+      <BreadcrumbContainer className='ml-3 md:mx-[6.25rem]'>
+        <BreadcrumbLink href={`/${lang}`}>
+          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'}
+        </BreadcrumbLink>
+        <BreadcrumbLink isLastLink>
+          {lang === 'vi' ? 'VỀ CHÚNG TÔI' : 'ABOUT US'}
+        </BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} lang={lang} />
+      <SlideOnlyImagesDownload
+        data={dataGreatExperience.greatExperience}
+        lang={lang}
+      />
       <LeaderShipMessageAndCoreValues
         isMobile={isMobile}
         dataLeadershipMessage={dataLeadershipMessage.leadershipMessage}

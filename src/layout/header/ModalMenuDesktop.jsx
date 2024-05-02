@@ -162,7 +162,7 @@ export default function ModalMenuDesktop({
             }}
           >
             <div className='flex flex-col w-[27rem] shrink-0'>
-              <span className='text-white text-1'>Theo dõi chúng tôi</span>
+              <span className='text-white text-1'>{lang === 'vi' ? 'Theo dõi chúng tôi' : 'Follow us'}</span>
               <nav className='flex flex-row items-center mt-1'>
                 <Link
                   href={`/${lang}`}

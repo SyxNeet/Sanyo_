@@ -21,9 +21,9 @@ export default async function LienHePage({params, searchParams}) {
   const [dataContact] = await Promise.all([getLienHe(pageId)])
   return (
     <main>
-      <BreadcrumbContainer className='md:ml-[3.75rem]'>
+      <BreadcrumbContainer className='md:ml-[3.75rem] ml-3'>
         <BreadcrumbLink href={`/`}>
-          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'} /{' '}
+          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'}
         </BreadcrumbLink>
         <BreadcrumbLink isLastLink>
           {lang === 'vi' ? 'LIÊN HỆ' : 'CONTACT'}
