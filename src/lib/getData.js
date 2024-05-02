@@ -1,12 +1,15 @@
-export default async function getData(api, revalidate = 60) {
+export default async function getData(api, port = 'acf', revalidate = 60) {
   try {
-    const res = await fetch(`${process.env.API}${api}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
+    const res = await fetch(
+      `${port === 'acf' ? process.env.API : process.env.WP_API}${api}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        next: {revalidate},
       },
-      next: {revalidate},
-    })
+    )
 
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary

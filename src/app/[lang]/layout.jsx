@@ -6,6 +6,7 @@ import Header from '@/layout/header'
 import GsapProvider from '@/components/gsap/GsapProvider'
 import {headers} from 'next/headers'
 import {Toaster} from '@/components/ui/sonner'
+import FixedLayout from '@/layout/3-nut-noi/FixedLayout'
 // import {Toaster} from '@/components/ui/sonner'
 
 export const metadata = {
@@ -107,12 +108,16 @@ export default function RootLayout({children, params}) {
         />
         <GsapProvider isMobile={isMobile}>
           {children}
-          <Footer isMobile={isMobile} />
+          <Footer isMobile={isMobile} lang={lang} />
         </GsapProvider>
+        <FixedLayout />
         <Toaster
           expand={true}
           toastOptions={{
             className: 'toast',
+            duration: 3000,
+            position: 'bottom-right',
+            closeButton: true,
           }}
         />
       </body>

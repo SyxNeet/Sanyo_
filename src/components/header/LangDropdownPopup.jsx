@@ -1,8 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import clsx from 'clsx'
+import {usePathname} from 'next/navigation'
 
 export default function LangDropdownPopup({isMobile, lang}) {
+  const pathname = usePathname()
   return (
     <div
       className={clsx(
@@ -25,7 +29,7 @@ export default function LangDropdownPopup({isMobile, lang}) {
       >
         <li className=''>
           <Link
-            href={`/vi`}
+            href={`/vi/${pathname.replace('/en/', '').replace('/vi/', '')}`}
             className={clsx(
               'flex flex-row items-center font-Iciel leading-1.5 text-grey-700',
               {
@@ -54,7 +58,7 @@ export default function LangDropdownPopup({isMobile, lang}) {
         </li>
         <li className='mt-[0.3rem]'>
           <Link
-            href={`/en`}
+            href={`/en/${pathname.replace('/en/', '').replace('/vi/', '')}`}
             className={clsx(
               'flex flex-row items-center font-Iciel leading-1.5 text-grey-700',
               {

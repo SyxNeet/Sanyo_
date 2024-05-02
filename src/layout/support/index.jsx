@@ -9,8 +9,13 @@ import {toast} from 'sonner'
 const nameReg = /[a-zA-Z\s]{4,}/
 const phoneReg = /\d{6,}/
 
-export default function Support({className, forLienHePage, data, lang}) {
-  console.log("🚀 ~ Support ~ lang:", lang)
+export default function Support({
+  className,
+  isMobile,
+  forLienHePage,
+  data,
+  lang,
+}) {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -95,10 +100,6 @@ export default function Support({className, forLienHePage, data, lang}) {
           lang === 'vi'
             ? 'Gửi thông tin thành công'
             : 'Sending information successfully',
-          {
-            duration: 3000,
-            position: 'bottom-right',
-          },
         )
         setName('')
         setPhone('')
@@ -108,10 +109,6 @@ export default function Support({className, forLienHePage, data, lang}) {
           lang === 'vi'
             ? 'Gửi thông tin thất bại'
             : 'Sending information failed',
-          {
-            duration: 3000,
-            position: 'bottom-right',
-          },
         )
       }
     }
@@ -144,9 +141,12 @@ export default function Support({className, forLienHePage, data, lang}) {
             'w-[40%] mr-[6.19rem] max-md:mb-[1.25rem]': !forLienHePage,
           })}
         >
+          <h3 className='text-grey-500 text-1.25 font-SVNLagu font-medium leading-1.5 tracking-0.1 uppercase opacity-80 mb-4'>
+            {lang === 'vi' ? 'ĐĂNG KÝ LIÊN HỆ' : 'REGISTER CONTACT'}
+          </h3>
           <h2
             className={cn(
-              'font-SVNLagu text-[3rem] font-[600] leading-[140%] mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold [&_strong]:text-yellow-500',
+              'font-SVNLagu text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold [&_strong]:text-yellow-500',
               {
                 'mb-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]':
                   !forLienHePage,
@@ -154,24 +154,7 @@ export default function Support({className, forLienHePage, data, lang}) {
               },
             )}
             dangerouslySetInnerHTML={{__html: data.heading}}
-          >
-            {/* {!forLienHePage && (
-              <>
-                Để lại thông tin để chúng tôi{' '}
-                <strong className='font-semibold text-yellow-500 uppercase'>
-                  hỗ trợ bạn
-                </strong>
-              </>
-            )}
-            {forLienHePage && (
-              <>
-                Liên hệ với{' '}
-                <strong className='font-semibold text-yellow-500 uppercase'>
-                  SANYO YUSOKI
-                </strong>
-              </>
-            )} */}
-          </h2>
+          ></h2>
           <p
             className={cn(
               'text-[1rem] font-Iciel text-grey-500 font-normal leading-[150%] max-md:block max-md:text-[0.875rem] max-md:text-justify',
@@ -181,10 +164,6 @@ export default function Support({className, forLienHePage, data, lang}) {
               },
             )}
           >
-            {/* {!forLienHePage
-              ? 'Để tìm hiểu thêm, vui lòng để lại thông tin liên hệ của bạn. Bộ phận Kinh doanh sẽ liên hệ với bạn trong thời gian sớm nhất.'
-              : ` Khách hàng vui lòng điền đầy đủ thông tin ở form bên dưới để được
-              SANYO YUSOKI hỗ trợ và giải đáp thắc mắc nhanh nhất.`} */}
             {data.description}
           </p>
         </div>

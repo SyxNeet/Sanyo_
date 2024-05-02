@@ -207,5 +207,5 @@ html {
 }
 
 .toast {
-  @apply text-1 !important;
+  @apply text-1 flex flex-row items-center !important;
 }

@@ -5,16 +5,16 @@ import 'swiper/css'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Autoplay} from 'swiper/modules'
 import './styles.css'
-const SlideOnlyImagesDownload = ({data, className, lang}) => {
+
+const SlideOnlyImagesDownload = ({data, lang}) => {
   return (
     <div className='mt-6 md:mt-[4.12rem]'>
-      <div className='flex px-[6.25rem] max-md:w-full max-md:px-4'>
+      <div className='flex px-[6.25rem] max-md:w-full max-md:px-3'>
         <div className='relative w-[70%] border-r max-md:w-full max-md:border-none '>
           <h1
             className='font-SVNLagu text-[4rem] text-black font-semibold leading-[130%] w-[50.9375rem] mb-[1.19rem] max-md:w-[18.3125rem] max-md:text-2xl max-md:mb-3 max-md:border-none [&_strong]:font-semibold [&_strong]:text-yellow-500'
             dangerouslySetInnerHTML={{__html: data.heading}}
-          >
-          </h1>
+          ></h1>
           <span className='w-[40.125rem] font-Iciel text-base font-normal leading-[188%] text-justify mb-20 block max-md:w-full max-md:text-[0.875rem] max-md:mb-5'>
             {data.description}
           </span>
@@ -65,8 +65,7 @@ const SlideOnlyImagesDownload = ({data, className, lang}) => {
       </div>
       <div className='w-full mx-auto max-w-[100rem]'>
         <Swiper
-          slidesPerView={1.3}
-          loop={true}
+          loop
           breakpoints={{
             0: {
               slidesPerView: 1.1,
@@ -76,19 +75,19 @@ const SlideOnlyImagesDownload = ({data, className, lang}) => {
             },
           }}
           spaceBetween={0}
-          speed={10000}
+          speed={8000}
           autoplay={{
             delay: 0,
+            disableOnInteraction: false,
           }}
           modules={[Autoplay]}
-          className={`mySwiper ${className}`}
+          className={`swiper-only-images-with-download`}
         >
           {data.images.map((img, index) => (
             <SwiperSlide
               key={index}
               className='mr-[1.7rem] max-md:mr-3'
             >
-              {/* FIXME: anh ko scale */}
               <Image
                 src={img.url}
                 alt={img.alt ?? 'Trải nghiệm tuyệt vời'}

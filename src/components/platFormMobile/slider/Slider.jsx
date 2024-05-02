@@ -116,7 +116,7 @@ export default function Slider() {
           isHover={false}
           text={'XEM TẤT CẢ'}
           isBlack={true}
-          className='max-md:bg-yellow-500 max-md:border-none '
+          className='max-md:bg-yellow-500 max-md:border-none'
         ></Button>
       </Link>
     </div>

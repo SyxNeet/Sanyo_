@@ -15,9 +15,9 @@ const HeaderDetailElevator = ({lang}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <section className=''>
-      <BreadcrumbContainer>
-        <BreadcrumbLink href='/'>TRANG CHỦ /</BreadcrumbLink>
-        <BreadcrumbLink href='/'>THANG MÁY NHẬT BẢN /</BreadcrumbLink>
+      <BreadcrumbContainer className='ml-3 md:mx-[6.25rem]'>
+        <BreadcrumbLink href='/'>TRANG CHỦ</BreadcrumbLink>
+        <BreadcrumbLink href='/'>THANG MÁY NHẬT BẢN</BreadcrumbLink>
         <BreadcrumbLink isLastLink>THANG MÁY GIA ĐÌNH</BreadcrumbLink>
       </BreadcrumbContainer>
       <div className='mt-[2.36rem] border-b border-[rgba(28,32,28,0.10)] pb-[2.14rem] max-md:pb-6'>
@@ -99,37 +99,37 @@ const HeaderDetailElevator = ({lang}) => {
           <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
             <img
               src='https://swiperjs.com/demos/images/nature-1.jpg'
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
             <img
               src='https://swiperjs.com/demos/images/nature-2.jpg'
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
             <img
               src='https://swiperjs.com/demos/images/nature-3.jpg'
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
             <img
               src='https://swiperjs.com/demos/images/nature-4.jpg'
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
             <img
               src='https://swiperjs.com/demos/images/nature-5.jpg'
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
             <img
               src='https://swiperjs.com/demos/images/nature-6.jpg'
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
         </Swiper>
@@ -153,37 +153,37 @@ const HeaderDetailElevator = ({lang}) => {
           <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
             <img
               src='https://swiperjs.com/demos/images/nature-1.jpg '
-              className='w-full h-full object-cover '
+              className='object-cover w-full h-full '
             />
           </SwiperSlide>
           <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
             <img
               src='https://swiperjs.com/demos/images/nature-2.jpg '
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
             <img
               src='https://swiperjs.com/demos/images/nature-3.jpg '
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
             <img
               src='https://swiperjs.com/demos/images/nature-4.jpg '
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
             <img
               src='https://swiperjs.com/demos/images/nature-5.jpg '
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
           <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
             <img
               src='https://swiperjs.com/demos/images/nature-6.jpg '
-              className='w-full h-full object-cover'
+              className='object-cover w-full h-full'
             />
           </SwiperSlide>
         </Swiper>
@@ -217,7 +217,7 @@ const HeaderDetailElevator = ({lang}) => {
           <span className='font-Iciel text-[0.625rem] font-medium leading-1.2 text-white block w-[3rem] text-center mb-1'>
             {lang === 'vn' ? 'Tải xuống profile' : 'Download profile'}
           </span>
-          <div className='flex flex-col justify-center items-center'>
+          <div className='flex flex-col items-center justify-center'>
             <Image
               src={'/images/familyElevator/connectLove/downArrow.svg'}
               width={16}

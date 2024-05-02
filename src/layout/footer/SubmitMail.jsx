@@ -1,7 +1,8 @@
 'use client'
 import {useState, useTransition} from 'react'
 import {toast} from 'sonner'
-export default function SubmitMail() {
+
+export default function SubmitMail({lang}) {
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
   const handleChangeMail = (text) => {
@@ -27,23 +28,19 @@ export default function SubmitMail() {
       const result = await res.json()
 
       if (result.status === 'mail_sent') {
-        toast.success('Gửi yêu cẩu thành công', {
-          duration: 3000,
-          position: 'bottom-right',
-        })
+        toast.success('Gửi yêu cẩu thành công')
         setEmail('')
       } else {
-        toast.error('Gửi yêu cẩu thất bại', {
-          duration: 3000,
-          position: 'bottom-right',
-        })
+        toast.error('Gửi yêu cẩu thất bại')
       }
     })
   }
   return (
     <div className='md:mt-[9.06rem]'>
       <p className='md:mb-[0.62rem] mb-[0.94rem] font-Iciel text-white md:text-[1.3rem] text-[0.875rem] max-md:w-[14.5rem] lg:text-[1rem] leading-1.5 uppercase'>
-        Để lại email của bạn để chúng tôi hỗ trợ bạn tốt nhất
+        {lang === 'vi'
+          ? 'Để lại email của bạn để chúng tôi hỗ trợ bạn tốt nhất'
+          : 'Leave your email so we can best assist you'}
       </p>
       <div className='md:w-[35.1875rem] h-[3.1875rem] bg-grey-0 relative rounded-[0.25rem]'>
         <input

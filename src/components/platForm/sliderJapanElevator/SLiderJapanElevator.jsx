@@ -7,7 +7,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import Link from 'next/link'
-function SliderJapanElevator() {
+function SliderJapanElevator({lang}) {
   const slideImages = Array(4).fill(0)
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()

@@ -87,6 +87,7 @@ export default function LeaderShipMessageAndCoreValues({
         <LeadershipMessage
           ref={firstRef}
           data={dataLeadershipMessage}
+          isMobile={isMobile}
           lang={lang}
         />
         {!isMobile && (
