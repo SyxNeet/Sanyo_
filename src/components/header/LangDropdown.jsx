@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import LangDropdownPopup from './LangDropdownPopup'
 
-export default function LangDropdown({isMobile, lang}) {
+export default function LangDropdown({isMobile, lang = 'vi'}) {
   return (
     <button
       className={clsx(

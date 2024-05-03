@@ -16,7 +16,6 @@ export default function ModalMenuDesktop({
   activeModalMenuChildLink,
   setActiveModalMenuLink,
   setActiveModalMenuChildLink,
-  lang,
 }) {
   return (
     <>
@@ -43,7 +42,7 @@ export default function ModalMenuDesktop({
       >
         <div className='flex flex-col pl-10 pt-11'>
           <Link
-            href={`/${lang}`}
+            href={`/`}
             className='flex flex-col mb-[1.74rem] hover-opacity w-fit'
             onClick={handleClickModalLink}
           >
@@ -65,7 +64,7 @@ export default function ModalMenuDesktop({
           <div className='flex flex-row items-center border-y-[0.0625rem] border-white/10 overflow-hidden'>
             <nav className='flex-none grid grid-cols-1 w-[24.5rem]'>
               <HeaderModalLink
-                href={`${lang}/${modalMenuJapanElevator.href}`}
+                href={`/${modalMenuJapanElevator.href}`}
                 text={modalMenuJapanElevator.text}
                 isLink={false}
                 handleOnMouseEnter={() =>
@@ -76,7 +75,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/${lang}`}
+                href={`/`}
                 text={`GIỚI THIỆU`}
                 isLink={true}
                 handleOnMouseEnter={() => setActiveModalMenuLink(`GIỚI THIỆU`)}
@@ -85,7 +84,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`${lang}/${modalMenuService.href}`}
+                href={`/${modalMenuService.href}`}
                 text={modalMenuService.text}
                 isLink={false}
                 handleOnMouseEnter={() =>
@@ -96,7 +95,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/${lang}`}
+                href={`/`}
                 text={`DỰ ÁN NỔI BẬT`}
                 isLink={true}
                 handleOnMouseEnter={() =>
@@ -107,7 +106,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/${lang}`}
+                href={`/`}
                 text={`BLOG`}
                 isLink={true}
                 handleOnMouseEnter={() => setActiveModalMenuLink(`BLOG`)}
@@ -116,7 +115,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/${lang}`}
+                href={`/`}
                 text={`LIÊN HỆ`}
                 isLink={true}
                 handleOnMouseEnter={() => setActiveModalMenuLink(`LIÊN HỆ`)}
@@ -133,7 +132,7 @@ export default function ModalMenuDesktop({
                 setActiveModalMenuChildLink={setActiveModalMenuChildLink}
                 text={modalMenuJapanElevator.text}
                 data={modalMenuJapanElevator.child}
-                href={`${lang}/${modalMenuJapanElevator.href}`}
+                href={`/${modalMenuJapanElevator.href}`}
                 isFirst
                 handleOnClick={handleClickModalLink}
               />
@@ -144,7 +143,7 @@ export default function ModalMenuDesktop({
                 setActiveModalMenuChildLink={setActiveModalMenuChildLink}
                 text={modalMenuService.text}
                 data={modalMenuService.child}
-                href={`${lang}/${modalMenuService.href}`}
+                href={`/${modalMenuService.href}`}
                 isFirst={false}
                 handleOnClick={handleClickModalLink}
               />
@@ -162,10 +161,10 @@ export default function ModalMenuDesktop({
             }}
           >
             <div className='flex flex-col w-[27rem] shrink-0'>
-              <span className='text-white text-1'>{lang === 'vi' ? 'Theo dõi chúng tôi' : 'Follow us'}</span>
+              <span className='text-white text-1'>Theo dõi chúng tôi</span>
               <nav className='flex flex-row items-center mt-1'>
                 <Link
-                  href={`/${lang}`}
+                  href={`/`}
                   className='hover-opacity'
                 >
                   <Image
@@ -177,7 +176,7 @@ export default function ModalMenuDesktop({
                   />
                 </Link>
                 <Link
-                  href={`/${lang}`}
+                  href={`/`}
                   className='hover-opacity'
                 >
                   <Image
@@ -199,11 +198,11 @@ export default function ModalMenuDesktop({
                 height={120}
               />
               <Link
-                href={`/${lang}/lien-he`}
+                href={`//lien-he`}
                 className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center'
                 onClick={handleClickModalLink}
               >
-                <p className='ml-4 -mb-1'>{lang === 'vi' ? 'LIÊN HỆ NGAY' : 'CONTACT NOW'}</p>
+                <p className='ml-4 -mb-1'>LIÊN HỆ NGAY</p>
               </Link>
               <Image
                 src={`/images/layout/header/arrow-right-white.svg`}

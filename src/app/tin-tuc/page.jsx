@@ -3,9 +3,11 @@ import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import getData from '@/lib/getData'
 import News from '@/sections/tin-tuc/News'
 
-async function getPosts(page, lang) {
+async function getPosts(page, category) {
   return getData(
-    `/posts?lang=${lang ?? 'vi'}&page=${page ?? 1}&per_page=16`,
+    `/posts?page=${page ?? 1}&per_page=16${
+      category && `&category=${category}`
+    }`,
     'okhub',
   )
 }
@@ -13,8 +15,7 @@ async function getPosts(page, lang) {
 export default async function DanhSachTinTucPage({params, searchParams}) {
   const {viewport, page, category} = searchParams
   const isMobile = viewport.includes('mobile')
-  const {lang} = params
-  const [dataPosts] = await Promise.all([getPosts(page, lang)])
+  const [dataPosts] = await Promise.all([getPosts(page, category)])
   return (
     <main className='relative px-3 md:px-[6.25rem]'>
       {!isMobile && (
@@ -26,18 +27,13 @@ export default async function DanhSachTinTucPage({params, searchParams}) {
         </>
       )}
       <BreadcrumbContainer className='mx-0'>
-        <BreadcrumbLink href={`/`}>
-          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'}
-        </BreadcrumbLink>
-        <BreadcrumbLink isLastLink>
-          {lang === 'vi' ? 'DANH SÁCH TIN TỨC' : 'NEWS'}
-        </BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
+        <BreadcrumbLink isLastLink>DANH SÁCH TIN TỨC</BreadcrumbLink>
       </BreadcrumbContainer>
       <News
         isMobile={isMobile}
-        lang={lang}
         data={dataPosts}
-        activePage={page - 1 ?? 0}
+        activePage={page ? parseInt(page) - 1 : 0}
         category={category ?? ''}
       />
     </main>

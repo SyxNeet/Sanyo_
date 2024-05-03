@@ -10,13 +10,7 @@ import {toast} from 'sonner'
 const nameReg = /[a-zA-Z\s]{4,}/
 const phoneReg = /\d{6,}/
 
-export default function Support({
-  className,
-  isMobile,
-  forLienHePage,
-  data,
-  lang,
-}) {
+export default function Support({className, isMobile, forLienHePage, data}) {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -39,9 +33,7 @@ export default function Support({
   }
   const handleNameBlur = () => {
     if (!nameReg.test(name)) {
-      setNameError(
-        lang === 'vi' ? 'Vui lòng nhập tên hợp lệ' : 'Please enter valid name',
-      )
+      setNameError('Vui lòng nhập tên hợp lệ')
       setNameFocused(false)
     } else {
       setNameFocused(true)
@@ -50,11 +42,7 @@ export default function Support({
 
   const handlePhoneBlur = () => {
     if (!phoneReg.test(phone)) {
-      setPhoneError(
-        lang === 'vi'
-          ? 'Vui lòng nhập số điện thoại hợp lệ'
-          : 'Please enter valid phone number',
-      )
+      setPhoneError('Vui lòng nhập số điện thoại hợp lệ')
       setPhoneFocused(false)
     } else {
       setPhoneFocused(true)
@@ -74,16 +62,10 @@ export default function Support({
     const validName = nameReg.test(name)
     const validPhone = phoneReg.test(phone)
     if (!validName) {
-      setNameError(
-        lang === 'vi' ? 'Vui lòng nhập tên hợp lệ' : 'Please enter valid name',
-      )
+      setNameError('Vui lòng nhập tên hợp lệ')
     }
     if (!validPhone) {
-      setPhoneError(
-        lang === 'en'
-          ? 'Vui lòng nhập số điện thoại hợp lệ'
-          : 'Please enter valid phone number',
-      )
+      setPhoneError('Vui lòng nhập số điện thoại hợp lệ')
     }
     if (validName && validPhone) {
       const formData = new FormData()
@@ -97,20 +79,12 @@ export default function Support({
       )
       const result = await res.json()
       if (result.status === 'mail_sent') {
-        toast.success(
-          lang === 'vi'
-            ? 'Gửi thông tin thành công'
-            : 'Sending information successfully',
-        )
+        toast.success('Gửi thông tin thành công')
         setName('')
         setPhone('')
         setMessage('')
       } else {
-        toast.error(
-          lang === 'vi'
-            ? 'Gửi thông tin thất bại'
-            : 'Sending information failed',
-        )
+        toast.error('Gửi thông tin thất bại')
       }
     }
   }
@@ -143,7 +117,7 @@ export default function Support({
           })}
         >
           <h3 className='text-grey-500 text-1.25 font-SVNLagu font-medium leading-1.5 tracking-0.1 uppercase opacity-80 mb-4'>
-            {lang === 'vi' ? 'ĐĂNG KÝ LIÊN HỆ' : 'REGISTER CONTACT'}
+            ĐĂNG KÝ LIÊN HỆ
           </h3>
           <h2
             className={cn(
@@ -265,7 +239,7 @@ export default function Support({
           >
             <Button
               isHover={true}
-              text={lang === 'vi' ? 'GỬI THÔNG TIN' : 'SEND INFORMATION'}
+              text='GỬI THÔNG TIN'
               isBlack={true}
               className='bg-transparent max-md:bg-yellow-500 max-md:border-none'
               onClick={handleSubmit}

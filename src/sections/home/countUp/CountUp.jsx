@@ -7,7 +7,7 @@ import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import {useRef} from 'react'
 
-export default function CountUp({dataCountUp, lang}) {
+export default function CountUp({dataCountUp}) {
   const imageRef = useRef(null)
   const rightRef = useRef(null)
   useGSAP(() => {
@@ -99,10 +99,10 @@ export default function CountUp({dataCountUp, lang}) {
 
       <Link
         className='absolute md:bottom-[5.88rem] md:right-[28%] bottom-[6rem] max-md:left-[7rem]'
-        href={`/${lang}/ve-chung-toi`}
+        href={`/ve-chung-toi`}
       >
         <Button
-          text={lang === 'vi' ? 'VỀ CHÚNG TÔI' : 'ABOUT US'}
+          text='VỀ CHÚNG TÔI'
           isBlack={true}
           isHover={true}
           className={'max-md:border-none'}

@@ -9,17 +9,11 @@ async function getSupportVi() {
 }
 
 export default async function SupportLayout({children, params}) {
-  const {lang} = params
-  const dataSupport = await (lang === 'vi' ? getSupportVi() : getSupportEn())
+  const dataSupport = await getSupportVi()
   return (
     <>
       {children}
-      <Support
-        data={
-          lang === 'vi' ? dataSupport.contactFormVi : dataSupport.contactFormEn
-        }
-        lang={lang}
-      />
+      <Support data={dataSupport.contactFormVi} />
     </>
   )
 }

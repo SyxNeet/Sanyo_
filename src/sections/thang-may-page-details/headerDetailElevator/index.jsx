@@ -11,7 +11,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/thumbs'
 import './styles.css'
-const HeaderDetailElevator = ({lang}) => {
+const HeaderDetailElevator = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <section className=''>
@@ -215,7 +215,7 @@ const HeaderDetailElevator = ({lang}) => {
           className='md:hidden bg-[linear-gradient(180deg,_#D1B37B_0%,_#E4B867_100%)] w-[5.375rem] h-[5.375rem] rounded-[50%] flex items-center justify-center flex-col absolute -top-[3.8rem] right-[3rem] z-10'
         >
           <span className='font-Iciel text-[0.625rem] font-medium leading-1.2 text-white block w-[3rem] text-center mb-1'>
-            {lang === 'vn' ? 'Tải xuống profile' : 'Download profile'}
+            Tải xuống profile
           </span>
           <div className='flex flex-col items-center justify-center'>
             <Image

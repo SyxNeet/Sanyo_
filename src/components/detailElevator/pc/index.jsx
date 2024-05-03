@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import './styles.css'
-const DetailElevator = ({lang, type = false}) => {
+const DetailElevator = ({ type = false}) => {
   const listInfo = [
     'Chế tạo bởi hợp kim thép siêu cứng',
     'Chế tạo bởi hợp kim thép siêu cứng',

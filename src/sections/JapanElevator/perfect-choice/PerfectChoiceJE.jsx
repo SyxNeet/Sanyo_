@@ -12,10 +12,10 @@ import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import './styles.css'
-const PerfectChoiceJE = ({data,lang}) => {
+const PerfectChoiceJE = ({data}) => {
   return (
     <div>
-              <section className='relative z-10 pt-[10.18rem] max-md:pt-[4.07rem]'>
+      <section className='relative z-10 pt-[10.18rem] max-md:pt-[4.07rem]'>
         <div className='w-[112.25rem] h-[112.25rem] absolute rounded-[50%] top-0 right-[84%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,65,39,0.60)_0%,_rgba(254,65,39,0.00)_100%)]'></div>
         <div className='w-[12.375rem] h-[5.375rem] max-md:w-[4.375rem] max-md:h-[1.875rem] absolute right-0 top-0 bg-c-nht opacity-10'></div>
         <div className='w-[3.5625rem] h-[3.5625rem] max-md:w-[1.3125rem] max-md:h-[1.1875rem] max-md:top-[1.875rem] max-md:right-[4.375rem] bg-c-nht opacity-10 absolute right-[12.375rem] top-[5.375rem]'></div>
@@ -30,8 +30,10 @@ const PerfectChoiceJE = ({data,lang}) => {
             alt='logoText'
             className='w-full h-[7.37475rem] mb-[1.76rem] max-md:h-[2.76038rem] max-md:mb-[0.44rem]'
           />
-          <span className='block font-SVNLagu text-[3rem] text-grey-700 font-semibold leading-1.2 max-md:text-[1.12288rem] ' dangerouslySetInnerHTML={{__html:data?.heading}}>
-          </span>
+          <span
+            className='block font-SVNLagu text-[3rem] text-grey-700 font-semibold leading-1.2 max-md:text-[1.12288rem] '
+            dangerouslySetInnerHTML={{__html: data?.heading}}
+          ></span>
         </div>
         <div className='w-full h-[3.5rem] relative mb-[3.63rem] max-md:h-[2.11056rem] max-md:mb-[1.71rem] max-md:ml-3 max-md:mt-[1.1rem]'>
           <Link
@@ -47,7 +49,7 @@ const PerfectChoiceJE = ({data,lang}) => {
               }
             />
             <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-c-nht max-md:text-[0.67838rem]'>
-              {lang==="vi"?"Khám phá ngay":"Discover now"}
+              Khám phá ngay
             </span>
           </Link>
         </div>
@@ -74,9 +76,10 @@ const PerfectChoiceJE = ({data,lang}) => {
                 alt='dau phay'
                 className='w-[1.375rem] h-[1.375rem] absolute bottom-[5%] left-[37%] dauphay2 max-md:w-[0.92688rem] max-md:h-[0.92688rem] max-md:left-[68%]'
               />
-              <div className='pragraphJE font-SVNLagu text-gray-900 font-semibold leading-1.4 text-[2rem] max-md:text-[1.125rem] [&>p>strong]:text-c-nht [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:data?.description_1}}>
-              
-              </div>
+              <div
+                className='pragraphJE font-SVNLagu text-gray-900 font-semibold leading-1.4 text-[2rem] max-md:text-[1.125rem] [&>p>strong]:text-c-nht [&>p>strong]:font-semibold'
+                dangerouslySetInnerHTML={{__html: data?.description_1}}
+              ></div>
             </div>
           </div>
         </div>
@@ -86,11 +89,14 @@ const PerfectChoiceJE = ({data,lang}) => {
             <div className='absolute top-0 right-0 w-[3.5625rem] h-[3.5625rem] bg-c-nht opacity-10 max-md:top-[unset] max-md:bottom-0 max-md:w-[2.1875rem] max-md:h-[2.125rem]'></div>
             <div className='md:hidden w-[0.875rem] h-[0.6875rem] bg-c-nht opacity-10 absolute bottom-[2.125rem] right-[2.1875rem]'></div>
             <div className='w-full pt-[7.13rem] pl-[6.19rem] pr-[7.62rem] pb-[8.31rem] max-md:pt-[2.63rem] max-md:px-3 max-md:pb-[3.38rem]'>
-              <h2 className='text-c-nht font-SVNLagu text-xl font-medium tracking-[0.1rem] uppercase leading-1.5 mb-6 max-md:mb-3 md:[&>p>br]:hidden flex max-md:flex-col [&>p>strong]:font-medium max-md:[&>p>strong]:text-grey-900' dangerouslySetInnerHTML={{__html:data?.title}}>
-                
-              </h2>
-              <p className='font-Iciel font-normal text-lg leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem] ' dangerouslySetInnerHTML={{__html:data?.desc_2}}>
-              </p>
+              <h2
+                className='text-c-nht font-SVNLagu text-xl font-medium tracking-[0.1rem] uppercase leading-1.5 mb-6 max-md:mb-3 md:[&>p>br]:hidden flex max-md:flex-col [&>p>strong]:font-medium max-md:[&>p>strong]:text-grey-900'
+                dangerouslySetInnerHTML={{__html: data?.title}}
+              ></h2>
+              <p
+                className='font-Iciel font-normal text-lg leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem] '
+                dangerouslySetInnerHTML={{__html: data?.desc_2}}
+              ></p>
             </div>
           </div>
           <Image

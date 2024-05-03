@@ -10,7 +10,7 @@ import 'swiper/css/navigation'
 import '../styles.css'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 
-const ProductLine = ({ data, lang ,isMobile}) => {
+const ProductLine = ({ data ,isMobile}) => {
   return (
     <section className='mt-[2.25rem] relative z-10 box-container-border bg-white productLineJE max-md:mt-[1.25rem]'>
       <div className='w-[114.75rem] h-[114.75rem] absolute top-0 left-[60%] max-md:left-[62%] max-md:w-[29.125rem] max-md:h-[29.125rem] rounded-[50%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,_65,_39,_0.60)_0%,_rgba(254,_65,_39,_0.00)_100%)] -z-[1]'></div>
@@ -28,7 +28,7 @@ const ProductLine = ({ data, lang ,isMobile}) => {
           className='dowloadfileJE w-[10.6875rem] h-[10.6875rem] rounded-[50%] ml-[14rem] bg-[#FE4127] flex items-center justify-center flex-col relative mt-[1%] max-md:hidden z-10'
         >
           <span className='font-Iciel text-[1.22144rem] w-[5.875rem] text-center font-normal leading-1.2 mb-1 text-white'>
-            {lang === "en" ? "Download profile" : "Tải xuống profile"}
+            Tải xuống profile
           </span>
           <div className='w-[2rem] h-[1.9085rem] overflow-hidden relative'>
             <Image
