@@ -20,23 +20,15 @@ async function getGiaTriKhacBiet(pageId) {
 async function getDanhSachThangMay(pageId) {
   return getData(`/pages/${pageId}/danh_sach_thang_may`)
 }
-async function getPartnerEn() {
-  return getData(`/options/options/partnerEn`)
-}
+// TODO:
 async function getPartnerVi() {
   return getData(`/options/options/partnerVi`)
 }
-let pageId
+const pageId = 11
 
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
-  const {lang} = params
   const isMobile = viewport?.includes('mobile')
-  if (lang === 'vi') {
-    pageId = 11
-  } else {
-    pageId = 14
-  }
   const [
     dataBanner,
     dataCountUp,
@@ -48,7 +40,7 @@ export default async function Home({params, searchParams}) {
     getTinhHoaThangMay(pageId),
     getGiaTriKhacBiet(pageId),
     getDanhSachThangMay(pageId),
-    lang === 'vi' ? getPartnerVi() : getPartnerEn(),
+    getPartnerVi(),
   ])
   return (
     <main>
@@ -60,7 +52,6 @@ export default async function Home({params, searchParams}) {
         <CountUp
           isMobile={isMobile}
           dataCountUp={dataCountUp.tinh_hoa_thang_may}
-          lang={lang}
         />
         <ValueDifferentAndJapanElevator
           isMobile={isMobile}
@@ -71,8 +62,7 @@ export default async function Home({params, searchParams}) {
         <News isMobile={isMobile} />
         <PartnerSection
           isMobile={isMobile}
-          data={lang === 'vi' ? dataPartner.partnerVi : dataPartner.partnerEn}
-          lang={lang}
+          data={dataPartner.partnerVi}
         />
       </Suspense>
     </main>

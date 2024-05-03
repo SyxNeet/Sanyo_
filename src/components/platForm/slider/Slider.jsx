@@ -6,7 +6,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import Link from 'next/link'
-function Slider({lang}) {
+function Slider() {
   const slideImages = Array(4).fill(0)
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
@@ -27,9 +27,8 @@ function Slider({lang}) {
           PLATFORM HOME ELEVATOR
         </h4>
         <p className='text-white text-justify font-Iciel lg:text-[0.875rem] leading-[1.5] md:mb-[1.81rem]'>
-          {lang === 'vi'
-            ? 'Rất nhiều các căn hộ thông tầng hay Duplex hay các Vilas biệt thự được hưởng lợi ích từ việc lắp thang máy.'
-            : 'Many duplex or duplex apartments or villas benefit from installing elevators.'}
+          Rất nhiều các căn hộ thông tầng hay Duplex hay các Vilas biệt thự được
+          hưởng lợi ích từ việc lắp thang máy.
         </p>
         <div className='flex items-center md:mb-[1.25rem] md:pb-[1.25rem] border-b-[1px] solid border-white border-opacity-10'>
           <Image
@@ -42,7 +41,7 @@ function Slider({lang}) {
           />
           <div>
             <span className='lg:text-[0.75rem] font-medium leading-[1.2] uppercase font-Iciel text-grey-200 md:mb-[0.25rem]'>
-              {lang === 'vi' ? 'TỐC ĐỘ': 'SPEED'}
+              TỐC ĐỘ
             </span>
             <span className='text-white font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem]'>
               0.4m.s
@@ -61,7 +60,7 @@ function Slider({lang}) {
           />
           <div>
             <span className='lg:text-[0.75rem] font-medium leading-[1.2] uppercase font-Iciel text-grey-200 md:mb-[0.25rem]'>
-              {lang === 'vi' ? 'tải trọng' : 'WEIGHT'}
+              tải trọng
             </span>
             <span className='text-white font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem]'>
               320 - 400kg
@@ -73,7 +72,7 @@ function Slider({lang}) {
           href={'/'}
           className='text-yellow-500 font-Iciel lg:text-[0.875rem] font-medium leading-[1.2] underline uppercase'
         >
-          {lang === 'vi' ? 'CHI TIẾT SẢN PHẨM' : 'PRODUCT DETAILS'}
+          CHI TIẾT SẢN PHẨM
         </Link>
         <div className='md:mt-[10.54rem]'>
           <button

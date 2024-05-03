@@ -13,10 +13,10 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import {EffectFade, Navigation, Pagination} from 'swiper/modules'
 import './styles.css'
-const FiveReasonsFamily = ({lang, isMobile}) => {
+const FiveReasonsFamily = ({isMobile}) => {
   const [maxHeight, setMaxHeight] = useState('25rem')
   const [maxHeightSecond, setMaxHeightSecond] = useState('25rem')
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0)
   const [showAll, setShowAll] = useState(false)
   const [showAllSecond, setShowAllSecond] = useState(false)
   const [useGSAPCheck, setUseGSAP] = useState(false)
@@ -117,23 +117,21 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
           trigger: slideReason.current,
           pin: true,
           start: 'top top',
-          end: `${showAllSecond ? `bottom+=${63 * (dataSecond.length - 3)}` : 'bottom'} center+=20%`,
+          end: `${
+            showAllSecond ? `bottom+=${63 * (dataSecond.length - 3)}` : 'bottom'
+          } center+=20%`,
           pinSpacing: false,
           anticipatePin: 1,
-          markers: true
+          markers: true,
         },
-      });
-  
+      })
+
       return () => {
-        animation.scrollTrigger.kill();
-      };
+        animation.scrollTrigger.kill()
+      }
     }
-  }, [showAllSecond]);
-  
-  
-  
-  
- 
+  }, [showAllSecond])
+
   //handle load more
   const handleLoadMore = () => {
     if (!showAll) {
@@ -179,7 +177,7 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
             }
           />
           <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-yellow-500 max-md:text-[0.67838rem] transition'>
-            {lang === 'vi' ? 'Khám phá ngay' : 'Discover now'}
+            Khám phá ngay
           </span>
         </Link>
       </div>
@@ -226,13 +224,7 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
                 }`}
               />
               <span className='uppercase text-[1.125rem] text-yellow-500 mr-[0.62rem] font-medium leading-1.5'>
-                {showAll
-                  ? lang === 'en'
-                    ? 'see less'
-                    : 'rút gọn'
-                  : lang === 'en'
-                  ? 'see more'
-                  : 'xem thêm'}
+                {showAll ? 'rút gọn' : 'xem thêm'}
               </span>
             </div>
           </div>
@@ -248,7 +240,10 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
       </div>
       {/* second reason */}
       <div className='flex'>
-        <div className='w-[50%] border-r border-[rgba(28,32,28,0.10)] relative max-h-[56.25rem] flex justify-end items-center' ref={slideReason}>
+        <div
+          className='w-[50%] border-r border-[rgba(28,32,28,0.10)] relative max-h-[56.25rem] flex justify-end items-center'
+          ref={slideReason}
+        >
           <div className='absolute right-0 top-0 w-[9.375rem] h-[5.5625rem] bg-yellow-500 opacity-10'></div>
           <div className='absolute right-[9.375rem] top-[5.5625rem] w-[3.75rem] h-[3.4375rem] bg-yellow-500 opacity-10'></div>
           <Image
@@ -259,7 +254,7 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
             alt='bg-slide'
           />
           <div className='titleSlide absolute bg-[rgba(0,0,0,0.4)] uppercase text-white  text-[1rem] font-Iciel leading-1.5 px-6 py-[0.62rem] rounded-[0.375rem] w-fit top-[2.56rem] left-[2rem] z-[999999] backdrop-blur-[12.5px]'>
-          {dataThird[activeIndex].title}
+            {dataThird[activeIndex].title}
           </div>
           <ButtonSlide
             className={
@@ -370,13 +365,7 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
                 }`}
               />
               <span className='uppercase text-[1.125rem] text-yellow-500 mr-[0.62rem] font-medium leading-1.5'>
-                {showAllSecond
-                  ? lang === 'en'
-                    ? 'see less'
-                    : 'rút gọn'
-                  : lang === 'en'
-                  ? 'see more'
-                  : 'xem thêm'}
+                {showAllSecond ? 'rút gọn' : 'xem thêm'}
               </span>
             </div>
           </div>

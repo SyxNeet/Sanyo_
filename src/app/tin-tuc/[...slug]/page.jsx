@@ -8,7 +8,7 @@ import News from '@/sections/chi-tiet-tin-tuc/News'
 import './styles.css'
 import Support from '@/layout/support'
 
-let pageId
+const pageId = 11
 async function getChiTietTinTuc(postId) {
   return getData(`/posts/${postId}`, 'wp')
 }
@@ -25,52 +25,34 @@ async function getSupportVi() {
 export default async function TinTucPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
-  const {lang, slug} = params
-  if (lang === 'vi') {
-    pageId = 11
-  } else {
-    pageId = 14
-  }
+  const {slug} = params
   const [dataPost, dataPlatForm, dataSupport] = await Promise.all([
     getChiTietTinTuc(slug),
     getDanhSachThangMay(pageId),
-    lang === 'vi' ? getSupportVi() : getSupportEn(),
+    getSupportVi(),
   ])
   return (
     <main>
       <BreadcrumbContainer className='pl-3 md:px-[3.75rem]'>
-        <BreadcrumbLink href={`/`}>
-          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'}
-        </BreadcrumbLink>
-        <BreadcrumbLink href={`/`}>
-          {lang === 'vi' ? 'DANH SÁCH TIN TỨC' : 'NEWS'}
-        </BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>DANH SÁCH TIN TỨC</BreadcrumbLink>
         <BreadcrumbLink isLastLink>
-          {lang === 'vi'
-            ? 'CÁCH ÂM RA SAO KHI CĂN HỘ GIÁP VÁCH THANG MÁY CHUNG CƯ'
-            : 'DETAIL NEWS'}
+          CÁCH ÂM RA SAO KHI CĂN HỘ GIÁP VÁCH THANG MÁY CHUNG CƯ
         </BreadcrumbLink>
       </BreadcrumbContainer>
       <DetailNew
         isMobile={isMobile}
         data={dataPost}
-        lang={lang}
       />
       {!isMobile ? (
-        <PlatFormElevator dataPlatForm={dataPlatForm.danh_sach_thang_may} lang={lang} />
+        <PlatFormElevator dataPlatForm={dataPlatForm.danh_sach_thang_may} />
       ) : (
         <PlatFormMobile dataPlatForm={dataPlatForm.danh_sach_thang_may} />
       )}
-      <News
-        isMobile={isMobile}
-        lang={lang}
-      />
+      <News isMobile={isMobile} />
       <Support
         isMobile={isMobile}
-        lang={lang}
-        data={
-          lang === 'vi' ? dataSupport.contactFormVi : dataSupport.contactFormEn
-        }
+        data={dataSupport.contactFormVi}
       />
     </main>
   )

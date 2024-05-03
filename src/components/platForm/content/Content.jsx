@@ -8,7 +8,6 @@ export default function Content({
   classHover,
   isBlack,
   isRed,
-  lang
 }) {
   return (
     <div
@@ -26,7 +25,7 @@ export default function Content({
       <Button
         className={`h-fit bg-transparent border-white ${classNameBtn} max-md:hidden`}
         isHover={true}
-        text={lang === 'vi' ? 'XEM TẤT CẢ' : 'SHOW MORE'}
+        text='XEM TẤT CẢ'
         classtext={`${classText || 'text-white'}`}
         isBlack={isBlack}
         classHover={classHover}

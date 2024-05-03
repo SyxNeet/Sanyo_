@@ -8,7 +8,7 @@ import LangDropdown from '@/components/header/LangDropdown'
 import dynamic from 'next/dynamic'
 const DynamicModalMenuDesktop = dynamic(() => import('./ModalMenuDesktop'))
 
-export default function HeaderDesktop({isMobile, lang}) {
+export default function HeaderDesktop({isMobile}) {
   const headerRef = useRef(null)
   const [isOpenModalMenu, setIsOpenModalMenu] = useState(false)
   const [activeModalMenuLink, setActiveModalMenuLink] = useState('')
@@ -102,7 +102,7 @@ export default function HeaderDesktop({isMobile, lang}) {
             />
           </button>
           <Link
-            href={`/${lang}`}
+            href={`/`}
             className='absolute flex flex-row items-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
           >
             <Image
@@ -133,9 +133,9 @@ export default function HeaderDesktop({isMobile, lang}) {
             </div>
           </Link>
           <div className='flex flex-row items-center ml-auto'>
-            <Link href={`/${lang}/lien-he`}>
+            <Link href={`/lien-he`}>
               <Button
-                text={lang === 'vi' ? 'LIÊN HỆ NGAY' : 'CONTACT NOW'}
+                text='LIÊN HỆ NGAY'
                 isHover
                 isBlack
               />
@@ -143,11 +143,10 @@ export default function HeaderDesktop({isMobile, lang}) {
             <div className='w-[0.075rem] h-[2.5rem] opacity-10 bg-grey-900 mx-7' />
             <div className='flex flex-col'>
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
-                {lang === 'vi' ? 'Chọn ngôn ngữ' : 'Select language'}
+                Chọn ngôn ngữ
               </p>
               <LangDropdown
                 isMobile={isMobile}
-                lang={lang}
               />
             </div>
           </div>
@@ -161,7 +160,6 @@ export default function HeaderDesktop({isMobile, lang}) {
         setIsOpenModalMenu={setIsOpenModalMenu}
         setActiveModalMenuLink={setActiveModalMenuLink}
         setActiveModalMenuChildLink={setActiveModalMenuChildLink}
-        lang={lang}
       />
     </>
   )

@@ -4,7 +4,7 @@ import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
 import {useEffect, useRef} from 'react'
 
-export default function Header({isMobile, lang}) {
+export default function Header({isMobile}) {
   const headerRef = useRef(null)
   useEffect(() => {
     let prevScroll = 0
@@ -28,12 +28,10 @@ export default function Header({isMobile, lang}) {
       {!isMobile ? (
         <HeaderDesktop
           isMobile={isMobile}
-          lang={lang}
         />
       ) : (
         <HeaderMobile
           isMobile={isMobile}
-          lang={lang}
         />
       )}
     </header>

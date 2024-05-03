@@ -4,8 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Pagination from '@/components/pagination/Pagination'
 import {cn} from '@/lib/utils'
+import {generateUrlSearchParams} from '@/lib/generateUrlSearchParams'
 
-export default function News({isMobile, lang, data, activePage, category}) {
+export default function News({isMobile, data, activePage, category}) {
+  console.log('🚀 ~ News ~ activePage:', activePage)
   return (
     <section className='pb-[3.12rem] md:pb-[6.5rem] mt-[2rem] md:mt-[4.12rem]'>
       <div className='flex flex-col mb-5 md:flex-row md:items-center md:mb-8'>
@@ -16,7 +18,8 @@ export default function News({isMobile, lang, data, activePage, category}) {
           </strong>
         </h1>
         <nav className='ml-auto max-md:overflow-x-auto max-md:flex max-md:flex-row max-md:flex-nowrap max-md:mt-3 max-md:-mr-3'>
-          <button
+          <Link
+            href={generateUrlSearchParams([{key: 'category', value: ''}])}
             className={cn(
               'text-grey-600 border-grey-200 border font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] rounded-full flex-none transition-300',
               {
@@ -24,34 +27,37 @@ export default function News({isMobile, lang, data, activePage, category}) {
                   category === '',
               },
             )}
-            // onClick={() => setCategory('')}
           >
             Tất cả
-          </button>
-          <button
+          </Link>
+          <Link
+            href={generateUrlSearchParams([
+              {key: 'category', value: 'tip-su-dung-thang-may'},
+            ])}
             className={cn(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
                 'text-grey-900 bg-yellow-500 border-yellow-500':
-                  category === 'tip-su-dung-thang-may-vi',
+                  category === 'tip-su-dung-thang-may',
               },
             )}
-            // onClick={() => setCategory('tip-su-dung-thang-may-vi')}
           >
             Tip sử dụng thang máy
-          </button>
-          <button
+          </Link>
+          <Link
+            href={generateUrlSearchParams([
+              {key: 'category', value: 'tin-tuc-doanh-nghiep'},
+            ])}
             className={cn(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
                 'text-grey-900 bg-yellow-500 border-yellow-500':
-                  category === 'tin-tuc-doanh-nghiep-vi',
+                  category === 'tin-tuc-doanh-nghiep',
               },
             )}
-            // onClick={() => setCategory('tin-tuc-doanh-nghiep-vi')}
           >
             Tin tức doanh nghiệp
-          </button>
+          </Link>
         </nav>
       </div>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>

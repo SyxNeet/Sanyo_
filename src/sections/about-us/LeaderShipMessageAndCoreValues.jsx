@@ -12,7 +12,6 @@ export default function LeaderShipMessageAndCoreValues({
   isMobile,
   dataLeadershipMessage,
   dataCoreValues,
-  lang,
 }) {
   const headingRef = useRef(null)
   const fillRef = useRef(null)
@@ -76,7 +75,6 @@ export default function LeaderShipMessageAndCoreValues({
           ref={firstRef}
           data={dataLeadershipMessage}
           isMobile={isMobile}
-          lang={lang}
         />
         {!isMobile && (
           <section className='relative z-10 flex flex-row items-start bg-grey-0 section-container'>
