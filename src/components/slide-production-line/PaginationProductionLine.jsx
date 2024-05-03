@@ -141,7 +141,7 @@ export default function PaginationProductionLine({activeImage, direction}) {
         }
       }
     }
-  }, [activeImage, swiper.slides])
+  }, [activeImage, swiper.slides, direction])
 
   return (
     <ul className='pagination-bar-container absolute flex flex-row w-[92%] left-1/2 -translate-x-1/2 z-20 bottom-[5%]'>
