@@ -1,21 +1,16 @@
+import {generateUrlSearchParams} from '@/lib/generateUrlSearchParams'
 import {cn} from '@/lib/utils'
-import {useState} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Pagination({totalPage}) {
-  const [activePage, setActivePage] = useState(0)
+export default function Pagination({totalPage, activePage}) {
   return (
     <div className='flex flex-row items-center mx-auto mt-6 md:mt-12 w-fit'>
-      <button
+      <Link
+        href={generateUrlSearchParams([
+          {key: 'page', value: activePage > 0 ? parseInt(activePage) - 1 : 1},
+        ])}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
-        onClick={() =>
-          setActivePage((prevState) => {
-            if (prevState >= 1) {
-              return prevState - 1
-            }
-            return prevState
-          })
-        }
       >
         <Image
           src={`/images/tin-tuc/prev-pagination.svg`}
@@ -24,21 +19,20 @@ export default function Pagination({totalPage}) {
           height={120}
           className='size-[0.59rem]'
         />
-      </button>
+      </Link>
       {totalPage > 5 ? (
         <>
-          <button
-            href={`/`}
+          <Link
+            href={generateUrlSearchParams([{key: 'page', value: 1}])}
             className={cn(
               'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
               {
                 'bg-grey-900': activePage === 0,
               },
             )}
-            onClick={() => setActivePage(0)}
           >
             1
-          </button>
+          </Link>
           {activePage >= 3 && (
             <button className='flex flex-row items-center justify-center rounded-full size-8 text-0.875 font-medium leading-1.5 bg-grey-0 mx-[0.25rem] md:mx-[0.33rem] select-none'>
               <Image
@@ -72,17 +66,19 @@ export default function Pagination({totalPage}) {
               item <= activePage + 1
             ) {
               return (
-                <button
+                <Link
+                  href={generateUrlSearchParams([
+                    {key: 'page', value: item + 1},
+                  ])}
                   className={cn(
                     'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                     {
                       'bg-grey-900': activePage === item,
                     },
                   )}
-                  onClick={() => setActivePage(item)}
                 >
                   {item + 1}
-                </button>
+                </Link>
               )
             }
           })}
@@ -112,48 +108,47 @@ export default function Pagination({totalPage}) {
             </button>
           )}
           {totalPage > 1 && (
-            <button
+            <Link
+              href={generateUrlSearchParams([{key: 'page', value: totalPage}])}
               className={cn(
                 'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                 {
                   'bg-grey-900': activePage === totalPage - 1,
                 },
               )}
-              onClick={() => setActivePage(totalPage - 1)}
             >
               {totalPage}
-            </button>
+            </Link>
           )}
         </>
       ) : (
         <>
           {Array.from(Array(totalPage).keys()).map((item) => {
             return (
-              <button
+              <Link
+                href={generateUrlSearchParams([{key: 'page', value: item + 1}])}
                 className={cn(
                   'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                   {
                     'bg-grey-900': activePage === item,
                   },
                 )}
-                onClick={() => setActivePage(item)}
               >
                 {item + 1}
-              </button>
+              </Link>
             )
           })}
         </>
       )}
-      <button
+      <Link
+        href={generateUrlSearchParams([
+          {
+            key: 'page',
+            value:
+              activePage < totalPage - 1 ? parseInt(activePage) + 2 : totalPage,
+          },
+        ])}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
-        onClick={() =>
-          setActivePage((prevState) => {
-            if (prevState < totalPage - 1) {
-              return prevState + 1
-            }
-            return prevState
-          })
-        }
       >
         <Image
           src={`/images/tin-tuc/next-pagination.svg`}
@@ -162,7 +157,7 @@ export default function Pagination({totalPage}) {
           height={120}
           className='size-[0.59rem]'
         />
-      </button>
+      </Link>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 'use client'
+
 import Image from 'next/image'
 import imgBgForm from '../../../public/images/form/bgForm.png'
 import {useState, useEffect} from 'react'
@@ -266,7 +267,7 @@ export default function Support({
               isHover={true}
               text={lang === 'vi' ? 'GỬI THÔNG TIN' : 'SEND INFORMATION'}
               isBlack={true}
-              className='max-md:bg-yellow-500 max-md:border-none bg-transparent'
+              className='bg-transparent max-md:bg-yellow-500 max-md:border-none'
               onClick={handleSubmit}
             ></Button>
           </div>

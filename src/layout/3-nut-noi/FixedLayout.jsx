@@ -4,14 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {useEffect, useRef} from 'react'
 import {ScrollSmoother} from 'gsap/ScrollSmoother'
+import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 
 export default function FixedLayout() {
   const myRef = useRef(null)
   const smootherRef = useRef(null)
   useEffect(() => {
-    smootherRef.current = ScrollSmoother.create({
-      effects: true,
-    })
+    smootherRef.current = ScrollSmoother.create(scrollSmootherConfig)
   }, [])
   useEffect(() => {
     const length = myRef.current.getTotalLength()

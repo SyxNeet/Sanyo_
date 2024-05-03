@@ -117,8 +117,8 @@ export default async function Footer({isMobile, lang}) {
               </div>
             </div>
           </div>
-          {isMobile && <FollowUs />}
-          {!isMobile && <SubmitMail />}
+          {isMobile && <FollowUs lang={lang} data={dataFooter} />}
+          {!isMobile && <SubmitMail lang={lang} />}
           <p className='text-white font-Iciel md:text-[1rem] text-[0.75rem] text-center lg:text-[0.875rem] font-[300] leading-1.5 uppercase opacity-60 md:mt-[1.75rem] mt-[2.62rem]'>
             @2024 SANYO YUSOKI |{' '}
             {lang === 'vi' ? 'Thiết kế bởi' : 'Designed by'} OKHUB Agency

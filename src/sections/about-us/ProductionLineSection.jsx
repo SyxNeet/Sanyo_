@@ -29,28 +29,30 @@ export default function ProductionLineSection({isMobile, data, lang}) {
         effect={'fade'}
         autoplay={{
           delay: 3000,
+          disableOnInteraction: false
         }}
+        loop
         speed={500}
         modules={[Autoplay, EffectFade]}
         className='swiper-production-line'
         onActiveIndexChange={(swiper) => {
-          setActiveImage(swiper.activeIndex)
+          setActiveImage(swiper.realIndex)
           if (
-            previousActiveImage < swiper.activeIndex ||
+            previousActiveImage < swiper.realIndex ||
             (previousActiveImage === swiper.slides.length - 1 &&
-              swiper.activeIndex === 0)
+              swiper.realIndex === 0)
           ) {
             setDirection('right')
           } else if (
-            previousActiveImage > swiper.activeIndex ||
+            previousActiveImage > swiper.realIndex ||
             (previousActiveImage === 0 &&
-              swiper.activeIndex === swiper.slides.length - 1)
+              swiper.realIndex === swiper.slides.length - 1)
           ) {
             setDirection('left')
           }
         }}
         onBeforeTransitionStart={(swiper) =>
-          setPreviousActiveImage(swiper.activeIndex)
+          setPreviousActiveImage(swiper.realIndex)
         }
       >
         {data.slide.map((item, i) => {
