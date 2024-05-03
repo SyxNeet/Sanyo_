@@ -1,19 +1,16 @@
 import Support from '@/layout/support'
 import getData from '@/lib/getData'
 
-async function getSupportEn() {
-  return getData(`/options/options/contactFormEn`)
-}
-async function getSupportVi() {
-  return getData(`/options/options/contactFormVi`)
+async function getSupport() {
+  return getData(`/options/options/contactForm`)
 }
 
 export default async function SupportLayout({children, params}) {
-  const dataSupport = await getSupportVi()
+  const dataSupport = await getSupport()
   return (
     <>
       {children}
-      <Support data={dataSupport.contactFormVi} />
+      <Support data={dataSupport.contactForm} />
     </>
   )
 }

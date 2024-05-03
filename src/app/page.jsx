@@ -20,9 +20,8 @@ async function getGiaTriKhacBiet(pageId) {
 async function getDanhSachThangMay(pageId) {
   return getData(`/pages/${pageId}/danh_sach_thang_may`)
 }
-// TODO:
-async function getPartnerVi() {
-  return getData(`/options/options/partnerVi`)
+async function getPartner() {
+  return getData(`/options/options/partner`)
 }
 const pageId = 11
 
@@ -40,7 +39,7 @@ export default async function Home({params, searchParams}) {
     getTinhHoaThangMay(pageId),
     getGiaTriKhacBiet(pageId),
     getDanhSachThangMay(pageId),
-    getPartnerVi(),
+     getPartner(),
   ])
   return (
     <main>
@@ -62,7 +61,7 @@ export default async function Home({params, searchParams}) {
         <News isMobile={isMobile} />
         <PartnerSection
           isMobile={isMobile}
-          data={dataPartner.partnerVi}
+          data={dataPartner.partner}
         />
       </Suspense>
     </main>

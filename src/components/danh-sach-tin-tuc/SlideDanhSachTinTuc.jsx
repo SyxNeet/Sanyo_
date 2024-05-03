@@ -7,7 +7,7 @@ import {Pagination, Navigation} from 'swiper/modules'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-export default function SlideDanhSachTinTuc({isMobile}) {
+export default function SlideDanhSachTinTuc({isMobile, data}) {
   return (
     <div className='relative max-md:mb-4'>
       <Swiper
@@ -27,7 +27,7 @@ export default function SlideDanhSachTinTuc({isMobile}) {
         pagination={{type: 'progressbar'}}
         className='swiper-danh-sach-tin-tuc'
       >
-        {Array.from(Array(10).keys()).map((item, i) => {
+        {data.events.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Link
@@ -36,7 +36,7 @@ export default function SlideDanhSachTinTuc({isMobile}) {
               >
                 <div className='rounded-[0.5rem] md:rounded-t-[0.5rem] flex-none h-full md:h-[60%] overflow-hidden'>
                   <Image
-                    src={`/images/tin-tuc/news-1.png`}
+                    src={item.feature_image}
                     alt=''
                     width={1920}
                     height={1080}
@@ -55,22 +55,14 @@ export default function SlideDanhSachTinTuc({isMobile}) {
                         height={120}
                       />
                       <p className='font-Iciel text-[0.625rem] md:text-0.875 leading-1.5 text-grey-0'>
-                        26/04/2022
+                        {item.date}
                       </p>
                     </div>
                     <h3 className='text-0.75 md:text-1.25 font-SVNLagu text-grey-0 leading-1.4 uppercase mb-[0.39rem] md:mb-3 group-hover:text-yellow-500 transition-500 font-medium'>
-                      Cách âm ra sao khi căn hộ giáp vách thang máy chung cư?
+                      {item.title}
                     </h3>
                     <p className='text-grey-0 line-clamp-2 text-0.75 md:text-1 leading-1.5 font-Iciel opacity-70'>
-                      Tôi đang sống trong một căn hộ ở tầng 8 của một toà chung
-                      cư. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp
-                      rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà
-                      đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh
-                      hưởng không nhỏ đến sinh hoạt của cả gia đình tôi. Phòng
-                      ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc
-                      thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người,
-                      nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không
-                      nhỏ đến sinh hoạt của cả gia đình tôi.
+                      {item.excerpt}
                     </p>
                   </div>
                 )}
@@ -78,18 +70,10 @@ export default function SlideDanhSachTinTuc({isMobile}) {
                   <>
                     <div className='mt-[1.56rem] grid grid-cols-1 px-[1.37rem] gap-2'>
                       <h3 className='line-clamp-2 text-grey-900 font-SVNLagu text-1 font-semibold leading-1.4 uppercase group-hover:text-yellow-500 transition-500'>
-                        Cách âm ra sao khi căn hộ giáp vách thang máy chung cư?
+                        {item.title}
                       </h3>
                       <p className='text-grey-500 font-Iciel text-0.875 opacity-70 leading-1.5 line-clamp-2'>
-                        Tôi đang sống trong một căn hộ ở tầng 8 của một toà
-                        chung cư. Phòng ngủ tuy đã cách vách thang máy bởi một
-                        khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì
-                        tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động
-                        này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình
-                        tôi. Phòng ngủ tuy đã cách vách thang máy bởi một khu
-                        bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa
-                        nhà đông người, nhu cầu đi lại nhiều nên tiếng động này
-                        ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi.
+                        {item.excerpt}
                       </p>
                       <div className='flex flex-row items-center'>
                         <Image
@@ -100,7 +84,7 @@ export default function SlideDanhSachTinTuc({isMobile}) {
                           className='size-[0.875rem]'
                         />
                         <p className='text-grey-500 text-0.875 leading-1.5 font-Iciel ml-2'>
-                          26/04/2022
+                          {item.date}
                         </p>
                       </div>
                     </div>

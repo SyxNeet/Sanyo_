@@ -1,7 +1,7 @@
 import SlideDanhSachTinTuc from '@/components/danh-sach-tin-tuc/SlideDanhSachTinTuc'
 import {Button} from '@/components/ui/button'
 
-export default function News({isMobile}) {
+export default function News({isMobile, data}) {
   return (
     <section className='pt-10 md:pt-[6rem] px-3 md:px-[6.25rem]'>
       <div className='flex flex-row items-end mb-5 md:mb-10'>
@@ -25,7 +25,7 @@ export default function News({isMobile}) {
           />
         )}
       </div>
-      <SlideDanhSachTinTuc isMobile={isMobile} />
+      <SlideDanhSachTinTuc isMobile={isMobile} data={data} />
       {isMobile && (
         <Button
           isHover={false}
