@@ -4,36 +4,37 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Pagination from '@/components/pagination/Pagination'
 import {cn} from '@/lib/utils'
-import {generateUrlSearchParams} from '@/lib/generateUrlSearchParams'
 
-export default function News({isMobile, data, activePage, category}) {
-  console.log('🚀 ~ News ~ activePage:', activePage)
+export default function News({
+  isMobile,
+  dataNews,
+  dataPosts,
+  activePage,
+  category,
+  searchParams,
+}) {
   return (
     <section className='pb-[3.12rem] md:pb-[6.5rem] mt-[2rem] md:mt-[4.12rem]'>
       <div className='flex flex-col mb-5 md:flex-row md:items-center md:mb-8'>
-        <h1 className='text-1.875 md:text-3 font-semibold text-grey-900 leading-1.3 font-SVNLagu'>
-          Danh sách{' '}
-          <strong className='text-yellow-500 font-SVNLagu font-semibold leading-1.3'>
-            TIN TỨC
-          </strong>
-        </h1>
+        <h1
+          className='text-1.875 md:text-3 font-semibold text-grey-900 leading-1.3 font-SVNLagu [&_strong]:text-yellow-500 [&_strong]:font-semibold'
+          dangerouslySetInnerHTML={{__html: dataNews.heading}}
+        ></h1>
         <nav className='ml-auto max-md:overflow-x-auto max-md:flex max-md:flex-row max-md:flex-nowrap max-md:mt-3 max-md:-mr-3'>
           <Link
-            href={generateUrlSearchParams([{key: 'category', value: ''}])}
+            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc`}
             className={cn(
               'text-grey-600 border-grey-200 border font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] rounded-full flex-none transition-300',
               {
                 'text-grey-900 bg-yellow-500 border-yellow-500':
-                  category === '',
+                  !category,
               },
             )}
           >
             Tất cả
           </Link>
           <Link
-            href={generateUrlSearchParams([
-              {key: 'category', value: 'tip-su-dung-thang-may'},
-            ])}
+            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?category=tip-su-dung-thang-may`}
             className={cn(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
@@ -45,9 +46,7 @@ export default function News({isMobile, data, activePage, category}) {
             Tip sử dụng thang máy
           </Link>
           <Link
-            href={generateUrlSearchParams([
-              {key: 'category', value: 'tin-tuc-doanh-nghiep'},
-            ])}
+            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?category=tin-tuc-doanh-nghiep`}
             className={cn(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
@@ -62,13 +61,13 @@ export default function News({isMobile, data, activePage, category}) {
       </div>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
         <div className='md:col-span-2 md:row-span-3 h-[15.65rem] md:h-[36.375rem]'>
-          {data && (
+          {dataPosts && (
             <Link
-              href={data.events[0].detail_link}
+              href={dataPosts.events[0].detail_link}
               className='relative block w-full h-full rounded-[0.75rem] overflow-hidden group'
             >
               <Image
-                src={data.events[0].feature_image}
+                src={dataPosts.events[0].feature_image}
                 alt=''
                 className='absolute top-0 left-0 object-cover w-full h-full group-hover:scale-110 transition-500'
                 width={1920}
@@ -85,22 +84,22 @@ export default function News({isMobile, data, activePage, category}) {
                     height={120}
                   />
                   <p className='font-Iciel text-[0.655rem] md:text-0.875 leading-1.5 text-grey-0'>
-                    {data.events[0].date}
+                    {dataPosts.events[0].date}
                   </p>
                 </div>
                 <h3 className='text-0.785 md:text-1.25 font-SVNLagu text-grey-0 leading-1.4 uppercase mb-[0.39rem] md:mb-3 group-hover:text-yellow-500 transition-500 font-medium'>
-                  {data.events[0].title}
+                  {dataPosts.events[0].title}
                 </h3>
                 <p className='text-grey-0 line-clamp-2 text-0.785 md:text-1 leading-1.5 font-Iciel opacity-70'>
-                  {data.events[0].excerpt}
+                  {dataPosts.events[0].excerpt}
                 </p>
               </div>
             </Link>
           )}
         </div>
-        {data && (
+        {dataPosts && (
           <>
-            {data.events.slice(1, 4).map((item) => {
+            {dataPosts.events.slice(1, 4).map((item) => {
               return (
                 <Link
                   href={item.detail_link}
@@ -161,9 +160,9 @@ export default function News({isMobile, data, activePage, category}) {
         )}
       </div>
       <div className='grid grid-cols-1 md:grid-cols-4 mt-[0.52rem] md:mt-5 gap-y-[0.52rem] md:gap-x-4 md:gap-y-5'>
-        {data && (
+        {dataPosts && (
           <>
-            {data.events.slice(4).map((item) => {
+            {dataPosts.events.slice(4).map((item) => {
               return (
                 <Link
                   href={item.detail_link}
@@ -223,8 +222,10 @@ export default function News({isMobile, data, activePage, category}) {
         )}
       </div>
       <Pagination
-        totalPage={data ? data.total_pages : 1}
+        totalPage={dataPosts ? dataPosts.total_pages : 1}
         activePage={activePage}
+        searchParams={searchParams}
+        category={category}
       />
       {!isMobile && (
         <div className='absolute bottom-0 left-0 w-[6.25rem] h-[4.25rem] bg-yellow-500 opacity-15'>

@@ -8,28 +8,28 @@ import News from '@/sections/chi-tiet-tin-tuc/News'
 import './styles.css'
 import Support from '@/layout/support'
 
-const pageId = 11
 async function getChiTietTinTuc(postId) {
   return getData(`/posts/${postId}`, 'wp')
 }
-async function getDanhSachThangMay(pageId) {
-  return getData(`/pages/${pageId}/danh_sach_thang_may`)
+async function getDanhSachThangMay() {
+  return getData(`/pages/11/danh_sach_thang_may`)
 }
-async function getSupportEn() {
-  return getData(`/options/options/contactFormEn`)
+async function getSupport() {
+  return getData(`/options/options/contactForm`)
 }
-async function getSupportVi() {
-  return getData(`/options/options/contactFormVi`)
+async function getPosts() {
+  return getData(`/posts?page=1&per_page=16`, 'okhub')
 }
 
 export default async function TinTucPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
   const {slug} = params
-  const [dataPost, dataPlatForm, dataSupport] = await Promise.all([
+  const [dataPost, dataPlatForm, dataSupport, dataPosts] = await Promise.all([
     getChiTietTinTuc(slug),
-    getDanhSachThangMay(pageId),
-    getSupportVi(),
+    getDanhSachThangMay(),
+    getSupport(),
+    getPosts(),
   ])
   return (
     <main>
@@ -49,10 +49,13 @@ export default async function TinTucPage({params, searchParams}) {
       ) : (
         <PlatFormMobile dataPlatForm={dataPlatForm.danh_sach_thang_may} />
       )}
-      <News isMobile={isMobile} />
+      <News
+        isMobile={isMobile}
+        data={dataPosts}
+      />
       <Support
         isMobile={isMobile}
-        data={dataSupport.contactFormVi}
+        data={dataSupport.contactForm}
       />
     </main>
   )

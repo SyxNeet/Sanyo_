@@ -23,11 +23,8 @@ async function getAchieved(pageId) {
 async function getService(pageId) {
   return getData(`/pages/${pageId}/service`)
 }
-async function getPartnerEn() {
-  return getData(`/options/options/partnerEn`)
-}
-async function getPartnerVi() {
-  return getData(`/options/options/partnerVi`)
+async function getPartner() {
+  return getData(`/options/options/partner`)
 }
 const pageId = 188
 
@@ -47,7 +44,7 @@ export default async function AboutUsPage({params, searchParams}) {
     getCoreValues(pageId),
     getAchieved(pageId),
     getService(pageId),
-    getPartnerVi(),
+    getPartner(),
   ])
   return (
     <main>
@@ -55,7 +52,9 @@ export default async function AboutUsPage({params, searchParams}) {
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink isLastLink>VỀ CHÚNG TÔI</BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} />
+      <SlideOnlyImagesDownload
+        data={dataGreatExperience.greatExperience}
+      />
       <LeaderShipMessageAndCoreValues
         isMobile={isMobile}
         dataLeadershipMessage={dataLeadershipMessage.leadershipMessage}
@@ -71,7 +70,7 @@ export default async function AboutUsPage({params, searchParams}) {
       />
       <PartnerSection
         isMobile={isMobile}
-        data={dataPartner.partnerVi}
+        data={dataPartner.partner}
       />
     </main>
   )

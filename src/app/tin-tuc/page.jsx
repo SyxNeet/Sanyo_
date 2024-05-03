@@ -3,6 +3,10 @@ import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import getData from '@/lib/getData'
 import News from '@/sections/tin-tuc/News'
 
+const pageId = 543
+async function getNews(pageId) {
+  return getData(`/posts/${pageId}/news`)
+}
 async function getPosts(page, category) {
   return getData(
     `/posts?page=${page ?? 1}&per_page=16${
@@ -15,7 +19,10 @@ async function getPosts(page, category) {
 export default async function DanhSachTinTucPage({params, searchParams}) {
   const {viewport, page, category} = searchParams
   const isMobile = viewport.includes('mobile')
-  const [dataPosts] = await Promise.all([getPosts(page, category)])
+  const [dataNews, dataPosts] = await Promise.all([
+    getNews(pageId),
+    getPosts(page, category),
+  ])
   return (
     <main className='relative px-3 md:px-[6.25rem]'>
       {!isMobile && (
@@ -32,7 +39,9 @@ export default async function DanhSachTinTucPage({params, searchParams}) {
       </BreadcrumbContainer>
       <News
         isMobile={isMobile}
-        data={dataPosts}
+        dataNews={dataNews.news}
+        dataPosts={dataPosts}
+        searchParams={searchParams}
         activePage={page ? parseInt(page) - 1 : 0}
         category={category ?? ''}
       />

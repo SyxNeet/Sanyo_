@@ -7,7 +7,6 @@ import GsapProvider from '@/components/gsap/GsapProvider'
 import {headers} from 'next/headers'
 import {Toaster} from '@/components/ui/sonner'
 import FixedLayout from '@/layout/3-nut-noi/FixedLayout'
-// import {Toaster} from '@/components/ui/sonner'
 
 export const metadata = {
   title: 'Sanyo Yosuki',

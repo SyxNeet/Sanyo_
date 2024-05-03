@@ -1,15 +1,14 @@
-import {generateUrlSearchParams} from '@/lib/generateUrlSearchParams'
 import {cn} from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Pagination({totalPage, activePage}) {
+export default function Pagination({totalPage, activePage, category}) {
   return (
     <div className='flex flex-row items-center mx-auto mt-6 md:mt-12 w-fit'>
       <Link
-        href={generateUrlSearchParams([
-          {key: 'page', value: activePage > 0 ? parseInt(activePage) - 1 : 1},
-        ])}
+        href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
+          activePage > 1 ? parseInt(activePage) - 1 : 1
+        }${category && `&category=${category}`}`}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
       >
         <Image
@@ -23,7 +22,9 @@ export default function Pagination({totalPage, activePage}) {
       {totalPage > 5 ? (
         <>
           <Link
-            href={generateUrlSearchParams([{key: 'page', value: 1}])}
+            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=1${
+              category && `&category=${category}`
+            }`}
             className={cn(
               'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
               {
@@ -67,9 +68,9 @@ export default function Pagination({totalPage, activePage}) {
             ) {
               return (
                 <Link
-                  href={generateUrlSearchParams([
-                    {key: 'page', value: item + 1},
-                  ])}
+                  href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
+                    item + 1
+                  }${category && `&category=${category}`}`}
                   className={cn(
                     'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                     {
@@ -109,7 +110,11 @@ export default function Pagination({totalPage, activePage}) {
           )}
           {totalPage > 1 && (
             <Link
-              href={generateUrlSearchParams([{key: 'page', value: totalPage}])}
+              href={`${
+                process.env.NEXT_PUBLIC_HOST_URL
+              }/tin-tuc?page=${totalPage}${
+                category && `&category=${category}`
+              }`}
               className={cn(
                 'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                 {
@@ -126,7 +131,9 @@ export default function Pagination({totalPage, activePage}) {
           {Array.from(Array(totalPage).keys()).map((item) => {
             return (
               <Link
-                href={generateUrlSearchParams([{key: 'page', value: item + 1}])}
+                href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
+                  item + 1
+                }${category && `&category=${category}`}`}
                 className={cn(
                   'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                   {
@@ -141,13 +148,9 @@ export default function Pagination({totalPage, activePage}) {
         </>
       )}
       <Link
-        href={generateUrlSearchParams([
-          {
-            key: 'page',
-            value:
-              activePage < totalPage - 1 ? parseInt(activePage) + 2 : totalPage,
-          },
-        ])}
+        href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
+          activePage < totalPage - 1 ? parseInt(activePage) + 2 : totalPage
+        }${category && `&category=${category}`}`}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
       >
         <Image
