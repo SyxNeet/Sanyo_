@@ -5,6 +5,7 @@ import React from 'react'
 const ListElevator = (isMobile) => {
   return (
     <section className='mt-[7.13rem] max-md:mt-12'>
+      
       {isMobile ? (
         <>
           <DetailElevator type={true} />

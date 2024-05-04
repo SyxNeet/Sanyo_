@@ -9,7 +9,7 @@ function FollowUs({lang, data}) {
         {lang === 'vi' ? 'Theo dõi chúng tôi' : 'Follow us'}
       </p>
 
-      <Link href={data.facebookLink}>
+      <Link href={data?.facebookLink||""}>
         <Image
           src={'/images/layout/footer/fbFooter.png'}
           alt='facebook'
@@ -18,7 +18,7 @@ function FollowUs({lang, data}) {
           className='w-[2.31494rem] h-[2.31494rem] object-cover mr-[0.62rem]'
         />
       </Link>
-      <Link href={data.instagramLink}>
+      <Link href={data?.instagramLink||""}>
         <Image
           src={'/images/layout/footer/insFooter.png'}
           alt='facebook'
