@@ -2,7 +2,7 @@
 import {useState, useTransition} from 'react'
 import {toast} from 'sonner'
 
-export default function SubmitMail({lang}) {
+export default function SubmitMail() {
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
   const handleChangeMail = (text) => {
@@ -38,9 +38,7 @@ export default function SubmitMail({lang}) {
   return (
     <div className='md:mt-[9.06rem]'>
       <p className='md:mb-[0.62rem] mb-[0.94rem] font-Iciel text-white md:text-[1.3rem] text-[0.875rem] max-md:w-[14.5rem] lg:text-[1rem] leading-1.5 uppercase'>
-        {lang === 'vi'
-          ? 'Để lại email của bạn để chúng tôi hỗ trợ bạn tốt nhất'
-          : 'Leave your email so we can best assist you'}
+        Để lại email của bạn để chúng tôi hỗ trợ bạn tốt nhất
       </p>
       <div className='md:w-[35.1875rem] h-[3.1875rem] bg-grey-0 relative rounded-[0.25rem]'>
         <input

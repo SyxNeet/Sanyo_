@@ -12,11 +12,12 @@ export default function LeaderShipMessageAndCoreValues({
   isMobile,
   dataLeadershipMessage,
   dataCoreValues,
-  lang
 }) {
+  const headingRef = useRef(null)
+  const fillRef = useRef(null)
   const firstRef = useRef(null)
   const secondRef = useRef(null)
-  const [activeImage, setActiveImage] = useState(0)
+  const [activeImage, setActiveImage] = useState(undefined)
   const swiperRef = useRef(null)
   const [activeSlide, setActiveSlide] = useState(0)
 
@@ -46,40 +47,26 @@ export default function LeaderShipMessageAndCoreValues({
   }, [isMobile])
 
   useEffect(() => {
-    if (!isMobile) {
+    const container = document.querySelector('.section-container')
+    const scrollLength = parseFloat(container.offsetHeight) - window.innerHeight
+    const fnc = () => {
       const coreValuesLinks = document.querySelectorAll('.core-value-link')
-      const fnc = () => {
-        let rectArray = []
-        for (let i = 0; i < coreValuesLinks.length; i++) {
-          const rect = coreValuesLinks[i].getBoundingClientRect()
-          rectArray.push(rect)
-        }
-        let count = {
-          positive: 0,
-          negative: 0,
-        }
-        rectArray.forEach((rect, i) => {
-          if (Math.abs(rect.top) <= coreValuesLinks[i].offsetHeight / 2) {
-            setActiveImage(i + 1)
-          } else if (rect.top > 0) {
-            count = {...count, positive: count.positive + 1}
-          } else if (rect.top < 0) {
-            count = {...count, negative: count.negative + 1}
-          }
-        })
-        if (count.negative === 0 && count.positive === coreValuesLinks.length) {
-          setActiveImage(0)
-        } else if (
-          count.positive < 1 &&
-          count.negative >= coreValuesLinks.length - 1
-        ) {
-          setActiveImage(coreValuesLinks.length - 1)
-        }
+      const coreValueLinksLength = coreValuesLinks.length
+      const rect = container.getBoundingClientRect()
+      if (rect.top > 0) {
+        setActiveImage(undefined)
+      } else if (rect.top <= 0  &&  Math.abs(rect.top) <= scrollLength) {
+        const currentScroll = Math.abs(rect.top)
+        const scrollPerLink = scrollLength / coreValueLinksLength
+        const activeIndex = Math.floor(currentScroll / scrollPerLink)
+        setActiveImage(activeIndex)
+      } else if (rect.top <= 0 && Math.abs(rect.top) > scrollLength) {
+        setActiveImage(coreValueLinksLength - 1)
       }
-      window.addEventListener('scroll', fnc)
-      return () => window.removeEventListener('scroll', fnc)
     }
-  }, [isMobile])
+    window.addEventListener('scroll', fnc)
+    return () => window.removeEventListener('scroll', fnc)
+  }, [])
 
   return (
     <>
@@ -88,7 +75,6 @@ export default function LeaderShipMessageAndCoreValues({
           ref={firstRef}
           data={dataLeadershipMessage}
           isMobile={isMobile}
-          lang={lang}
         />
         {!isMobile && (
           <section className='relative z-10 flex flex-row items-start bg-grey-0 section-container'>
@@ -96,6 +82,21 @@ export default function LeaderShipMessageAndCoreValues({
               ref={secondRef}
               className='relative basis-[65%] h-screen top-0'
             >
+              <Image
+                src={dataCoreValues.image.url}
+                alt={
+                  dataCoreValues.image.alt ?? 'Giá trị cốt lõi của SANYO YUSOKI'
+                }
+                className={clsx(
+                  'absolute top-0 left-0 object-cover w-full h-full transition-300',
+                  {
+                    'opacity-100': activeImage === undefined,
+                    'opacity-0': activeImage !== undefined,
+                  },
+                )}
+                width={1920}
+                height={1080}
+              />
               {dataCoreValues.coreValue.map((item, i) => {
                 return (
                   <Image
@@ -117,10 +118,11 @@ export default function LeaderShipMessageAndCoreValues({
             </div>
             <div className='ml-auto basis-[35%]'>
               <h2
+                ref={headingRef}
                 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'
                 dangerouslySetInnerHTML={{__html: dataCoreValues.heading}}
               ></h2>
-              <nav>
+              <nav className='core-value-link-container'>
                 {dataCoreValues.coreValue.map((item, i) => {
                   return (
                     <div
@@ -138,6 +140,7 @@ export default function LeaderShipMessageAndCoreValues({
                             'font-SVNLagu text-2.25 font-medium leading-1.3 mb-[0.44rem] transition-300',
                             {
                               'text-white': activeImage === i,
+                              'text-yellow-500': activeImage !== i,
                             },
                           )}
                         >
@@ -194,7 +197,6 @@ export default function LeaderShipMessageAndCoreValues({
               speed={800}
               slidesPerView='auto'
               className='swiper-core-values'
-              
               onActiveIndexChange={(swiper) => {
                 setActiveSlide(swiper.activeIndex)
               }}

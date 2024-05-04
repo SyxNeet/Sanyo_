@@ -2,12 +2,12 @@
 import Image from 'next/image'
 import React, {useRef, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import Link from 'next/link'
-function SliderJapanElevator({lang}) {
+
+function SliderJapanElevator() {
   const slideImages = Array(4).fill(0)
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()

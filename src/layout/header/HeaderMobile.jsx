@@ -9,7 +9,7 @@ const DynamicModalMenuMobile = dynamic(() => import('./ModalMenuMobile'), {
   ssr: false,
 })
 
-export default function HeaderMobile({isMobile, lang}) {
+export default function HeaderMobile({isMobile}) {
   const [isOpenModalMenu, setIsOpenModalMenu] = useState(false)
   useEffect(() => {
     if (isMobile) {
@@ -25,10 +25,9 @@ export default function HeaderMobile({isMobile, lang}) {
       <div className='h-[3.9375rem] bg-grey-0 flex flex-row items-center px-3 border-b border-grey-50'>
         <LangDropdown
           isMobile={isMobile}
-          lang={lang}
         />
         <Link
-          href={`/${lang}`}
+          href={`/`}
           className='absolute flex flex-row items-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
         >
           <Image
@@ -70,7 +69,6 @@ export default function HeaderMobile({isMobile, lang}) {
       {/* modal menu */}
       <DynamicModalMenuMobile
         isOpenModalMenu={isOpenModalMenu}
-        lang={lang}
         isMobile={isMobile}
         setIsOpenModalMenu={setIsOpenModalMenu}
       />

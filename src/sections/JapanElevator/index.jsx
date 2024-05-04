@@ -9,17 +9,37 @@ import PerfectChoiceJE from './perfect-choice/PerfectChoiceJE'
 import ElevatorJapan from './ElevatorJapan/ElevatorJapan'
 import SixReasonJE from './sixReasonJE/sixReasonJE'
 import OutStandingProjectJE from './outStandingProjectJE/OutStandingProjectJE'
-const JapanElevator = ({isMobile,data,lang}) => {
-  const {banner,japan_elevator,outstanding_project,perfect_choice,productLine}=data?.acf;
-  
+const JapanElevator = ({isMobile, data}) => {
+  const {
+    banner,
+    japan_elevator,
+    outstanding_project,
+    perfect_choice,
+    productLine,
+  } = data?.acf
+
   return (
     <main className='overflow-hidden janpanElevator'>
-        <SlideFirstJE isMobile={isMobile} data={banner}/>
-        <ProductLine data={productLine} lang={lang} isMobile={isMobile}/>
-        <PerfectChoiceJE data={perfect_choice} lang={lang}/>
-        <ElevatorJapan isMobile={isMobile} data={japan_elevator}/>
-        <SixReasonJE isMobile={isMobile}/>
-      <OutStandingProjectJE isMobile={isMobile} data={outstanding_project} lang={lang}/>
+      <SlideFirstJE
+        isMobile={isMobile}
+        data={banner}
+      />
+      <ProductLine
+        data={productLine}
+        isMobile={isMobile}
+      />
+      <PerfectChoiceJE
+        data={perfect_choice}
+      />
+      <ElevatorJapan
+        isMobile={isMobile}
+        data={japan_elevator}
+      />
+      <SixReasonJE isMobile={isMobile} />
+      <OutStandingProjectJE
+        isMobile={isMobile}
+        data={outstanding_project}
+      />
     </main>
   )
 }

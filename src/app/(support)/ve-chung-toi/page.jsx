@@ -23,23 +23,14 @@ async function getAchieved(pageId) {
 async function getService(pageId) {
   return getData(`/pages/${pageId}/service`)
 }
-async function getPartnerEn() {
-  return getData(`/options/options/partnerEn`)
+async function getPartner() {
+  return getData(`/options/options/partner`)
 }
-async function getPartnerVi() {
-  return getData(`/options/options/partnerVi`)
-}
-let pageId
+const pageId = 188
 
 export default async function AboutUsPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
-  const {lang} = params
-  if (lang === 'vi') {
-    pageId = 188
-  } else {
-    pageId = 193
-  }
   const [
     dataGreatExperience,
     dataLeadershipMessage,
@@ -53,27 +44,21 @@ export default async function AboutUsPage({params, searchParams}) {
     getCoreValues(pageId),
     getAchieved(pageId),
     getService(pageId),
-    lang === 'vi' ? getPartnerVi() : getPartnerEn(),
+    getPartner(),
   ])
   return (
     <main>
       <BreadcrumbContainer className='ml-3 md:mx-[6.25rem]'>
-        <BreadcrumbLink href={`/${lang}`}>
-          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'}
-        </BreadcrumbLink>
-        <BreadcrumbLink isLastLink>
-          {lang === 'vi' ? 'VỀ CHÚNG TÔI' : 'ABOUT US'}
-        </BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
+        <BreadcrumbLink isLastLink>VỀ CHÚNG TÔI</BreadcrumbLink>
       </BreadcrumbContainer>
       <SlideOnlyImagesDownload
         data={dataGreatExperience.greatExperience}
-        lang={lang}
       />
       <LeaderShipMessageAndCoreValues
         isMobile={isMobile}
         dataLeadershipMessage={dataLeadershipMessage.leadershipMessage}
         dataCoreValues={dataCoreValues.coreValues}
-        lang={lang}
       />
       <Achieved
         isMobile={isMobile}
@@ -82,12 +67,10 @@ export default async function AboutUsPage({params, searchParams}) {
       <ProductionLineSection
         isMobile={isMobile}
         data={dataService.service}
-        lang={lang}
       />
       <PartnerSection
         isMobile={isMobile}
-        data={lang === 'vi' ? dataPartner.partnerVi : dataPartner.partnerEn}
-        lang={lang}
+        data={dataPartner.partner}
       />
     </main>
   )

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import clsx from 'clsx'
 import {usePathname} from 'next/navigation'
 
-export default function LangDropdownPopup({isMobile, lang}) {
+export default function LangDropdownPopup({isMobile, lang = 'vi'}) {
   const pathname = usePathname()
   return (
     <div

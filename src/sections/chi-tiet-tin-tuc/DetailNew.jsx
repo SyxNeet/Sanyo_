@@ -5,8 +5,9 @@ import Image from 'next/image'
 import {useEffect, useRef, useState} from 'react'
 import {toast} from 'sonner'
 import Link from 'next/link'
+import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 
-export default function DetailNew({isMobile, lang, data}) {
+export default function DetailNew({isMobile, data}) {
   const smootherRef = useRef(null)
   const [h4Array, setH4Array] = useState([])
   const [isClient, setIsClient] = useState(false)
@@ -25,9 +26,7 @@ export default function DetailNew({isMobile, lang, data}) {
     }
   }, [data])
   useEffect(() => {
-    smootherRef.current = ScrollSmoother.create({
-      effects: true,
-    })
+    smootherRef.current = ScrollSmoother.create(scrollSmootherConfig)
   }, [])
   return (
     <section className='pt-5 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3'>
@@ -63,7 +62,7 @@ export default function DetailNew({isMobile, lang, data}) {
       ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>
         <p className='font-Iciel text-grey-500 text-0.875 md:text-1 leading-1.2 mr-3 md:mr-4'>
-          {lang === 'vi' ? 'Chia sẻ' : 'Share'}:
+          Chia sẻ :
         </p>
         <Link
           href={`https://www.facebook.com/dialog/feed?
@@ -84,7 +83,7 @@ export default function DetailNew({isMobile, lang, data}) {
         <button
           onClick={() => {
             navigator.clipboard.writeText(window.location.href)
-            toast.success(lang === 'vi' ? 'Đã sao chép' : 'Copied to clipboard')
+            toast.success('Đã sao chép')
           }}
         >
           <Image

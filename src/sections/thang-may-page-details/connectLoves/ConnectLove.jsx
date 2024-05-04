@@ -6,7 +6,7 @@ import './styles.css'
 import { exampleSLideJpElevator } from '../../../../data/japanElevator'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 
-const ConnectLove = ({lang}) => {
+const ConnectLove = () => {
   return (
     <section className='relative border-t border-[rgba(28,32,28,0.10)] mt-[5.06rem]  max-md:mt-7'>
       <Image
@@ -34,7 +34,7 @@ const ConnectLove = ({lang}) => {
               }
             />
             <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-yellow-500 max-md:text-[0.67838rem] transition'>
-              {lang === 'vi' ? 'Khám phá ngay' : 'Discover now'}
+             Khám phá ngay
             </span>
           </Link>
         </div>

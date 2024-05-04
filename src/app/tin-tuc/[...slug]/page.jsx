@@ -8,69 +8,54 @@ import News from '@/sections/chi-tiet-tin-tuc/News'
 import './styles.css'
 import Support from '@/layout/support'
 
-let pageId
 async function getChiTietTinTuc(postId) {
   return getData(`/posts/${postId}`, 'wp')
 }
-async function getDanhSachThangMay(pageId) {
-  return getData(`/pages/${pageId}/danh_sach_thang_may`)
+async function getDanhSachThangMay() {
+  return getData(`/pages/11/danh_sach_thang_may`)
 }
-async function getSupportEn() {
-  return getData(`/options/options/contactFormEn`)
+async function getSupport() {
+  return getData(`/options/options/contactForm`)
 }
-async function getSupportVi() {
-  return getData(`/options/options/contactFormVi`)
+async function getPosts() {
+  return getData(`/posts?page=1&per_page=16`, 'okhub')
 }
 
 export default async function TinTucPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
-  const {lang, slug} = params
-  if (lang === 'vi') {
-    pageId = 11
-  } else {
-    pageId = 14
-  }
-  const [dataPost, dataPlatForm, dataSupport] = await Promise.all([
+  const {slug} = params
+  const [dataPost, dataPlatForm, dataSupport, dataPosts] = await Promise.all([
     getChiTietTinTuc(slug),
-    getDanhSachThangMay(pageId),
-    lang === 'vi' ? getSupportVi() : getSupportEn(),
+    getDanhSachThangMay(),
+    getSupport(),
+    getPosts(),
   ])
   return (
     <main>
       <BreadcrumbContainer className='pl-3 md:px-[3.75rem]'>
-        <BreadcrumbLink href={`/`}>
-          {lang === 'vi' ? 'TRANG CHỦ' : 'HOME'}
-        </BreadcrumbLink>
-        <BreadcrumbLink href={`/`}>
-          {lang === 'vi' ? 'DANH SÁCH TIN TỨC' : 'NEWS'}
-        </BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
+        <BreadcrumbLink href={`/`}>DANH SÁCH TIN TỨC</BreadcrumbLink>
         <BreadcrumbLink isLastLink>
-          {lang === 'vi'
-            ? 'CÁCH ÂM RA SAO KHI CĂN HỘ GIÁP VÁCH THANG MÁY CHUNG CƯ'
-            : 'DETAIL NEWS'}
+          CÁCH ÂM RA SAO KHI CĂN HỘ GIÁP VÁCH THANG MÁY CHUNG CƯ
         </BreadcrumbLink>
       </BreadcrumbContainer>
       <DetailNew
         isMobile={isMobile}
         data={dataPost}
-        lang={lang}
       />
       {!isMobile ? (
-        <PlatFormElevator dataPlatForm={dataPlatForm.danh_sach_thang_may} lang={lang} />
+        <PlatFormElevator dataPlatForm={dataPlatForm.danh_sach_thang_may} />
       ) : (
         <PlatFormMobile dataPlatForm={dataPlatForm.danh_sach_thang_may} />
       )}
       <News
         isMobile={isMobile}
-        lang={lang}
+        data={dataPosts}
       />
       <Support
         isMobile={isMobile}
-        lang={lang}
-        data={
-          lang === 'vi' ? dataSupport.contactFormVi : dataSupport.contactFormEn
-        }
+        data={dataSupport.contactForm}
       />
     </main>
   )

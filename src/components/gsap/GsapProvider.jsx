@@ -7,12 +7,14 @@ import {useGSAP} from '@gsap/react'
 import clsx from 'clsx'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
+export const scrollSmootherConfig = {
+  effects: true,
+  speed: 0.8,
+}
 
 export default function GsapProvider({children, isMobile}) {
   useGSAP(() => {
-    ScrollSmoother.create({
-      effects: true,
-    })
+    ScrollSmoother.create(scrollSmootherConfig)
   }, [])
   return (
     <div id='smooth-wrapper'>

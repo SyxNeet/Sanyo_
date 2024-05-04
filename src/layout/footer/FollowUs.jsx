@@ -2,11 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function FollowUs({lang, data}) {
+function FollowUs({data}) {
   return (
     <div className='flex max-md:mt-[1.53rem] max-md:mb-[2.62rem]'>
       <p className='font-averta text-[1.5rem] font-bold leading-1.4 text-white mr-[1.5rem]'>
-        {lang === 'vi' ? 'Theo dõi chúng tôi' : 'Follow us'}
+        Theo dõi chúng tôi
       </p>
 
       <Link href={data?.facebookLink||""}>

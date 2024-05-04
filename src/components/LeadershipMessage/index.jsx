@@ -4,7 +4,7 @@ import Image from 'next/image'
 import {forwardRef, useEffect} from 'react'
 import gsap from 'gsap'
 
-const LeadershipMessage = forwardRef(({isMobile, data, lang}, ref) => {
+const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
   useEffect(() => {
     if (!isMobile) {
       const fnc = () => {
@@ -73,9 +73,7 @@ const LeadershipMessage = forwardRef(({isMobile, data, lang}, ref) => {
               />
             )}
             <h2 className='font-SVNLagu text-[1.25rem] uppercase font-medium leading-1.5 mb-[1.56rem] text-[#484F57] opacity-80 max-md:text-[0.625rem] max-md:mb-2'>
-              {lang === 'vi'
-                ? 'chia sẻ từ BAN lãnh đạo'
-                : 'Sharing from the leadership BOARD'}
+              chia sẻ từ BAN lãnh đạo
             </h2>
             <h3
               className='w-[44.25rem] font-SVNLagu text-[2.25rem] font-semibold leading-1.4 mb-2 max-md:w-[14.4375rem] max-md:text-[0.9375rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'

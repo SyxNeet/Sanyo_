@@ -1,13 +1,12 @@
 import Support from '@/layout/support'
 import Image from 'next/image'
 
-export default function LienHeSection({isMobile, lang, data}) {
+export default function LienHeSection({isMobile, data}) {
   return (
     <section className='flex flex-col md:flex-row flex-nowrap md:px-[3.75rem] px-3 pt-6 pb-10 md:pt-12 md:pb-16'>
       <Support
         className='md:basis-1/2'
         forLienHePage
-        lang={lang}
         data={data}
       />
       <div className='md:basis-1/2 max-md:mt-[2.19rem]'>

@@ -4,17 +4,12 @@ import SubmitMail from './SubmitMail'
 import FollowUs from './FollowUs'
 import getData from '@/lib/getData'
 
-let pageId
+let pageId = 437
 async function getFooter(pageId) {
   return getData(`/pages/${pageId}`)
 }
 
-export default async function Footer({isMobile, lang}) {
-  if (lang === 'vi') {
-    pageId = 437
-  } else {
-    pageId = 439
-  }
+export default async function Footer({isMobile}) {
   const dataFooter = (await getFooter(pageId)).acf.footer
   return (
     <>
@@ -49,14 +44,14 @@ export default async function Footer({isMobile, lang}) {
               <p className='md:mt-[1.88rem] md:mb-[1.88rem] mt-[0.94rem] mb-[2.62rem] w-full text-white font-Iciel lg:text-[1rem] md:text-[1.3rem] text-[0.875rem] max-md:italic leading-[1.5rem]'>
                 {dataFooter.description}
               </p>
-              {isMobile && <SubmitMail lang={lang} />}
+              {isMobile && <SubmitMail />}
 
-              {!isMobile && <FollowUs lang={lang} data={dataFooter} />}
+              {!isMobile && <FollowUs data={dataFooter} />}
             </div>
 
             <div className='md:w-[19.5626rem] h-full relative z-[1]'>
               <p className='text-white font-averta lg:text-[1.25rem] md:text-[1.5rem] text-[1.25rem] font-extrabold leding-[2.625rem] md:tracking-[-0.0375rem] uppercase md:mb-[1.44rem] mb-[1rem] max-md:mt-[2.62rem]'>
-                {lang === 'vi' ? 'LIÊN HỆ VỚI CHÚNG TÔI' : 'CONTACT US'}
+                LIÊN HỆ VỚI CHÚNG TÔI
               </p>
               <div className='flex items-start mb-[1rem]'>
                 <Image
@@ -117,11 +112,10 @@ export default async function Footer({isMobile, lang}) {
               </div>
             </div>
           </div>
-          {isMobile && <FollowUs />}
+          {isMobile && <FollowUs data={dataFooter} />}
           {!isMobile && <SubmitMail />}
           <p className='text-white font-Iciel md:text-[1rem] text-[0.75rem] text-center lg:text-[0.875rem] font-[300] leading-1.5 uppercase opacity-60 md:mt-[1.75rem] mt-[2.62rem]'>
-            @2024 SANYO YUSOKI |{' '}
-            {lang === 'vi' ? 'Thiết kế bởi' : 'Designed by'} OKHUB Agency
+            @2024 SANYO YUSOKI | Thiết kế bởi OKHUB Agency
           </p>
         </div>
       </footer>
