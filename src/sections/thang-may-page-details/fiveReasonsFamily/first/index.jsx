@@ -10,7 +10,8 @@ const FirstReason = ({lang, isMobile}) => {
   const [maxHeight, setMaxHeight] = useState(!isMobile ? '25rem' : '11.25rem')
   const [showAll, setShowAll] = useState(false)
   const [useGSAPCheck, setUseGSAP] = useState(false)
-  const imageRef = useRef(null);
+  const imageRef = useRef(null)
+  const endRef = useRef(null)
   const data = [
     'Bảo vệ và chống đẩy cửa',
     'Bảo vệ chống virus - vi khuẩn',
@@ -32,24 +33,30 @@ const FirstReason = ({lang, isMobile}) => {
     setShowAll(!showAll)
     setUseGSAP(!useGSAPCheck)
   }
+  //follow bottom
+
   //pin image
-  useGSAP(() => {
-    gsap.to(imageRef.current, {
-      scrollTrigger: {
-        trigger: imageRef.current,
-        pin: true,
-        start: 'top top',
-        end: 'bottom top',
-        pinSpacing: false,
-        anticipatePin: 1
-      },
-    })
-  }, [])
+  // useGSAP(() => {
+  //   gsap.to(imageRef.current, {
+  //     scrollTrigger: {
+  //       trigger: imageRef.current,
+  //       pin: true,
+  //       start: 'top top',
+  //       endTrigger: endRef.current,
+  //       end:`bottom+=${20 * data.length} center+=20%`,
+  //       pinSpacing: false,
+  //       anticipatePin: 1,
+  //       markers: true,
+  //     },
+  //   })
+  // }, [])
+
   return (
-    <div
-      className='flex border-b border-[rgba(28,32,28,0.10)] overflow-hidden max-md:flex-col'
-    >
-      <div className='w-[50%] relative max-md:w-full'>
+    <div className='flex border-b border-[rgba(28,32,28,0.10)] overflow-hidden max-md:flex-col max-md:overflow-visible max-md:mb-[18.5rem]'>
+      <div
+        className='w-[50%] relative max-md:w-full'
+        ref={endRef}
+      >
         <div className='absolute w-[9.375rem] h-[5.5625rem] bg-yellow-500 opacity-10 top-0 -right-[1rem] -z-[1] max-md:hidden'></div>
         <div className='pl-[6.37rem] pt-[3rem] pr-[5.19rem] pb-12 max-md:px-4 max-md:pt-0 max-md:pb-[2rem]'>
           <h3 className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2'>
@@ -98,14 +105,32 @@ const FirstReason = ({lang, isMobile}) => {
           </div>
         </div>
       </div>
-      <Image
-        ref={imageRef}
-        src={'/images/familyElevator/detailFE/5reason.png'}
-        width={1000}
-        height={1000}
-        alt='5reasonsFamily'
-        className=' h-[49.25rem] max-md:w-full w-[50%]'
-      />
+      <div className='w-[50%] max-md:w-full max-md:relative overflow-visible'>
+        <Image
+          ref={imageRef}
+          src={'/images/familyElevator/detailFE/5reason.png'}
+          width={1000}
+          height={1000}
+          alt='5reasonsFamily'
+          className=' h-[49.25rem] w-[100%] max-md:h-[22.25rem]'
+        />
+         <Image
+          ref={imageRef}
+          src={'/images/familyElevator/detailFE/hhe.png'}
+          width={1000}
+          height={1000}
+          alt='5reasonsFamily'
+          className='md:hidden absolute w-[11.1875rem] h-[18.3125rem] z-10 top-[86%] left- pt-[0.75rem] pr-[0.75rem] bg-white'
+        />
+         <Image
+          ref={imageRef}
+          src={'/images/familyElevator/detailFE/hhe.png'}
+          width={1000}
+          height={1000}
+          alt='5reasonsFamily'
+          className='md:hidden absolute w-[12.3125rem] h-[17.5625rem] right-0 top-[22.95rem]' 
+        />
+      </div>
     </div>
   )
 }
