@@ -236,7 +236,7 @@ const FifthReason = ({isMobile}) => {
           }}
           slidesPerView={isMobile?2:3.6}
           loop={isMobile?false:true}
-          spaceBetween={!isMobile?8:16}
+          spaceBetween={isMobile?8:16}
           navigation={{
             nextEl: '.swiper-button-next-fifthRS',
             prevEl: '.swiper-button-prev-fifthRS',

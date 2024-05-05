@@ -4,6 +4,7 @@ import ConnectLove from './connectLoves/ConnectLove'
 import ListElevator from './listElevator'
 import ProductionLineSection from '../about-us/ProductionLineSection'
 import FiveReasonsFamily from './fiveReasonsFamily'
+import ActualConstruction from './actualConstruction'
 const FamilyElevator = ({isMobile}) => {
   return (
     <main>
@@ -12,6 +13,7 @@ const FamilyElevator = ({isMobile}) => {
       <ListElevator isMobile={isMobile}/>
       {/* <ProductionLineSection/> */}
       <FiveReasonsFamily isMobile={isMobile}/>
+      <ActualConstruction isMobile={isMobile}/>
     </main>
   )
 }
