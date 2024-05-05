@@ -1,0 +1,10 @@
+.actual img {
+    border-radius: 0.25rem;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    .actual img {
+        border-radius: 0.26275rem;
+    }
+    
+}

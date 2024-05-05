@@ -13,7 +13,7 @@ import 'swiper/css/pagination'
 import {EffectFade, Navigation, Pagination} from 'swiper/modules'
 import '../styles.css'
 const SecondReasons = ({lang, isMobile}) => {
-  const [maxHeightSecond, setMaxHeightSecond] = useState('25rem')
+  const [maxHeightSecond, setMaxHeightSecond] = useState('24.5rem')
   const [activeIndex, setActiveIndex] = useState(0)
   const [showAllSecond, setShowAllSecond] = useState(false)
   const dataSecond = [
@@ -73,9 +73,9 @@ const SecondReasons = ({lang, isMobile}) => {
   //handle load more second
   const handleLoadMoreSecond = () => {
     if (!showAllSecond) {
-      setMaxHeightSecond(`${ isMobile?5:4.5 * (dataSecond.length - 3) + 25}rem`)
+      setMaxHeightSecond(`${ isMobile? 5* (dataSecond.length - 3)+25 :4.5 * (dataSecond.length - 3) + 25}rem`)
     } else {
-      setMaxHeightSecond('25rem')
+      setMaxHeightSecond('24.5rem')
     }
     setShowAllSecond(!showAllSecond)
   }

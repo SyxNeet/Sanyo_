@@ -4,6 +4,6 @@
 .listSecurity{
     transition: 0.5s ease-in-out;
 }
-.titleSlide {
-  
+.processFifth .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+    background:#C6A567 !important;
 }
