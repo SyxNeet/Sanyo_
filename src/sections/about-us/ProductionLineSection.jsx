@@ -7,14 +7,15 @@ import 'swiper/css/effect-fade'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
 import {useState} from 'react'
 
-export default function ProductionLineSection({isMobile, data}) {
+export default function ProductionLineSection({isMobile, data,justSlide=false}) {
   const [activeImage, setActiveImage] = useState(0)
+  const arrayData = data?.slide || data
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
     <section className='mt-14 md:mt-[6.5rem]'>
       <div className='w-[93%] md:w-auto mx-auto md:ml-[6.25rem] mb-6 md:mb-10'>
-        <h3 className='text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5'>
+        <h3 className={`text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5 ${justSlide?'hidden':'block'}`}>
           CÁC BƯỚC TIẾN HÀNH DỊCH VỤ
         </h3>
         <h2
@@ -53,7 +54,7 @@ export default function ProductionLineSection({isMobile, data}) {
           setPreviousActiveImage(swiper.realIndex)
         }
       >
-        {data.slide.map((item, i) => {
+        {arrayData?.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Image

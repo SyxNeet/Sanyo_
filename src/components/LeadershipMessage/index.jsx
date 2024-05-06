@@ -54,8 +54,8 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
         <div className='relative w-[40%] flex justify-end'>
           <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[-5%] md:top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_rgba(218,_181,_113,_0.5)_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
           <Image
-            src={data.image.url}
-            alt={data.image.alt ?? 'lãnh đạo'}
+            src={data?.image?.url}
+            alt={data?.image?.alt ?? 'lãnh đạo'}
             className='w-[20.9375rem] max-md:w-[7.375rem] object-cover'
             width={1920}
             height={1080}
@@ -77,13 +77,13 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
             </h2>
             <h3
               className='w-[44.25rem] font-SVNLagu text-[2.25rem] font-semibold leading-1.4 mb-2 max-md:w-[14.4375rem] max-md:text-[0.9375rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'
-              dangerouslySetInnerHTML={{__html: data.heading}}
+              dangerouslySetInnerHTML={{__html: data?.heading}}
             ></h3>
             <p className='w-[43.125rem] font-Iciel text-base leading-1.5 font-normal mb-[3.12rem] text-grey-900 max-md:hidden'>
-              {data.description}
+              {data?.description}
             </p>
             <span className='font-Iciel font-bold leading-1.5 text-[1.25rem] text-grey-900 max-md:hidden'>
-              {data.name}
+              {data?.name}
             </span>
           </div>
         </div>
@@ -99,7 +99,7 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
                 Chia sẻ từ
               </span>
               <span className='italic text-xs font-normal leading-1.5'>
-                {data.name}
+                {data?.name}
               </span>
             </div>
           </div>

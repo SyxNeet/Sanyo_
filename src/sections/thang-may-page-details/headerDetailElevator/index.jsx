@@ -11,7 +11,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/thumbs'
 import './styles.css'
-const HeaderDetailElevator = () => {
+const HeaderDetailElevator = (data) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <section className=''>
@@ -22,22 +22,24 @@ const HeaderDetailElevator = () => {
       </BreadcrumbContainer>
       <div className='mt-[2.36rem] border-b border-[rgba(28,32,28,0.10)] pb-[2.14rem] max-md:pb-6'>
         <div className='pl-[6.25rem] w-[61.875rem] max-md:px-3 max-md:w-full'>
-          <h1 className='relative font-SVNLagu text-[5.46506rem] font-semibold leading-1.3 text-grey-900 mb-[0.62rem] max-md:text-[1.875rem]'>
-            Thang máy GIA ĐÌNH
+          <div className='relative'>
+            <h1
+              className='font-SVNLagu text-[5.46506rem] font-semibold leading-1.3 text-grey-900 mb-[0.62rem] max-md:text-[1.875rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold'
+              dangerouslySetInnerHTML={{__html: data?.data?.heading}}
+            ></h1>
             <Image
               src={'/images/familyElevator/headerFamilyElevator/bonghoa.png'}
               alt='hoabg'
               width={500}
               height={500}
-              className='absolute w-[8.3125rem] h-[8rem] -right-[6%] bottom-[30%] max-md:hidden'
+              className='absolute w-[8.3125rem] h-[8rem] -right-[6%] bottom-[30%] max-md:hidden -z-10'
             />
-          </h1>
-          <span className='text-1 font-normal leading-1.5 font-Iciel max-md:text-[0.875rem]'>
-            Thang máy gia đình rất thích hợp cho các toà nhà bị hạn chế về diện
-            tích, thang có thể được lắp đặt bằng cách cải tạo một khu vực thích
-            hợp bên trong hoặc bên ngoài toà nhà vì vậy tính linh hoạt của thang
-            máy gia đình rất cao
-          </span>
+          </div>
+
+          <span
+            className='text-1 font-normal leading-1.5 font-Iciel max-md:text-[0.875rem] [&>p>strong]:font-medium'
+            dangerouslySetInnerHTML={{__html: data?.data?.desc}}
+          ></span>
         </div>
       </div>
       <div className='pl-[6.25rem] pt-[2.38rem] flex items-center max-md:px-3 max-md:pt-6 flex-wrap'>
@@ -47,31 +49,33 @@ const HeaderDetailElevator = () => {
           </span>
           <span className='font-SVNLagu text-2 font-semibold leading-1.5 py-2 text-yellow-500 max-md:text-[1.5rem] max-md:py-0'>
             <span className='text-[3.3125rem] text-yellow-500 max-md:text-[1.5rem]'>
-              0.4 - 1.5
+              {data?.data?.weight}
             </span>
             kg
           </span>
         </div>
-        <div className='w-[0.0625rem] h-[5.125rem] bg-[rgba(28,32,28,0.10)] mx-10 max-md:h-[2.99588rem]'></div>
+        <div className='w-[0.0625rem] h-[5.125rem] bg-[rgba(28,32,28,0.10)] mx-10 max-md:mx-8 max-md:h-[2.99588rem]'></div>
         <div className='flex flex-col'>
           <span className='uppercase text-1 font-medium leading-1.5 font-Iciel text-grey-500 opacity-80 max-md:text-[0.625rem]'>
             Tốc độ
           </span>
           <span className='font-SVNLagu text-2 font-semibold leading-1.5  py-2 text-yellow-500 max-md:text-[1.5rem]  max-md:py-0'>
             <span className='text-[3.3125rem] max-md:text-[1.5rem]'>
-              0.4 - 1.5
+              {data?.data?.speed}
             </span>
             m/s
           </span>
         </div>
-        <div className='w-[0.0625rem] h-[5.125rem] bg-[rgba(28,32,28,0.10)] mx-10 max-md:hidden'></div>
+        <div className='w-[0.0625rem] h-[5.125rem] bg-[rgba(28,32,28,0.10)] mx-10 max-md:mx-8 max-md:hidden'></div>
         <div className='flex flex-col max-md:pt-[1.12rem]'>
           <span className='uppercase text-1 font-medium leading-1.5 font-Iciel text-grey-500 opacity-80 max-md:text-[0.625rem] '>
             diện tích tối thiểu
           </span>
           <span className='font-SVNLagu text-2 font-semibold leading-1.5  py-2 text-yellow-500 max-md:text-[1.5rem]  max-md:py-0'>
-            từ{' '}
-            <span className='text-[3.3125rem] max-md:text-[1.5rem]'>0.95</span>
+            từ &nbsp;
+            <span className='text-[3.3125rem] max-md:text-[1.5rem]'>
+              {data?.data?.acreage}
+            </span>
             m2
           </span>
         </div>
@@ -96,42 +100,17 @@ const HeaderDetailElevator = () => {
           modules={[Navigation, Thumbs, Pagination, Autoplay]}
           className='mySwiperFather'
         >
-          <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-1.jpg'
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-2.jpg'
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-3.jpg'
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-4.jpg'
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-5.jpg'
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-6.jpg'
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
+          {data?.data?.slide?.map((item, index) => (
+            <SwiperSlide className='w-full !h-[43rem] rounded-[1rem] overflow-hidden max-md:!h-[13.375rem]' key={index}>
+              <Image
+                src={item?.image?.url}
+                className='object-cover w-full h-full'
+                alt={item?.image?.alt}
+                width={1000}
+                height={1000}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
@@ -150,42 +129,17 @@ const HeaderDetailElevator = () => {
           modules={[Navigation, Thumbs]}
           className='mySwiperChild !absolute bottom-[2.5rem] right-[9.37rem] w-[40%] h-[4rem] z-10  max-md:!h-[2.5343rem] max-md:!relative max-md:w-full max-md:bottom-[unset] max-md:right-[unset] max-md: mt-[0.57rem]'
         >
-          <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-1.jpg '
-              className='object-cover w-full h-full '
-            />
-          </SwiperSlide>
-          <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-2.jpg '
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-3.jpg '
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-4.jpg '
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-5.jpg '
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
-          <SwiperSlide className='rounded-[0.125rem] overflow-hidden'>
-            <img
-              src='https://swiperjs.com/demos/images/nature-6.jpg '
-              className='object-cover w-full h-full'
-            />
-          </SwiperSlide>
+          {data?.data?.slide?.map((item, index) => (
+            <SwiperSlide className='rounded-[0.125rem] overflow-hidden' key={index}>
+              <Image
+                src={item?.image?.url}
+                className='object-cover w-full h-full'
+                alt={item?.image?.alt}
+                width={1000}
+                height={1000}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <div className='flex justify-between mt-4'>
           <div className='flex justify-between max-md:justify-start'>

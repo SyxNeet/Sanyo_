@@ -103,6 +103,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
         <Image
           src={imgBgForm}
           className='absolute w-full h-full'
+          alt='bgForm'
         />
       )}
       <div

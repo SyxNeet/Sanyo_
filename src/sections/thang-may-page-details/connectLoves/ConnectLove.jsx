@@ -6,7 +6,7 @@ import './styles.css'
 import { exampleSLideJpElevator } from '../../../../data/japanElevator'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 
-const ConnectLove = () => {
+const ConnectLove = ({data}) => {
   return (
     <section className='relative border-t border-[rgba(28,32,28,0.10)] mt-[5.06rem]  max-md:mt-7'>
       <Image
@@ -18,8 +18,8 @@ const ConnectLove = () => {
       />
       <div className='flex pl-[6.25rem] max-md:px-3 max-md:pb-4'>
         <div className='w-fit pt-[5.06rem] max-md:hidden'>
-          <h3 className='uppercase font-SVNLagu text-xl font-medium leading-1.5 tracking-[0.1rem]  mb-[9.56rem]  '>
-            gắn kết các thành viên <br /> trong gia đình
+          <h3 className='uppercase font-SVNLagu text-xl font-medium leading-1.5 tracking-[0.1rem]  mb-[9.56rem] w-[23.5rem] '>
+            {data?.sub_title}
           </h3>
           <Link
             href={'/'}
@@ -40,17 +40,13 @@ const ConnectLove = () => {
         </div>
         <div className='w-[0.0625rem] h-[26.3125rem] bg-[rgba(28,32,28,0.10)] mx-[4.81rem] max-md:hidden'></div>
         <div className='w-[44.875rem] pt-[3.37rem]'>
-          <h2 className='font-SVNLagu text-[3.415rem] font-semibold leading-1.3 text-grey-900 mb-[0.94rem] max-md:text-[1.5rem] max-md:mb-[0.62rem]'>Thang máy SANYO YUSOKI Kết nối yêu thương</h2>
-          <span className='text-justify font-Iciel text-[1.125rem] font-normal leading-1.5 max-md:text-[0.875rem]'> 
-            Rất nhiều các căn hộ thông tầng hay Duplex hay các Vilas biệt thự
-            được hưởng lợi ích từ việc lắp thang máy.Thang máy giúp việc đi lại
-            giữa các tầng hay các toà nhà thuận tiệnhơn, điều này đặc biệt có ý
-            nghĩa  khi chủnhà có người già hay trẻ em, đi thang máy sẽ an toàn
-            hơn hạn chế việc ngã haytrượt chân như khi đi thang bộ
+          <h2 className='font-SVNLagu text-[3.415rem] font-semibold leading-1.3 text-grey-900 mb-[0.94rem] max-md:text-[1.5rem] max-md:mb-[0.62rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:data?.heading}}></h2>
+          <span className='text-justify font-Iciel text-[1.125rem] font-normal leading-1.5 max-md:text-[0.875rem] text-grey-900'> 
+           {data?.desc}
           </span>
         </div>
       </div>
-      <SlideOnlyImages data={exampleSLideJpElevator} className={'!h-[33.9375rem]'}/>
+      <SlideOnlyImages data={data.slide} className={'!h-[33.9375rem]'} />
     </section>
   )
 }

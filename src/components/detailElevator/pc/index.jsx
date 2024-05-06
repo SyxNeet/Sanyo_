@@ -1,13 +1,9 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import './styles.css'
-const DetailElevator = ({ type = false}) => {
-  const listInfo = [
-    'Chế tạo bởi hợp kim thép siêu cứng',
-    'Chế tạo bởi hợp kim thép siêu cứng',
-    'Chế tạo bởi hợp kim thép siêu cứng',
-  ]
+const DetailElevator = ({ type = false,data,title}) => {
   return (
     <div
       className={`flex border-t border-b border-[rgba(28,32,28,0.10)] detailElevator ${
@@ -20,20 +16,16 @@ const DetailElevator = ({ type = false}) => {
         }`}
       >
         <h3 className='font-SVNLagu font-medium text-xl text-grey-500 uppercase tracking-widest opacity-80 mb-1'>
-          thang máy gia đình
+          {title}
         </h3>
         <span className='font-SVNLagu text-[3.125rem] font-semibold leading-1.3 text-grey-900 mb-[1rem] '>
-          Plasform Home Elevator VF030
+          {data?.name}
         </span>
         <div className='font-Iciel text-[rgba(28,32,28,0.70)] text-lg font-normal leading-1.5 mb-6'>
-          Điểm đặc biệt của thang máy dạng Plasform là không cần hố PIT nên sẽ
-          không ảnh hưởng gì tới cấu trúc ngầm của toà nhà. Với kiểu thiết kế
-          nhỏ gọn tiết kiệm diện tích nhưng cực kỳ an toàn, diện tích phần lắp
-          đặt chỉ cần tối thiểu 0,95 m2 nhưng tỷ lệ diện tích sử dụng được mở
-          rộng hơn so với các loại thang thông thường là 20%
+          {data?.desc}
         </div>
         <div className='mb-[2.5rem]'>
-          {listInfo.map((item, index) => {
+          {data?.list_advantages?.map((item, index) => {
             return (
               <div
                 key={index}
@@ -43,7 +35,7 @@ const DetailElevator = ({ type = false}) => {
                   {index + 1}
                 </div>
                 <span className='font-Iciel text-lg leading-1.5 text-[rgba(28,32,28,0.70)]'>
-                  {item}
+                  {item?.advantages}
                 </span>
               </div>
             )
@@ -113,42 +105,42 @@ const DetailElevator = ({ type = false}) => {
             <tr>
               <td className='parameter'>
                 <div className='font-Iciel flex flex-col'>
-                  <span className='border-b border-black py-2'>300</span>
-                  <span className='py-2'>400</span>
+                  <span className='border-b border-black py-2'>{data?.rated_load}</span>
+                  <span className='py-2'>{data?.rated_load_2}</span>
                 </div>
               </td>
               <td className='parameter'>
-                <div className='font-Iciel'>1</div>
+                <div className='font-Iciel'>{data?.rated_speed}</div>
               </td>
               <td className='parameter'>
-                <div className='font-Iciel'>1</div>
-              </td>
-              <td className='parameter'>
-                <div className='font-Iciel flex flex-col'>
-                  <span className='border-b border-black py-2'>300</span>
-                  <span className='py-2'>400</span>
-                </div>
+                <div className='font-Iciel'>{data?.traction_ratio}</div>
               </td>
               <td className='parameter'>
                 <div className='font-Iciel flex flex-col'>
-                  <span className='border-b border-black py-2'>300</span>
-                  <span className='py-2'>400</span>
+                  <span className='border-b border-black py-2'>{data?.cabin_size}</span>
+                  <span className='py-2'>{data?.cabin_size_2}</span>
                 </div>
               </td>
               <td className='parameter'>
                 <div className='font-Iciel flex flex-col'>
-                  <span className='border-b border-black py-2'>300</span>
-                  <span className='py-2'>400</span>
+                  <span className='border-b border-black py-2'>{data?.door_opening}</span>
+                  <span className='py-2'>{data?.door_opening_2}</span>
                 </div>
               </td>
               <td className='parameter'>
-                <div className='font-Iciel'>1</div>
+                <div className='font-Iciel flex flex-col'>
+                  <span className='border-b border-black py-2'>{data?.shaft_size}</span>
+                  <span className='py-2'>{data?.shaft_size}</span>
+                </div>
               </td>
               <td className='parameter'>
-                <div className='font-Iciel'>1</div>
+                <div className='font-Iciel'>{data?.travel_height}</div>
               </td>
               <td className='parameter'>
-                <div className='font-Iciel'>1</div>
+                <div className='font-Iciel'>{data?.pit_depth}</div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel'>{data?.over_height}</div>
               </td>
             </tr>
           </tbody>

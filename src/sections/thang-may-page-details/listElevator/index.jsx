@@ -1,20 +1,31 @@
+
 import DetailElevatorMb from '@/components/detailElevator/mb'
 import DetailElevator from '@/components/detailElevator/pc'
 import React from 'react'
 
-const ListElevator = (isMobile) => {
+const ListElevator = ({isMobile, data}) => {
   return (
     <section className='mt-[7.13rem] max-md:mt-12'>
-  
-      {!isMobile?.isMobile ? (
+      {!isMobile ? (
         <>
-          <DetailElevator type={true} />
-          <DetailElevator type={false} />
+          {data?.elevator_parameters?.map((item, index) => (
+            <DetailElevator
+              key={index}
+              type={index % 2 === 0}
+              data={item}
+              title={data.title}
+            />
+          ))}
         </>
       ) : (
         <>
-          <DetailElevatorMb />
-          <DetailElevatorMb />
+          {data?.elevator_parameters?.map((item, index) => (
+            <DetailElevatorMb
+              key={index}
+              data={item}
+              title={data.title}
+            />
+          ))}
         </>
       )}
     </section>

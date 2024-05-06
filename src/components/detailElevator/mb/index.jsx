@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import './styles.css'
-const DetailElevatorMb = () => {
+const DetailElevatorMb = ({data,title}) => {
   const [tableWidth, setTableWidth] = useState(0)
   const [visibleWidth, setVisibleWidth] = useState(0)
   const [progressWidth, setProgressWidth] = useState(0)
@@ -34,38 +34,32 @@ const DetailElevatorMb = () => {
       100,
     )
     setProgressWidth(newProgressWidth)
+    
   }, [visibleWidth])
-  const listInfo = [
-    'Chế tạo bởi hợp kim thép siêu cứng',
-    'Công nghệ điều khiển tốc độ vô cấp bằng điện áp và tần số (VVVF drive technology)',
-    'Chế tạo bởi hợp kim thép siêu cứng',
-  ]
   return (
     <div className='px-3'>
       <div className='boxed w-full h-[62.4375rem] bg-[linear-gradient(180deg,rgba(218,181,113,1)_26%,_rgba(171,171,171,0)_100%)] p-[1px] rounded-2xl'>
         <div className='boxed-child w-full h-full bg-[linear-gradient(0deg,_rgba(255,255,255,1)_61%,_rgba(236,225,202,1)_100%)] rounded-2xl pt-[1.5rem]'>
           <div className='flex flex-col justify-center items-center'>
             <h3 className='text-[0.625rem] uppercase font-medium tracking-[0.05rem] leading-1.5 font-SVNLagu mb-2 text-grey-500 opacity-80'>
-              thang máy gia đình
+            {title}
             </h3>
             <span className='font-SVNLagu text-[1.25rem] font-semibold leading-1.3 mb-[1.33rem]'>
-              Plasform Home Elevator VF030
+            {data?.name}
             </span>
           </div>
           <Image
-            src='/images/familyElevator/detailFE/imgE.png'
+            src={data?.image?.url}
             width={500}
             height={500}
-            alt='thang may'
+            alt={data?.image?.alt}
             className='bg-transparent w-[14.875rem] h-[23.6875rem] object-cover mx-auto'
           />
           <span className='mt-[1.44rem] text-grey-600 font-Iciel text-xs leading-1.5 font-normal px-[0.88rem] block'>
-            Điểm khung giếng thang phù hợp với đặc điểm và thiết kế của từng toà
-            nhà khác nhau nhằm mục đích mang lại sự tiện nghi và tạo nên những
-            trải nghiệm tuyệt vời nhất cho các thành viên trong gia đình
+          {data?.desc}
           </span>
           <div className='px-[0.88rem] mt-[0.75rem] [&>.infoBox:first-child]:border-t [&>.infoBox:first-child]:pt-[0.38rem]'>
-            {listInfo.map((item, index) => {
+            {data?.list_advantages?.map((item, index) => {
               return (
                 <div
                   key={index}
@@ -75,7 +69,7 @@ const DetailElevatorMb = () => {
                     {index + 1}
                   </div>
                   <span className='font-Iciel text-[0.75rem] leading-1.5 text-[rgba(28,32,28,0.70)] block w-[90%]'>
-                    {item}
+                  {item?.advantages}
                   </span>
                 </div>
               )
@@ -144,46 +138,46 @@ const DetailElevatorMb = () => {
                   </th>
                 </tr>
                 <tr>
-                  <td className='parameter'>
-                    <div className='font-Iciel flex flex-col'>
-                      <span className='border-b border-black py-2'>300</span>
-                      <span className='py-2'>400</span>
-                    </div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel'>1</div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel'>1</div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel flex flex-col'>
-                      <span className='border-b border-black py-2'>300</span>
-                      <span className='py-2'>400</span>
-                    </div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel flex flex-col'>
-                      <span className='border-b border-black py-2'>300</span>
-                      <span className='py-2'>400</span>
-                    </div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel flex flex-col'>
-                      <span className='border-b border-black py-2'>300</span>
-                      <span className='py-2'>400</span>
-                    </div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel'>1</div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel'>1</div>
-                  </td>
-                  <td className='parameter'>
-                    <div className='font-Iciel'>1</div>
-                  </td>
-                </tr>
+              <td className='parameter'>
+                <div className='font-Iciel flex flex-col'>
+                  <span className='border-b border-black py-2'>{data?.rated_load}</span>
+                  <span className='py-2'>{data?.rated_load_2}</span>
+                </div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel'>{data?.rated_speed}</div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel'>{data?.traction_ratio}</div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel flex flex-col'>
+                  <span className='border-b border-black py-2'>{data?.cabin_size}</span>
+                  <span className='py-2'>{data?.cabin_size_2}</span>
+                </div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel flex flex-col'>
+                  <span className='border-b border-black py-2'>{data?.door_opening}</span>
+                  <span className='py-2'>{data?.door_opening_2}</span>
+                </div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel flex flex-col'>
+                  <span className='border-b border-black py-2'>{data?.shaft_size}</span>
+                  <span className='py-2'>{data?.shaft_size}</span>
+                </div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel'>{data?.travel_height}</div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel'>{data?.pit_depth}</div>
+              </td>
+              <td className='parameter'>
+                <div className='font-Iciel'>{data?.over_height}</div>
+              </td>
+            </tr>
               </tbody>
             </table>
           </div>
