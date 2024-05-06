@@ -29,7 +29,7 @@ export const modalMenuJapanElevator = {
     },
     {
       href: '/',
-      src: '/images/layout/header/thang-tai-o-to.png',
+      src: '/images/layout/header/thang-tai-oto.png',
       text: 'Thang tải ô tô',
     },
     {
