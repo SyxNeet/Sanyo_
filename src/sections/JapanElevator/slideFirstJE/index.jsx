@@ -49,7 +49,7 @@ const slideFirstJE = ({isMobile,data}) => {
       </div>
       <div className='relative pt-[7.5rem] pb-[5rem] overflow-hidden max-md:pt-[3.96rem] max-md:pb-[1.55rem]'>
         <Image
-          src={'/images/japanElevator/sun.png'}
+          src={'/images/japanElevator/Sun.png'}
           alt='Sun image'
           width={500}
           height={500}
