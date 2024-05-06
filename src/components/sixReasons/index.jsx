@@ -66,7 +66,7 @@ const SixReasons = ({isMobile}) => {
 
       <div className='overflow-auto'>
         <Swiper
-          className='mySwiperSix overflow-hidden !pl-[6.25rem] max-md:!pl-0'
+          className='mySwiperSix overflow-hidden !ml-[6.25rem] max-md:!ml-0'
           pagination={{
             type: 'fraction',
             el: ".swiper-pagination-sixReasons",

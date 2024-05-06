@@ -13,10 +13,10 @@ const SlideOnlyImagesDownload = ({data}) => {
         <div className='relative w-[70%] border-r max-md:w-full max-md:border-none '>
           <h1
             className='font-SVNLagu text-[4rem] text-black font-semibold leading-[130%] w-[50.9375rem] mb-[1.19rem] max-md:w-[18.3125rem] max-md:text-2xl max-md:mb-3 max-md:border-none [&_strong]:font-semibold [&_strong]:text-yellow-500'
-            dangerouslySetInnerHTML={{__html: data.heading}}
+            dangerouslySetInnerHTML={{__html: data?.heading}}
           ></h1>
           <span className='w-[40.125rem] font-Iciel text-base font-normal leading-[188%] text-justify mb-20 block max-md:w-full max-md:text-[0.875rem] max-md:mb-5'>
-            {data.description}
+            {data?.description}
           </span>
           <div className='absolute block w-[4.375rem] h-16 bg-yellow-500 opacity-[0.14] bottom-0 right-0 max-md:hidden'></div>
         </div>
@@ -83,14 +83,14 @@ const SlideOnlyImagesDownload = ({data}) => {
           modules={[Autoplay]}
           className={`swiper-only-images-with-download`}
         >
-          {data.images.map((img, index) => (
+          {data?.images.map((img, index) => (
             <SwiperSlide
               key={index}
               className='mr-[1.7rem] max-md:mr-3'
             >
               <Image
-                src={img.url}
-                alt={img.alt ?? 'Trải nghiệm tuyệt vời'}
+                src={img?.url}
+                alt={img?.alt || 'Trải nghiệm tuyệt vời'}
                 className='object-cover h-[45.37819rem] max-md:h-[13.76756rem] rounded-[0.5rem]'
                 width={1920}
                 height={1080}

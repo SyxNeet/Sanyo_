@@ -83,9 +83,9 @@ export default function LeaderShipMessageAndCoreValues({
               className='relative basis-[65%] h-screen top-0'
             >
               <Image
-                src={dataCoreValues.image.url}
+                src={dataCoreValues?.image.url}
                 alt={
-                  dataCoreValues.image.alt ?? 'Giá trị cốt lõi của SANYO YUSOKI'
+                  dataCoreValues?.image.alt ?? 'Giá trị cốt lõi của SANYO YUSOKI'
                 }
                 className={clsx(
                   'absolute top-0 left-0 object-cover w-full h-full transition-300',
@@ -97,7 +97,7 @@ export default function LeaderShipMessageAndCoreValues({
                 width={1920}
                 height={1080}
               />
-              {dataCoreValues.coreValue.map((item, i) => {
+              {dataCoreValues?.coreValue.map((item, i) => {
                 return (
                   <Image
                     key={i}
@@ -120,10 +120,10 @@ export default function LeaderShipMessageAndCoreValues({
               <h2
                 ref={headingRef}
                 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'
-                dangerouslySetInnerHTML={{__html: dataCoreValues.heading}}
+                dangerouslySetInnerHTML={{__html: dataCoreValues?.heading}}
               ></h2>
               <nav className='core-value-link-container'>
-                {dataCoreValues.coreValue.map((item, i) => {
+                {dataCoreValues?.coreValue?.map((item, i) => {
                   return (
                     <div
                       key={i}
@@ -189,7 +189,7 @@ export default function LeaderShipMessageAndCoreValues({
           <section>
             <h2
               className='ml-3 text-1.5 font-semibold leading-1.3 font-SVNLagu text-grey-900 w-2/3 mb-6 [&_strong]:font-semibold [&_strong]:text-yellow-500'
-              dangerouslySetInnerHTML={{__html: dataCoreValues.heading}}
+              dangerouslySetInnerHTML={{__html: dataCoreValues?.heading}}
             ></h2>
             <Swiper
               ref={swiperRef}

@@ -12,60 +12,12 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import {EffectFade, Navigation, Pagination} from 'swiper/modules'
 import '../styles.css'
-const SecondReasons = ({lang, isMobile}) => {
+const SecondReasons = ({lang, isMobile,data}) => {
   const [maxHeightSecond, setMaxHeightSecond] = useState('24.5rem')
   const [activeIndex, setActiveIndex] = useState(0)
   const [showAllSecond, setShowAllSecond] = useState(false)
-  const dataSecond = [
-    {
-      title: 'HỆ THỐNG MÁY KÉO',
-      desc: 'Máy kéo đồng bộ nam châm vĩnh cửu thế hệ mới được thiết kế bởi SANYO YUSOKI; Bộ mã hóa quay chất lượng quốc tế có độ chính xác cao nhận ra phản ứng chính xác của máy chính đối với hệ thống điều khiển; Sử dụng ổ trục và phanh hiệu suất cao, tuổi thọ siêu dài, độ ồn cực thấp; Thiết kế không cần hộp số, không cần thêm dầu bôi trơn, an toàn hơn và thân thiện với môi trường hơn.',
-    },
-    {
-      title: 'HỆ THỐNG MÁY KÉO',
-      desc: 'Máy kéo đồng bộ nam châm vĩnh cửu thế hệ mới được thiết kế bởi SANYO YUSOKI; Bộ mã hóa quay chất lượng quốc tế có độ chính xác cao nhận ra phản ứng chính xác của máy chính đối với hệ thống điều khiển; Sử dụng ổ trục và phanh hiệu suất cao, tuổi thọ siêu dài, độ ồn cực thấp; Thiết kế không cần hộp số, không cần thêm dầu bôi trơn, an toàn hơn và thân thiện với môi trường hơn.',
-    },
-    {
-      title: 'HỆ THỐNG ĐIỀU KHIỂN',
-      desc: 'Máy kéo đồng bộ nam châm vĩnh cửu thế hệ mới được thiết kế bởi SANYO YUSOKI; Bộ mã hóa quay chất lượng quốc tế có độ chính xác cao nhận ra phản ứng chính xác của máy chính đối với hệ thống điều khiển; Sử dụng ổ trục và phanh hiệu suất cao, tuổi thọ siêu dài, độ ồn cực thấp; Thiết kế không cần hộp số, không cần thêm dầu bôi trơn, an toàn hơn và thân thiện với môi trường hơn.',
-    },
-    {
-      title: 'HỆ THỐNG CỬA AN TOÀN THÔNG MINH',
-      desc: 'Máy kéo đồng bộ nam châm vĩnh cửu thế hệ mới được thiết kế bởi SANYO YUSOKI; Bộ mã hóa quay chất lượng quốc tế có độ chính xác cao nhận ra phản ứng chính xác của máy chính đối với hệ thống điều khiển; Sử dụng ổ trục và phanh hiệu suất cao, tuổi thọ siêu dài, độ ồn cực thấp; Thiết kế không cần hộp số, không cần thêm dầu bôi trơn, an toàn hơn và thân thiện với môi trường hơn.',
-    },
-    {
-      title: 'HỆ THỐNG MÁY KÉO',
-      desc: 'Máy kéo đồng bộ nam châm vĩnh cửu thế hệ mới được thiết kế bởi SANYO YUSOKI; Bộ mã hóa quay chất lượng quốc tế có độ chính xác cao nhận ra phản ứng chính xác của máy chính đối với hệ thống điều khiển; Sử dụng ổ trục và phanh hiệu suất cao, tuổi thọ siêu dài, độ ồn cực thấp; Thiết kế không cần hộp số, không cần thêm dầu bôi trơn, an toàn hơn và thân thiện với môi trường hơn.',
-    },
-    {
-      title: 'HỆ THỐNG MÁY KÉO',
-      desc: 'Máy kéo đồng bộ nam châm vĩnh cửu thế hệ mới được thiết kế bởi SANYO YUSOKI; Bộ mã hóa quay chất lượng quốc tế có độ chính xác cao nhận ra phản ứng chính xác của máy chính đối với hệ thống điều khiển; Sử dụng ổ trục và phanh hiệu suất cao, tuổi thọ siêu dài, độ ồn cực thấp; Thiết kế không cần hộp số, không cần thêm dầu bôi trơn, an toàn hơn và thân thiện với môi trường hơn.',
-    },
-  ]
-  const dataThird = [
-    {
-      title: 'HỆ THỐNG MÁY KÉO',
-      imgUrl: '/images/familyElevator/detailFE/slide1.png',
-    },
-    {
-      title: 'HỆ THỐNG MÁY KÉO 2',
-      imgUrl: '/images/familyElevator/detailFE/slide2.png',
-    },
-    {
-      title: 'HỆ THỐNG CỬA AN TOÀN THÔNG MINH',
-      imgUrl: '/images/familyElevator/detailFE/slide3.png',
-    },
-    {
-      title: 'HỆ THỐNG MÁY KÉO 4',
-      imgUrl: '/images/familyElevator/detailFE/slide1.png',
-    },
-    {
-      title: 'HỆ THỐNG MÁY KÉO 5',
-      imgUrl: '/images/familyElevator/detailFE/slide1.png',
-    },
-  ]
   const [expanded, setExpanded] = useState(
-    Array(dataSecond?.length).fill(false),
+    Array(data?.list_system?.length).fill(false),
   )
   const [expandedIndex, setExpandedIndex] = useState(0)
  
@@ -73,7 +25,7 @@ const SecondReasons = ({lang, isMobile}) => {
   //handle load more second
   const handleLoadMoreSecond = () => {
     if (!showAllSecond) {
-      setMaxHeightSecond(`${ isMobile? 5* (dataSecond.length - 3)+25 :4.5 * (dataSecond.length - 3) + 25}rem`)
+      setMaxHeightSecond(`${ isMobile? 5* (data?.list_system?.length - 3)+25 :4.5 * (data?.list_system?.length - 3) + 25}rem`)
     } else {
       setMaxHeightSecond('24.5rem')
     }
@@ -104,7 +56,7 @@ const SecondReasons = ({lang, isMobile}) => {
             alt='bg-slide'
           />
           <div className='titleSlide absolute bg-[rgba(0,0,0,0.4)] uppercase text-white  text-[1rem] font-Iciel leading-1.5 px-6 py-[0.62rem] rounded-[0.375rem] w-fit top-[2.56rem] left-[2rem] z-[999999] backdrop-blur-[12.5px]'>
-            {dataThird[activeIndex].title}
+            {data?.slide[activeIndex]?.name}
           </div>
           <ButtonSlide
             className={
@@ -134,15 +86,15 @@ const SecondReasons = ({lang, isMobile}) => {
             className='mySwiperSystem'
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           >
-            {dataThird.map((item, index) => (
+            {data?.slide.map((item, index) => (
               <SwiperSlide
                 key={index}
                 className='relative !flex !justify-center'
               >
                 <div>
                   <Image
-                    src={item.imgUrl}
-                    alt='test'
+                    src={item?.image?.url}
+                    alt={item?.image?.alt}
                     width={1000}
                     height={1000}
                     className='w-[43.25rem] h-[33rem] object-contain '
@@ -160,13 +112,13 @@ const SecondReasons = ({lang, isMobile}) => {
             <h3
               className={`font-SVNLagu text-[3.125rem] leading-1.3 font-semibold w-[31.125rem] mb-10 max-md:w-full max-md:text-[1.25rem] max-md:mb-[1.12rem] `}
             >
-              Động cơ và hệ thống điều khiển
+             {data?.heading}
             </h3>
             <div
               className='secondReasons overflow-hidden'
               style={{height: maxHeightSecond}}
             >
-              {dataSecond.map((item, index) => (
+              {data?.list_system?.map((item, index) => (
                 <div
                   className={`itemShowmore mb-[1.25rem] border-b border-[rgba(28,32,28,0.10)] pb-5 ${
                     expandedIndex === index ? 'h-[16rem]' : 'h-[3rem]'
@@ -182,7 +134,7 @@ const SecondReasons = ({lang, isMobile}) => {
                         expandedIndex === index ? 'text-yellow-500' : ''
                       }`}
                     >
-                      {item.title}
+                      {item.name}
                     </span>
                     <Image
                       src={

@@ -1,9 +1,20 @@
-.itemShowmore, .secondReasons {
-    transition: 0.7s ease-in-out;
+.itemShowmore,
+.secondReasons {
+  transition: 0.7s ease-in-out;
 }
-.listSecurity{
-    transition: 0.5s ease-in-out;
+.listSecurity {
+  transition: 0.5s ease-in-out;
 }
-.processFifth .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
-    background:#C6A567 !important;
+.processFifth
+  .swiper-pagination-progressbar
+  .swiper-pagination-progressbar-fill {
+  background: #c6a567 !important;
+}
+
+.noScrollBar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.noScrollBar::-webkit-scrollbar {
+  display: none;
 }

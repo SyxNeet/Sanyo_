@@ -2,7 +2,6 @@
 import React from 'react'
 import Link from 'next/link'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
-import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
@@ -13,7 +12,14 @@ import SecondReasons from './second'
 import ThirdReason from './third'
 import FourthReason from './fourth'
 import FifthReason from './fifth'
-const FiveReasonsFamily = ({lang, isMobile}) => {
+const FiveReasonsFamily = ({lang, isMobile, data}) => {
+  const {
+    first_reason,
+    second_reason,
+    third_reason,
+    fourth_reason,
+    fifth_reason,
+  } = data
   return (
     <section>
       <div className='flex justify-between pl-[5.75rem] pr-[5.84rem] items-end mt-[8.13rem] pb-[3.69rem] border-b border-[rgba(28,32,28,0.10)] max-md:px-3 max-md:mt-[3.5rem] max-md:pb-[1rem] max-md:border-none'>
@@ -38,15 +44,15 @@ const FiveReasonsFamily = ({lang, isMobile}) => {
         </Link>
       </div>
       {/* first reason */}
-      <FirstReason isMobile={isMobile} />
+      <FirstReason isMobile={isMobile} data={first_reason}/>
       {/* second reason */}
-      <SecondReasons  isMobile={isMobile}/>
+      <SecondReasons isMobile={isMobile} data ={second_reason} />
       {/* third reason */}
-      <ThirdReason  isMobile={isMobile}/>
+      <ThirdReason isMobile={isMobile} data={third_reason}/>
       {/* fourth reason */}
-      <FourthReason isMobile={isMobile} />
+      <FourthReason isMobile={isMobile} data={fourth_reason}/>
       {/* fifth reason */}
-      <FifthReason  isMobile={isMobile}/>
+      <FifthReason isMobile={isMobile} data={fifth_reason} />
     </section>
   )
 }

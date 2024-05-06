@@ -6,7 +6,8 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import '../styles.css'
-const FourthReason = ({lang, isMobile}) => {
+const FourthReason = ({lang, isMobile,data}) => {
+
   const dataSecond = [
     {
       title: 'Cửa chống cháy EI45',
@@ -56,11 +57,11 @@ const FourthReason = ({lang, isMobile}) => {
         <div className='w-[50%] relative max-h-[49.375rem] h-[49.375rem] overflow-hidden flex justify-center items-center max-md:w-full max-md:max-h-none max-md:h-[15.9375rem]'>
           <div className='absolute w-full h-full left-0 top-0 bg-black opacity-70 -z-[1] max-md:hidden'></div>
           <Image
-            src='/images/familyElevator/detailFE/bgReason4.png'
+            src={data?.image?.url}
             width={1000}
             height={1000}
             className='w-full h-full object-cover absolute -z-[2] top-0 left-0 max-md:h-[15.9375rem]'
-            alt='bgReason4'
+            alt={data?.image?.alt}
           />
           <Image
             src='/images/familyElevator/detailFE/fire.png'
@@ -101,13 +102,13 @@ const FourthReason = ({lang, isMobile}) => {
             <h3
               className={`font-SVNLagu text-[3.125rem] leading-1.3 font-semibold w-[31.125rem] mb-[0.75rem] max-md:text-[1.25rem]`}
             >
-              Cửa chống cháy đạt tiêu chuẩn EI
+              {data?.heading}
             </h3>
             <span className='font-Iciel text-[1.125rem] text-[rgba(28,32,28,0.70)] leading-1.5 font-normal mb-[1.88rem] block max-md:text-[0.875rem]'>Tiêu chuẩn EI trong chống cháy chính là bộ tiêu chuẩn quy định về giới hạn chịu lửa của các vật liệu chống cháy.</span>
             <div
               className='secondReasons'
             >
-              {dataSecond.map((item, index) => (
+              {data?.list_doors?.map((item, index) => (
                 <div
                   className={`itemShowmore mb-[1.25rem] border-b border-[rgba(28,32,28,0.10)] pb-5 ${
                     expandedIndex === index ? 'h-[7.5rem] max-md:h-[6.5rem]' : 'h-[3.25rem] max-md:h-[2.75rem] max-md:last:border-none max-md:last:mb-0'
@@ -123,7 +124,7 @@ const FourthReason = ({lang, isMobile}) => {
                         expandedIndex === index ? 'text-yellow-500' : ''
                       }`}
                     >
-                      {item.title}
+                      {item?.name}
                     </span>
                     <Image
                       src={
@@ -138,7 +139,7 @@ const FourthReason = ({lang, isMobile}) => {
                     />
                   </div>
                   <span className='font-Iciel text-[1.125rem] font-normal leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem]'>
-                    {item.desc}
+                    {item?.desc}
                   </span>
                 </div>
               ))}

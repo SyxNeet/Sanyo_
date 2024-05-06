@@ -35,7 +35,7 @@ const SlideOnlyImages = ({className,data}) => {
           className={`${className} mr-[1.7rem] max-md:mr-3 max-md:!h-[13.76756rem]`}
         >
           <Image
-            src={img?.image?.link||'https://swiperjs.com/demos/images/nature-1.jpg'}
+            src={img?.image?.url||'https://swiperjs.com/demos/images/nature-1.jpg'}
             alt={img?.image?.alt||'Product Line'}
             width={1000}
             height={1000}
