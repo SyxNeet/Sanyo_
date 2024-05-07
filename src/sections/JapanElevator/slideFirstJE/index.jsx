@@ -132,7 +132,7 @@ const slideFirstJE = ({isMobile,data}) => {
           {exampleSLideJpElevator.map((img, index) => (
             <SwiperSlide
               key={index}
-              className='!h-[42.92581rem] max-md:!h-[13.76756rem] '
+              className='!h-[41.5625rem] max-md:!h-[13.76756rem] '
             >
               <Image
                 src={img.src}
