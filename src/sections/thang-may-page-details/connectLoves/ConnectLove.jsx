@@ -3,7 +3,6 @@ import Image from 'next/image'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import Link from 'next/link'
 import './styles.css'
-import { exampleSLideJpElevator } from '../../../../data/japanElevator'
 import SlideOnlyImages from '@/components/slideOnlyImages'
 
 const ConnectLove = ({data}) => {

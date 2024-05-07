@@ -117,7 +117,7 @@ const DetailElevator = ({ type = false,data,title}) => {
               </td>
               <td className='parameter'>
                 <div className='font-Iciel flex flex-col'>
-                  <span className='border-b border-black py-2'>{data?.cabin_size}</span>
+                  <span className='border-b border-black py-2 px-1'>{data?.cabin_size}</span>
                   <span className='py-2'>{data?.cabin_size_2}</span>
                 </div>
               </td>
@@ -173,10 +173,10 @@ const DetailElevator = ({ type = false,data,title}) => {
       <div className='w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ml-[3rem] mr-[5.69rem]'></div>
       <div className='pt-[3.5rem]'>
         <Image
-          src={'/images/familyElevator/detailFE/imgE.png'}
+          src={data?.image?.url }
           width={1000}
           height={1000}
-          alt='thang may gia dinh'
+          alt={data?.image?.alt}
           className='w-[26.82738rem] h-[42.65319rem] object-cover'
         />
       </div>

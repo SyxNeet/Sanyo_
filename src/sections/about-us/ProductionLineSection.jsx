@@ -60,7 +60,7 @@ export default function ProductionLineSection({isMobile, data,justSlide=false}) 
               <Image
                 src={item.image.url}
                 alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
-                className='object-cover w-full h-full'
+                className='object-cover w-full h-full max-md:h-[26.8125rem]'
                 width={1920}
                 height={1080}
                 priority={i < 1}

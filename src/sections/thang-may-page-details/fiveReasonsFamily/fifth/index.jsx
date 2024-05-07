@@ -58,8 +58,7 @@ const FifthReason = ({isMobile, data}) => {
         className='w-full h-full absolute bottom-0 right-0 object-cover z-[1] max-md:hidden'
         alt='bgReason5'
       />
-      <h3 className='font-SVNLagu text-[4rem] font-normal leading-1.5 mb-[3.38rem] pl-[6.25rem] max-md:pl-3 max-md:text-[1.25rem] max-md:mb-[1.5rem]'>
-        Đa dạng lựa chọn thiết kế
+      <h3 className='font-SVNLagu text-[4rem] font-normal leading-1.5 mb-[3.38rem] pl-[6.25rem] max-md:pl-3 max-md:text-[1.25rem] max-md:mb-[1.5rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500  [&>p>strong]:uppercase' dangerouslySetInnerHTML={{__html:data?.heading}}>
       </h3>
       <div className='w-full overflow-x-auto noScrollBar'>
         <div className='flex ml-[6.25rem] border-b border-[rgba(255,255,255,0.20)] space-x-[4.94rem] relative z-10 mb-[3.06rem] w-fit max-md:ml-3 max-md:space-x-[1.69rem] max-md:max-w-fit max-md:w-fit overflow-x-auto max-md:mb-[1.84rem]'>

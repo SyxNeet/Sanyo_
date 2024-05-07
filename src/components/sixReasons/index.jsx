@@ -37,7 +37,7 @@ const SixReasons = ({isMobile}) => {
           Mong muốn của chúng tôi là bảo đảm những tiêu chuẩn cao nhất nhằm phục
           vụ khách hàng cho mọi nhu cầu liên quan đến thang máy
         </span>
-        <div className='pr-[7rem]'>
+        <div className='pr-[7rem] max-md:hidden'>
         <div className='flex'>
           <ButtonSLide
             className={
@@ -55,9 +55,6 @@ const SixReasons = ({isMobile}) => {
               'w-[1rem] h-[1rem] text-[#FE4127] rotate-180 md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]'
             }
           />
-        </div>
-        <div className='swiper-pagination-sixReasons hidden w-[4.3125rem] rounded-full  h-[2.5rem] bg-yellow-500 bg-opacity-10 max-md:flex items-center justify-center text-yellow-500 font-Iciel text-sm '>
-            
         </div>
       </div>
         </div>
@@ -88,6 +85,28 @@ const SixReasons = ({isMobile}) => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className='md:hidden flex px-3 mt-[1.5rem] justify-between'>
+        <div className='flex'>
+          <ButtonSLide
+            className={
+              ' swiper-button-prev-sixReasons border-[#FE4127] transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-yellow-500 max-md:border-yellow-500 max-md:w-[2.5rem] max-md:h-[2.5rem]'
+            }
+            classNameSvg={
+              'w-[1rem] h-[1rem] text-[#FE4127] md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]'
+            }
+          />
+          <ButtonSLide
+            className={
+              ' swiper-button-next-sixReasons border-[#FE4127] transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-yellow-500 max-md:border-yellow-500 max-md:w-[2.5rem] max-md:h-[2.5rem]'
+            }
+            classNameSvg={
+              'w-[1rem] h-[1rem] text-[#FE4127] rotate-180 md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]'
+            }
+          />
+        </div>
+        <div className='swiper-pagination-sixReasons hidden w-[4.3125rem] rounded-full  h-[2.5rem] bg-yellow-500 bg-opacity-10 max-md:flex items-center justify-center text-yellow-500 font-Iciel text-sm '>
+        </div>
       </div>
     </div>
   )

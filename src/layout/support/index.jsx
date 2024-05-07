@@ -122,7 +122,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
           </h3>
           <h2
             className={cn(
-              'font-SVNLagu text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold [&_strong]:text-yellow-500',
+              'font-SVNLagu text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold [&_strong]:text-yellow-500 [&>p>trong]:font-semibold [&>p>trong]:text-yellow-500 [&>p>strong]:uppercase',
               {
                 'mb-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]':
                   !forLienHePage,

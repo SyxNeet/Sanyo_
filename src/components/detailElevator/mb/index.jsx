@@ -152,7 +152,7 @@ const DetailElevatorMb = ({data,title}) => {
               </td>
               <td className='parameter'>
                 <div className='font-Iciel flex flex-col'>
-                  <span className='border-b border-black py-2'>{data?.cabin_size}</span>
+                  <span className='border-b border-black py-2 px-1'>{data?.cabin_size}</span>
                   <span className='py-2'>{data?.cabin_size_2}</span>
                 </div>
               </td>
