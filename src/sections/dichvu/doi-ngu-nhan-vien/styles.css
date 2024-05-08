@@ -1,0 +1,32 @@
+.mySwiperTeamSanyo .swiper-slide {
+    transition: transform 0.5s;
+  }
+  .mySwiperTeamSanyo .swiper-slide img {
+   height: 23.5625rem ;
+    border-radius: 0.75rem;
+    opacity: 0.5;
+   transition: 0.5s ease-in-out;
+  }
+  .mySwiperTeamSanyo .swiper-slide-next img,
+  .mySwiperTeamSanyo .swiper-slide-prev img{
+  height: 26.1875rem;
+    opacity: 0.8;
+  transition: 0.5s ease-in-out;
+
+  }
+  .mySwiperTeamSanyo .swiper-slide-active img{
+   height: 31.9375rem;
+   transition: 0.5s ease-in-out;
+   opacity: 1;
+  }
+  @media (max-width: 768px) {
+    .mySwiperTeamSanyo .swiper-slide-next img,
+    .mySwiperTeamSanyo .swiper-slide-prev img{
+    height: 16.50681rem;
+    opacity: 0.5;
+    }
+    .mySwiperTeamSanyo .swiper-slide-active img{
+      height: 20.13119rem;
+    }
+    
+  }

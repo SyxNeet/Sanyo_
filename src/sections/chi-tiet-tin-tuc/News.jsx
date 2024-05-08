@@ -1,3 +1,4 @@
+"use client"
 import SlideDanhSachTinTuc from '@/components/danh-sach-tin-tuc/SlideDanhSachTinTuc'
 import {Button} from '@/components/ui/button'
 

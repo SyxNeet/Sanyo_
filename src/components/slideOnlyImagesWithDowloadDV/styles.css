@@ -1,0 +1,38 @@
+.cirleElevatorBg {
+  background-image: linear-gradient(
+    180deg,
+    #dab571 0%,
+    rgba(218, 181, 113, 0.2) 50.14%,
+    rgba(218, 181, 113, 0) 77.36%
+  );
+  transform: rotate(44.368deg);
+}
+.dowloadElevator {
+  border-radius: 0rem 9999rem 9999rem 0rem;
+  background: linear-gradient(
+    90deg,
+    rgba(218, 181, 113, 0.3) 0%,
+    #dab571 64.8%
+  );
+}
+.lineDownLoadElevator {
+  border-radius: 9999rem;
+}
+.imgArrowFirst {
+  transition: 0.3s ease-in-out;
+}
+.imgArrowSecond {
+  transition: 0.3s ease-in-out;
+}
+.dowloadElevator:hover .imgArrowFirst {
+  bottom: 10%;
+  transition: 0.3s ease-in-out;
+}
+.dowloadElevator:hover .imgArrowSecond {
+  bottom: -1.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.swiper-only-images-with-download .swiper-wrapper {
+  transition-timing-function: linear !important;
+}

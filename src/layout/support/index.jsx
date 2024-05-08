@@ -102,7 +102,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
       {!forLienHePage && (
         <Image
           src={imgBgForm}
-          className='absolute w-full h-full'
+          className='absolute w-full h-full -z-10'
           alt='bgForm'
         />
       )}

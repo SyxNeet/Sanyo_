@@ -3,12 +3,13 @@ import React from 'react'
 import Image from 'next/image'
 import './styles.css'
 const ActualConstruction = ({isMobile,data}) => {
-const dataImg = data?.list_image_construction
+  console.log(data)
+const dataImg = data?.list_image_construction||data?.list_img  || []
   return (
     <div className='px-[3.69rem] relative max-md:px-3 actual'>
       <div className='absolute top-0 right-0 w-[4rem] h-[2.3125rem] bg-yellow-500 opacity-10'></div>
       <div className='absolute top-[2.3125rem] right-[4rem] w-[1rem] h-[1rem] bg-yellow-500 opacity-10'></div>
-      <h2 className='text-center text-[3rem] max-md:text-[1.5rem] max-md:pt-[4.56rem] max-md:mb-[1.5rem] font-semibold leading-1.4 text-grey-900 pt-[8.13rem] mb-[3.06rem] font-SVNLagu [&>p>strong]:font-semibold [&>p>strong]:uppercase [&>p>strong]:text-yellow-500 max-md:uppercase ' dangerouslySetInnerHTML={{__html:data.heading}}>
+      <h2 className='text-center text-[3rem] max-md:text-[1.5rem] max-md:pt-[4.56rem] max-md:mb-[1.5rem] font-semibold leading-1.4 text-grey-900 pt-[8.13rem] mb-[3.06rem] font-SVNLagu [&>p>strong]:font-semibold [&>p>strong]:uppercase [&>p>strong]:text-yellow-500 max-md:uppercase ' dangerouslySetInnerHTML={{__html:data?.heading}}>
       </h2>
 
       {isMobile ? (

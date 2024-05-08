@@ -1,9 +1,14 @@
 
 import DichVu from '@/sections/dichvu'
 import React from 'react'
-
-export default function page() {
+import getDataSlug from '@/lib/getDataSlug'
+export default async function page({ searchParams, params }) {
+  const { slug } = params;
+  let data;
+  data = await getDataSlug(`/dich-vu/${slug}`)
+  const { viewport } = searchParams
+  const isMobile = viewport?.includes('mobile')
   return <div>
-   <DichVu/>
+   <DichVu isMobile={isMobile} data={data}/>
   </div>
 }

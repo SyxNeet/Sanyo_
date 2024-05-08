@@ -106,7 +106,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/`}
+                href={`/tin-tuc`}
                 text={`BLOG`}
                 isLink={true}
                 handleOnMouseEnter={() => setActiveModalMenuLink(`BLOG`)}

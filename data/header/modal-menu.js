@@ -3,7 +3,7 @@ export const modalMenuJapanElevator = {
   href: '/',
   child: [
     {
-      href: '/',
+      href: '/thang-may-nhat-ban/thang-may-gia-dinh',
       src: '/images/layout/header/thang-may-gia-dinh.png',
       text: 'Thang máy gia đình',
     },
@@ -54,7 +54,7 @@ export const modalMenuService = {
   text: 'DỊCH VỤ',
   child: [
     {
-      href: '/',
+      href: '/dich-vu/thiet-ke-va-lap-dat-thang-may-theo-yeu-cau',
       src: '/images/layout/header/service.png',
       text: 'Thiết kế và lắp đặt thang máy theo yêu cầu',
     },

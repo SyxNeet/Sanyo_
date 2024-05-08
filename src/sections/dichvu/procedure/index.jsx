@@ -6,71 +6,10 @@ import {useGSAP} from '@gsap/react'
 import './styles.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-const Procedure = () => {
-  const data = [
-    {
-      title: 'Bước 1: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 2: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img2.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 3: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img3.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 4: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img4.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 5: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img5.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-  ]
-  const [item, setItem] = useState(data[0])
+const Procedure = ({data}) => {
+  console.log(data)
+
+  const [item, setItem] = useState(data?.list_procedure[0])
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -91,15 +30,15 @@ const Procedure = () => {
         end: 'bottom+=200 center',
         onUpdate: (self) => {
           if (self.progress < 0.2) {
-            setItem(data[0])
+            setItem(data?.list_procedure[0])
           } else if (self.progress < 0.4) {
-            setItem(data[1])
+            setItem(data?.list_procedure[1])
           } else if (self.progress < 0.6) {
-            setItem(data[2])
+            setItem(data?.list_procedure[2])
           } else if (self.progress < 0.8) {
-            setItem(data[3])
+            setItem(data?.list_procedure[3])
           } else {
-            setItem(data[4])
+            setItem(data?.list_procedure[4])
           }
         },
       },
@@ -111,17 +50,17 @@ const Procedure = () => {
       ref={firstRef}
     >
       <div className='w-[58%] pt-[10.6rem] pl-[4.75rem]'>
-        <h2 className=' font-SVNLagu text-[3rem] font-semibold leading-1.3 border-b border-[rgba(28,32,28,0.10)] pb-[2.31rem] mb-[3.75rem]'>
-          Quy trình dịch vụ chuyên nghiệp từ ĐỘI NGŨ CHUYÊN GIA
+        <h2 className=' font-SVNLagu text-[3rem] font-semibold leading-1.3 border-b border-[rgba(28,32,28,0.10)] pb-[2.31rem] mb-[3.75rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500' dangerouslySetInnerHTML={{__html:data?.heading}}>
+       
         </h2>
         <div className='w-[48.7rem] h-[24.4rem] data-aos="fade-right"'>
           <h3 className='font-SVNLagu font-semibold leading-1.3 text-[1.75rem] text-grey-800 mb-[0.94rem]'>
-            {item.title}
+            {item?.name_step}
           </h3>
           <div className='mb-[1.62rem] font-Iciel text-[1.125rem] leading-1.5 font-normal text-grey-400'>
-            {item.content}
+            {item?.desc}
           </div>
-          {item.steps.map((item, index) => (
+          {item?.list_steps.map((item, index) => (
             <div
               key={index}
               className='flex items-center mb-[1.25rem]'
@@ -130,7 +69,7 @@ const Procedure = () => {
                 {index + 1}
               </div>
               <span className='font-Iciel text-[1.125rem] leading-1.5 font-normal text-grey-400'>
-                {item}
+                {item.name}
               </span>
             </div>
           ))}
@@ -138,7 +77,7 @@ const Procedure = () => {
       </div>
       <div className='w-[42%]'>
         <Image
-          src={item.url}
+          src={item?.img?.url}
           width={1000}
           height={1000}
           alt='test'

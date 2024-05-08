@@ -97,9 +97,9 @@ const ProcedureMb = () => {
               
             >
               <div className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3'>
-                {item.title}
+                {item?.title}
               </div>
-              {item.steps.map((item, index) => (
+              {item?.steps?.map((item, index) => (
                 <div
                   key={index}
                   className='flex items-start mb-[1.25rem] px-3'
@@ -112,7 +112,7 @@ const ProcedureMb = () => {
                   </span>
                 </div>
               ))}
-              <Image src={item.url} alt='test' width={1000} height={1000} className='w-full h-[20.375rem]'/>
+              <Image src={item?.url} alt='test' width={1000} height={1000} className='w-full h-[20.375rem]'/>
             </SwiperSlide>
           ))}
         </Swiper>

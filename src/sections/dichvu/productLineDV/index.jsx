@@ -107,13 +107,14 @@ export default function ProductionLineSectionDV({
                       'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 60.17%, rgba(0, 0, 0, 0.50) 84.52%)',
                   }}
                 >
-                  <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full'>
-                    <h3 className='font-SVNLagu text-grey-0 text-0.625 md:text-1.375 tracking-0.1 font-semibold text-center mb-1 md:mb-2'>
-                      {item.heading}
-                    </h3>
-                    <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0'>
-                      {item.description}
+                  <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full flex flex-col justify-end items-center'>
+                  <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0'>
+                      {item.title}
                     </h2>
+                    <h3 className='font-SVNLagu text-grey-0 md:text-1.375 text-[1.25rem] tracking-0.1 font-semibold text-center mb-1 md:mb-2 md:w-[47.5rem] w-full '>
+                      {item.desc}
+                    </h3>
+           
                   </div>
                 </div>
               </SwiperSlide>
@@ -144,7 +145,7 @@ export default function ProductionLineSectionDV({
             />
           </div>
         </div>
-        <div className='swiper-pagination-procedure-pl font-SVNLagu !w-[4.3125rem] rounded-full  h-[2.5rem] bg-opacity-10 items-center justify-center !text-white text-sm [&>span:last-child]:max-md:ml-1 [&>span:first-child]:text-[1.6765rem] [&>span:first-child]:font-semibold [&>span:first-child]:max-md:mr-1 absolute right-[3rem] bottom-[2rem] z-50 max-md:hidden'></div>
+        <div className='swiper-pagination-procedure-pl font-SVNLagu !w-[4.3125rem] rounded-full  h-[2.5rem] bg-opacity-10 items-center justify-center !text-white text-sm [&>span:last-child]:max-md:ml-1 [&>span:first-child]:text-[1.6765rem] [&>span:first-child]:font-semibold [&>span:first-child]:max-md:mr-1 absolute !right-[3rem] !bottom-[3rem] !left-[unset] !top-[unset] z-50 max-md:hidden'></div>
       </div>
     </section>
   )

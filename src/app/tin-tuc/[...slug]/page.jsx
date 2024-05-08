@@ -4,12 +4,13 @@ import DetailNew from '@/sections/chi-tiet-tin-tuc/DetailNew'
 import PlatFormElevator from '@/components/platForm'
 import PlatFormMobile from '@/components/platFormMobile'
 import getData from '@/lib/getData'
+import getDataSlug from '@/lib/getDataSlug'
 import News from '@/sections/chi-tiet-tin-tuc/News'
 import './styles.css'
 import Support from '@/layout/support'
 
-async function getChiTietTinTuc(postId) {
-  return getData(`/posts/${postId}`, 'wp')
+async function getChiTietTinTuc(slug) {
+  return getDataSlug(`/tin-tuc/${slug}`)
 }
 async function getDanhSachThangMay() {
   return getData(`/pages/11/danh_sach_thang_may`)
