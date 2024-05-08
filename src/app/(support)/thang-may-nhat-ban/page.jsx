@@ -6,12 +6,16 @@ export default async function page({searchParams, params}) {
   const {viewport} = searchParams
 
   const isMobile = viewport?.includes('mobile')
-  let dataJpElevator
-  dataJpElevator = await getData(`/pages/35`)
+  let [dataJpElevator, dataSixReason] = await Promise.all([
+    getData(`/pages/35`),
+    getData(`/options/options/sixReasons`)
+  ]);
+
   return (
     <JapanElevator
       isMobile={isMobile}
       data={dataJpElevator}
+      dataSixReason={dataSixReason}
     />
   )
 }

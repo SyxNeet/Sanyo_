@@ -63,7 +63,7 @@ export default function CountUp({dataCountUp}) {
         className='md:ml-[3rem] md:pr-[3.75rem] md:pt-[6.88rem] max-md:pb-[4.06rem] border-b-[1px] solid border-grey-500 border-opacity-10 relative'
       >
         <Image
-          src={'/images/home/sectionCount/layoutBoxMb.svg'}
+          src='/images/home/sectionCount/layoutBoxMb.svg'
           alt='box'
           width={120}
           height={120}

@@ -3,12 +3,12 @@ import React from 'react'
 import './style.css'
 import Link from 'next/link'
 
-export default function ReasonChoose() {
+export default function ReasonChoose({data}) {
   return (
     <div className='md:rounded-[1.25rem] rounded-[0.75rem] flex justify-center items-end relative reason_item w-full md:h-[32.262rem] object-cover h-[24.6875rem]'>
       <Image
-        src={'/images/components/reasonChoose/lydoluachon1.png'}
-        alt='reason'
+        src={data?.image?.url}
+        alt={data?.image?.alt||"nothing"}
         width={800}
         height={500}
         className='w-full absolute h-full object-cover md:rounded-[1.25rem] rounded-[0.75rem]'
@@ -21,7 +21,7 @@ export default function ReasonChoose() {
         href={'/'}
       >
         <Image
-          src={'/images/components/reasonChoose/test.svg'}
+          src='/images/components/reasonChoose/test.svg'
           alt='box'
           width={200}
           height={200}
@@ -29,11 +29,10 @@ export default function ReasonChoose() {
         />
         <div className='md:w-[21.875rem] max-md:mb-[1.06rem]'>
           <h4 className='font-SVNLagu md:text-[0.875rem] font-[600] md:leading-[1.5] text-grey-50'>
-            SMART SHARING CORE
+            {data?.title}
           </h4>
           <p className='font-Iciel lg:text-[0.875rem] text-[0.75rem] leading-[1.5] opacity-80 text-white'>
-            Hãy sống xanh, hãy sống ý nghĩa - bảo vệ môi trường là sự lựa chọn
-            thông minh.
+            {data?.description}
           </p>
         </div>
 

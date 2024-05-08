@@ -6,8 +6,8 @@ import {Navigation,Pagination} from 'swiper/modules'
 import 'swiper/css'
 import "./style.css"
 import ReasonChoose from '../reasonChoose'
-const SixReasons = ({isMobile}) => {
-  const slides = [1, 2, 3, 4, 5, 6]
+const SixReasons = ({isMobile,data}) => {
+  const slides = data?.sixReasons?.slide_six_reasons.slice(0, 6);
   const [activeSlide, setActiveSlide] = useState(0);
   const handleSlideChange = (swiper) => {
     setActiveSlide(swiper.activeIndex);
@@ -29,13 +29,11 @@ const SixReasons = ({isMobile}) => {
   return (
     <div className=' flex flex-col max-md:pl-0'>
       <div className='pl-[6.25rem] max-md:pl-0'>
-        <h2 className='font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.875rem] max-md:order-1 max-md:w-[20.9375rem]'>
-          6 LÝ DO LỰA CHỌN THANG MÁY NHẬT BẢN SANYO YUSOKI
+        <h2 className='font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.875rem] max-md:order-1 max-md:w-[20.9375rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht' dangerouslySetInnerHTML={{__html:data?.sixReasons?.heading}}>
         </h2>
         <div className='flex justify-between mb-[1.96rem]'>
         <span className='w-[35rem] font-Iciel block text-base leading-[150%] font-normal mb-[0.5rem]  max-md:text-[0.875rem] max-md:text-justify max-md:px-4 max-md:w-full max-md:mb-6'>
-          Mong muốn của chúng tôi là bảo đảm những tiêu chuẩn cao nhất nhằm phục
-          vụ khách hàng cho mọi nhu cầu liên quan đến thang máy
+          {data?.sixReasons?.desc}
         </span>
         <div className='pr-[7rem] max-md:hidden'>
         <div className='flex'>
@@ -81,7 +79,7 @@ const SixReasons = ({isMobile}) => {
               key={index}
               className='max-md:pl-3'
             >
-              <ReasonChoose />
+              <ReasonChoose data={slide} />
             </SwiperSlide>
           ))}
         </Swiper>

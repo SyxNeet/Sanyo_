@@ -86,13 +86,13 @@ export default function ModalMenuMobile({
       <div className='mt-[3rem] flex flex-row items-end mb-[1.56rem]'>
         <div className='flex flex-col'>
           <Link
-            href={`/`}
+            href={`/tin-tuc`}
             className='mb-5 text-grey-0 text-0.875 font-Iciel'
           >
             BLOG
           </Link>
           <Link
-            href={`/`}
+            href={`/lien-he`}
             className='text-grey-0 text-0.875 font-Iciel'
           >
             LIÊN HỆ
