@@ -20,7 +20,7 @@ export default function ProductionLineSection({isMobile, data,justSlide=false}) 
         </h3>
         <h2
           className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
-          dangerouslySetInnerHTML={{__html: data.heading}}
+          dangerouslySetInnerHTML={{__html: data?.heading||'test'}}
         ></h2>
       </div>
       <Swiper

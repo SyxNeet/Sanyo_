@@ -94,7 +94,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
   return (
     <section
       className={cn(
-        'w-full bg-grey-0 relative flex flex-row justify-center max-md:h-fit',
+        'w-full bg-grey-0 relative flex flex-row justify-center max-md:h-fit max-md:pt-0',
         {'pt-[7rem] pb-[6rem] items-center max-md:px-[1rem]': !forLienHePage},
         className,
       )}
@@ -117,9 +117,9 @@ export default function Support({className, isMobile, forLienHePage, data}) {
             'w-[40%] mr-[6.19rem] max-md:mb-[1.25rem]': !forLienHePage,
           })}
         >
-          <h3 className='text-grey-500 text-1.25 font-SVNLagu font-medium leading-1.5 tracking-0.1 uppercase opacity-80 mb-4'>
+          {/* <h3 className='text-grey-500 text-1.25 font-SVNLagu font-medium leading-1.5 tracking-0.1 uppercase opacity-80 mb-4 max-md:hidden'>
             ĐĂNG KÝ LIÊN HỆ
-          </h3>
+          </h3> */}
           <h2
             className={cn(
               'font-SVNLagu text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold [&_strong]:text-yellow-500 [&>p>trong]:font-semibold [&>p>trong]:text-yellow-500 [&>p>strong]:uppercase',
@@ -133,10 +133,10 @@ export default function Support({className, isMobile, forLienHePage, data}) {
           ></h2>
           <p
             className={cn(
-              'text-[1rem] font-Iciel text-grey-500 font-normal leading-[150%] max-md:block max-md:text-[0.875rem] max-md:text-justify',
+              'text-[1rem] font-Iciel text-grey-500 font-normal leading-[150%] max-md:block max-md:text-[0.875rem] max-md:text-justify max-md:mb-0',
               {
                 'max-md:w-[18.375rem] mb-10': !forLienHePage,
-                'mb-5 md:mb-10': forLienHePage,
+                'mb-0 md:mb-10': forLienHePage,
               },
             )}
           >
@@ -208,7 +208,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
           </div>
           <div
             className={cn('flex flex-col w-full  relative', {
-              'mt-[3.12rem] max-md:mt-[1.88rem]': !forLienHePage,
+              'mt-[3.12rem] max-md:mt-[0]': !forLienHePage,
             })}
           >
             <label

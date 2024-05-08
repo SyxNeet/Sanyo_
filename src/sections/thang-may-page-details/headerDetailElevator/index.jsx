@@ -22,7 +22,7 @@ const HeaderDetailElevator = (data) => {
         <BreadcrumbLink isLastLink>THANG MÁY GIA ĐÌNH</BreadcrumbLink>
       </BreadcrumbContainer>
       <div className='flex'>
-        <div className='w-[70%]'>
+        <div className='w-[70%] max-md:w-full'>
           <div className='mt-[2.36rem] border-b border-[rgba(28,32,28,0.10)] pb-[2.14rem] max-md:pb-6'>
             <div className='pl-[6.25rem] w-[61.875rem] max-md:px-3 max-md:w-full'>
               <div className='relative'>

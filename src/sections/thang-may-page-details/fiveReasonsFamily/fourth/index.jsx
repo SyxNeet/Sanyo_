@@ -102,7 +102,7 @@ const FourthReason = ({lang, isMobile,data}) => {
             <h3
               className={`font-SVNLagu text-[3.125rem] leading-1.3 font-semibold w-[31.125rem] mb-[0.75rem] max-md:text-[1.25rem]`}
             >
-              {data?.heading}
+               <span className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2 md:hidden'>4. </span>{data?.heading}
             </h3>
             <span className='font-Iciel text-[1.125rem] text-[rgba(28,32,28,0.70)] leading-1.5 font-normal mb-[1.88rem] block max-md:text-[0.875rem]'>Tiêu chuẩn EI trong chống cháy chính là bộ tiêu chuẩn quy định về giới hạn chịu lửa của các vật liệu chống cháy.</span>
             <div

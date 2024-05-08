@@ -39,7 +39,7 @@ const FiveReasonsFamily = ({lang, isMobile, data}) => {
             }
           />
           <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-yellow-500 max-md:text-[0.67838rem] transition'>
-            {lang === 'vi' ? 'Khám phá ngay' : 'Discover now'}
+           Khám phá ngay
           </span>
         </Link>
       </div>
