@@ -50,7 +50,7 @@ const FifthReason = ({isMobile, data}) => {
     }
   }, [])
   return (
-    <div className='pt-[5.12rem]  bg-[#42484F] text-white relative h-[58rem] fiththReason max-md:h-fit w-full max-md:pt-[3rem]'>
+    <div className='pt-[5.12rem]  bg-[#42484F] text-white relative h-[58rem] fiththReason max-md:h-fit w-full max-md:pt-[3rem] max-md:pb-1'>
       <Image
         src='/images/familyElevator/detailFE/bgReason5.svg'
         width={1000}
@@ -58,8 +58,12 @@ const FifthReason = ({isMobile, data}) => {
         className='w-full h-full absolute bottom-0 right-0 object-cover z-[1] max-md:hidden'
         alt='bgReason5'
       />
-      <h3 className='font-SVNLagu text-[4rem] font-normal leading-1.5 mb-[3.38rem] pl-[6.25rem] max-md:pl-3 max-md:text-[1.25rem] max-md:mb-[1.5rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500  [&>p>strong]:uppercase' dangerouslySetInnerHTML={{__html:data?.heading}}>
+      <div className='flex items-center mb-[3.38rem] pl-[6.25rem] max-md:mb-[1.5rem] max-md:pl-3' >
+      <p className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold  max-md:text-[1.25rem]  md:hidden mr-1'>5. </p>
+      <h3 className='font-SVNLagu text-[4rem] font-semibold leading-1.5 max-md:text-[1.25rem]  [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500  [&>p>strong]:uppercase' dangerouslySetInnerHTML={{__html:data?.heading}}>
       </h3>
+      </div>
+     
       <div className='w-full overflow-x-auto noScrollBar'>
         <div className='flex ml-[6.25rem] border-b border-[rgba(255,255,255,0.20)] space-x-[4.94rem] relative z-10 mb-[3.06rem] w-fit max-md:ml-3 max-md:space-x-[1.69rem] max-md:max-w-fit max-md:w-fit overflow-x-auto max-md:mb-[1.84rem]'>
           {data?.list_design?.map((key, index) => (

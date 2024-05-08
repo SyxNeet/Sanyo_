@@ -112,7 +112,7 @@ const SecondReasons = ({lang, isMobile,data}) => {
             <h3
               className={`font-SVNLagu text-[3.125rem] leading-1.3 font-semibold w-[31.125rem] mb-10 max-md:w-full max-md:text-[1.25rem] max-md:mb-[1.12rem] `}
             >
-             {data?.heading}
+              <span className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2 md:hidden'>2. </span>{data?.heading}
             </h3>
             <div
               className='secondReasons overflow-hidden'
