@@ -36,20 +36,20 @@ export default function ProductionLineSectionDV({
         <h3
           className={`text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5 ${
             justSlide ? 'hidden' : 'block'
-          }`}
+          }`} dangerouslySetInnerHTML={{__html: data?.heading}}
         >
-          CÁC BƯỚC TIẾN HÀNH DỊCH VỤ
+         
         </h3>
         <h2
           className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
           dangerouslySetInnerHTML={{
             __html:
-              data?.heading ||
+              data?.desc ||
               'Chúng tôi cam kết không ngừng nỗ lực để đảm bảo chất lượng tốt nhất trong quá trình thi công lắp đặt. Điều này là sứ mệnh mang lại sự hài lòng và niềm tin cho khách hàng.',
           }}
         ></h2>
       </div>
-      <div className='relative w-full'>
+      <div className='relative w-full h-full'>
         <Swiper
           slidesPerView={1}
           effect={'fade'}
@@ -95,7 +95,7 @@ export default function ProductionLineSectionDV({
                 <Image
                   src={item.image.url}
                   alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
-                  className='object-cover w-full h-full max-md:h-[26.8125rem]'
+                  className='object-cover w-full h-[50rem] max-md:h-[26.8125rem]'
                   width={1920}
                   height={1080}
                   priority={i < 1}

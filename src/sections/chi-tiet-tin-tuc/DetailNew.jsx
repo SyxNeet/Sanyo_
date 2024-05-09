@@ -8,7 +8,6 @@ import Link from 'next/link'
 import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 
 export default function DetailNew({isMobile, data}) {
-  console.log(data)
   const smootherRef = useRef(null)
   const [h4Array, setH4Array] = useState([])
   const [isClient, setIsClient] = useState(false)
