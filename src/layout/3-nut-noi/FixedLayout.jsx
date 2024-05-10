@@ -28,14 +28,14 @@ export default function FixedLayout() {
     return () => window.removeEventListener('scroll', myFunction)
   }, [])
   return (
-    <div className='z-30 fixed bottom-6 right-6 flex flex-col gap-[1.38rem]'>
+    <div className='z-30 fixed bottom-3 right-3 md:bottom-6 md:right-6 flex flex-col gap-[0.88rem] md:gap-[1.38rem]'>
       <Link href={`/`}>
         <Image
           src={`/images/layout/3-nut-noi/call.svg`}
           alt=''
           width={120}
           height={120}
-          className='size-[3.125rem] object-cover'
+          className='size-[2.0045rem] md:size-[3.125rem] object-cover'
         />
       </Link>
       <Link href={`/`}>
@@ -44,7 +44,7 @@ export default function FixedLayout() {
           alt=''
           width={120}
           height={120}
-          className='size-[3.125rem] object-cover'
+          className='size-[2.0045rem] md:size-[3.125rem] object-cover'
         />
       </Link>
       <button onClick={() => smootherRef.current.scrollTop(0)}>
@@ -54,7 +54,7 @@ export default function FixedLayout() {
           height='56'
           viewBox='0 0 56 56'
           fill='none'
-          className='size-[3.125rem] object-cover'
+          className='size-[2.0045rem] md:size-[3.125rem] object-cover'
         >
           <path
             d='M28.0977 20L19.0977 31.4286L25.8477 31.4286L28.0977 36L30.3477 31.4286L37.0977 31.4286L28.0977 20Z'
