@@ -11,7 +11,6 @@ import SliderJapanElevator from '@/components/platForm/sliderJapanElevator/SLide
 import SliderMbJapanElevator from '@/components/platFormMbJapanElevator'
 
 const ElevatorJapan = ({isMobile,data}) => {
-  console.log(data)
   return (
     <section className='relative pt-[7.5rem] max-md:pt-[2.37rem] max-md:border-t max-md:border-[rgba(28, 32, 28, 0.10)]'>
     <div className='absolute w-[6.0625rem] h-[5.75rem] top-0 left-0 bg-c-nht opacity-10 max-md:hidden'></div>

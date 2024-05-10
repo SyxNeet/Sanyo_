@@ -7,7 +7,7 @@ import './styles.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 const Procedure = ({data}) => {
-  console.log(data)
+
 
   const [item, setItem] = useState(data?.list_procedure[0])
   useEffect(() => {
@@ -80,7 +80,7 @@ const Procedure = ({data}) => {
           src={item?.img?.url}
           width={1000}
           height={1000}
-          alt='test'
+          alt={item?.img?.alt}
           className='h-[90vh] object-cover fade-in'
         />
       </div>

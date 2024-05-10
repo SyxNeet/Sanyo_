@@ -4,7 +4,6 @@ import Image from 'next/image'
 import './styles.css'
 const ItemOperate = ({data}) => {
   const [seeAll,setSeeAll] =useState(false);
-  console.log(data)
   const handleSeeAll =()=>{
     setSeeAll(!seeAll)
   }

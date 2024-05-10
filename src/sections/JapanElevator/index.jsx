@@ -9,7 +9,7 @@ import PerfectChoiceJE from './perfect-choice/PerfectChoiceJE'
 import ElevatorJapan from './ElevatorJapan/ElevatorJapan'
 import SixReasonJE from './sixReasonJE/sixReasonJE'
 import OutStandingProjectJE from './outStandingProjectJE/OutStandingProjectJE'
-const JapanElevator = ({isMobile, data,dataSixReason}) => {
+const JapanElevator = ({isMobile, data,dataSixReason,dataAllElevator}) => {
   const {
     banner,
     japan_elevator,
@@ -17,13 +17,14 @@ const JapanElevator = ({isMobile, data,dataSixReason}) => {
     perfect_choice,
     productLine,
   } = data?.acf
-  console.log(data.acf)
+
 
   return (
     <main className='overflow-hidden janpanElevator'>
       <SlideFirstJE
         isMobile={isMobile}
         data={banner}
+        dataAllElevator={dataAllElevator}
       />
       <ProductLine
         data={productLine}

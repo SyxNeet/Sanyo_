@@ -3,7 +3,6 @@ import React from 'react'
 import Image from 'next/image'
 import './styles.css'
 const ActualConstruction = ({isMobile,data}) => {
-  console.log(data)
 const dataImg = data?.list_image_construction||data?.list_img  || []
   return (
     <div className='px-[3.69rem] relative max-md:px-3 actual'>
