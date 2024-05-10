@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function LienHeSection({isMobile, data}) {
   return (
-    <section className='flex flex-col md:flex-row flex-nowrap md:px-[3.75rem] px-3 pt-6 pb-10 md:pt-12 md:pb-16'>
+    <section className='flex flex-col md:flex-row flex-nowrap md:px-[3.75rem] px-3 pt-6 pb-10 md:pt-12 md:pb-24'>
       <Support
         className='md:basis-1/2'
         forLienHePage
