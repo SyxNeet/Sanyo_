@@ -75,7 +75,7 @@ function SliderJapanElevator() {
         >
           CHI TIẾT SẢN PHẨM
         </Link>
-        <div className='md:mt-[2.63rem]'>
+        <div className='md:mt-[3.63rem]'>
           <button
             onClick={handlePrevSlide}
             className='md:w-[3.5rem] md:h-[3.5rem] rounded-[50%]  border border-[#FE4127] solid relative transition-all duration-300 hover:bg-c-nht btnNextJE'
@@ -135,7 +135,7 @@ function SliderJapanElevator() {
                 width={800}
                 height={800}
                 quality={100}
-                className='md:h-[29.8535rem] w-full object-cover border border-[rgba(28,32,28,0.10)]'
+                className='md:h-[36.8535rem] w-full object-cover border border-[rgba(28,32,28,0.10)]'
               />
             </SwiperSlide>
           ))}

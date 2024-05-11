@@ -12,7 +12,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
-const slideFirstJE = ({isMobile,data}) => {
+const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
     const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
@@ -129,21 +129,21 @@ const slideFirstJE = ({isMobile,data}) => {
           modules={[Pagination, Navigation]}
           className='mySwiperOnlyImages w-screen order-1'
         >
-          {exampleSLideJpElevator.map((img, index) => (
+          {dataAllElevator.map((img, index) => (
             <SwiperSlide
               key={index}
               className='!h-[41.5625rem] max-md:!h-[13.76756rem] '
             >
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={img.thumb||"https://ik.imagekit.io/tvlk/blog/2021/09/du-lich-anh-8-1024x576.jpg?tr=dpr-2,w-675"}
+                alt={img.alt||"huy"}
                 width={1500}
                 height={1500}
                 className='object-cover h-full rounded-[0.5rem] w-full'
               />
-              <span className='absolute z-10 bottom-[9%] left-[3.43rem] max-md:left-4 max-md:bottom-[7%] rounded-[0.34344rem] border-[0.458px] border-[#fff] bg-[rgba(0,0,0,0.40)] px-[1.37rem] py-[0.57rem] backdrop-blur-[11.44688606262207px] text-[0.91575rem] font-Iciel font-medium leading-1.5 uppercase text-white'>
+              <Link href={img.slug} className='absolute z-10 bottom-[9%] left-[3.43rem] max-md:left-4 max-md:bottom-[7%] hover:scale-105 transition duration-300 rounded-[0.34344rem] border-[0.458px] border-[#fff] bg-[rgba(0,0,0,0.40)] px-[1.37rem] py-[0.57rem] backdrop-blur-[11.44688606262207px] text-[0.91575rem] font-Iciel font-medium leading-1.5 uppercase text-white'>
                 {img.title}
-              </span>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -140,7 +140,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
                 'mb-[0.75rem] max-md:mb-[0.5rem]': forLienHePage,
               },
             )}
-            dangerouslySetInnerHTML={{__html: data.heading}}
+            dangerouslySetInnerHTML={{__html: data?.heading}}
           ></h2>
           <p
             className={cn(
@@ -151,7 +151,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
               },
             )}
           >
-            {data.description}
+            {data?.description}
           </p>
         </div>
         <div
@@ -174,12 +174,12 @@ export default function Support({className, isMobile, forLienHePage, data}) {
                 windowWidth < 768 && nameFocused && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
-              {data.name}{' '}
+              {data?.name}{' '}
               <span className='text-yellow-500 md:text-red-500'>*</span>
             </label>
             <input
               type='text'
-              placeholder={windowWidth < 768 ? '' : data.previewName}
+              placeholder={windowWidth < 768 ? '' : data?.previewName}
               value={name}
               onChange={handleNameChange}
               onBlur={handleNameBlur}
@@ -201,12 +201,12 @@ export default function Support({className, isMobile, forLienHePage, data}) {
                 windowWidth < 768 && phoneFocused && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
-              {data.tel}{' '}
+              {data?.tel}{' '}
               <span className='text-yellow-500 md:text-red-500'>*</span>
             </label>
             <input
               type='text'
-              placeholder={windowWidth < 768 ? '' : data.previewTel}
+              placeholder={windowWidth < 768 ? '' : data?.previewTel}
               value={phone}
               onChange={handlePhoneChange}
               onBlur={handlePhoneBlur}
@@ -232,7 +232,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
                 },
               )}
             >
-              {data.message}
+              {data?.message}
             </label>
             <input
               type='text'

@@ -48,7 +48,7 @@ const Certification = ({data}) => {
           className='mySwiper w-[64.2rem] max-md:w-[100%]'
         >
           {data?.list_certi?.map((item, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <Image
                 src={item?.image?.url}
                 alt={item?.image?.alt}
