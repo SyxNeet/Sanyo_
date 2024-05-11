@@ -16,7 +16,6 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
     const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
-  console.log(dataAllElevator)
   useGSAP(() => {
     gsap.to(firstRef.current, {
       scrollTrigger: {

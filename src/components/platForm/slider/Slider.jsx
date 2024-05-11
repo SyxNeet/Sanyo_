@@ -74,7 +74,7 @@ function Slider() {
         >
           CHI TIẾT SẢN PHẨM
         </Link>
-        <div className='md:mt-[10.54rem]'>
+        <div className='md:mt-[3.63rem]'>
           <button
             onClick={handlePrevSlide}
             className='btn-next-custom md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative transition-all duration-300'
@@ -134,7 +134,7 @@ function Slider() {
                 width={800}
                 height={800}
                 quality={100}
-                className='md:h-[45.31479rem] w-full object-cover'
+                className='md:h-[36.8535rem] w-full object-cover'
               />
             </SwiperSlide>
           ))}

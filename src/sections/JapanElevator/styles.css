@@ -52,14 +52,13 @@
   .sixReasonsJE .swiper-pagination-sixReasons{
    width: 4.3125rem;
    background: rgba(255, 239, 239, 0.32);
-   color: #FF2727;
    font-weight: 500;
   }
-  .sixReasonsJE .group{
+  /* .sixReasonsJE .group{
     background-color: transparent;
     border:1px solid #FF2727;
-  } 
-  .sixReasonsJE .group:hover{
+  }  */
+  /* .sixReasonsJE .group:hover{
     background-color: #FF2727;
 
   } 
@@ -72,4 +71,4 @@
   }
   .mbOutStandingSLide .mbOutStandingSLideBtn button svg path{
     fill: #FF2727 !important;
-  }
+  } */
