@@ -37,7 +37,7 @@ const JapanElevator = ({isMobile, data,dataSixReason,dataAllElevator}) => {
         isMobile={isMobile}
         data={japan_elevator}
       />
-      <SixReasonJE isMobile={isMobile} data={dataSixReason}/>
+      <SixReasonJE isMobile={isMobile} data={dataSixReason} isJapan={true}/>
       <OutStandingProjectJE
         isMobile={isMobile}
         data={outstanding_project}

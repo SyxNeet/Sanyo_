@@ -7,12 +7,10 @@ import './styles.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 const Procedure = ({data}) => {
-
-
   const [item, setItem] = useState(data?.list_procedure[0])
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 1500,
     });
   }, []);
 
@@ -27,7 +25,7 @@ const Procedure = ({data}) => {
         trigger: firstRef.current,
         pin: true,
         start: 'top top',
-        end: 'bottom+=200 center',
+        end: 'bottom+=600 center',
         onUpdate: (self) => {
           if (self.progress < 0.2) {
             setItem(data?.list_procedure[0])
@@ -53,7 +51,7 @@ const Procedure = ({data}) => {
         <h2 className=' font-SVNLagu text-[3rem] font-semibold leading-1.3 border-b border-[rgba(28,32,28,0.10)] pb-[2.31rem] mb-[3.75rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500' dangerouslySetInnerHTML={{__html:data?.heading}}>
        
         </h2>
-        <div className='w-[48.7rem] h-[24.4rem] data-aos="fade-right"'>
+        <div className='w-[48.7rem] h-[24.4rem]' data-aos='fade-up' key={item?.name_step}>
           <h3 className='font-SVNLagu font-semibold leading-1.3 text-[1.75rem] text-grey-800 mb-[0.94rem]'>
             {item?.name_step}
           </h3>
@@ -81,7 +79,7 @@ const Procedure = ({data}) => {
           width={1000}
           height={1000}
           alt={item?.img?.alt}
-          className='h-[90vh] object-cover fade-in'
+          className='h-[100vh] object-cover' data-aos='flip-right' duration='100' key={item?.img?.url}
         />
       </div>
     </section>
