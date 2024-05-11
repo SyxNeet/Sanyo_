@@ -23,7 +23,7 @@ export default function Header({isMobile}) {
   return (
     <header
       ref={headerRef}
-      className='fixed top-0 left-0 z-50 w-full transition-500'
+      className='fixed top-0 left-0 z-50 w-full header transition-500'
     >
       {!isMobile ? (
         <HeaderDesktop
