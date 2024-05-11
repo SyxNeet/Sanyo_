@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .swiper-danh-sach-tin-tuc {
-  @apply relative max-md:overflow-visible !important;
+  @apply relative !important;
 }
 
 .swiper-pagination-progressbar {
