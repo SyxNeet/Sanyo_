@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import imgBgForm from '../../../public/images/form/bgForm.png'
 import {useState, useEffect} from 'react'
 import {Button} from '@/components/ui/button'
 import {cn} from '@/lib/utils'
