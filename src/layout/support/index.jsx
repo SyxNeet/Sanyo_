@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import {useState, useEffect} from 'react'
 import {Button} from '@/components/ui/button'
-import {useRouter} from 'next/navigation'
 import {usePathname} from 'next/navigation'
 import {cn} from '@/lib/utils'
 import {toast} from 'sonner'
@@ -11,9 +10,13 @@ import {toast} from 'sonner'
 const nameReg = /[a-zA-Z\s]{4,}/
 const phoneReg = /\d{6,}/
 
-export default function Support({className, isMobile, forLienHePage, data}) {
+export default function Support({
+  className,
+  isMobile,
+  forLienHePage = false,
+  data,
+}) {
   const pathname = usePathname()
-  console.log('pathname', pathname)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -101,7 +104,10 @@ export default function Support({className, isMobile, forLienHePage, data}) {
     <section
       className={cn(
         'w-full bg-grey-0 relative flex flex-row justify-center max-md:h-fit max-md:pt-0 formSupport',
-        {'pt-[7rem] pb-[6rem] items-center max-md:px-[1rem]': !forLienHePage},
+        {
+          'pt-[7rem] pb-[6rem] items-center max-md:px-[1rem] max-md:mt-12':
+            !forLienHePage,
+        },
         className,
       )}
     >

@@ -5,11 +5,9 @@ import {useEffect, useRef, useState} from 'react'
 import Dropdown from './Dropdown'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
 import DropdownItem from './DropdownItem'
-import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
-import {ScrollSmoother} from 'gsap/ScrollSmoother'
-import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
+import {useGSAP} from '@gsap/react'
 
 export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
   const ref = useRef(null)
@@ -29,8 +27,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
       return [...prevState, value]
     })
   }
-  useGSAP(() => {
-    ScrollSmoother.create({...scrollSmootherConfig, normalizeScroll: true})
+  useEffect(() => {
     if (isMobile) {
       gsap.to(ref.current, {
         scrollTrigger: {
@@ -40,18 +37,22 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           endTrigger: '.section-du-an',
           end: 'bottom top',
           pinSpacing: false,
-          // pinReparent: true,
           onToggle: (self) => {
             const header = document.querySelector('.header')
             if (self.isActive) {
-              header.style.display = 'none'
+              header.style.opacity = 0
+              header.style.pointerEvents = 'none'
             } else {
-              header.style.display = 'block'
+              header.style.opacity = 1
+              header.style.pointerEvents = 'all'
             }
           },
         },
       })
-    } else {
+    }
+  }, [isMobile])
+  useGSAP(() => {
+    if (!isMobile) {
       gsap.to(pinRef.current, {
         scrollTrigger: {
           trigger: pinRef.current,
@@ -102,7 +103,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           )}
           <div
             ref={ref}
-            className='relative flex flex-row items-start md:pt-6 max-md:justify-around pt-[0.8rem] max-md:pb-[0.8rem] z-10 max-md:bg-white w-full'
+            className='relative flex flex-row items-start md:pt-6 max-md:justify-around max-md:py-[0.8rem] z-10 max-md:bg-white w-full'
           >
             <Dropdown
               icon={`/images/du-an/location.svg`}

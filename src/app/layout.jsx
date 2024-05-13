@@ -91,7 +91,6 @@ export default function RootLayout({children, params}) {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
       userAgent,
     )
-
   return (
     <html lang='vi'>
       <body

@@ -4,10 +4,19 @@ import getDataSlug from '@/lib/getDataSlug'
 import getData from '@/lib/getData'
 export default async function page({searchParams, params}) {
   const {slug} = params
-  let [dataSixReason,dataDetails,dataForm] = await Promise.all([
+  const {viewport} = searchParams
+  const isMobile = viewport?.includes('mobile')
+  let [dataSixReason, dataDetails, dataForm] = await Promise.all([
     getData(`/options/options/sixReasons`),
     getDataSlug(`/du-an/${slug}`),
-    getData(`/options/options/contactForm`)
+    getData(`/options/options/contactForm`),
   ])
-  return <ProjectDetails  dataSixReason={dataSixReason} dataForm={dataForm} data={dataDetails}/>
+  return (
+    <ProjectDetails
+      dataSixReason={dataSixReason}
+      dataForm={dataForm}
+      data={dataDetails}
+      isMobile={isMobile}
+    />
+  )
 }
