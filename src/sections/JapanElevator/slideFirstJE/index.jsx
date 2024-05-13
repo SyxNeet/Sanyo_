@@ -13,21 +13,25 @@ import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
-    const firstRef = useRef(null)
+
+  const dataAllElevatorNew = [dataAllElevator[8],dataAllElevator[7],dataAllElevator[6],dataAllElevator[5],dataAllElevator[4],dataAllElevator[3],dataAllElevator[2],dataAllElevator[1],dataAllElevator[0]]
+  const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
   useGSAP(() => {
-    gsap.to(firstRef.current, {
-      scrollTrigger: {
-        trigger: firstRef.current,
-        pin: true,
-        start: isMobile ? 'top top' : 'center top',
-        end: 'bottom top',
-        pinSpacing: false,
-        anticipatePin: 1
-      },
-    })
-  }, [])
+    if (!isMobile) {
+      gsap.to(firstRef.current, {
+        scrollTrigger: {
+          trigger: firstRef.current,
+          pin: true,
+          start: 'top top',
+          end: 'bottom top',
+          pinSpacing: false,
+          anticipatePin: 1
+        },
+      })
+    }
+  }, [isMobile])
   return (
     <section
       className='pt-4'
@@ -129,7 +133,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
           modules={[Pagination, Navigation]}
           className='mySwiperOnlyImages w-screen order-1'
         >
-          {dataAllElevator.map((img, index) => (
+          {dataAllElevatorNew?.map((img, index) => (
             <SwiperSlide
               key={index}
               className='!h-[41.5625rem] max-md:!h-[13.76756rem] '
