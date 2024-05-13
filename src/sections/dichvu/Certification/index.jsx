@@ -63,7 +63,7 @@ const Certification = ({data}) => {
           <div className='flex w-full justify-between'>
             <ButtonSLide
               className={
-                ' swiper-button-prev-procedure-certi border-[#fff] bg-white transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-yellow-500 max-md:bg-white max-md:border-white max-md:w-[2.5rem] max-md:h-[2.5rem]'
+                ' swiper-button-prev-procedure-certi border-[#fff] bg-white transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-yellow-500 max-md:bg-white max-md:border-white max-md:w-[2.5rem] max-md:h-[2.5rem] max-md:shadow-lg'
               }
               classNameSvg={
                 'w-[1rem] h-[1rem] text-yellow-500 md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]'
@@ -71,7 +71,7 @@ const Certification = ({data}) => {
             />
             <ButtonSLide
               className={
-                ' swiper-button-next-procedure-certi border-[#fff] bg-white transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-yellow-500 max-md:bg-white max-md:border-white max-md:w-[2.5rem] max-md:h-[2.5rem]'
+                ' swiper-button-next-procedure-certi border-[#fff] bg-white transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-yellow-500 max-md:bg-white max-md:border-white max-md:w-[2.5rem] max-md:h-[2.5rem] max-md:shadow-lg'
               }
               classNameSvg={
                 'w-[1rem] h-[1rem] text-yellow-500 rotate-180 md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]'

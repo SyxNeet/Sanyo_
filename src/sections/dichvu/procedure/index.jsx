@@ -79,7 +79,7 @@ const Procedure = ({data}) => {
           width={1000}
           height={1000}
           alt={item?.img?.alt}
-          className='h-[100vh] object-cover' data-aos='flip-right' duration='100' key={item?.img?.url}
+          className='h-[100vh] object-cover' data-aos="zoom-in" duration='100' key={item?.img?.url}
         />
       </div>
     </section>

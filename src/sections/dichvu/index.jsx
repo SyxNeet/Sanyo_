@@ -13,7 +13,7 @@ export default function DichVu({isMobile ,data}) {
   return (
     <main className='pt-9'>
       <HeaderDichVu isMobile={isMobile} data={header}/>
-      {isMobile ? <ProcedureMb /> : <Procedure data={procedure}/>}
+      {isMobile ? <ProcedureMb  data={procedure}/> : <Procedure data={procedure}/>}
       <ProductionLineSectionDV data={slideCommit} isMobile={isMobile}/>
       <Certification isMobile={isMobile} data={certificate}/>
       <Operate isMobile={isMobile} data={operate_elevator}/>

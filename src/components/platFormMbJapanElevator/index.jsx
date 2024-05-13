@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, {useRef, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {Pagination} from 'swiper/modules'
+import {Pagination,FreeMode} from 'swiper/modules'
 import {Button} from '@/components/ui/button'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -17,6 +17,7 @@ export default function SliderMbJapanElevator() {
     <div className='slide_elevator_custom_mb'>
       <Swiper
         className='slide_elevator_custom'
+        freeMode={true}
         pagination={{
           type: 'progressbar',
           el: '.paginationPlatFormMb',
@@ -24,7 +25,7 @@ export default function SliderMbJapanElevator() {
         slidesPerView={1.1}
         spaceBetween={0}
         loop={true}
-        modules={[Pagination]}
+        modules={[Pagination,FreeMode]}
       >
         {slideImages.map((item, index) => (
           <SwiperSlide key={index}  className='mt-4 pl-3 rounded-[0.5rem]  overflow-hidden '>
