@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import Pagination from '@/components/pagination/Pagination'
+import TinTucPagination from '@/components/pagination/TinTucPagination'
 import {cn} from '@/lib/utils'
 
 export default function News({
@@ -102,7 +102,7 @@ export default function News({
             {dataPosts.events.slice(1, 4).map((item) => {
               return (
                 <Link
-                  href={`item.detail_link`}
+                  href={item.detail_link}
                   className='relative rounded-[0.75rem] border border-[#E9E9E9] flex flex-row items-center p-[0.79rem] md:px-[1.13rem] md:py-4 overflow-hidden group max-md:-mt-2 first-of-type:mt-0'
                 >
                   <div className='size-[8rem] md:size-[9.3125rem] overflow-hidden rounded-[0.5rem] flex-none'>
@@ -221,7 +221,7 @@ export default function News({
           </>
         )}
       </div>
-      <Pagination
+      <TinTucPagination
         totalPage={dataPosts ? dataPosts.total_pages : 1}
         activePage={activePage}
         searchParams={searchParams}

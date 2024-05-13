@@ -99,9 +99,7 @@ export default function RootLayout({children, params}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
-        <Header
-          isMobile={isMobile}
-        />
+        <Header isMobile={isMobile} />
         <GsapProvider isMobile={isMobile}>
           {children}
           <Footer isMobile={isMobile} />

@@ -47,26 +47,29 @@ export default function LeaderShipMessageAndCoreValues({
   }, [isMobile])
 
   useEffect(() => {
-    const container = document.querySelector('.section-container')
-    const scrollLength = parseFloat(container.offsetHeight) - window.innerHeight
-    const fnc = () => {
-      const coreValuesLinks = document.querySelectorAll('.core-value-link')
-      const coreValueLinksLength = coreValuesLinks.length
-      const rect = container.getBoundingClientRect()
-      if (rect.top > 0) {
-        setActiveImage(undefined)
-      } else if (rect.top <= 0  &&  Math.abs(rect.top) <= scrollLength) {
-        const currentScroll = Math.abs(rect.top)
-        const scrollPerLink = scrollLength / coreValueLinksLength
-        const activeIndex = Math.floor(currentScroll / scrollPerLink)
-        setActiveImage(activeIndex)
-      } else if (rect.top <= 0 && Math.abs(rect.top) > scrollLength) {
-        setActiveImage(coreValueLinksLength - 1)
+    if (!isMobile) {
+      const container = document.querySelector('.section-container')
+      const scrollLength =
+        parseFloat(container.offsetHeight) - window.innerHeight
+      const fnc = () => {
+        const coreValuesLinks = document.querySelectorAll('.core-value-link')
+        const coreValueLinksLength = coreValuesLinks.length
+        const rect = container.getBoundingClientRect()
+        if (rect.top > 0) {
+          setActiveImage(undefined)
+        } else if (rect.top <= 0 && Math.abs(rect.top) <= scrollLength) {
+          const currentScroll = Math.abs(rect.top)
+          const scrollPerLink = scrollLength / coreValueLinksLength
+          const activeIndex = Math.floor(currentScroll / scrollPerLink)
+          setActiveImage(activeIndex)
+        } else if (rect.top <= 0 && Math.abs(rect.top) > scrollLength) {
+          setActiveImage(coreValueLinksLength - 1)
+        }
       }
+      window.addEventListener('scroll', fnc)
+      return () => window.removeEventListener('scroll', fnc)
     }
-    window.addEventListener('scroll', fnc)
-    return () => window.removeEventListener('scroll', fnc)
-  }, [])
+  }, [isMobile])
 
   return (
     <>
@@ -85,7 +88,8 @@ export default function LeaderShipMessageAndCoreValues({
               <Image
                 src={dataCoreValues?.image.url}
                 alt={
-                  dataCoreValues?.image.alt ?? 'Giá trị cốt lõi của SANYO YUSOKI'
+                  dataCoreValues?.image.alt ??
+                  'Giá trị cốt lõi của SANYO YUSOKI'
                 }
                 className={clsx(
                   'absolute top-0 left-0 object-cover w-full h-full transition-300',

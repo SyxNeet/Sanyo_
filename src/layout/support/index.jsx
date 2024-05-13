@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import imgBgForm from '../../../public/images/form/bgForm.png'
 import {useState, useEffect} from 'react'
 import {Button} from '@/components/ui/button'
 import {useRouter} from 'next/navigation'
@@ -103,15 +102,26 @@ export default function Support({className, isMobile, forLienHePage, data}) {
         className,
       )}
     >
-      {!forLienHePage && (
-        <Image
-          src={imgBgForm}
-          className='absolute w-full h-full -z-10'
-          alt='bgForm'
-        />
+      {!forLienHePage && isMobile && (
+        <>
+          <Image
+            src={`/images/support/support-bg-mobile.png`}
+            alt=''
+            className='absolute top-0 left-0 w-full h-[31.5rem] object-cover opacity-10'
+            width={1920}
+            height={1080}
+          />
+          <div
+            className='absolute top-0 left-0 w-full h-[31.5rem] object-cover'
+            style={{
+              background:
+                'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 34.27%, rgba(255, 255, 255, 0.00) 71.4%, #FFF 100%)',
+            }}
+          />
+        </>
       )}
       <div
-        className={cn('flex items-start max-md:w-full', {
+        className={cn('flex items-start max-md:w-full z-10', {
           'w-[90%] max-md:flex-col': !forLienHePage,
           'flex-col w-full md:mr-[3.25rem]': forLienHePage,
         })}
@@ -121,9 +131,6 @@ export default function Support({className, isMobile, forLienHePage, data}) {
             'w-[40%] mr-[6.19rem] max-md:mb-[1.25rem]': !forLienHePage,
           })}
         >
-          {/* <h3 className='text-grey-500 text-1.25 font-SVNLagu font-medium leading-1.5 tracking-0.1 uppercase opacity-80 mb-4 max-md:hidden'>
-            ĐĂNG KÝ LIÊN HỆ
-          </h3> */}
           <h2
             className={cn(
               'font-SVNLagu supportText text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold',
