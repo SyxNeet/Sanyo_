@@ -82,6 +82,9 @@ export default function Support({className, isMobile, forLienHePage, data}) {
         setName('')
         setPhone('')
         setMessage('')
+        setNameFocused(false)
+        setPhoneFocused(false)
+        setMessageFocused(false)
       } else {
         toast.error('Gửi thông tin thất bại')
       }

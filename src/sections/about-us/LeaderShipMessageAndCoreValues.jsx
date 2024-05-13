@@ -132,8 +132,9 @@ export default function LeaderShipMessageAndCoreValues({
                     <div
                       key={i}
                       className={clsx(
-                        'core-value-link pr-[1.88rem] pl-[2.94rem] py-[2.75rem] flex flex-row items-start border-t transition-300',
+                        'core-value-link relative pr-[1.88rem] pl-[2.94rem] py-[2.75rem] flex flex-row items-start border-t transition-300 group',
                         {
+                          '': activeImage !== i,
                           'bg-yellow-500': activeImage === i,
                         },
                       )}
@@ -143,8 +144,9 @@ export default function LeaderShipMessageAndCoreValues({
                           className={clsx(
                             'font-SVNLagu text-2.25 font-medium leading-1.3 mb-[0.44rem] transition-300',
                             {
+                              'text-yellow-500 ':
+                                activeImage !== i,
                               'text-white': activeImage === i,
-                              'text-yellow-500': activeImage !== i,
                             },
                           )}
                         >
@@ -152,8 +154,9 @@ export default function LeaderShipMessageAndCoreValues({
                         </h3>
                         <p
                           className={clsx(
-                            'text-1.125 font-Iciel font-medium leading-1.5 transition-300',
+                            'text-1.125 font-Iciel font-medium leading-1.5 transition-300 text-grey-500',
                             {
+                              '': activeImage !== i,
                               'text-white': activeImage === i,
                             },
                           )}
@@ -182,6 +185,13 @@ export default function LeaderShipMessageAndCoreValues({
                           strokeWidth='2.57143'
                         />
                       </svg>
+                      <Image
+                        src={`/images/about-us/core-value-link-hover-deco.svg`}
+                        alt=''
+                        className='absolute bottom-0 right-0 w-[8rem] h-[11.267rem]'
+                        width={120}
+                        height={120}
+                      />
                     </div>
                   )
                 })}

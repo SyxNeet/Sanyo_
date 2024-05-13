@@ -70,15 +70,17 @@ export default function ModalMenuMobile({
         />
         <div className='w-full h-[0.3rem] rounded-full bg-grey-0 opacity-5' />
         <Link
-          href={`/`}
+          href={`/du-an`}
           className='flex flex-row items-center text-grey-0 text-1.25 font-Iciel'
+          onClick={() => setIsOpenModalMenu(false)}
         >
           DỰ ÁN NỔI BẬT
         </Link>
         <div className='w-full h-[0.3rem] rounded-full bg-grey-0 opacity-5' />
         <Link
-          href={`/`}
+          href={`/ve-chung-toi`}
           className='flex flex-row items-center text-grey-0 text-1.25 font-Iciel'
+          onClick={() => setIsOpenModalMenu(false)}
         >
           VỀ CHÚNG TÔI
         </Link>
@@ -88,12 +90,14 @@ export default function ModalMenuMobile({
           <Link
             href={`/tin-tuc`}
             className='mb-5 text-grey-0 text-0.875 font-Iciel'
+            onClick={() => setIsOpenModalMenu(false)}
           >
-            BLOG
+            TIN TỨC
           </Link>
           <Link
             href={`/lien-he`}
             className='text-grey-0 text-0.875 font-Iciel'
+            onClick={() => setIsOpenModalMenu(false)}
           >
             LIÊN HỆ
           </Link>

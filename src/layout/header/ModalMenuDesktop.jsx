@@ -75,12 +75,12 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/`}
-                text={`GIỚI THIỆU`}
+                href={`/ve-chung-toi`}
+                text={`VỀ CHÚNG TÔI`}
                 isLink={true}
-                handleOnMouseEnter={() => setActiveModalMenuLink(`GIỚI THIỆU`)}
+                handleOnMouseEnter={() => setActiveModalMenuLink(`VỀ CHÚNG TÔI`)}
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
-                isActive={activeModalMenuLink === `GIỚI THIỆU`}
+                isActive={activeModalMenuLink === `VỀ CHÚNG TÔI`}
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
@@ -95,7 +95,7 @@ export default function ModalMenuDesktop({
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/`}
+                href={`/du-an`}
                 text={`DỰ ÁN NỔI BẬT`}
                 isLink={true}
                 handleOnMouseEnter={() =>
@@ -107,15 +107,15 @@ export default function ModalMenuDesktop({
               />
               <HeaderModalLink
                 href={`/tin-tuc`}
-                text={`BLOG`}
+                text={`TIN TỨC`}
                 isLink={true}
-                handleOnMouseEnter={() => setActiveModalMenuLink(`BLOG`)}
+                handleOnMouseEnter={() => setActiveModalMenuLink(`TIN TỨC`)}
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
-                isActive={activeModalMenuLink === `BLOG`}
+                isActive={activeModalMenuLink === `TIN TỨC`}
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
-                href={`/`}
+                href={`/lien-he`}
                 text={`LIÊN HỆ`}
                 isLink={true}
                 handleOnMouseEnter={() => setActiveModalMenuLink(`LIÊN HỆ`)}

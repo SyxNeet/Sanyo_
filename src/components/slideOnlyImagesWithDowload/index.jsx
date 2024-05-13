@@ -38,7 +38,11 @@ const SlideOnlyImagesDownload = ({data}) => {
                 SANYO YUSOKI
               </span>
             </div>
-            <div className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '>
+            <a
+              href={data.credential}
+              target='_blank'
+              className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '
+            >
               <span className='uppercase font-Iciel text-base font-medium leading-[120%] mr-[0.87rem]'>
                 tải xuống ngay
               </span>
@@ -59,7 +63,7 @@ const SlideOnlyImagesDownload = ({data}) => {
                 />
                 <div className='absolute w-[50%] h-[0.10025rem] bottom-0 bg-black left-[25%] lineDownLoadElevator'></div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
