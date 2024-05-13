@@ -3,7 +3,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import TinTucPagination from '@/components/pagination/TinTucPagination'
-import {cn} from '@/lib/utils'
+import clsx from 'clsx'
+import './styles.css'
 
 export default function News({
   isMobile,
@@ -20,14 +21,13 @@ export default function News({
           className='text-1.875 md:text-3 font-semibold text-grey-900 leading-1.3 font-SVNLagu [&_strong]:text-yellow-500 [&_strong]:font-semibold'
           dangerouslySetInnerHTML={{__html: dataNews.heading}}
         ></h1>
-        <nav className='ml-auto max-md:overflow-x-auto max-md:flex max-md:flex-row max-md:flex-nowrap max-md:mt-3 max-md:-mr-3'>
+        <nav className='ml-auto nav-buttons-tin-tuc-container max-md:overflow-x-auto max-md:flex max-md:flex-row max-md:flex-nowrap max-md:mt-3 max-md:-mr-3'>
           <Link
             href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc`}
-            className={cn(
+            className={clsx(
               'text-grey-600 border-grey-200 border font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] rounded-full flex-none transition-300',
               {
-                'text-grey-900 bg-yellow-500 border-yellow-500':
-                  !category,
+                'text-grey-900 bg-yellow-500 border-yellow-500': !category,
               },
             )}
           >
@@ -35,7 +35,7 @@ export default function News({
           </Link>
           <Link
             href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?category=tip-su-dung-thang-may`}
-            className={cn(
+            className={clsx(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
                 'text-grey-900 bg-yellow-500 border-yellow-500':
@@ -47,7 +47,7 @@ export default function News({
           </Link>
           <Link
             href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?category=tin-tuc-doanh-nghiep`}
-            className={cn(
+            className={clsx(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
                 'text-grey-900 bg-yellow-500 border-yellow-500':
@@ -73,7 +73,7 @@ export default function News({
                 width={1920}
                 height={1080}
               />
-              <div className='absolute left-[0.6rem] bottom-[0.5rem] md:bottom-6 md:left-6 rounded-[0.5rem] w-[20.7rem] md:w-[40.5625rem] pl-[0.92rem] md:pl-8 pr-[1.05rem] md:pr-[2.83rem] pt-[0.76rem] md:pt-5 pb-[1.2rem] md:pb-7 border border-transparent group-hover:border-yellow-500 transition-500 transition-500 z-10'>
+              <div className='absolute left-[0.6rem] bottom-[0.5rem] md:bottom-6 md:left-6 rounded-[0.5rem] w-[20.7rem] md:w-[40.5625rem] pl-[0.92rem] md:pl-8 pr-[1.05rem] md:pr-[2.83rem] pt-[0.76rem] md:pt-5 pb-[1.2rem] md:pb-7 border border-transparent group-hover:border-yellow-500 transition-500 z-10'>
                 <div className='absolute top-0 left-0 w-full h-full backdrop-blur-md rounded-[0.5rem] bg-black/35 group-hover:bg-black/45 transition-500 -z-10' />
                 <div className='flex flex-row items-center mb-[0.39rem] md:mb-4'>
                   <Image
@@ -103,7 +103,7 @@ export default function News({
               return (
                 <Link
                   href={item.detail_link}
-                  className='relative rounded-[0.75rem] border border-[#E9E9E9] flex flex-row items-center p-[0.79rem] md:px-[1.13rem] md:py-4 overflow-hidden group max-md:-mt-2 first-of-type:mt-0'
+                  className='relative rounded-[0.75rem] border border-[#E9E9E9] flex flex-row items-center p-[0.79rem] md:px-[1.13rem] md:py-4 overflow-hidden group max-md:-mt-2 first-of-type:mt-0 hover:border-yellow-500 transition-500'
                 >
                   <div className='size-[8rem] md:size-[9.3125rem] overflow-hidden rounded-[0.5rem] flex-none'>
                     <Image
@@ -120,7 +120,9 @@ export default function News({
                       {item.title}
                     </h3>
                     <p className='text-0.785 md:text-0.875 text-grey-500 leading-1.5 line-clamp-2 opacity-70 mb-[0.675rem]'>
-                      {item.excerpt}
+                      {item.excerpt.rendered
+                        ? item.excerpt
+                        : 'Tôi đang sống trong một căn hộ ở tầng 8 của một toà chung cư. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi.'}
                     </p>
                     <div className='flex flex-row items-center'>
                       <Image
@@ -182,7 +184,9 @@ export default function News({
                       {item.title}
                     </h3>
                     <p className='text-grey-500 font-Iciel text-0.785 md:text-0.875 opacity-70 leading-1.5 line-clamp-2 max-md:mb-[0.675rem]'>
-                      {item.excerpt}
+                      {item.excerpt.rendered
+                        ? item.excerpt
+                        : 'Tôi đang sống trong một căn hộ ở tầng 8 của một toà chung cư. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi.'}
                     </p>
                     <div className='flex flex-row items-center'>
                       <Image

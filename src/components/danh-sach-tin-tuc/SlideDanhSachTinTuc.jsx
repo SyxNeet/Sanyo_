@@ -47,10 +47,12 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
           swiperRef.current = swiper
         }}
         onSlideChange={(swiper) => {
-          const totalWidth = progressBarRef.current.offsetWidth
-          const fillPercent = (swiper.activeIndex + 1) / swiper.slides.length
-          fillProgressBarRef.current.style.width =
-            fillPercent * totalWidth + 'px'
+          if (isMobile) {
+            const totalWidth = progressBarRef.current.offsetWidth
+            const fillPercent = (swiper.activeIndex + 1) / swiper.slides.length
+            fillProgressBarRef.current.style.width =
+              fillPercent * totalWidth + 'px'
+          }
         }}
       >
         {data.events.map((item, i) => {
