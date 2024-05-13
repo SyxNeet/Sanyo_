@@ -23,7 +23,7 @@ export default function News({
         ></h1>
         <nav className='ml-auto nav-buttons-tin-tuc-container max-md:overflow-x-auto max-md:flex max-md:flex-row max-md:flex-nowrap max-md:mt-3 max-md:-mr-3'>
           <Link
-            href={`${window.location.host}/tin-tuc`}
+            href={`/tin-tuc`}
             className={clsx(
               'text-grey-600 border-grey-200 border font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] rounded-full flex-none transition-300',
               {
@@ -34,7 +34,7 @@ export default function News({
             Tất cả
           </Link>
           <Link
-            href={`${window.location.host}/tin-tuc?category=tip-su-dung-thang-may`}
+            href={`/tin-tuc?category=tip-su-dung-thang-may`}
             className={clsx(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
@@ -46,7 +46,7 @@ export default function News({
             Tip sử dụng thang máy
           </Link>
           <Link
-            href={`${window.location.host}/tin-tuc?category=tin-tuc-doanh-nghiep`}
+            href={`/tin-tuc?category=tin-tuc-doanh-nghiep`}
             className={clsx(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {

@@ -8,14 +8,14 @@ import DropdownItem from './DropdownItem'
 import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
+import {ScrollSmoother} from 'gsap/ScrollSmoother'
+import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 
 export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
   const ref = useRef(null)
   const pinRef = useRef(null)
   const [country, setCountry] = useState('all')
   const [elevatorTypeList, setElevatorTypeList] = useState(['all'])
-  // TODO
-  useEffect(() => {}, [])
   const handleChangeCountry = (value) => {
     setCountry(value)
   }
@@ -29,29 +29,26 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
       return [...prevState, value]
     })
   }
-  useEffect(() => {
-    const header = document.querySelector('.header')
-    header.style.display = 'none'
-  }, [])
   useGSAP(() => {
+    ScrollSmoother.create({...scrollSmootherConfig, normalizeScroll: true})
     if (isMobile) {
       gsap.to(ref.current, {
         scrollTrigger: {
           trigger: ref.current,
           pin: true,
-          anticipatePin: 1,
           start: 'top top',
           endTrigger: '.section-du-an',
           end: 'bottom top',
           pinSpacing: false,
-          // onToggle: (self) => {
-          //   const header = document.querySelector('.header')
-          //   if (self.isActive) {
-          //     header.style.display = 'none'
-          //   } else {
-          //     header.style.display = 'block'
-          //   }
-          // },
+          // pinReparent: true,
+          onToggle: (self) => {
+            const header = document.querySelector('.header')
+            if (self.isActive) {
+              header.style.display = 'none'
+            } else {
+              header.style.display = 'block'
+            }
+          },
         },
       })
     } else {
@@ -189,7 +186,9 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
               <DropdownItem
                 content='Thang chuyền'
                 active={elevatorTypeList.includes('thang-chuyen')}
-                handleOnClick={() => handleChangeElevatorTypeList('thang-chuyen')}
+                handleOnClick={() =>
+                  handleChangeElevatorTypeList('thang-chuyen')
+                }
               />
               <DropdownItem
                 content='Thang cuốn'
