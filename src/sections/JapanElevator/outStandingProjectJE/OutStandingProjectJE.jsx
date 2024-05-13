@@ -31,7 +31,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
       })
   }, [])
   return (
-    <section className='pt-[8.69rem] pl-[5.38rem] pr-[3.5rem] flex w-full max-md:flex-col max-md:px-0 max-md:pt-12'>
+    <section className='pt-[8.69rem] pl-[5.38rem] pr-[3.5rem] flex w-full max-md:flex-col max-md:px-0 max-md:pt-12 max-md:mb-[3rem]'>
       <div
         className='w-[25%] flex flex-col mr-[2%] max-md:w-full'
         ref={outStandingProjectRef}

@@ -108,10 +108,10 @@ export default function ProductionLineSectionDV({
                   }}
                 >
                   <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full flex flex-col justify-end items-center'>
-                  <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0'>
+                  <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0 max-md:text-[1.0625rem]'>
                       {item.title}
                     </h2>
-                    <h3 className='font-SVNLagu text-grey-0 md:text-1.375 text-[1.25rem] tracking-0.1 font-semibold text-center mb-1 md:mb-2 md:w-[47.5rem] w-full '>
+                    <h3 className='font-SVNLagu text-grey-0 md:text-1.375 text-[1.25rem] tracking-0.1 font-semibold text-center mb-1 md:mb-2 md:w-[47.5rem] w-full max-md:text-[0.75rem] '>
                       {item.desc}
                     </h3>
            

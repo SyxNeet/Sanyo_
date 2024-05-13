@@ -4,6 +4,8 @@ import Image from 'next/image'
 import imgBgForm from '../../../public/images/form/bgForm.png'
 import {useState, useEffect} from 'react'
 import {Button} from '@/components/ui/button'
+import {useRouter} from 'next/navigation'
+import {usePathname} from 'next/navigation'
 import {cn} from '@/lib/utils'
 import {toast} from 'sonner'
 
@@ -11,6 +13,8 @@ const nameReg = /[a-zA-Z\s]{4,}/
 const phoneReg = /\d{6,}/
 
 export default function Support({className, isMobile, forLienHePage, data}) {
+  const pathname = usePathname()
+  console.log('pathname', pathname)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -94,7 +98,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
   return (
     <section
       className={cn(
-        'w-full bg-grey-0 relative flex flex-row justify-center max-md:h-fit max-md:pt-0',
+        'w-full bg-grey-0 relative flex flex-row justify-center max-md:h-fit max-md:pt-0 formSupport',
         {'pt-[7rem] pb-[6rem] items-center max-md:px-[1rem]': !forLienHePage},
         className,
       )}
@@ -122,7 +126,11 @@ export default function Support({className, isMobile, forLienHePage, data}) {
           </h3> */}
           <h2
             className={cn(
-              'font-SVNLagu text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold [&_strong]:text-yellow-500 [&>p>trong]:font-semibold [&>p>trong]:text-yellow-500 [&>p>strong]:uppercase',
+              'font-SVNLagu supportText text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold',
+              pathname === '/thang-may-nhat-ban'
+                ? ' [&_strong]:text-c-nht'
+                : ' [&_strong]:text-yellow-500',
+              '[&>p>trong]:font-semibold [&>p>trong]:text-yellow-500 [&>p>strong]:uppercase',
               {
                 'mb-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]':
                   !forLienHePage,

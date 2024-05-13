@@ -66,20 +66,10 @@ const PerfectChoiceJE = ({data}) => {
             <div className='absolute left-0 top-0 w-[6.0625rem] h-[5.75rem] max-md:top:[0] bg-c-nht opacity-10 max-md:w-[2.375rem] max-md:h-[2.5rem]'></div>
             <div className='absolute left-[6.0625rem] top-[5.75rem] w-[3.5625rem] h-[3.5625rem] bg-c-nht opacity-10 max-md:w-[1.25rem] max-md:h-[1.0625rem] max-md:top-[2.5rem] max-md:left-[2.375rem]'></div>
             <div className='h-full w-full relative'>
-              <Image
-                src={dauphayImg}
-                alt='dau phay'
-                className='absolute left-0 top-[5%] w-[1.375rem] h-[1.375rem] max-md:w-[0.92688rem] max-md:h-[0.92688rem] max-md:top-[3%]'
-              />
-              <Image
-                src={dauphayImg}
-                alt='dau phay'
-                className='w-[1.375rem] h-[1.375rem] absolute bottom-[5%] left-[37%] dauphay2 max-md:w-[0.92688rem] max-md:h-[0.92688rem] max-md:left-[68%]'
-              />
-              <div
+              <blockquote
                 className='pragraphJE font-SVNLagu text-gray-900 font-semibold leading-1.4 text-[2rem] max-md:text-[1.125rem] [&>p>strong]:text-c-nht [&>p>strong]:font-semibold'
                 dangerouslySetInnerHTML={{__html: data?.description_1}}
-              ></div>
+              ></blockquote>
             </div>
           </div>
         </div>

@@ -5,12 +5,12 @@ async function getSupport() {
   return getData(`/options/options/contactForm`)
 }
 
-export default async function SupportLayout({children, params}) {
+export default async function SupportLayout({children, params, type}) {
   const dataSupport = await getSupport()
   return (
     <>
       {children}
-      <Support data={dataSupport.contactForm} />
+      <Support data={dataSupport.contactForm}/>
     </>
   )
 }

@@ -2,13 +2,12 @@
 import React, {useState} from 'react'
 import ButtonSLide from '../../components/buttonSlideSixReasons/ButtonSLide'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {Navigation, Pagination} from 'swiper/modules'
+import {Navigation, Pagination,FreeMode} from 'swiper/modules'
 import 'swiper/css'
 import './style.css'
 import ReasonChoose from '../reasonChoose'
 const SixReasons = ({isMobile, data, isJapan}) => {
   const slides = data?.sixReasons?.slide_six_reasons.slice(0, 6)
-  console.log(isJapan)
   const [activeSlide, setActiveSlide] = useState(0)
   const handleSlideChange = (swiper) => {
     setActiveSlide(swiper.activeIndex)
@@ -71,12 +70,13 @@ const SixReasons = ({isMobile, data, isJapan}) => {
             type: 'fraction',
             el: '.swiper-pagination-sixReasons',
           }}
+          freeMode={isMobile?true:false}
           navigation={{
             nextEl: '.swiper-button-next-sixReasons',
             prevEl: '.swiper-button-prev-sixReasons',
           }}
           breakpoints={breakpoints}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation,FreeMode]}
           onSlideChange={handleSlideChange}
         >
           {slides?.map((slide, index) => (
@@ -92,18 +92,18 @@ const SixReasons = ({isMobile, data, isJapan}) => {
       <div className='md:hidden flex px-3 mt-[1.5rem] justify-between'>
         <div className='flex'>
           <ButtonSLide
-            className={`swiper-button-prev-sixReasons ${isJapan?'border-c-nht':'!border-yellow-500'} transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-yellow-500 max-md:border-yellow-500 max-md:w-[2.5rem] max-md:h-[2.5rem]`}
+            className={`swiper-button-prev-sixReasons ${isJapan?'border-c-nht':'!border-yellow-500'} transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] ${!isJapan?'max-md:bg-yellow-500':'max-md:bg-c-nht'} ${isJapan?'max-md:border-c-nht':'max-md:border-yellow-500'} max-md:w-[2.5rem] max-md:h-[2.5rem]`}
             classNameSvg={`w-[1rem] h-[1rem] text-[#FE4127] ${
               isJapan ? 'text-[#FE4127]' : 'text-yellow-500'
-            }  md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]`}
+            }  md:group-hover:text-white ${isJapan?'text-white':'text-black'} max-md:w-[0.875rem] max-md:h-[0.875rem]`}
           />
           <ButtonSLide
             className={`swiper-button-next-sixReasons  ${
               isJapan ? 'border-[#FE4127]' : 'border-yellow-500'
-            }transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-yellow-500 max-md:border-yellow-500 max-md:w-[2.5rem] max-md:h-[2.5rem]`}
+            }transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] ${!isJapan?'max-md:bg-yellow-500':'max-md:bg-c-nht'} ${isJapan?'max-md:border-c-nht':'max-md:border-yellow-500'} max-md:w-[2.5rem] max-md:h-[2.5rem]`}
             classNameSvg={`w-[1rem] h-[1rem] ${
               isJapan ? 'text-[#FE4127]' : 'text-yellow-500'
-            } rotate-180 md:group-hover:text-white max-md:text-black max-md:w-[0.875rem] max-md:h-[0.875rem]`}
+            } rotate-180 md:group-hover:text-white ${isJapan?'text-white':'text-black'} max-md:w-[0.875rem] max-md:h-[0.875rem]`}
           />
         </div>
         <div className={`swiper-pagination-sixReasons hidden w-[4.3125rem] rounded-full  h-[2.5rem] bg-yellow-500 bg-opacity-10 max-md:flex items-center justify-center ${isJapan?'!text-c-nht':'!text-yellow-500'} font-Iciel text-sm `}></div>

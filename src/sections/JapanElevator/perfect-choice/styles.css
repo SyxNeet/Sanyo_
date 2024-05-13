@@ -1,8 +1,33 @@
 .pragraphJE p::before{
-    content: "";
-    margin-left: 4rem;
+    content: open-quote;
+    color:#FE4127;
+    font-family: sans-serif;
+    margin-right: 2.5rem;
+    display: inline-block;
+    font-size: 4rem;
+    transform: translateY(1rem);
 }
 .pragraphJE p::after{
-    content: "";
-    margin-right: 4rem;
+    content: close-quote;
+    color:#FE4127;
+    font-family: sans-serif;
+    margin-left: 2.5rem;
+    display: inline-block;
+    font-size: 3.6rem;
+    position: absolute;
 }
+blockquote {
+    quotes: "“" "”";
+  }
+  @media (max-width: 768px) {
+    .pragraphJE p::before{
+        font-size:2.5rem;
+        margin-right: 1.5rem;
+    }
+    .pragraphJE p::after{
+        font-size: 2.3rem;
+        margin-left: 1.5rem;
+        bottom: 0;
+    }
+    
+  }
