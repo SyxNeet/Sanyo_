@@ -11,6 +11,7 @@ import DuAnPagination from '@/components/pagination/DuAnPagination'
 
 export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
   const ref = useRef(null)
+  const pinRef = useRef(null)
   const [country, setCountry] = useState('all')
   const [elevatorTypeList, setElevatorTypeList] = useState(['all'])
   // TODO
@@ -51,12 +52,34 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           },
         },
       })
+    } else {
+      gsap.to(pinRef.current, {
+        scrollTrigger: {
+          trigger: pinRef.current,
+          pin: true,
+          anticipatePin: 1,
+          start: 'top top',
+          endTrigger: '.section-du-an',
+          end: 'bottom bottom',
+          pinSpacer: false,
+          // onToggle: (self) => {
+          //   const header = document.querySelector('.header')
+          //   if (self.isActive) {
+          //     header.style.opacity = 0
+          //     header.style.pointerEvents = 'none'
+          //   } else {
+          //     header.style.opacity = 1
+          //     header.style.pointerEvents = 'all'
+          //   }
+          // },
+        },
+      })
     }
   }, [isMobile])
   return (
-    <section className='mb-[7rem]'>
-      <div className='section-du-an relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
-        {!isMobile && (
+    <section className='section-du-an mb-[7rem]'>
+      <div className='relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
+        {!isMobile &&(
           <>
             <Image
               src={`/images/du-an/du-an-bg.jpg`}
@@ -75,9 +98,12 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           </>
         )}
         {/* TODO: to client */}
-        <div className='md:basis-[27%] md:mr-[5rem] z-20'>
+        <div
+          ref={pinRef}
+          className='md:basis-[27%] md:!mr-[3rem] z-20 py-[6.5rem] -translate-y-[5.5rem]'
+        >
           <h2
-            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5'
+            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 md:mr-4'
             dangerouslySetInnerHTML={{__html: dataDanhSachDuAn.heading}}
           ></h2>
           {!isMobile && (
@@ -177,7 +203,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           </div>
         </div>
         {/* TODO: to server */}
-        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5'>
+        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
           <DuAnItem
             imgFlagUrl={`/images/du-an/country-1.png`}
             altImageFlag={`/`}
