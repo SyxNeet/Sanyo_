@@ -52,7 +52,7 @@ const Button = React.forwardRef(
         {...props}
       >
         <span
-          className={`font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900 ${props?.classtext}`}
+          className={`font-Iciel ${isRed?'group-hover:text-white max-md:text-c-nht':''} md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900 ${props?.classtext}`}
         >
           {text}
         </span>
@@ -62,7 +62,7 @@ const Button = React.forwardRef(
           height='16'
           viewBox='0 0 15 16'
           fill='none'
-          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover} }`}
+          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover} ${isRed?'group-hover:[&>path]:fill-white max-md:[&>path]:fill-c-nht':''}`}
         >
           <path
             d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
