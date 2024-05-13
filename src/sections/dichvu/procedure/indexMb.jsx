@@ -4,79 +4,16 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import {Pagination, Navigation} from 'swiper/modules'
+import {Pagination, Navigation, FreeMode} from 'swiper/modules'
 import ButtonSLide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import Image from 'next/image'
-const ProcedureMb = () => {
-  const data = [
-    {
-      title: 'Bước 1: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 2: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img2.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 3: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img3.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 4: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img4.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-    {
-      title: 'Bước 5: XÁC ĐỊNH YÊU CẦU CỦA KHÁCH HÀNG',
-      url: '/images/dich-vu/img5.png',
-      content:
-        'Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn Sau khi tiếp nhận thông tin khách hàng, nhân viên kinh doanh của chúng tôi sẽ liên hệ bạn để liên hệ để làm rõ như cầu của bạn',
-      steps: [
-        'Mục đích lắp đặt thang máy',
-        'Số điểm dừng mà khách hàng dự định lắp đặt',
-        'Các yêu cầu về chi tiết trang trí cho thang máy',
-        'Hẹn lịch khảo sát công trình lắp đặt thang máy',
-      ],
-    },
-  ]
+const ProcedureMb = ({data}) => {
   return (
     <section className='relative mb-14'>
       <div className='w-[4rem] h-[3rem] bg-yellow-500 opacity-10 absolute left-0 top-0'></div>
       <div className='w-[1rem] h-[1rem] bg-yellow-500 opacity-10 absolute left-[4rem] top-[3rem]'></div>
-      <h2 className='font-SVNLagu text-[1.375rem] font-semibold leading-1.3 pt-[4.56rem] px-3 border-b border-[rgba(28,32,28,0.10)] pb-4 mb-4'>
-        Quy trình dịch vụ chuyên nghiệp từ ĐỘI NGŨ CHUYÊN GIA
+      <h2 className='font-SVNLagu text-[1.375rem] font-semibold leading-1.3 pt-[4.56rem] px-3 border-b border-[rgba(28,32,28,0.10)] pb-4 mb-4 [&>p>strong]:font-semibold [&>p>strong]:font-yellow-500' dangerouslySetInnerHTML={{__html:data?.heading}}>
+        
       </h2>
       <div>
         <Swiper
@@ -84,22 +21,23 @@ const ProcedureMb = () => {
             el:".swiper-pagination-procedure",
             type: 'fraction',
         }}
+        freeMode={true}
         navigation={{
             nextEl:".swiper-button-next-procedure",
             prevEl:".swiper-button-prev-procedure",
         }}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation,FreeMode]}
           className='mySwiper'
         >
-          {data.map((item, index) => (
+          {data.list_procedure?.map((item, index) => (
             <SwiperSlide
               key={index}
               
             >
               <div className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3'>
-                {item?.title}
+                {item?.name_step}
               </div>
-              {item?.steps?.map((item, index) => (
+              {item?.list_steps?.map((item, index) => (
                 <div
                   key={index}
                   className='flex items-start mb-[1.25rem] px-3'
@@ -108,11 +46,11 @@ const ProcedureMb = () => {
                     {index + 1}
                   </div>
                   <span className='font-Iciel text-[0.875rem] leading-1.5 font-normal text-grey-400 block w-[90%]'>
-                    {item}
+                    {item.name}
                   </span>
                 </div>
               ))}
-              <Image src={item?.url} alt='test' width={1000} height={1000} className='w-full h-[20.375rem]'/>
+              <Image src={item?.img?.url} alt='test' width={1000} height={1000} className='w-full h-[22.375rem] object-cover'/>
             </SwiperSlide>
           ))}
         </Swiper>

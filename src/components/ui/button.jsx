@@ -5,6 +5,7 @@ import {cva} from 'class-variance-authority'
 import {cn} from '@/lib/utils'
 import Image from 'next/image'
 
+
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
@@ -61,11 +62,11 @@ const Button = React.forwardRef(
           height='16'
           viewBox='0 0 15 16'
           fill='none'
-          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover}`}
+          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover} }`}
         >
           <path
             d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
-            fill={`${isBlack ? '#1E2125' : 'white'}`}
+            fill={(isBlack ? '#1E2125' : 'white')}
           />
         </svg>
         <div className={`absolute inset-0 ${ isRed ? 'bg-hover_button_red' : 'bg-hover_button'} translate-y-[100%] box_button_hover transition-all duration-300 w-[200%]`}></div>

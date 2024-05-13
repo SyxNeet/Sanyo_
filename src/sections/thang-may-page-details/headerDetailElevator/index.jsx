@@ -158,8 +158,9 @@ const HeaderDetailElevator = (data) => {
                     src={item?.image?.url}
                     className='object-cover w-full h-full'
                     alt={item?.image?.alt}
-                    width={1000}
-                    height={1000}
+                    width={1500}
+                    height={1500}
+                    quality={100}
                   />
                 </SwiperSlide>
               ))}
