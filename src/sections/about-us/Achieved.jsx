@@ -82,7 +82,7 @@ export default function Achieved({isMobile, data}) {
               </p>
             </div>
           )}
-          <div className='w-[84%] md:w-full mx-auto achieved-num-container grid grid-cols-2 items-center md:ml-[7.56rem] gap-y-[1.56rem] md:gap-x-[11.4rem]'>
+          <div className='w-[84%] md:w-full mx-auto achieved-num-container grid grid-cols-2 items-center md:ml-[7.56rem] gap-y-3 md:gap-y-[1.56rem] md:gap-x-[11.4rem]'>
             {data.content.map((item, i) => {
               return (
                 <AchievedNum

@@ -1,11 +1,9 @@
 'use client'
 
-import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import Image from 'next/image'
 import {useEffect, useRef, useState} from 'react'
 import {toast} from 'sonner'
 import Link from 'next/link'
-import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 
 export default function DetailNew({isMobile, data}) {
   const smootherRef = useRef(null)
@@ -25,9 +23,6 @@ export default function DetailNew({isMobile, data}) {
       })
     }
   }, [data])
-  useEffect(() => {
-    smootherRef.current = ScrollSmoother.create(scrollSmootherConfig)
-  }, [])
   return (
     <section className='pt-5 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3'>
       <h1 className='text-1.5 md:text-3 font-semibold leading-1.1 text-grey-700 font-SVNLagu md:text-center w-[18.875rem] md:w-[53.625rem] md:mx-auto mb-6 md:mb-8'>
