@@ -23,7 +23,7 @@ export default function News({
         ></h1>
         <nav className='ml-auto nav-buttons-tin-tuc-container max-md:overflow-x-auto max-md:flex max-md:flex-row max-md:flex-nowrap max-md:mt-3 max-md:-mr-3'>
           <Link
-            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc`}
+            href={`${window.location.host}/tin-tuc`}
             className={clsx(
               'text-grey-600 border-grey-200 border font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] rounded-full flex-none transition-300',
               {
@@ -34,7 +34,7 @@ export default function News({
             Tất cả
           </Link>
           <Link
-            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?category=tip-su-dung-thang-may`}
+            href={`${window.location.host}/tin-tuc?category=tip-su-dung-thang-may`}
             className={clsx(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
@@ -46,7 +46,7 @@ export default function News({
             Tip sử dụng thang máy
           </Link>
           <Link
-            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?category=tin-tuc-doanh-nghiep`}
+            href={`${window.location.host}/tin-tuc?category=tin-tuc-doanh-nghiep`}
             className={clsx(
               'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
               {
@@ -102,7 +102,7 @@ export default function News({
             {dataPosts.events.slice(1, 4).map((item) => {
               return (
                 <Link
-                  href={item.detail_link}
+                  href={`/tin-tuc/${item.detail_link}`}
                   className='relative rounded-[0.75rem] border border-[#E9E9E9] flex flex-row items-center p-[0.79rem] md:px-[1.13rem] md:py-4 overflow-hidden group max-md:-mt-2 first-of-type:mt-0 hover:border-yellow-500 transition-500'
                 >
                   <div className='size-[8rem] md:size-[9.3125rem] overflow-hidden rounded-[0.5rem] flex-none'>
@@ -120,9 +120,7 @@ export default function News({
                       {item.title}
                     </h3>
                     <p className='text-0.785 md:text-0.875 text-grey-500 leading-1.5 line-clamp-2 opacity-70 mb-[0.675rem]'>
-                      {item.excerpt.rendered
-                        ? item.excerpt
-                        : 'Tôi đang sống trong một căn hộ ở tầng 8 của một toà chung cư. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi.'}
+                      {item.excerpt}
                     </p>
                     <div className='flex flex-row items-center'>
                       <Image
@@ -184,9 +182,7 @@ export default function News({
                       {item.title}
                     </h3>
                     <p className='text-grey-500 font-Iciel text-0.785 md:text-0.875 opacity-70 leading-1.5 line-clamp-2 max-md:mb-[0.675rem]'>
-                      {item.excerpt.rendered
-                        ? item.excerpt
-                        : 'Tôi đang sống trong một căn hộ ở tầng 8 của một toà chung cư. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi. Phòng ngủ tuy đã cách vách thang máy bởi một khu bếp rồi mà lúc thang chạy vẫn có tiếng kêu ù ù. Vì tòa nhà đông người, nhu cầu đi lại nhiều nên tiếng động này ảnh hưởng không nhỏ đến sinh hoạt của cả gia đình tôi.'}
+                      {item.excerpt}
                     </p>
                     <div className='flex flex-row items-center'>
                       <Image

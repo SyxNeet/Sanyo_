@@ -11,6 +11,7 @@ import DuAnPagination from '@/components/pagination/DuAnPagination'
 
 export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
   const ref = useRef(null)
+  const pinRef = useRef(null)
   const [country, setCountry] = useState('all')
   const [elevatorTypeList, setElevatorTypeList] = useState(['all'])
   // TODO
@@ -28,6 +29,10 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
       return [...prevState, value]
     })
   }
+  useEffect(() => {
+    const header = document.querySelector('.header')
+    header.style.display = 'none'
+  }, [])
   useGSAP(() => {
     if (isMobile) {
       gsap.to(ref.current, {
@@ -39,23 +44,33 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           endTrigger: '.section-du-an',
           end: 'bottom top',
           pinSpacing: false,
-          onToggle: (self) => {
-            const header = document.querySelector('.header')
-            if (self.isActive) {
-              header.style.opacity = 0
-              header.style.pointerEvents = 'none'
-            } else {
-              header.style.opacity = 1
-              header.style.pointerEvents = 'all'
-            }
-          },
+          // onToggle: (self) => {
+          //   const header = document.querySelector('.header')
+          //   if (self.isActive) {
+          //     header.style.display = 'none'
+          //   } else {
+          //     header.style.display = 'block'
+          //   }
+          // },
+        },
+      })
+    } else {
+      gsap.to(pinRef.current, {
+        scrollTrigger: {
+          trigger: pinRef.current,
+          pin: true,
+          anticipatePin: 1,
+          start: 'top top',
+          endTrigger: '.section-du-an',
+          end: 'bottom bottom',
+          pinSpacer: false,
         },
       })
     }
   }, [isMobile])
   return (
-    <section className='mb-[7rem]'>
-      <div className='section-du-an relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
+    <section className='section-du-an mb-[7rem]'>
+      <div className='relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
         {!isMobile && (
           <>
             <Image
@@ -75,9 +90,12 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           </>
         )}
         {/* TODO: to client */}
-        <div className='md:basis-[27%] md:mr-[5rem] z-20'>
+        <div
+          ref={pinRef}
+          className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
+        >
           <h2
-            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5'
+            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 [&_p]:block'
             dangerouslySetInnerHTML={{__html: dataDanhSachDuAn.heading}}
           ></h2>
           {!isMobile && (
@@ -87,7 +105,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           )}
           <div
             ref={ref}
-            className='relative flex flex-row items-start md:pt-8 max-md:justify-around pt-[0.8rem] max-md:pb-[0.8rem] z-10 max-md:bg-white w-full'
+            className='relative flex flex-row items-start md:pt-6 max-md:justify-around pt-[0.8rem] max-md:pb-[0.8rem] z-10 max-md:bg-white w-full'
           >
             <Dropdown
               icon={`/images/du-an/location.svg`}
@@ -169,6 +187,11 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
                 }
               />
               <DropdownItem
+                content='Thang chuyền'
+                active={elevatorTypeList.includes('thang-chuyen')}
+                handleOnClick={() => handleChangeElevatorTypeList('thang-chuyen')}
+              />
+              <DropdownItem
                 content='Thang cuốn'
                 active={elevatorTypeList.includes('thang-cuon')}
                 handleOnClick={() => handleChangeElevatorTypeList('thang-cuon')}
@@ -177,7 +200,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           </div>
         </div>
         {/* TODO: to server */}
-        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5'>
+        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
           <DuAnItem
             imgFlagUrl={`/images/du-an/country-1.png`}
             altImageFlag={`/`}

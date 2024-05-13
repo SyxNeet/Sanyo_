@@ -47,7 +47,7 @@ export default function Achieved({isMobile, data}) {
         '.japan',
         {
           scale: 1,
-          duration: 0.8,
+          duration: 1.2,
         },
         '>+=0.4',
       )
