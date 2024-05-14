@@ -55,15 +55,17 @@ const OutStandingProjectJE = ({isMobile, data}) => {
             ></span>
           </div>
         )}
-        <Button
-          className='w-fit max-md:hidden mt-[2.44rem]'
-          isRed={true}
-          text='Xem tất cả'
-          isHover={true}
-          isBlack={true}
-          classHover={'group-hover'}
-          classtext={'group-hover:text-white'}
-        />
+        <Link href={'/du-an'}>
+          <Button
+            className='w-fit max-md:hidden mt-[2.44rem]'
+            isRed={true}
+            text='Xem tất cả'
+            isHover={true}
+            isBlack={true}
+            classHover={'group-hover'}
+            classtext={'group-hover:text-white'}
+          />
+        </Link>
       </div>
       {isMobile ? (
         <div className='mbOutStandingSLide'>
@@ -107,7 +109,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
             ))}
           </Swiper>
           <div className='mt-[1.31rem] flex px-3 justify-between mbOutStandingSLideBtn'>
-            <Link href={'/'}>
+            <Link href={'/du-an'}>
               <Button
                 className='w-fit border-[#FE4127] hover:border-[#FE4127]'
                 isRed={true}

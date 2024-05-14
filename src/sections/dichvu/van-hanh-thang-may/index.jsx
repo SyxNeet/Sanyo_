@@ -9,7 +9,6 @@ import {Button} from '@/components/ui/button'
 import ItemOperate from './item-van-hanh'
 const Operate = ({isMobile = true,data}) => {
   function handleClick() {
-    console.log('click')
     const element = document.getElementById('formSupport');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });

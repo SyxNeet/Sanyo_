@@ -9,7 +9,7 @@ import PerfectChoiceJE from './perfect-choice/PerfectChoiceJE'
 import ElevatorJapan from './ElevatorJapan/ElevatorJapan'
 import SixReasonJE from './sixReasonJE/sixReasonJE'
 import OutStandingProjectJE from './outStandingProjectJE/OutStandingProjectJE'
-const JapanElevator = ({isMobile, data,dataSixReason,dataAllElevator}) => {
+const JapanElevator = ({isMobile, data,dataSixReason,dataAllElevator,dataListEle}) => {
   const {
     banner,
     japan_elevator,
@@ -36,6 +36,7 @@ const JapanElevator = ({isMobile, data,dataSixReason,dataAllElevator}) => {
       <ElevatorJapan
         isMobile={isMobile}
         data={japan_elevator}
+        dataListEle={dataListEle}
       />
       <SixReasonJE isMobile={isMobile} data={dataSixReason} isJapan={true}/>
       <OutStandingProjectJE

@@ -13,11 +13,10 @@ import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import './styles.css'
 const DetailElevator = ({type = false, data, title,isJapan=false}) => {
-  console.log(data)
   return (
     <div
       className={`flex border-t border-b border-[rgba(28,32,28,0.10)] detailElevator ${
-        type ? 'justify-between' : 'flex-row-reverse w-ful justify-end pl-[6.25rem] border-t-0'
+        type ? 'justify-between' : 'flex-row-reverse w-ful justify-end  border-t-0'
       } `}
     >
       <div
@@ -208,20 +207,22 @@ const DetailElevator = ({type = false, data, title,isJapan=false}) => {
           </div>
         </Link>
       </div>
-      <div className='w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ml-[3rem] mr-[3.69rem]'></div>
+      <div className={`w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ml-[3rem] ${!type?"mr-[3.69rem]":"mr-0"}`}></div>
       <div className='pt-[3.5rem] relative'>
         <Swiper
+         dir={!type ? "rtl" : undefined}
           spaceBetween={30}
           navigation={{
             nextEl: '.swiper-button-next-CTtm',
             prevEl: '.swiper-button-prev-CTtm',
           }}
-          slidesPerView={1.2}
+          slidesPerView={1.3}
           modules={[Navigation]}
-          className='mySwiperThongSoThangMay w-[32.875rem]' 
+          className={`mySwiperThongSoThangMay ${!type?'w-[32.875rem]':'w-[37.875rem]'}`}
         >
           {data?.thong_so_thang_may?.image?.map((item, index) => (
             <SwiperSlide key={index}>
+              
               <Image
                 src={item?.url}
                 width={1000}
@@ -233,7 +234,7 @@ const DetailElevator = ({type = false, data, title,isJapan=false}) => {
           ))}
         </Swiper>
         <div className='pr-[7rem]  h-[10%] '>
-            <div className='flex w-full h-[10%] justify-between absolute top-[46%] translate-x-[-1.5rem] left-0 z-50'>
+            <div className={`flex w-[90%] h-[10%] justify-between absolute top-[46%]  left-0 z-50 [&>.swiper-button-lock]:!flex ${!type?'translate-x-[5.5rem]':''}`}>
               <ButtonSLide
                 className={
                   ` swiper-button-prev-CTtm ${isJapan?'border-c-nht hover:bg-c-nht':'!border-yellow-500 hover:!bg-yellow-500'} transition ease-in cursor-pointer w-[3.5rem] bg-white h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] max-md:bg-yellow-500 max-md:border-yellow-500 max-md:w-[2.5rem] max-md:h-[2.5rem]`
