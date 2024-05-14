@@ -6,7 +6,7 @@ import ProductionLineSection from '../about-us/ProductionLineSection'
 import FiveReasonsFamily from './fiveReasonsFamily'
 import ActualConstruction from './actualConstruction'
 const FamilyElevator = ({isMobile,data}) => {
-  const {banner,connectLove,elevator,slide,first_reason,second_reason,third_reason,fourth_reason,fifth_reason,list_image_construction,heading,heading_reason} = data?.posts?.[0]
+  const {banner,title,connectLove,elevator,slide,first_reason,second_reason,third_reason,fourth_reason,fifth_reason,list_image_construction,heading,heading_reason} = data[0]
   const reasons = {
     first_reason,
     second_reason,
@@ -20,12 +20,12 @@ const FamilyElevator = ({isMobile,data}) => {
   }
   return (
     <main>
-      <HeaderDetailElevator data={banner}/>
+      <HeaderDetailElevator data={banner} title={title}/>
       <ConnectLove data={connectLove}/>
       <ListElevator isMobile={isMobile} data={elevator} />
       <ProductionLineSection data={slide} justSlide={true}/>
       <FiveReasonsFamily isMobile={isMobile} data={reasons}/>
-      <ActualConstruction isMobile={isMobile} data={datafif}/>
+      <ActualConstruction isMobile={isMobile} data={datafif} heading={heading}/>
     </main>
   )
 }

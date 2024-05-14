@@ -110,6 +110,7 @@ export default function Support({
         },
         className,
       )}
+      id='formSupport'
     >
       {!forLienHePage && isMobile && (
         <>

@@ -45,7 +45,7 @@ const ConnectLove = ({data}) => {
           </span>
         </div>
       </div>
-      <SlideOnlyImages data={data.slide} className={'!h-[33.9375rem]'} />
+      <SlideOnlyImages data={data?.slide} className={'!h-[33.9375rem]'} />
     </section>
   )
 }

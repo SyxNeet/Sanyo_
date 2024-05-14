@@ -43,7 +43,7 @@ const FirstReason = ({lang, isMobile,data}) => {
             className={`listSecurity  h-full overflow-hidden`}
             style={{maxHeight: maxHeight}}
           >
-            {data?.list_functions?.map((item, index) => (
+            {(data?.list_functions||[]).map((item, index) => (
               <div key={index}>
                 <span className='font-SVNLagu text-[1.75rem] border-b border-[rgba(28,32,28,0.10)] w-full block pb-[1.25rem] mb-[1.25rem] max-md:text-[1rem] max-md:mb-[0.68rem] max-md:pb-[0.68rem]'>
                   {item?.function}

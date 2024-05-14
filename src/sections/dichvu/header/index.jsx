@@ -9,7 +9,8 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import SlideOnlyImagesDownloadDV from '@/components/slideOnlyImagesWithDowloadDV'
-const HeaderDichVu = ({data}) => {
+const HeaderDichVu = ({data,isMobile}) => {
+  
   return (
     <section>
       <BreadcrumbContainer className='ml-3 md:mx-[6.25rem]'>
@@ -19,7 +20,7 @@ const HeaderDichVu = ({data}) => {
           DỊCH VỤ LẮP ĐẶT THANG MÁY THEO YÊU CẦU
         </BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownloadDV data={data}/>
+      <SlideOnlyImagesDownloadDV data={data} isMobile={isMobile}/>
     </section>
   )
 }

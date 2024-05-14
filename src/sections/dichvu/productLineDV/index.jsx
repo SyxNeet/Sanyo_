@@ -17,7 +17,7 @@ export default function ProductionLineSectionDV({
   justSlide = false,
 }) {
   const [activeImage, setActiveImage] = useState(0)
-  const arrayData = data?.slide || data
+  const arrayData = data?.slide ?? data 
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
@@ -41,7 +41,7 @@ export default function ProductionLineSectionDV({
          
         </h3>
         <h2
-          className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
+          className='md:w-[66.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
           dangerouslySetInnerHTML={{
             __html:
               data?.desc ||

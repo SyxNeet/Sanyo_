@@ -108,7 +108,7 @@ const FourthReason = ({lang, isMobile,data}) => {
             <div
               className='secondReasons'
             >
-              {data?.list_doors?.map((item, index) => (
+              {(data?.list_doors||[]).map((item, index) => (
                 <div
                   className={`itemShowmore mb-[1.25rem] border-b border-[rgba(28,32,28,0.10)] pb-5 ${
                     expandedIndex === index ? 'h-[7.5rem] max-md:h-[6.5rem]' : 'h-[3.25rem] max-md:h-[2.75rem] max-md:last:border-none max-md:last:mb-0'
