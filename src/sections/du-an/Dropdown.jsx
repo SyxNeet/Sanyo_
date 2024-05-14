@@ -17,7 +17,7 @@ export default function Dropdown({icon, content, children, className}) {
   return (
     <div
       className={cn(
-        'flex flex-col border rounded-[1.43rem] border-grey-100 md:pt-1 md:pb-2 bg-grey-0',
+        'flex flex-col border rounded-[1.43rem] border-grey-100 md:pt-1 md:pb-1 bg-grey-0',
         className,
       )}
     >

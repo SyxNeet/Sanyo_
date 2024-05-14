@@ -3,13 +3,12 @@ import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import getData from '@/lib/getData'
 import DuAnNoiBat from '@/sections/du-an/DuAnNoiBat'
 
-// TODO: default country la all
 const duAnPerPage = 12
 const pageId = 794
 async function getDanhSachDuAn() {
   return getData(`/pages/${pageId}/project`)
 }
-async function getProject(country = 'viet-nam', type = 'all', page = '1') {
+async function getProject(country = 'all', type = 'all', page = '1') {
   return getData(
     `/projects?country=${country}&type=${type}&page=${page}&per_page=${duAnPerPage}`,
     'okhub',

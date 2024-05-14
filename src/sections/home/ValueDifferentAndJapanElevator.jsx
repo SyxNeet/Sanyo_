@@ -7,6 +7,8 @@ import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import {useRef} from 'react'
 
+// NOTE: category trong chi tiet tin tuc thanh cua tin tuc do
+
 export default function ValueDifferentAndJapanElevator({
   isMobile,
   dataValueDifferent,

@@ -8,7 +8,7 @@ export default function DropdownItem({
 }) {
   return (
     <li
-      className='flex flex-row items-center px-3.5 py-2 md:px-4 md:py-2.5 flex-none cursor-pointer select-none last:max-md:pb-4'
+      className='flex flex-row items-center px-3.5 py-2 md:px-4 md:py-[0.4rem] flex-none cursor-pointer select-none last:max-md:pb-4'
       onClick={handleOnClick}
     >
       <div

@@ -6,7 +6,7 @@ export default function TinTucPagination({totalPage, activePage, category}) {
   return (
     <div className='flex flex-row items-center mx-auto mt-6 md:mt-12 w-fit'>
       <Link
-        href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
+        href={`/tin-tuc?page=${
           activePage > 1 ? parseInt(activePage) - 1 : 1
         }${category && `&category=${category}`}`}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
@@ -22,7 +22,7 @@ export default function TinTucPagination({totalPage, activePage, category}) {
       {totalPage > 5 ? (
         <>
           <Link
-            href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=1${
+            href={`/tin-tuc?page=1${
               category && `&category=${category}`
             }`}
             className={cn(
@@ -68,9 +68,9 @@ export default function TinTucPagination({totalPage, activePage, category}) {
             ) {
               return (
                 <Link
-                  href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
-                    item + 1
-                  }${category && `&category=${category}`}`}
+                  href={`/tin-tuc?page=${item + 1}${
+                    category && `&category=${category}`
+                  }`}
                   className={cn(
                     'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                     {
@@ -110,9 +110,7 @@ export default function TinTucPagination({totalPage, activePage, category}) {
           )}
           {totalPage > 1 && (
             <Link
-              href={`${
-                process.env.NEXT_PUBLIC_HOST_URL
-              }/tin-tuc?page=${totalPage}${
+              href={`/tin-tuc?page=${totalPage}${
                 category && `&category=${category}`
               }`}
               className={cn(
@@ -131,9 +129,9 @@ export default function TinTucPagination({totalPage, activePage, category}) {
           {Array.from(Array(totalPage).keys()).map((item) => {
             return (
               <Link
-                href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
-                  item + 1
-                }${category && `&category=${category}`}`}
+                href={`/tin-tuc?page=${item + 1}${
+                  category && `&category=${category}`
+                }`}
                 className={cn(
                   'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                   {
@@ -148,7 +146,7 @@ export default function TinTucPagination({totalPage, activePage, category}) {
         </>
       )}
       <Link
-        href={`${process.env.NEXT_PUBLIC_HOST_URL}/tin-tuc?page=${
+        href={`/tin-tuc?page=${
           activePage < totalPage - 1 ? parseInt(activePage) + 2 : totalPage
         }${category && `&category=${category}`}`}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'

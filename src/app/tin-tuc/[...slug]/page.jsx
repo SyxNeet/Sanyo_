@@ -55,6 +55,7 @@ export default async function TinTucPage({params, searchParams}) {
         data={dataPosts}
       />
       <Support
+        forLienHePage={false}
         isMobile={isMobile}
         data={dataSupport.contactForm}
       />

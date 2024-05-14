@@ -3,7 +3,6 @@ import React, {forwardRef} from 'react'
 import SlideValue from './SlideValue'
 
 const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
-  console.log('🚀 ~ ValueDifferent ~ isMobile:', isMobile)
   return (
     <section
       ref={ref}
