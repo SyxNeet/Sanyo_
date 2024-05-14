@@ -8,8 +8,9 @@ import DropdownItem from './DropdownItem'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
 import {useGSAP} from '@gsap/react'
-import {generateLinkDuAnType} from '@/lib/generateLinkDuAnType'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import LoaiThangMayDropdown from './LoaiThangMayDropdown'
+import QuocGiaDropdown from './QuocGiaDropdown'
 
 export default function DuAnNoiBat({
   isMobile,
@@ -106,128 +107,18 @@ export default function DuAnNoiBat({
             ref={stickyRef}
             className='relative z-10 flex flex-row items-start w-full md:pt-6 max-md:justify-around max-md:py-2 max-md:bg-white'
           >
-            <Dropdown
-              icon={`/images/du-an/location.svg`}
-              content='Quốc gia'
-            >
-              <DropdownItem
-                href={`/du-an?page=${page}&country=all&type=${type}`}
-                content='Tất cả'
-                active={country.includes('all')}
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=viet-nam&type=${type}`}
-                content='VIỆT NAM'
-                active={country.includes('viet-nam')}
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=the-gioi&type=${type}`}
-                content='THẾ GIỚI'
-                active={country.includes('the-gioi')}
-              />
-            </Dropdown>
-            <Dropdown
-              icon={`/images/du-an/type.svg`}
-              content='Loại thang máy'
-              className='ml-2'
-            >
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=all`}
-                content='Tất cả'
-                active={type.includes('all')}
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-gia-dinh',
-                )}`}
-                content='Thang máy gia đình'
-                active={type.includes('thang-may-gia-dinh')}
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-tai-khach',
-                )}`}
-                content='Thang máy tải khách'
-                active={type.includes('thang-may-tai-khach')}
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-tai-hang',
-                )}`}
-                content='Thang máy tải hàng'
-                active={type.includes('thang-may-tai-hang')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-tai-hang')
-                }
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-quan-sat',
-                )}`}
-                content='Thang máy quan sát'
-                active={type.includes('thang-may-quan-sat')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-quan-sat')
-                }
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-benh-vien',
-                )}`}
-                content='Thang máy bệnh viện'
-                active={type.includes('thang-may-benh-vien')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-benh-vien')
-                }
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-o-to',
-                )}`}
-                content='Thang tải ô tô'
-                active={type.includes('thang-may-o-to')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-o-to')
-                }
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-may-thuc-pham',
-                )}`}
-                content='Thang tải thực phẩm'
-                active={type.includes('thang-may-thuc-pham')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-thuc-pham')
-                }
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-bang-chuyen',
-                )}`}
-                content='Thang băng chuyền'
-                active={type.includes('thang-bang-chuyen')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-bang-chuyen')
-                }
-              />
-              <DropdownItem
-                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
-                  type,
-                  'thang-cuon',
-                )}`}
-                content='Thang cuốn'
-                active={type.includes('thang-cuon')}
-                handleOnClick={() => handleChangeElevatorTypeList('thang-cuon')}
-              />
-            </Dropdown>
+            <QuocGiaDropdown
+              isMobile={isMobile}
+              page={page}
+              country={country}
+              type={type}
+            />
+            <LoaiThangMayDropdown
+              isMobile={isMobile}
+              page={page}
+              country={country}
+              type={type}
+            />
           </div>
         </div>
         {/* TODO: to server */}
