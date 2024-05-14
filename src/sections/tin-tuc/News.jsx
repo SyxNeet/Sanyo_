@@ -116,10 +116,10 @@ export default function News({
                     />
                   </div>
                   <div className='ml-[0.65rem] md:ml-5 flex flex-col'>
-                    <h3 className='text-grey-900 font-SVNLagu text-0.785 md:text-1 font-semibold leading-1.4 uppercase line-clamp-2 group-hover:text-yellow-500 transition-500 mb-[0.35rem]'>
+                    <h3 className='text-grey-900 font-SVNLagu text-0.785 md:text-1 font-semibold leading-1.4 uppercase line-clamp-2 group-hover:text-yellow-500 transition-500 mb-[0.35rem] min-h-[2.2rem] md:min-h-[2.8rem]'>
                       {item.title}
                     </h3>
-                    <p className='text-0.785 md:text-0.875 text-grey-500 leading-1.5 line-clamp-2 opacity-70 mb-[0.675rem]'>
+                    <p className='text-0.785 md:text-0.875 text-grey-500 leading-1.5 line-clamp-2 opacity-70 mb-[0.675rem] min-h-[2.357rem] md:min-h-[2.624rem]'>
                       {item.excerpt}
                     </p>
                     <div className='flex flex-row items-center'>
@@ -178,10 +178,10 @@ export default function News({
                     />
                   </div>
                   <div className='max-md:ml-[0.65rem] md:mt-[1.56rem] grid grid-cols-1 md:px-[1.37rem] md:gap-2'>
-                    <h3 className='line-clamp-2 text-grey-900 font-SVNLagu text-0.785 md:text-1 font-semibold leading-1.4 uppercase group-hover:text-yellow-500 transition-500 max-md:mb-[0.35rem]'>
+                    <h3 className='line-clamp-2 text-grey-900 font-SVNLagu text-0.785 md:text-1 font-semibold leading-1.4 uppercase group-hover:text-yellow-500 transition-500 max-md:mb-[0.35rem] min-h-[2.2rem] md:min-h-[2.8rem]'>
                       {item.title}
                     </h3>
-                    <p className='text-grey-500 font-Iciel text-0.785 md:text-0.875 opacity-70 leading-1.5 line-clamp-2 max-md:mb-[0.675rem]'>
+                    <p className='text-grey-500 font-Iciel text-0.785 md:text-0.875 opacity-70 leading-1.5 line-clamp-2 max-md:mb-[0.675rem] min-h-[2.357rem] md:min-h-[2.624rem]'>
                       {item.excerpt}
                     </p>
                     <div className='flex flex-row items-center'>
