@@ -77,10 +77,10 @@ function Slider() {
         <div className='md:mt-[3.63rem]'>
           <button
             onClick={handlePrevSlide}
-            className='btn-next-custom md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative transition-all duration-300'
+            className='btn-next-custom md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative transition-300'
           >
             <svg
-              className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem] absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2'
+              className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem] absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-300'
               xmlns='http://www.w3.org/2000/svg'
               width='17'
               height='18'
@@ -90,16 +90,17 @@ function Slider() {
               <path
                 d='M0.809772 8.94723L12.3742 0V6.71042L17 8.94723L12.3742 11.184V17.8945L0.809772 8.94723Z'
                 fill='white'
+                className='transition-300'
               />
             </svg>
           </button>
           <button
-            className='btn-prev-custom md:ml-[0.88rem]  md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative  transition-all duration-300'
+            className='btn-prev-custom md:ml-[0.88rem]  md:w-[3.5rem] md:h-[3.5rem] rounded-[50%] border-white border solid relative transition-300'
             onClick={handleNextSlide}
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem] absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2'
+              className='md:w-[0.875rem] md:h-[1rem] w-[0.66963rem] h-[0.76525rem] absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-300 '
               width='15'
               height='16'
               viewBox='0 0 15 16'
@@ -108,6 +109,7 @@ function Slider() {
               <path
                 d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
                 fill='white'
+                className='transition-300'
               />
             </svg>
           </button>
