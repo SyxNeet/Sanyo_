@@ -6,6 +6,7 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
 import clsx from 'clsx'
 import {usePathname} from 'next/navigation'
+import {regDuAnUrl} from '@/lib/reg'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
 export const scrollSmootherConfig = {
@@ -17,14 +18,13 @@ export default function GsapProvider({children, isMobile}) {
   const pathname = usePathname()
   useGSAP(() => {
     const scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
-    if (pathname.includes('du-an') && isMobile) {
+    if (regDuAnUrl.test(pathname) && isMobile) {
       scrollSmooth.kill()
     } else {
       const header = document.querySelector('.header')
       header.style.opacity = 1
       header.style.pointerEvents = 'all'
     }
-    ScrollTrigger.refresh()
   }, [pathname, isMobile])
   return (
     <div id='smooth-wrapper'>

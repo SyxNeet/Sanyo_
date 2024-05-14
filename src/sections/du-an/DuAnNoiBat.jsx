@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import {useEffect, useRef, useState} from 'react'
+import {useRef} from 'react'
 import Dropdown from './Dropdown'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
 import DropdownItem from './DropdownItem'
@@ -20,7 +20,7 @@ export default function DuAnNoiBat({
 }) {
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
-  useEffect(() => {
+  useGSAP(() => {
     if (isMobile) {
       gsap.to(stickyRef.current, {
         scrollTrigger: {
@@ -44,10 +44,7 @@ export default function DuAnNoiBat({
           },
         },
       })
-    }
-  }, [isMobile])
-  useGSAP(() => {
-    if (!isMobile) {
+    } else {
       gsap.to(pinRef.current, {
         scrollTrigger: {
           trigger: pinRef.current,
@@ -98,7 +95,7 @@ export default function DuAnNoiBat({
           )}
           <div
             ref={stickyRef}
-            className='relative flex flex-row items-start md:pt-6 max-md:justify-around max-md:py-[0.8rem] z-10 max-md:bg-white w-full'
+            className='relative z-10 flex flex-row items-start w-full md:pt-6 max-md:justify-around max-md:py-2 max-md:bg-white'
           >
             <Dropdown
               icon={`/images/du-an/location.svg`}
