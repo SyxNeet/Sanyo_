@@ -45,7 +45,6 @@ export default function Support({
       setNameFocused(true)
     }
   }
-
   const handlePhoneBlur = () => {
     if (!phoneReg.test(phone)) {
       setPhoneError('Vui lòng nhập số điện thoại hợp lệ')
@@ -53,6 +52,9 @@ export default function Support({
     } else {
       setPhoneFocused(true)
     }
+  }
+  const handleMessageBlur = () => {
+    setMessageFocused(false)
   }
   const handleNameFocus = () => {
     setNameFocused(true)
@@ -185,7 +187,7 @@ export default function Support({
           >
             <label
               className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] font-semibold ${
-                windowWidth < 768 && nameFocused && 'hidden'
+                windowWidth < 768 && (nameFocused || name) && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
               {data?.name}{' '}
@@ -212,7 +214,7 @@ export default function Support({
           >
             <label
               className={`mb-[0.88rem] font-SVNLagu text-[1rem] max-md:mb-[0.88rem] font-semibold ${
-                windowWidth < 768 && phoneFocused && 'hidden'
+                windowWidth < 768 && (phoneFocused || phone) && 'hidden'
               }  max-md:absolute max-md:top-[23%] pointer-events-none`}
             >
               {data?.tel}{' '}
@@ -240,7 +242,7 @@ export default function Support({
               className={cn(
                 'font-SVNLagu text-[1rem] max-md:mb-[0.88rem] max-md:absolute max-md:top-[23%] pointer-events-none font-semibold',
                 {
-                  hidden: windowWidth < 768 && messageFocused,
+                  hidden: windowWidth < 768 && (messageFocused || message),
                   'mb-[2.88rem]': !forLienHePage,
                   'mb-[0.88rem]': forLienHePage,
                 },
@@ -254,6 +256,7 @@ export default function Support({
               value={message}
               onChange={handleMessageChange}
               onFocus={handleMessageFocus}
+              onBlur={handleMessageBlur}
               className='border-b-2 border-[#6A6A6A] pb-[0.5rem] border-opacity-50 bg-transparent outline-none placeholder:font-Iciel placeholder:text-[1rem] placeholder:text-[#C6C8CB] placeholder:font-normal placeholder:leading-[150%] max-md:py-[0.75rem]'
             />
           </div>
