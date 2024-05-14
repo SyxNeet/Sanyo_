@@ -13,7 +13,6 @@ const phoneReg = /\d{6,}/
 
 export default function Support({className, isMobile, forLienHePage, data}) {
   const pathname = usePathname()
-  console.log('pathname', pathname)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -104,6 +103,7 @@ export default function Support({className, isMobile, forLienHePage, data}) {
         {'pt-[7rem] pb-[6rem] items-center max-md:px-[1rem]': !forLienHePage},
         className,
       )}
+      id='formSupport'
     >
       {!forLienHePage && isMobile && (
         <>

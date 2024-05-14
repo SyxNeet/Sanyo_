@@ -12,23 +12,24 @@ import 'swiper/css/pagination'
 import 'swiper/css/thumbs'
 import './styles.css'
 import '../../../components/slideOnlyImagesWithDowload/styles.css'
-const HeaderDetailElevator = (data) => {
+const HeaderDetailElevator = ({data,title}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const dataSLide = data?.slide||[]
   return (
     <section className=''>
       <BreadcrumbContainer className='ml-3 md:mx-[6.25rem]'>
         <BreadcrumbLink href='/'>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink href='/'>THANG MÁY NHẬT BẢN</BreadcrumbLink>
-        <BreadcrumbLink isLastLink>THANG MÁY GIA ĐÌNH</BreadcrumbLink>
+        <BreadcrumbLink isLastLink>{title}</BreadcrumbLink>
       </BreadcrumbContainer>
       <div className='flex'>
         <div className='w-[70%] max-md:w-full'>
           <div className='mt-[2.36rem] border-b border-[rgba(28,32,28,0.10)] pb-[2.14rem] max-md:pb-6'>
-            <div className='pl-[6.25rem] w-[61.875rem] max-md:px-3 max-md:w-full'>
+            <div className='pl-[6.25rem] w-[65.875rem] max-md:px-3 max-md:w-full'>
               <div className='relative'>
                 <h1
                   className='font-SVNLagu text-[5.46506rem] font-semibold leading-1.3 text-grey-900 mb-[0.62rem] max-md:text-[1.875rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold'
-                  dangerouslySetInnerHTML={{__html: data?.data?.heading}}
+                  dangerouslySetInnerHTML={{__html: data?.heading}}
                 ></h1>
                 <Image
                   src={
@@ -43,7 +44,7 @@ const HeaderDetailElevator = (data) => {
 
               <span
                 className='text-1 font-normal leading-1.5 font-Iciel max-md:text-[0.875rem] [&>p>strong]:font-medium text-grey-900 [&>p>strong]:text-gray-900 [&>p]:text-gray-500'
-                dangerouslySetInnerHTML={{__html: data?.data?.desc}}
+                dangerouslySetInnerHTML={{__html: data?.desc}}
               ></span>
             </div>
           </div>
@@ -54,7 +55,7 @@ const HeaderDetailElevator = (data) => {
               </span>
               <span className='font-SVNLagu text-2 font-semibold leading-1.5 py-2 text-yellow-500 max-md:text-[1.5rem] max-md:py-0'>
                 <span className='text-[3.3125rem] text-yellow-500 max-md:text-[1.5rem]'>
-                  {data?.data?.weight}
+                  {data?.weight}
                 </span>
                 kg
               </span>
@@ -66,7 +67,7 @@ const HeaderDetailElevator = (data) => {
               </span>
               <span className='font-SVNLagu text-2 font-semibold leading-1.5  py-2 text-yellow-500 max-md:text-[1.5rem]  max-md:py-0'>
                 <span className='text-[3.3125rem] max-md:text-[1.5rem]'>
-                  {data?.data?.speed}
+                  {data?.speed}
                 </span>
                 m/s
               </span>
@@ -79,7 +80,7 @@ const HeaderDetailElevator = (data) => {
               <span className='font-SVNLagu text-2 font-semibold leading-1.5  py-2 text-yellow-500 max-md:text-[1.5rem]  max-md:py-0'>
                 từ &nbsp;
                 <span className='text-[3.3125rem] max-md:text-[1.5rem]'>
-                  {data?.data?.acreage}
+                  {data?.acreage}
                 </span>
                 m2
               </span>
@@ -149,7 +150,7 @@ const HeaderDetailElevator = (data) => {
               modules={[Navigation, Thumbs, Pagination, Autoplay]}
               className='mySwiperFather'
             >
-              {data?.data?.slide?.map((item, index) => (
+              {dataSLide.map((item, index) => (
                 <SwiperSlide
                   className='w-full !h-[43rem] rounded-[1rem] max-md:rounded-[0.25rem] overflow-hidden max-md:!h-[13.375rem]'
                   key={index}
@@ -182,7 +183,7 @@ const HeaderDetailElevator = (data) => {
               modules={[Navigation, Thumbs]}
               className='mySwiperChild !absolute bottom-[2.5rem] right-[9.37rem] w-[40%] h-[4rem] z-10  max-md:!h-[2.5343rem] max-md:!relative max-md:w-full max-md:bottom-[unset] max-md:right-[unset] max-md: mt-[0.57rem]'
             >
-              {data?.data?.slide?.map((item, index) => (
+              {dataSLide.map((item, index) => (
                 <SwiperSlide
                   className='rounded-[0.125rem] overflow-hidden'
                   key={index}

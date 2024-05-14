@@ -8,7 +8,7 @@ const ItemOperate = ({data}) => {
     setSeeAll(!seeAll)
   }
   return (
-    <div className='relative group itemOper rounded-[0.75rem] overflow-hidden max-md:h-[22.1rem]'>
+    <div className='relative group itemOper rounded-[0.75rem] overflow-hidden max-md:h-[22.1rem] h-[22.125rem]'>
       <Image
         src={data?.image?.url}
         alt={data?.image?.alt}

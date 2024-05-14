@@ -27,7 +27,7 @@ const SlideOnlyImages = ({className, data}) => {
         modules={[Autoplay]}
         className={`swiper-only-images-with-download `}
       >
-        {data?.map((img, index) => (
+        {(data || []).map((img, index) => (
           <SwiperSlide
             key={index}
             className={`${className} mr-[1.7rem] max-md:mr-3 max-md:!h-[13.76756rem]`}

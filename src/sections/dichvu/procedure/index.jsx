@@ -73,8 +73,8 @@ const Procedure = ({data}) => {
           data-aos='fade-up'
           key={item?.name_step}
         >
-          <h3 className='font-SVNLagu font-semibold leading-1.3 text-[1.75rem] text-grey-800 mb-[0.94rem]'>
-            {item?.name_step}
+          <h3 className='font-SVNLagu font-semibold leading-1.3 text-[1.75rem] text-grey-800 mb-[0.94rem] [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:item?.name_step}}>
+   
           </h3>
           <div className='mb-[1.62rem] font-Iciel text-[1.125rem] leading-1.5 font-normal text-grey-400'>
             {item?.desc}
@@ -103,7 +103,7 @@ const Procedure = ({data}) => {
           modules={[EffectFade, Navigation, Pagination]}
           className='mySwiper'
         >
-          {data?.list_procedure.map((item, index) => (
+          {(data?.list_procedure||[]).map((item, index) => (
             <SwiperSlide key={index}>
               <Image
                 src={item?.img?.url}

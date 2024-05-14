@@ -8,6 +8,13 @@ import 'swiper/css/pagination'
 import {Button} from '@/components/ui/button'
 import ItemOperate from './item-van-hanh'
 const Operate = ({isMobile = true,data}) => {
+  function handleClick() {
+    console.log('click')
+    const element = document.getElementById('formSupport');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   return (
     <section className='mt-[8rem] max-md:mt-[3rem]'>
       <div className='md:hidden flex flex-col justify-center items-center px-3 '>
@@ -49,6 +56,7 @@ const Operate = ({isMobile = true,data}) => {
               text={'TƯ VẤN NGAY'}
               isBlack={true}
               className='max-md:bg-yellow-500 max-md:border-none'
+              onClick={handleClick}
             />
           </div>
         </SwiperSlide>

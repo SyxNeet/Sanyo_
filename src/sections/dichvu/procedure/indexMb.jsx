@@ -12,8 +12,7 @@ const ProcedureMb = ({data}) => {
     <section className='relative mb-14'>
       <div className='w-[4rem] h-[3rem] bg-yellow-500 opacity-10 absolute left-0 top-0'></div>
       <div className='w-[1rem] h-[1rem] bg-yellow-500 opacity-10 absolute left-[4rem] top-[3rem]'></div>
-      <h2 className='font-SVNLagu text-[1.375rem] font-semibold leading-1.3 pt-[4.56rem] px-3 border-b border-[rgba(28,32,28,0.10)] pb-4 mb-4 [&>p>strong]:font-semibold [&>p>strong]:font-yellow-500' dangerouslySetInnerHTML={{__html:data?.heading}}>
-        
+      <h2 className='font-SVNLagu text-[1.375rem] font-semibold leading-1.3 pt-[4.56rem] px-3 border-b border-[rgba(28,32,28,0.10)] pb-4 mb-4 [&>p>strong]:font-semibold [&>p>strong]:font-yellow-500' dangerouslySetInnerHTML={{__html:data?.heading}}>  
       </h2>
       <div>
         <Swiper
@@ -29,18 +28,18 @@ const ProcedureMb = ({data}) => {
           modules={[Pagination, Navigation,FreeMode]}
           className='mySwiper'
         >
-          {data.list_procedure?.map((item, index) => (
+          {(data.list_procedure || []).map((item, index) => (
             <SwiperSlide
               key={index}
               
             >
-              <div className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3'>
-                {item?.name_step}
+              <div className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3 [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500' dangerouslySetInnerHTML={{__html:item?.name_step}}>
+
               </div>
               {item?.list_steps?.map((item, index) => (
                 <div
                   key={index}
-                  className='flex items-start mb-[1.25rem] px-3'
+                  className='flex items-start mb-[0.75rem] px-3'
                 >
                   <div className='w-[1.5rem] h-[1.5rem] rounded-[50%] bg-yellow-500 text-white font-SVNLagu text-[0.75rem] flex justify-center items-center mr-2'>
                     {index + 1}

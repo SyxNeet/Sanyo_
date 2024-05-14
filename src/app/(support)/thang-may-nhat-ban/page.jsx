@@ -11,7 +11,7 @@ export default async function page({searchParams, params}) {
   let [dataJpElevator, dataSixReason,dataAllElevator] = await Promise.all([
     getData(`/pages/35`),
     getData(`/options/options/sixReasons`),
-    getDataSlug(`/all-elavator`)
+    getDataSlug(`/taxonomy-terms/type_elavator`)
   ]);
   return (
     <JapanElevator

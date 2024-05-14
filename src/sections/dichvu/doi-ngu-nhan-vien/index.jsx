@@ -95,7 +95,7 @@ const SlideTeamSanyo = ({isMobile,data}) => {
         spaceBetween={isMobile? 8: 25}
         className='mySwiperTeamSanyo'
       >
-        {data?.list_staff?.map((item, index) => (
+        {(data?.list_staff || []).map((item, index) => (
           <SwiperSlide
             key={index}
             className={`!h-[31.9375rem] max-md:!h-[20.13119rem] `}
@@ -121,8 +121,8 @@ const SlideTeamSanyo = ({isMobile,data}) => {
             }
           />
           <div className='flex flex-col justify-center items-center'>
-            <span className='font-Iciel text-[0.875rem] font-normal leading-1.5 uppercase text-grey-900 max-md:text-[0.625rem]'>{activeSlide.chuc_vu}</span>
-            <span className=' text-[1.375rem] font-extrabold leading-1.4 capitalize font-SVNLagu max-md:text-[1rem]'>{activeSlide.name}</span>
+            <span className='font-Iciel text-[0.875rem] font-normal leading-1.5 uppercase text-grey-900 max-md:text-[0.625rem]'>{activeSlide?.chuc_vu}</span>
+            <span className=' text-[1.375rem] font-extrabold leading-1.4 capitalize font-SVNLagu max-md:text-[1rem]'>{activeSlide?.name}</span>
           </div>
           <ButtonSLide
             className={
@@ -135,7 +135,7 @@ const SlideTeamSanyo = ({isMobile,data}) => {
         </div>
         <div className='w-[30.9375rem] h-[0.0625rem] bg-[rgba(28,32,28,0.10)] my-4 max-md:w-[21.9375rem] max-md:my-[0.94rem]'></div>
         <span className='block w-[33.0625rem] max-md:w-full max-md:px-[1.44rem] max-md:mb-[2.5rem] text-[0.875rem] leading-1.5 font-Iciel text-center line-clamp-3 text-grey-500 max-md:text-[0.75rem]'>
-            {activeSlide.desc}
+            {activeSlide?.desc}
         </span>
       </div>
     </section>

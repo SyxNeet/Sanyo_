@@ -9,7 +9,6 @@ import {useState} from 'react'
 
 export default function ProductionLineSection({isMobile, data,justSlide=false}) {
   const [activeImage, setActiveImage] = useState(0)
-  const arrayData = data?.slide || data
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
@@ -54,7 +53,7 @@ export default function ProductionLineSection({isMobile, data,justSlide=false}) 
           setPreviousActiveImage(swiper.realIndex)
         }
       >
-        {arrayData?.map((item, i) => {
+        {(data?.slide||[]).map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Image

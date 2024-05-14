@@ -13,8 +13,7 @@ import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
-
-  const dataAllElevatorNew = [dataAllElevator[8],dataAllElevator[7],dataAllElevator[6],dataAllElevator[5],dataAllElevator[4],dataAllElevator[3],dataAllElevator[2],dataAllElevator[1],dataAllElevator[0]]
+  const dataAllElevatorNew = [dataAllElevator[3],dataAllElevator[7],dataAllElevator[6],dataAllElevator[5],dataAllElevator[2],dataAllElevator[4],dataAllElevator[8],dataAllElevator[1],dataAllElevator[0]]
   const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
@@ -79,7 +78,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
           <div className='relative flex flex-col w-fit pl-[10.25rem] items-end max-md:pl-3 max-md:items-start'>
             <h1 className=' text-[5.71719rem] font-SVNLagu font-semibold leading-[130%] max-md:text-[1.875rem] max-md:mb-3 [&>p>strong]:text-c-nht [&>p>strong]:font-semibold [&>p>strong]:font-SVNLagu' dangerouslySetInnerHTML={{__html:data?.heading}} >
            </h1>
-            <div className='text-right w-[37.625rem] text-[1rem] text-[#6D7279] font-normal leading-1.5 max-md:text-[0.875rem] max-md:text-left max-md:w-[20.4375rem] [&>div>div>strong]:text-grey-900' dangerouslySetInnerHTML={{__html:!isMobile?data?.desc:data?.desc_mb}}>
+            <div className='text-right w-[37.625rem] text-[1rem] text-[#6D7279] font-normal leading-1.5 max-md:text-[0.875rem] max-md:text-left max-md:w-[20.4375rem] [&>div>div>strong]:text-grey-900 [&>p>strong]:text-grey-900' dangerouslySetInnerHTML={{__html:!isMobile?data?.desc:data?.desc_mb}}>
             </div>
             </div>
       </div>
@@ -139,14 +138,14 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
               className='!h-[41.5625rem] max-md:!h-[13.76756rem] '
             >
               <Image
-                src={img.thumb||"https://ik.imagekit.io/tvlk/blog/2021/09/du-lich-anh-8-1024x576.jpg?tr=dpr-2,w-675"}
-                alt={img.alt||"huy"}
+                src={img?.image?.url||"https://ik.imagekit.io/tvlk/blog/2021/09/du-lich-anh-8-1024x576.jpg?tr=dpr-2,w-675"}
+                alt={img?.image?.alt||"huy"}
                 width={1500}
                 height={1500}
                 className='object-cover h-full rounded-[0.5rem] w-full'
               />
-              <Link href={img.slug} className='absolute z-10 bottom-[9%] left-[3.43rem] max-md:left-4 max-md:bottom-[7%] hover:scale-105 transition duration-300 rounded-[0.34344rem] border-[0.458px] border-[#fff] bg-[rgba(0,0,0,0.40)] px-[1.37rem] py-[0.57rem] backdrop-blur-[11.44688606262207px] text-[0.91575rem] font-Iciel font-medium leading-1.5 uppercase text-white'>
-                {img.title}
+              <Link href={img?.image?.slug||"/"} className='absolute z-10 bottom-[9%] left-[3.43rem] max-md:left-4 max-md:bottom-[7%] hover:scale-105 transition duration-300 rounded-[0.34344rem] border-[0.458px] border-[#fff] bg-[rgba(0,0,0,0.40)] px-[1.37rem] py-[0.57rem] backdrop-blur-[11.44688606262207px] text-[0.91575rem] font-Iciel font-medium leading-1.5 uppercase text-white'>
+                {img?.name}
               </Link>
             </SwiperSlide>
           ))}
