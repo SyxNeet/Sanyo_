@@ -5,7 +5,7 @@ import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
 import clsx from 'clsx'
-
+import useChangePage from '@/hooks/useChangePage'
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
 export const scrollSmootherConfig = {
   effects: true,
@@ -13,6 +13,7 @@ export const scrollSmootherConfig = {
 }
 
 export default function GsapProvider({children, isMobile}) {
+  useChangePage()
   useGSAP(() => {
     ScrollSmoother.create(scrollSmootherConfig)
   }, [])

@@ -71,6 +71,7 @@ const Operate = ({isMobile = true,data}) => {
           text={'TƯ VẤN NGAY'}
           isBlack={true}
           className='max-md:bg-yellow-500 max-md:border-none'
+          onClick={handleClick}
         />
         <div className='relative w-[6.25rem]'>
           <div className='processSlideOpe rounded-full [&>.swiper-pagination-progressbar-fill]:!bg-yellow-500'></div>

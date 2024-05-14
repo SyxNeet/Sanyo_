@@ -7,7 +7,6 @@ import GsapProvider from '@/components/gsap/GsapProvider'
 import {headers} from 'next/headers'
 import {Toaster} from '@/components/ui/sonner'
 import FixedLayout from '@/layout/3-nut-noi/FixedLayout'
-
 export const metadata = {
   title: 'Sanyo Yosuki',
   description: 'Sanyo Yosuki by create FINNTVD',
@@ -85,6 +84,7 @@ const avertaStdCy = localFont({
 })
 
 export default function RootLayout({children, params}) {
+
   const headersList = headers()
   const userAgent = headersList.get('user-agent')
   const isMobile =

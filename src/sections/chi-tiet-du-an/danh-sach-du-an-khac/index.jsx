@@ -4,6 +4,7 @@ import {Button} from '@/components/ui/button'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import Link from 'next/link'
 import 'swiper/css/navigation'
 import {Pagination, Navigation} from 'swiper/modules'
 import {Swiper, SwiperSlide} from 'swiper/react'
@@ -77,12 +78,14 @@ const ListOtherProjects = ({data}) => {
               }
             />
           </div>
-          <Button
+         <Link href='/du-an'>
+         <Button
           text='XEM TẤT CẢ'
           isHover='true'
           isBlack='true'
           className="md:hidden"
         />
+         </Link>
           <div className='relative w-[6.25rem] md:hidden'>
             <div className='processOtherProjects rounded-full [&>.swiper-pagination-progressbar-fill]:!bg-yellow-500'></div>
           </div>

@@ -55,7 +55,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
             ></span>
           </div>
         )}
-        <Link href={'/du-an'}>
+        <Link href={'/du-an'}  >
           <Button
             className='w-fit max-md:hidden mt-[2.44rem]'
             isRed={true}

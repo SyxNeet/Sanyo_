@@ -6,22 +6,23 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import Link from 'next/link'
+import ReactPlayer from 'react-player';
 
 function SliderJapanElevator({data}) {
   const [indexSlider, setIndexSlider] = useState(0)
   const handleSlideChange = (swiper) => {
-    const activeSlideIndex = swiper.realIndex;
-    setIndexSlider(activeSlideIndex);
-  };
+    const activeSlideIndex = swiper.realIndex
+    setIndexSlider(activeSlideIndex)
+  }
 
   return (
     <div className='flex md:space-x-[2.37rem] border-t-[1px] border-b-[1px] solid border-[rgba(28,32,28,0.10)] border-opacity-10 pl-[6.31rem] mt-10'>
       <div className='md:w-[21.625rem] md:py-[1.98rem] flex flex-col flex-shrink-0'>
         <h4 className='text-c-nht font-SVNLagu lg:text-[1.5rem] font-semibold md:leading-[1.25] md:tracking-[-0.03125rem] md:mb-[1.12rem]'>
-        {data[indexSlider]?.title}
+          {data[indexSlider]?.title}
         </h4>
         <p className='text-grey-600 text-justify font-Iciel lg:text-[0.875rem] leading-[1.5] md:mb-[1.81rem]'>
-        {data[indexSlider]?.elevator?.mo_ta}
+          {data[indexSlider]?.elevator?.mo_ta}
         </p>
         <div className='flex items-center md:mb-[1.25rem] md:pb-[1.25rem] border-b-[1px] solid border-[rgba(28,32,28,0.10)] border-opacity-10'>
           <Image
@@ -37,7 +38,7 @@ function SliderJapanElevator({data}) {
               TỐC ĐỘ
             </span>
             <span className='text-grey-500  font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem]'>
-             {data[indexSlider]?.elevator?.rated_speed} m/s
+              {data[indexSlider]?.elevator?.rated_speed} m/s
             </span>
           </div>
         </div>
@@ -56,7 +57,8 @@ function SliderJapanElevator({data}) {
               tải trọng
             </span>
             <span className='text-grey-500 font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem]'>
-            {data[indexSlider]?.elevator?.rated_load} - {data[indexSlider]?.elevator?.rated_load_2}
+              {data[indexSlider]?.elevator?.rated_load} -{' '}
+              {data[indexSlider]?.elevator?.rated_load_2}
             </span>
           </div>
         </div>
@@ -128,17 +130,12 @@ function SliderJapanElevator({data}) {
                   className='md:h-[36.8535rem] w-full object-cover border border-[rgba(28,32,28,0.10)]'
                 ></iframe>
               ) : item.video_upload ? (
-                <video
-                  width='800'
-                  height='800'
+                <ReactPlayer
+                  width='800px'
+                  height='800px'
                   controls
-                >
-                  <source
-                    src={item.video_upload}
-                    type='video/mp4'
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                  url={item.video_upload}
+                />
               ) : (
                 <Image
                   src={item.thumbnail}
