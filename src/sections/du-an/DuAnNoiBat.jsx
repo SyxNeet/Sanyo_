@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import Dropdown from './Dropdown'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
 import DropdownItem from './DropdownItem'
@@ -20,7 +20,7 @@ export default function DuAnNoiBat({
 }) {
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
-  useGSAP(() => {
+  useEffect(() => {
     if (isMobile) {
       gsap.to(stickyRef.current, {
         scrollTrigger: {
@@ -44,7 +44,10 @@ export default function DuAnNoiBat({
           },
         },
       })
-    } else {
+    }
+  }, [isMobile])
+  useGSAP(() => {
+    if (!isMobile) {
       gsap.to(pinRef.current, {
         scrollTrigger: {
           trigger: pinRef.current,
@@ -236,14 +239,14 @@ export default function DuAnNoiBat({
               />
             )
           })}
+          <DuAnPagination
+            totalPage={dataProject.total_pages}
+            activePage={page < 1 ? 0 : page - 1}
+            country={country}
+            type={type}
+          />
         </div>
       </div>
-      <DuAnPagination
-        totalPage={dataProject.total_pages}
-        activePage={page < 1 ? 0 : page - 1}
-        country={country}
-        type={type}
-      />
     </section>
   )
 }
