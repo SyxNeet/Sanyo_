@@ -12,7 +12,7 @@ import SecondReasons from './second'
 import ThirdReason from './third'
 import FourthReason from './fourth'
 import FifthReason from './fifth'
-const FiveReasonsFamily = ({lang, isMobile, data}) => {
+const FiveReasonsFamily = ({lang, isMobile, data,heading_reason}) => {
   const {
     first_reason,
     second_reason,

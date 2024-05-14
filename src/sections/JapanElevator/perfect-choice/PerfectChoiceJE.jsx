@@ -36,8 +36,7 @@ const PerfectChoiceJE = ({data}) => {
           ></span>
         </div>
         <div className='w-full h-[3.5rem] relative mb-[3.63rem] max-md:h-[2.11056rem] max-md:mb-[1.71rem] max-md:ml-3 max-md:mt-[1.1rem]'>
-          <Link
-            href={'/'}
+          <div
             className=' w-fit absolute flex items-center group right-[6.25rem] bottom-[50%] max-md:bottom-0 max-md:left-0'
           >
             <ButtonSlide
@@ -51,7 +50,7 @@ const PerfectChoiceJE = ({data}) => {
             <span className='ml-4 max-md:ml-3 text-[1.125rem] font-Iciel leading-[110%] font-normal group-hover:text-c-nht max-md:text-[0.67838rem]'>
               Khám phá ngay
             </span>
-          </Link>
+          </div>
         </div>
         <div className='flex h-[35.9375rem] w-full max-md:flex-col max-md:h-fit'>
           <Image

@@ -112,6 +112,7 @@ export default function Support({
         },
         className,
       )}
+      id='formSupport'
     >
       {!forLienHePage && isMobile && (
         <>
@@ -269,8 +270,9 @@ export default function Support({
               isHover={true}
               text='GỬI THÔNG TIN'
               isBlack={true}
-              className='bg-transparent max-md:bg-yellow-500 max-md:border-none'
+              className={`bg-transparent ${pathname==='/thang-may-nhat-ban'?'max-md:bg-transparent max-md:border-c-nht ':'max-md:bg-yellow-500 max-md:border-none'} `}
               onClick={handleSubmit}
+              isRed={pathname === '/thang-may-nhat-ban'?true:false}
             ></Button>
           </div>
         </div>

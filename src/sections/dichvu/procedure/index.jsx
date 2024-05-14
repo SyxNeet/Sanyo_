@@ -2,21 +2,30 @@
 import React, {useRef, useState, useEffect} from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
+import {Swiper, SwiperSlide} from 'swiper/react'
 import {useGSAP} from '@gsap/react'
 import './styles.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import {EffectFade, Navigation, Pagination} from 'swiper/modules'
 const Procedure = ({data}) => {
   const [item, setItem] = useState(data?.list_procedure[0])
+  const [activeIndex, setActiveIndex] = useState(0)
+  const swiperRef = useRef(null);
   useEffect(() => {
-    AOS.init({
-      duration: 1500,
-    });
-  }, []);
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(activeIndex);
+    }
+  }, [activeIndex]);
+  useEffect(() => {
+    AOS.init()
+  }, [])
 
   useEffect(() => {
-    AOS.refresh();
-  }, [item]);
+    AOS.refresh()
+  }, [item])
 
   const firstRef = useRef(null)
   useGSAP(() => {
@@ -27,33 +36,45 @@ const Procedure = ({data}) => {
         start: 'top top',
         end: 'bottom+=600 center',
         onUpdate: (self) => {
-          if (self.progress < 0.2) {
-            setItem(data?.list_procedure[0])
-          } else if (self.progress < 0.4) {
-            setItem(data?.list_procedure[1])
-          } else if (self.progress < 0.6) {
-            setItem(data?.list_procedure[2])
-          } else if (self.progress < 0.8) {
-            setItem(data?.list_procedure[3])
-          } else {
-            setItem(data?.list_procedure[4])
-          }
+          setTimeout(() => {
+            if (self.progress < 0.2) {
+              setItem(data?.list_procedure[0])
+              setActiveIndex(0)
+            } else if (self.progress < 0.4) {
+              setItem(data?.list_procedure[1])
+              setActiveIndex(1)
+            } else if (self.progress < 0.6) {
+              setItem(data?.list_procedure[2])
+              setActiveIndex(2)
+            } else if (self.progress < 0.8) {
+              setItem(data?.list_procedure[3])
+              setActiveIndex(3)
+            } else {
+              setItem(data?.list_procedure[4])
+              setActiveIndex(4)
+            }
+          }, 1500)
         },
       },
     })
   })
   return (
     <section
-      className='flex'
+      className='flex max-h-screen overflow-hidden'
       ref={firstRef}
     >
       <div className='w-[58%] pt-[10.6rem] pl-[4.75rem]'>
-        <h2 className=' font-SVNLagu text-[3rem] font-semibold leading-1.3 border-b border-[rgba(28,32,28,0.10)] pb-[2.31rem] mb-[3.75rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500' dangerouslySetInnerHTML={{__html:data?.heading}}>
-       
-        </h2>
-        <div className='w-[48.7rem] h-[24.4rem]' data-aos='fade-up' key={item?.name_step}>
-          <h3 className='font-SVNLagu font-semibold leading-1.3 text-[1.75rem] text-grey-800 mb-[0.94rem]'>
-            {item?.name_step}
+        <h2
+          className=' font-SVNLagu text-[3rem] font-semibold leading-1.3 border-b border-[rgba(28,32,28,0.10)] pb-[2.31rem] mb-[3.75rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500'
+          dangerouslySetInnerHTML={{__html: data?.heading}}
+        ></h2>
+        <div
+          className='w-[48.7rem] h-[24.4rem]'
+          data-aos='fade-up'
+          key={item?.name_step}
+        >
+          <h3 className='font-SVNLagu font-semibold leading-1.3 text-[1.75rem] text-grey-800 mb-[0.94rem] [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:item?.name_step}}>
+   
           </h3>
           <div className='mb-[1.62rem] font-Iciel text-[1.125rem] leading-1.5 font-normal text-grey-400'>
             {item?.desc}
@@ -74,13 +95,25 @@ const Procedure = ({data}) => {
         </div>
       </div>
       <div className='w-[42%]'>
-        <Image
-          src={item?.img?.url}
-          width={1000}
-          height={1000}
-          alt={item?.img?.alt}
-          className='h-[100vh] object-cover' data-aos="zoom-in" duration='100' key={item?.img?.url}
-        />
+        <Swiper
+         ref={swiperRef}
+        initialSlide={activeIndex}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          effect={'fade'}
+          modules={[EffectFade, Navigation, Pagination]}
+          className='mySwiper'
+        >
+          {(data?.list_procedure||[]).map((item, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                src={item?.img?.url}
+                width={1500}
+                height={1500}
+                className='h-[100vh] object-cover'
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   )

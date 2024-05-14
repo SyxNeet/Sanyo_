@@ -86,7 +86,7 @@ const SecondReasons = ({lang, isMobile,data}) => {
             className='mySwiperSystem'
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           >
-            {data?.slide.map((item, index) => (
+            {(data?.slide||[]).map((item, index) => (
               <SwiperSlide
                 key={index}
                 className='relative !flex !justify-center'
@@ -118,7 +118,7 @@ const SecondReasons = ({lang, isMobile,data}) => {
               className='secondReasons overflow-hidden'
               style={{height: maxHeightSecond}}
             >
-              {data?.list_system?.map((item, index) => (
+              {(data?.list_system||[]).map((item, index) => (
                 <div
                   className={`itemShowmore mb-[1.25rem] border-b border-[rgba(28,32,28,0.10)] pb-5 ${
                     expandedIndex === index ? 'h-[16rem]' : 'h-[3rem]'

@@ -66,7 +66,7 @@ const FifthReason = ({isMobile, data}) => {
      
       <div className='w-full overflow-x-auto noScrollBar'>
         <div className='flex ml-[6.25rem] border-b border-[rgba(255,255,255,0.20)] space-x-[4.94rem] relative z-10 mb-[3.06rem] w-fit max-md:ml-3 max-md:space-x-[1.69rem] max-md:max-w-fit max-md:w-fit overflow-x-auto max-md:mb-[1.84rem]'>
-          {data?.list_design?.map((key, index) => (
+          {(data?.list_design||[]).map((key, index) => (
             <div
               key={index}
               ref={index === active ? activeItemRef : null}
