@@ -14,13 +14,15 @@ export default function LeaderShipMessageAndCoreValues({
   dataCoreValues,
 }) {
   const headingRef = useRef(null)
-  const fillRef = useRef(null)
   const firstRef = useRef(null)
   const secondRef = useRef(null)
   const [activeImage, setActiveImage] = useState(undefined)
   const swiperRef = useRef(null)
   const [activeSlide, setActiveSlide] = useState(0)
-
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   useGSAP(() => {
     if (!isMobile) {
       gsap.to(firstRef.current, {
@@ -144,8 +146,7 @@ export default function LeaderShipMessageAndCoreValues({
                           className={clsx(
                             'font-SVNLagu text-2.25 font-medium leading-1.3 mb-[0.44rem] transition-300',
                             {
-                              'text-yellow-500 ':
-                                activeImage !== i,
+                              'text-yellow-500 ': activeImage !== i,
                               'text-white': activeImage === i,
                             },
                           )}
@@ -207,15 +208,21 @@ export default function LeaderShipMessageAndCoreValues({
             ></h2>
             <Swiper
               ref={swiperRef}
-              spaceBetween={(window.innerWidth / 100) * 4.267 * 0.75}
+              spaceBetween={
+                isClient ? (window.innerWidth / 100) * 4.267 * 0.75 : 0
+              }
               speed={800}
               slidesPerView='auto'
               className='swiper-core-values'
               onActiveIndexChange={(swiper) => {
                 setActiveSlide(swiper.activeIndex)
               }}
-              slidesOffsetAfter={(window.innerWidth / 100) * 4.267 * 0.75}
-              slidesOffsetBefore={(window.innerWidth / 100) * 4.267 * 0.75}
+              slidesOffsetAfter={
+                isClient ? (window.innerWidth / 100) * 4.267 * 0.75 : 0
+              }
+              slidesOffsetBefore={
+                isClient ? (window.innerWidth / 100) * 4.267 * 0.75 : 0
+              }
             >
               {dataCoreValues.coreValue.map((item, i) => {
                 return (

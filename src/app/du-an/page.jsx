@@ -20,7 +20,7 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
   const isMobile = viewport.includes('mobile')
   const [dataDanhSachDuAn, dataProject] = await Promise.all([
     getDanhSachDuAn(),
-    // getProject(country, type, page),
+    getProject(country, type, page),
   ])
   return (
     <main className=''>
@@ -31,7 +31,10 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
       <DuAnNoiBat
         isMobile={isMobile}
         dataDanhSachDuAn={dataDanhSachDuAn.project}
-        // dataProject={dataProject}
+        dataProject={dataProject}
+        page={page ?? 1}
+        country={country ?? 'all'}
+        type={type ?? 'all'}
       />
     </main>
   )
