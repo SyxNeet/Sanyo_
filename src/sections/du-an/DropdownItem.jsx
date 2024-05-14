@@ -2,9 +2,9 @@ import Image from 'next/image'
 import {cn} from '@/lib/utils'
 import Link from 'next/link'
 
-export default function DropdownItem({active, content, href = '/'}) {
+export default function DropdownItem({active, content, href = '/', handleOnClick}) {
   return (
-    <li>
+    <li onClick={handleOnClick}>
       <Link
         href={href}
         className='flex flex-row items-center px-3.5 py-2 md:px-4 md:py-[0.4rem] flex-none cursor-pointer select-none last:max-md:pb-4'

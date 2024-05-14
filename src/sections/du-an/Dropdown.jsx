@@ -1,10 +1,16 @@
-import {useRef, useState, useEffect} from 'react'
+import {useRef, useEffect} from 'react'
 import Image from 'next/image'
 import {cn} from '@/lib/utils'
 
-export default function Dropdown({icon, content, children, className}) {
+export default function Dropdown({
+  icon,
+  content,
+  children,
+  className,
+  isOpen,
+  setIsOpen,
+}) {
   const ref = useRef(null)
-  const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (isOpen) {
       ref.current.style.maxHeight = ref.current.scrollHeight + 'px'
