@@ -1,6 +1,8 @@
-"use client"
+'use client'
+
 import SlideDanhSachTinTuc from '@/components/danh-sach-tin-tuc/SlideDanhSachTinTuc'
 import {Button} from '@/components/ui/button'
+import Link from 'next/link'
 
 export default function News({isMobile, data}) {
   return (
@@ -18,22 +20,31 @@ export default function News({isMobile, data}) {
           </h2>
         </div>
         {!isMobile && (
-          <Button
-            isHover
-            isBlack
-            text='XEM TẤT CẢ'
+          <Link
+            href={`/tin-tuc`}
             className='mb-2 ml-auto'
-          />
+          >
+            <Button
+              isHover
+              isBlack
+              text='XEM TẤT CẢ'
+            />
+          </Link>
         )}
       </div>
-      <SlideDanhSachTinTuc isMobile={isMobile} data={data} />
+      <SlideDanhSachTinTuc
+        isMobile={isMobile}
+        data={data}
+      />
       {isMobile && (
-        <Button
-          isHover={false}
-          text={'XEM TẤT CẢ'}
-          isBlack={true}
-          className='max-md:bg-yellow-500 max-md:border-none'
-        />
+        <Link href={`/tin-tuc`}>
+          <Button
+            isHover={false}
+            text={'XEM TẤT CẢ'}
+            isBlack={true}
+            className='max-md:bg-yellow-500 max-md:border-none'
+          />
+        </Link>
       )}
     </section>
   )

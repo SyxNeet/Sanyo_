@@ -26,7 +26,7 @@ export default function DuAnItem({
         height={1080}
         className='absolute object-cover w-full h-full -z-10 group-hover:scale-110 transition-500'
       />
-      <div className='rounded-[0.5rem] max-md:flex-col flex flex-row md:items-center relative md:pl-[0.94rem] md:pr-[1.38rem] bottom-[0.52rem] md:bottom-[0.59rem] pt-[0.73rem] pb-[0.62rem] pl-[0.79rem] pr-[1.38rem] bg-black/35 backdrop-blur-md group-hover:bg-black/50 border border-transparent group-hover:border-yellow-500 transition-500 h-[5.10781rem] md:h-[4.125rem] w-[calc(100%-0.52rem*2)] md:w-[calc(100%-0.94rem*2)]'>
+      <div className='rounded-[0.5rem] max-md:flex-col flex flex-row md:items-center relative md:pl-[0.94rem] md:pr-[1.38rem] bottom-[0.52rem] md:bottom-[0.59rem] pt-[0.73rem] pb-[0.62rem] pl-[0.79rem] pr-[1.38rem] bg-black/35 backdrop-blur-md group-hover:bg-black/50 border border-transparent group-hover:border-yellow-500 transition-500 h-[5.10781rem] md:h-[4.125rem] w-[calc(100%-0.52rem*2)] md:w-[calc(100%-0.94rem*2)] overflow-hidden'>
         <Image
           src={imgFlagUrl}
           alt={altImageFlag}

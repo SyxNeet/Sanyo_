@@ -185,10 +185,10 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
                 }
               />
               <DropdownItem
-                content='Thang chuyền'
-                active={elevatorTypeList.includes('thang-chuyen')}
+                content='Thang băng chuyền'
+                active={elevatorTypeList.includes('thang-bang-chuyen')}
                 handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-chuyen')
+                  handleChangeElevatorTypeList('thang-bang-chuyen')
                 }
               />
               <DropdownItem
