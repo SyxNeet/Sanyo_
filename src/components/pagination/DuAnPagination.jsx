@@ -2,17 +2,25 @@ import {cn} from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function DuAnPagination({totalPage, activePage, category}) {
+export default function DuAnPagination({
+  totalPage,
+  activePage,
+  country = 'all',
+  type = 'all',
+}) {
+  const params = `${country ? `&country=${country}` : ''}${
+    type ? `&type=${type}` : ''
+  }`
   return (
     <div className='flex flex-row items-center mx-auto mt-6 md:mt-12 w-fit'>
       <Link
-        href={`/tin-tuc?page=${activePage > 1 ? parseInt(activePage) - 1 : 1}${
-          category && `&category=${category}`
-        }`}
+        href={`/du-an?page=${
+          activePage > 1 ? parseInt(activePage) - 1 : 1
+        }${params}`}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
       >
         <Image
-          src={`/images/tin-tuc/prev-pagination.svg`}
+          src={`/images/du-an/prev-pagination.svg`}
           alt=''
           width={120}
           height={120}
@@ -22,7 +30,7 @@ export default function DuAnPagination({totalPage, activePage, category}) {
       {totalPage > 5 ? (
         <>
           <Link
-            href={`/tin-tuc?page=1${category && `&category=${category}`}`}
+            href={`/du-an?page=1${params}`}
             className={cn(
               'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
               {
@@ -35,21 +43,21 @@ export default function DuAnPagination({totalPage, activePage, category}) {
           {activePage >= 3 && (
             <button className='flex flex-row items-center justify-center rounded-full size-8 text-0.875 font-medium leading-1.5 bg-grey-0 mx-[0.25rem] md:mx-[0.33rem] select-none'>
               <Image
-                src={`/images/tin-tuc/dot.svg`}
+                src={`/images/du-an/dot.svg`}
                 alt=''
                 width={120}
                 height={120}
                 className='block size-1'
               />
               <Image
-                src={`/images/tin-tuc/dot.svg`}
+                src={`/images/du-an/dot.svg`}
                 alt=''
                 width={120}
                 height={120}
                 className='size-1 block mx-[0.25rem] md:mx-[0.33rem]'
               />
               <Image
-                src={`/images/tin-tuc/dot.svg`}
+                src={`/images/du-an/dot.svg`}
                 alt=''
                 width={120}
                 height={120}
@@ -66,9 +74,7 @@ export default function DuAnPagination({totalPage, activePage, category}) {
             ) {
               return (
                 <Link
-                  href={`/tin-tuc?page=${item + 1}${
-                    category && `&category=${category}`
-                  }`}
+                  href={`/du-an?page=${item + 1}${params}`}
                   className={cn(
                     'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                     {
@@ -84,21 +90,21 @@ export default function DuAnPagination({totalPage, activePage, category}) {
           {activePage < totalPage - 3 && (
             <button className='flex flex-row items-center justify-center rounded-full size-8 text-0.875 font-medium leading-1.5 bg-grey-0 mx-[0.25rem] md:mx-[0.33rem] select-none'>
               <Image
-                src={`/images/tin-tuc/dot.svg`}
+                src={`/images/du-an/dot.svg`}
                 alt=''
                 width={120}
                 height={120}
                 className='size-1'
               />
               <Image
-                src={`/images/tin-tuc/dot.svg`}
+                src={`/images/du-an/dot.svg`}
                 alt=''
                 width={120}
                 height={120}
                 className='size-1 mx-[0.25rem] md:mx-[0.33rem]'
               />
               <Image
-                src={`/images/tin-tuc/dot.svg`}
+                src={`/images/du-an/dot.svg`}
                 alt=''
                 width={120}
                 height={120}
@@ -108,9 +114,7 @@ export default function DuAnPagination({totalPage, activePage, category}) {
           )}
           {totalPage > 1 && (
             <Link
-              href={`/tin-tuc?page=${totalPage}${
-                category && `&category=${category}`
-              }`}
+              href={`/du-an?page=${totalPage}${params}`}
               className={cn(
                 'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                 {
@@ -127,9 +131,7 @@ export default function DuAnPagination({totalPage, activePage, category}) {
           {Array.from(Array(totalPage).keys()).map((item) => {
             return (
               <Link
-                href={`/tin-tuc?page=${item + 1}${
-                  category && `&category=${category}`
-                }`}
+                href={`/du-an?page=${item + 1}${params}`}
                 className={cn(
                   'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
                   {
@@ -144,13 +146,13 @@ export default function DuAnPagination({totalPage, activePage, category}) {
         </>
       )}
       <Link
-        href={`/tin-tuc?page=${
+        href={`/du-an?page=${
           activePage < totalPage - 1 ? parseInt(activePage) + 2 : totalPage
-        }${category && `&category=${category}`}`}
+        }${params}`}
         className='flex items-center justify-center rounded-full size-8 mx-[0.25rem] md:mx-[0.33rem] select-none'
       >
         <Image
-          src={`/images/tin-tuc/next-pagination.svg`}
+          src={`/images/du-an/next-pagination.svg`}
           alt=''
           width={120}
           height={120}

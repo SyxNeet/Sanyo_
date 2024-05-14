@@ -8,35 +8,29 @@ import DropdownItem from './DropdownItem'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
 import {useGSAP} from '@gsap/react'
+import {generateLinkDuAnType} from '@/lib/generateLinkDuAnType'
 
-export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
-  const ref = useRef(null)
+export default function DuAnNoiBat({
+  isMobile,
+  dataDanhSachDuAn,
+  dataProject,
+  page,
+  country,
+  type,
+}) {
+  const stickyRef = useRef(null)
   const pinRef = useRef(null)
-  const [country, setCountry] = useState('all')
-  const [elevatorTypeList, setElevatorTypeList] = useState(['all'])
-  const handleChangeCountry = (value) => {
-    setCountry(value)
-  }
-  const handleChangeElevatorTypeList = (value) => {
-    setElevatorTypeList((prevState) => {
-      if (prevState.includes(value)) {
-        return prevState.filter(
-          (item) => item !== value || prevState.length === 1,
-        )
-      }
-      return [...prevState, value]
-    })
-  }
   useEffect(() => {
     if (isMobile) {
-      gsap.to(ref.current, {
+      gsap.to(stickyRef.current, {
         scrollTrigger: {
-          trigger: ref.current,
+          trigger: stickyRef.current,
           pin: true,
           start: 'top top',
           endTrigger: '.section-du-an',
-          end: 'bottom top',
+          end: 'bottom bottom-=50%',
           pinSpacing: false,
+          anticipatePin: 1,
           onToggle: (self) => {
             const header = document.querySelector('.header')
             if (self.isActive) {
@@ -46,6 +40,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
               header.style.opacity = 1
               header.style.pointerEvents = 'all'
             }
+            stickyRef.current.style.transform = 'none'
           },
         },
       })
@@ -102,7 +97,7 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
             </p>
           )}
           <div
-            ref={ref}
+            ref={stickyRef}
             className='relative flex flex-row items-start md:pt-6 max-md:justify-around max-md:py-[0.8rem] z-10 max-md:bg-white w-full'
           >
             <Dropdown
@@ -110,19 +105,19 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
               content='Quốc gia'
             >
               <DropdownItem
+                href={`/du-an?page=${page}&country=all&type=${type}`}
                 content='Tất cả'
                 active={country.includes('all')}
-                handleOnClick={() => handleChangeCountry('all')}
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=viet-nam&type=${type}`}
                 content='VIỆT NAM'
-                active={country.includes('vietnam')}
-                handleOnClick={() => handleChangeCountry('vietnam')}
+                active={country.includes('viet-nam')}
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=the-gioi&type=${type}`}
                 content='THẾ GIỚI'
                 active={country.includes('the-gioi')}
-                handleOnClick={() => handleChangeCountry('the-gioi')}
               />
             </Dropdown>
             <Dropdown
@@ -131,69 +126,99 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
               className='ml-2'
             >
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=all`}
                 content='Tất cả'
-                active={elevatorTypeList.includes('all')}
-                handleOnClick={() => handleChangeElevatorTypeList('all')}
+                active={type.includes('all')}
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-gia-dinh',
+                )}`}
                 content='Thang máy gia đình'
-                active={elevatorTypeList.includes('thang-may-gia-dinh')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-gia-dinh')
-                }
+                active={type.includes('thang-may-gia-dinh')}
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-tai-khach',
+                )}`}
                 content='Thang máy tải khách'
-                active={elevatorTypeList.includes('thang-may-tai-khach')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-tai-khach')
-                }
+                active={type.includes('thang-may-tai-khach')}
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-tai-hang',
+                )}`}
                 content='Thang máy tải hàng'
-                active={elevatorTypeList.includes('thang-may-tai-hang')}
+                active={type.includes('thang-may-tai-hang')}
                 handleOnClick={() =>
                   handleChangeElevatorTypeList('thang-may-tai-hang')
                 }
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-quan-sat',
+                )}`}
                 content='Thang máy quan sát'
-                active={elevatorTypeList.includes('thang-may-quan-sat')}
+                active={type.includes('thang-may-quan-sat')}
                 handleOnClick={() =>
                   handleChangeElevatorTypeList('thang-may-quan-sat')
                 }
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-benh-vien',
+                )}`}
                 content='Thang máy bệnh viện'
-                active={elevatorTypeList.includes('thang-may-benh-vien')}
+                active={type.includes('thang-may-benh-vien')}
                 handleOnClick={() =>
                   handleChangeElevatorTypeList('thang-may-benh-vien')
                 }
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-o-to',
+                )}`}
                 content='Thang tải ô tô'
-                active={elevatorTypeList.includes('thang-may-o-to')}
+                active={type.includes('thang-may-o-to')}
                 handleOnClick={() =>
                   handleChangeElevatorTypeList('thang-may-o-to')
                 }
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-may-thuc-pham',
+                )}`}
                 content='Thang tải thực phẩm'
-                active={elevatorTypeList.includes('thang-may-thuc-pham')}
+                active={type.includes('thang-may-thuc-pham')}
                 handleOnClick={() =>
                   handleChangeElevatorTypeList('thang-may-thuc-pham')
                 }
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-bang-chuyen',
+                )}`}
                 content='Thang băng chuyền'
-                active={elevatorTypeList.includes('thang-bang-chuyen')}
+                active={type.includes('thang-bang-chuyen')}
                 handleOnClick={() =>
                   handleChangeElevatorTypeList('thang-bang-chuyen')
                 }
               />
               <DropdownItem
+                href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
+                  type,
+                  'thang-cuon',
+                )}`}
                 content='Thang cuốn'
-                active={elevatorTypeList.includes('thang-cuon')}
+                active={type.includes('thang-cuon')}
                 handleOnClick={() => handleChangeElevatorTypeList('thang-cuon')}
               />
             </Dropdown>
@@ -201,75 +226,26 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
         </div>
         {/* TODO: to server */}
         <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-2.jpg`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-2.jpg`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-2.jpg`}
-            altImageProject={`/`}
-            href={`/`}
-          />
+          {dataProject.events.map((item, i) => {
+            return (
+              <DuAnItem
+                key={i}
+                imgFlagUrl={item.img_country.url}
+                altImageFlag={item.img_country.alt}
+                nameProject={item.title}
+                imgProjectUrl={item.feature_image}
+                altImageProject={item.excerpt}
+                href={`/du-an/${item.detail_link}`}
+              />
+            )
+          })}
         </div>
       </div>
       <DuAnPagination
-        totalPage={12}
-        activePage={0}
+        totalPage={dataProject.total_pages}
+        activePage={page < 1 ? 0 : page - 1}
+        country={country}
+        type={type}
       />
     </section>
   )

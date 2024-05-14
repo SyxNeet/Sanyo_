@@ -19,8 +19,12 @@ export default function GsapProvider({children, isMobile}) {
     const scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
     if (pathname.includes('du-an') && isMobile) {
       scrollSmooth.kill()
-      ScrollTrigger.killAll()
+    } else {
+      const header = document.querySelector('.header')
+      header.style.opacity = 1
+      header.style.pointerEvents = 'all'
     }
+    ScrollTrigger.refresh()
   }, [pathname, isMobile])
   return (
     <div id='smooth-wrapper'>
