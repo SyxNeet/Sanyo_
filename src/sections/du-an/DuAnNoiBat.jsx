@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import Dropdown from './Dropdown'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
 import DropdownItem from './DropdownItem'
@@ -9,6 +9,7 @@ import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
 import {useGSAP} from '@gsap/react'
 import {generateLinkDuAnType} from '@/lib/generateLinkDuAnType'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 export default function DuAnNoiBat({
   isMobile,
@@ -20,7 +21,7 @@ export default function DuAnNoiBat({
 }) {
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
-  useGSAP(() => {
+  useEffect(() => {
     if (isMobile) {
       gsap.to(stickyRef.current, {
         scrollTrigger: {
@@ -32,19 +33,24 @@ export default function DuAnNoiBat({
           pinSpacing: false,
           anticipatePin: 1,
           onToggle: (self) => {
-            const header = document.querySelector('.header')
-            if (self.isActive) {
-              header.style.opacity = 0
-              header.style.pointerEvents = 'none'
-            } else {
-              header.style.opacity = 1
-              header.style.pointerEvents = 'all'
+            if (stickyRef.current) {
+              const header = document.querySelector('.header')
+              if (self.isActive) {
+                header.style.opacity = 0
+                header.style.pointerEvents = 'none'
+              } else {
+                header.style.opacity = 1
+                header.style.pointerEvents = 'all'
+              }
+              stickyRef.current.style.transform = 'none'
             }
-            stickyRef.current.style.transform = 'none'
           },
         },
       })
-    } else {
+    }
+  }, [isMobile])
+  useGSAP(() => {
+    if (!isMobile) {
       gsap.to(pinRef.current, {
         scrollTrigger: {
           trigger: pinRef.current,
@@ -58,8 +64,11 @@ export default function DuAnNoiBat({
       })
     }
   }, [isMobile])
+  useGSAP(() => {
+    ScrollTrigger.refresh()
+  }, [page, country, type])
   return (
-    <section className='section-du-an mb-[7rem]'>
+    <section className='section-du-an mb-[4rem] md:mb-[7rem]'>
       <div className='relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
         {!isMobile && (
           <>
@@ -236,14 +245,14 @@ export default function DuAnNoiBat({
               />
             )
           })}
+          <DuAnPagination
+            totalPage={dataProject.total_pages}
+            activePage={page < 1 ? 0 : page - 1}
+            country={country}
+            type={type}
+          />
         </div>
       </div>
-      <DuAnPagination
-        totalPage={dataProject.total_pages}
-        activePage={page < 1 ? 0 : page - 1}
-        country={country}
-        type={type}
-      />
     </section>
   )
 }
