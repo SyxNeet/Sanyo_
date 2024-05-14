@@ -12,8 +12,8 @@ export default function DuAnPagination({
     type ? `&type=${type}` : ''
   }`
   return (
-    <div className='col-span-2'>
-      <div className='flex flex-row items-center mx-auto mt-6 md:mt-12 w-fit'>
+    <div className='mt-4 md:col-span-2 md:mt-8'>
+      <nav className='flex flex-row items-center mx-auto w-fit'>
         <Link
           href={`/du-an?page=${
             activePage > 1 ? parseInt(activePage) - 1 : 1
@@ -160,7 +160,7 @@ export default function DuAnPagination({
             className='size-[0.59rem]'
           />
         </Link>
-      </div>
+      </nav>
     </div>
   )
 }
