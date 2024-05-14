@@ -7,8 +7,8 @@ import {usePathname} from 'next/navigation'
 import {cn} from '@/lib/utils'
 import {toast} from 'sonner'
 
-const nameReg = /[a-zA-Z\s]{4,}/
-const phoneReg = /\d{6,}/
+const nameReg = /[a-zA-Z\s]+/
+const phoneReg = /\d{10,}/
 
 export default function Support({
   className,
