@@ -103,7 +103,7 @@ export default function RootLayout({children, params}) {
           {children}
           <Footer isMobile={isMobile} />
         </GsapProvider>
-        <FixedLayout />
+        <FixedLayout isMobile={isMobile} />
         <Toaster
           expand={true}
           toastOptions={{
