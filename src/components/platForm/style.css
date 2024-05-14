@@ -1,8 +1,3 @@
-.btn-next-custom:hover svg,
-.btn-prev-custom:hover svg {
-  transition: all 0.3s;
-}
-
 .btn-next-custom:hover svg path,
 .btn-prev-custom:hover svg path {
   fill: #1e2125;
@@ -15,8 +10,4 @@
 .btnPrevJE:hover svg path,
 .btnNextJE:hover svg path {
   fill: #fff;
-}
-.btnPrevJE:hover svg,
-.btnNextJE:hover svg {
-  transition: all 0.3s;
 }

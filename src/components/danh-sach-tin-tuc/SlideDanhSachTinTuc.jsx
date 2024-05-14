@@ -72,7 +72,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                   />
                 </div>
                 {isMobile && (
-                  <div className='absolute left-[0.7rem] bottom-[0.6rem] md:bottom-6 md:left-6 rounded-[0.5rem] w-[19.3rem] md:w-[40.5625rem] pl-[0.92rem] md:pl-8 pr-[1.05rem] md:pr-[2.83rem] pt-[0.76rem] md:pt-5 pb-[1.2rem] md:pb-7 border border-transparent group-hover:border-yellow-500 transition-500 transition-500 z-10'>
+                  <div className='absolute left-[0.7rem] bottom-[0.6rem] md:bottom-6 md:left-6 rounded-[0.5rem] w-[19.3rem] md:w-[40.5625rem] pl-[0.92rem] md:pl-8 pr-[1.05rem] md:pr-[2.83rem] pt-[0.8rem] md:pt-5 pb-[0.8rem] md:pb-7 border border-transparent group-hover:border-yellow-500 transition-500 transition-500 z-10'>
                     <div className='absolute top-0 left-0 w-full h-full backdrop-blur-md rounded-[0.5rem] bg-black/35 group-hover:bg-black/45 transition-500 -z-10' />
                     <div className='flex flex-row items-center mb-[0.39rem] md:mb-4'>
                       <Image
@@ -86,10 +86,10 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                         {item.date}
                       </p>
                     </div>
-                    <h3 className='text-0.75 md:text-1.25 font-SVNLagu text-grey-0 leading-1.4 uppercase mb-[0.39rem] md:mb-3 group-hover:text-yellow-500 transition-500 font-medium'>
+                    <h3 className='text-0.75 md:text-1.25 font-SVNLagu text-grey-0 leading-1.4 uppercase mb-[0.39rem] md:mb-3 group-hover:text-yellow-500 transition-500 font-medium min-h-[2.1rem]'>
                       {item.title}
                     </h3>
-                    <p className='text-grey-0 line-clamp-2 text-0.75 md:text-1 leading-1.5 font-Iciel opacity-70'>
+                    <p className='text-grey-0 line-clamp-2 text-0.75 md:text-1 leading-1.3 md:leading-1.5 font-Iciel opacity-70 min-h-[1.9515rem]'>
                       {item.excerpt}
                     </p>
                   </div>
@@ -97,10 +97,10 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                 {!isMobile && (
                   <>
                     <div className='mt-[1.56rem] grid grid-cols-1 px-[1.37rem] gap-2'>
-                      <h3 className='line-clamp-2 text-grey-900 font-SVNLagu text-1 font-semibold leading-1.4 uppercase group-hover:text-yellow-500 transition-500'>
+                      <h3 className='line-clamp-2 text-grey-900 font-SVNLagu text-1 font-semibold leading-1.4 uppercase group-hover:text-yellow-500 transition-500 min-h-[2.8rem]'>
                         {item.title}
                       </h3>
-                      <p className='text-grey-500 font-Iciel text-0.875 opacity-70 leading-1.5 line-clamp-2'>
+                      <p className='text-grey-500 font-Iciel text-0.875 opacity-70 leading-1.5 line-clamp-2 md:min-h-[2.624rem]'>
                         {item.excerpt}
                       </p>
                       <div className='flex flex-row items-center'>

@@ -3,13 +3,12 @@ import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import getData from '@/lib/getData'
 import DuAnNoiBat from '@/sections/du-an/DuAnNoiBat'
 
-// TODO: default country la all
 const duAnPerPage = 12
 const pageId = 794
 async function getDanhSachDuAn() {
   return getData(`/pages/${pageId}/project`)
 }
-async function getProject(country = 'viet-nam', type = 'all', page = '1') {
+async function getProject(country = 'all', type = 'all', page = '1') {
   return getData(
     `/projects?country=${country}&type=${type}&page=${page}&per_page=${duAnPerPage}`,
     'okhub',
@@ -21,7 +20,7 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
   const isMobile = viewport.includes('mobile')
   const [dataDanhSachDuAn, dataProject] = await Promise.all([
     getDanhSachDuAn(),
-    // getProject(country, type, page),
+    getProject(country, type, page),
   ])
   return (
     <main className=''>
@@ -32,7 +31,10 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
       <DuAnNoiBat
         isMobile={isMobile}
         dataDanhSachDuAn={dataDanhSachDuAn.project}
-        // dataProject={dataProject}
+        dataProject={dataProject}
+        page={page ?? 1}
+        country={country ?? 'all'}
+        type={type ?? 'all'}
       />
     </main>
   )

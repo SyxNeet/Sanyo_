@@ -91,7 +91,6 @@ export default function RootLayout({children, params}) {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
       userAgent,
     )
-
   return (
     <html lang='vi'>
       <body
@@ -104,7 +103,7 @@ export default function RootLayout({children, params}) {
           {children}
           <Footer isMobile={isMobile} />
         </GsapProvider>
-        <FixedLayout />
+        <FixedLayout isMobile={isMobile} />
         <Toaster
           expand={true}
           toastOptions={{

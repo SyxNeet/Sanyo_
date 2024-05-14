@@ -5,12 +5,19 @@ import Link from 'next/link'
 import {useEffect, useRef} from 'react'
 import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
+import {useGSAP} from '@gsap/react'
+import {usePathname} from 'next/navigation'
+import { regDuAnUrl } from '@/lib/reg'
 
-export default function FixedLayout() {
+export default function FixedLayout({isMobile}) {
+  const pathname = usePathname()
   const myRef = useRef(null)
   const smootherRef = useRef(null)
-  useEffect(() => {
+  useGSAP(() => {
     smootherRef.current = ScrollSmoother.create(scrollSmootherConfig)
+    if (regDuAnUrl.test(pathname) && isMobile) {
+      smootherRef.current.kill()
+    }
   }, [])
   useEffect(() => {
     const length = myRef.current.getTotalLength()
@@ -28,7 +35,7 @@ export default function FixedLayout() {
     return () => window.removeEventListener('scroll', myFunction)
   }, [])
   return (
-    <div className='z-30 fixed bottom-3.5 right-3.5 md:bottom-6 md:right-6 flex flex-col gap-[0.88rem] md:gap-[1.38rem]'>
+    <div className='z-30 fixed bottom-3.5 right-3 md:bottom-6 md:right-6 flex flex-col gap-[0.88rem] md:gap-[1.38rem]'>
       <Link href={`/`}>
         <Image
           src={`/images/layout/3-nut-noi/call.svg`}

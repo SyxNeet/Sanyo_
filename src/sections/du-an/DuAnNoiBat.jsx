@@ -1,61 +1,76 @@
 'use client'
 
 import Image from 'next/image'
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef} from 'react'
 import Dropdown from './Dropdown'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
 import DropdownItem from './DropdownItem'
-import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
+import {useGSAP} from '@gsap/react'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import LoaiThangMayDropdown from './LoaiThangMayDropdown'
+import QuocGiaDropdown from './QuocGiaDropdown'
 
-export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
-  const ref = useRef(null)
-  const [country, setCountry] = useState('all')
-  const [elevatorTypeList, setElevatorTypeList] = useState(['all'])
-  // TODO
-  useEffect(() => {}, [])
-  const handleChangeCountry = (value) => {
-    setCountry(value)
-  }
-  const handleChangeElevatorTypeList = (value) => {
-    setElevatorTypeList((prevState) => {
-      if (prevState.includes(value)) {
-        return prevState.filter(
-          (item) => item !== value || prevState.length === 1,
-        )
-      }
-      return [...prevState, value]
-    })
-  }
-  useGSAP(() => {
+export default function DuAnNoiBat({
+  isMobile,
+  dataDanhSachDuAn,
+  dataProject,
+  page,
+  country,
+  type,
+}) {
+  const stickyRef = useRef(null)
+  const pinRef = useRef(null)
+  useEffect(() => {
     if (isMobile) {
-      gsap.to(ref.current, {
+      gsap.to(stickyRef.current, {
         scrollTrigger: {
-          trigger: ref.current,
+          trigger: stickyRef.current,
           pin: true,
-          anticipatePin: 1,
           start: 'top top',
           endTrigger: '.section-du-an',
-          end: 'bottom top',
+          end: 'bottom bottom-=50%',
           pinSpacing: false,
+          anticipatePin: 1,
           onToggle: (self) => {
-            const header = document.querySelector('.header')
-            if (self.isActive) {
-              header.style.opacity = 0
-              header.style.pointerEvents = 'none'
-            } else {
-              header.style.opacity = 1
-              header.style.pointerEvents = 'all'
+            if (stickyRef.current) {
+              const header = document.querySelector('.header')
+              if (self.isActive) {
+                header.style.opacity = 0
+                header.style.pointerEvents = 'none'
+              } else {
+                header.style.opacity = 1
+                header.style.pointerEvents = 'all'
+              }
+              stickyRef.current.style.transform = 'none'
             }
           },
         },
       })
     }
   }, [isMobile])
+  useGSAP(() => {
+    if (!isMobile) {
+      gsap.to(pinRef.current, {
+        scrollTrigger: {
+          trigger: pinRef.current,
+          pin: true,
+          anticipatePin: 1,
+          start: 'top top',
+          endTrigger: '.section-du-an',
+          end: 'bottom bottom',
+          pinSpacer: false,
+        },
+      })
+    }
+  }, [isMobile])
+  useGSAP(() => {
+    ScrollTrigger.refresh()
+  }, [page, country, type])
   return (
-    <section className='mb-[7rem]'>
-      <div className='section-du-an relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
+    <section className='section-du-an mb-[4rem] md:mb-[7rem]'>
+      <div className='relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
         {!isMobile && (
           <>
             <Image
@@ -75,9 +90,12 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
           </>
         )}
         {/* TODO: to client */}
-        <div className='md:basis-[27%] md:mr-[5rem] z-20'>
+        <div
+          ref={pinRef}
+          className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
+        >
           <h2
-            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5'
+            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 [&_p]:block'
             dangerouslySetInnerHTML={{__html: dataDanhSachDuAn.heading}}
           ></h2>
           {!isMobile && (
@@ -86,168 +104,46 @@ export default function DuAnNoiBat({isMobile, dataDanhSachDuAn, dataProject}) {
             </p>
           )}
           <div
-            ref={ref}
-            className='relative flex flex-row items-start md:pt-8 max-md:justify-around pt-[0.8rem] max-md:pb-[0.8rem] z-10 max-md:bg-white w-full'
+            ref={stickyRef}
+            className='relative z-10 flex flex-row items-start w-full md:pt-6 max-md:justify-around max-md:py-2 max-md:bg-white'
           >
-            <Dropdown
-              icon={`/images/du-an/location.svg`}
-              content='Quốc gia'
-            >
-              <DropdownItem
-                content='Tất cả'
-                active={country.includes('all')}
-                handleOnClick={() => handleChangeCountry('all')}
-              />
-              <DropdownItem
-                content='VIỆT NAM'
-                active={country.includes('vietnam')}
-                handleOnClick={() => handleChangeCountry('vietnam')}
-              />
-              <DropdownItem
-                content='THẾ GIỚI'
-                active={country.includes('the-gioi')}
-                handleOnClick={() => handleChangeCountry('the-gioi')}
-              />
-            </Dropdown>
-            <Dropdown
-              icon={`/images/du-an/type.svg`}
-              content='Loại thang máy'
-              className='ml-2'
-            >
-              <DropdownItem
-                content='Tất cả'
-                active={elevatorTypeList.includes('all')}
-                handleOnClick={() => handleChangeElevatorTypeList('all')}
-              />
-              <DropdownItem
-                content='Thang máy gia đình'
-                active={elevatorTypeList.includes('thang-may-gia-dinh')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-gia-dinh')
-                }
-              />
-              <DropdownItem
-                content='Thang máy tải khách'
-                active={elevatorTypeList.includes('thang-may-tai-khach')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-tai-khach')
-                }
-              />
-              <DropdownItem
-                content='Thang máy tải hàng'
-                active={elevatorTypeList.includes('thang-may-tai-hang')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-tai-hang')
-                }
-              />
-              <DropdownItem
-                content='Thang máy quan sát'
-                active={elevatorTypeList.includes('thang-may-quan-sat')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-quan-sat')
-                }
-              />
-              <DropdownItem
-                content='Thang máy bệnh viện'
-                active={elevatorTypeList.includes('thang-may-benh-vien')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-benh-vien')
-                }
-              />
-              <DropdownItem
-                content='Thang tải ô tô'
-                active={elevatorTypeList.includes('thang-may-o-to')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-o-to')
-                }
-              />
-              <DropdownItem
-                content='Thang tải thực phẩm'
-                active={elevatorTypeList.includes('thang-may-thuc-pham')}
-                handleOnClick={() =>
-                  handleChangeElevatorTypeList('thang-may-thuc-pham')
-                }
-              />
-              <DropdownItem
-                content='Thang cuốn'
-                active={elevatorTypeList.includes('thang-cuon')}
-                handleOnClick={() => handleChangeElevatorTypeList('thang-cuon')}
-              />
-            </Dropdown>
+            <QuocGiaDropdown
+              isMobile={isMobile}
+              page={page}
+              country={country}
+              type={type}
+            />
+            <LoaiThangMayDropdown
+              isMobile={isMobile}
+              page={page}
+              country={country}
+              type={type}
+            />
           </div>
         </div>
         {/* TODO: to server */}
-        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5'>
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-2.jpg`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-2.jpg`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-1.png`}
-            altImageFlag={`/`}
-            nameProject={'Biệt thự Phú Quốc, Việt Nam'}
-            imgProjectUrl={`/images/du-an/du-an-1.png`}
-            altImageProject={`/`}
-            href={`/`}
-          />
-          <DuAnItem
-            imgFlagUrl={`/images/du-an/country-2.png`}
-            altImageFlag={`/`}
-            nameProject={'Laos Vientiane New World project, Vientiane, Laos'}
-            imgProjectUrl={`/images/du-an/du-an-2.jpg`}
-            altImageProject={`/`}
-            href={`/`}
+        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
+          {dataProject.events.map((item, i) => {
+            return (
+              <DuAnItem
+                key={i}
+                imgFlagUrl={item.img_country.url}
+                altImageFlag={item.img_country.alt}
+                nameProject={item.title}
+                imgProjectUrl={item.feature_image}
+                altImageProject={item.excerpt}
+                href={`/du-an/${item.detail_link}`}
+              />
+            )
+          })}
+          <DuAnPagination
+            totalPage={dataProject.total_pages}
+            activePage={page < 1 ? 0 : page - 1}
+            country={country}
+            type={type}
           />
         </div>
       </div>
-      <DuAnPagination
-        totalPage={12}
-        activePage={0}
-      />
     </section>
   )
 }
