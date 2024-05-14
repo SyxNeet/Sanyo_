@@ -10,7 +10,8 @@ import 'swiper/css/pagination'
 import Link from 'next/link'
 import './styles.css'
 
-export default function SliderMbJapanElevator() {
+export default function SliderMbJapanElevator({data}) {
+  console.log(data)
   const slideImages = Array(4).fill(0)
 
   return (
@@ -27,11 +28,11 @@ export default function SliderMbJapanElevator() {
         loop={true}
         modules={[Pagination,FreeMode]}
       >
-        {slideImages.map((item, index) => (
+        {data?.map((item, index) => (
           <SwiperSlide key={index}  className='mt-4 pl-3 rounded-[0.5rem]  overflow-hidden '>
             <div className='rounded-[0.5rem] border-[1px] solid border-[rgba(254,65,39,0.3)] bg-opacity-30 relative overflow-hidden bg-[linear-gradient(180deg,rgba(254,65,39,0.40)0%,rgba(255,255,255,0.40)89.5%);]'>
               <Link
-                href={'/'}
+                href={`/thang-may-nhat-ban/${item?.elevator?.slug_detail?.slug}`}
                 className='absolute bottom-0 md:hidden right-0 border border-[rgba(254,65,39,0.30)] bg-[linear-gradient(272deg,rgba(254,65,39,0.14)-5.86%,rgba(255,255,255,0.14)98.54%)] rounded-tl-full py-[0.81rem] pl-[2.31rem] pr-[1.77rem] flex items-center'
               >
                 <span className='uppercase text-[0.875rem] font-Iciel mr-[0.62rem] font-medium '>
@@ -47,7 +48,7 @@ export default function SliderMbJapanElevator() {
                 />
               </Link>
               <Image
-                src={'/images/layout/platForm/anhThangMay1.png'}
+                src={item?.thumbnail}
                 alt='image'
                 width={800}
                 height={800}
@@ -55,13 +56,10 @@ export default function SliderMbJapanElevator() {
                 className='h-[17.75644rem] w-full object-cover rounded-[0.5rem] mb-[1.05rem]'
               />
               <h3 className='text-c-nht text-[1rem] font-SVNLagu font-medium px-[0.87rem] leading-1.5 mb-[0.5rem]'>
-                PLATFORM HOME ELEVATOR
+               {item?.title}
               </h3>
               <p className='mb-[0.75rem] px-[0.87rem] text-[0.75rem] leading-1.5 text-ellipsis line-clamp-5 text-grey-900'>
-                Thang gia đình rất thích hợp cho các toà nhà bị hạn chế về diện
-                tích, thang có thể được lắp đặt bằng cách cải tạo một khu vực
-                thích hợp bên trong hoặc bên ngoài toà nhà vì vậy tính linh hoạt
-                của thang gia đình rất cao
+               {item?.elevator?.mo_ta}
               </p>
 
               <div className='flex items-center max-md:px-[0.88rem] max-md:mb-[4.75rem]'>
@@ -79,7 +77,7 @@ export default function SliderMbJapanElevator() {
                       TỐC ĐỘ
                     </span>
                     <span className='text-gray-900 font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem] max-md:text-[0.75rem]'>
-                      0.4m.s
+                     {item?.elevator?.rated_speed}m.s
                     </span>
                   </div>
                 </div>
@@ -98,7 +96,7 @@ export default function SliderMbJapanElevator() {
                       tải trọng
                     </span>
                     <span className='text-grey-900 font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem] max-md:text-[0.75rem]'>
-                      320 - 400kg
+                    {item?.elevator?.rated_load} - {item?.elevator?.rated_load_2}
                     </span>
                   </div>
                 </div>

@@ -132,7 +132,7 @@ export default function ModalMenuDesktop({
                 setActiveModalMenuChildLink={setActiveModalMenuChildLink}
                 text={modalMenuJapanElevator.text}
                 data={modalMenuJapanElevator.child}
-                href={`/${modalMenuJapanElevator.href}`}
+                href={`/thang-may-nhat-ban`}
                 isFirst
                 handleOnClick={handleClickModalLink}
               />
@@ -143,7 +143,7 @@ export default function ModalMenuDesktop({
                 setActiveModalMenuChildLink={setActiveModalMenuChildLink}
                 text={modalMenuService.text}
                 data={modalMenuService.child}
-                href={`/${modalMenuService.href}`}
+                href={`/dich-vu`}
                 isFirst={false}
                 handleOnClick={handleClickModalLink}
               />

@@ -2,7 +2,7 @@
 import React, {useRef} from 'react'
 import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {Navigation, Pagination, Autoplay} from 'swiper/modules'
+import {Navigation, Pagination, Autoplay, FreeMode} from 'swiper/modules'
 import {outStandingProject} from '/data/japanElevator'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
@@ -79,13 +79,14 @@ const OutStandingProjectJE = ({isMobile, data}) => {
               delay: 0,
               disableOnInteraction: false,
             }}
+            freeMode={true}
             breakpoints={{
               0: {
                 slidesPerView: 1.2,
                 spaceBetween: 0,
               },
             }}
-            modules={[Pagination, Navigation, Autoplay]}
+            modules={[Pagination, Navigation, Autoplay,FreeMode]}
             className='mySwiperOnlyImages w-screen order-1 overflow-hidden'
           >
             {data[0]?.project_data?.map((item, index) => (
