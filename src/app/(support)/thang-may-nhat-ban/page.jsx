@@ -8,11 +8,12 @@ export default async function page({searchParams, params}) {
 
 
   const isMobile = viewport?.includes('mobile')
-  let [dataJpElevator, dataSixReason,dataAllElevator,dataListEle] = await Promise.all([
+  let [dataJpElevator, dataSixReason,dataAllElevator,dataListEle,dataoutStanding] = await Promise.all([
     getData(`/pages/35`),
     getData(`/options/options/sixReasons`),
     getDataSlug(`/taxonomy-terms/type_elavator`),
-    getDataSlug(`/elavator?id=35`)
+    getDataSlug(`/elavator?id=35`),
+    getDataSlug(`/feature_project?id=35`)
   ]);
   return (
     <JapanElevator
@@ -21,6 +22,7 @@ export default async function page({searchParams, params}) {
       dataSixReason={dataSixReason}
       dataAllElevator={dataAllElevator}
       dataListEle={dataListEle}
+      dataoutStanding={dataoutStanding}
     />
   )
 }

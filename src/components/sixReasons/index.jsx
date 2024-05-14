@@ -30,7 +30,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
     <div className=' flex flex-col max-md:pl-0'>
       <div className='pl-[6.25rem] max-md:pl-0'>
         <h2
-          className={`font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.875rem] max-md:order-1 max-md:w-[20.9375rem] [&>p>strong]:font-semibold ${
+          className={`font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.5rem] max-md:order-1 max-md:w-[20.9375rem] [&>p>strong]:font-semibold ${
             isJapan ? '[&>p>strong]:text-c-nht' : '[&>p>strong]:text-yellow-500'
           }`}
           dangerouslySetInnerHTML={{__html: data?.sixReasons?.heading}}

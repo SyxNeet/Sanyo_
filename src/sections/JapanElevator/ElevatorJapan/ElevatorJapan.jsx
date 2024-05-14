@@ -22,7 +22,7 @@ const ElevatorJapan = ({isMobile,data,dataListEle}) => {
         <h2 className='text-[3.125rem] font-SVNLagu font-semibold leading-1.3 text-grey-900 mb-4 max-md:text-2xl max-md:leading-1.3 [&>p>strong]:font-semibold  max-md:mb-[0.62rem] [&>p>strong]:text-c-nht ' dangerouslySetInnerHTML={{__html:dataListEle?.title||"Thang máy Nhật Bản SANYO YUSOKI"}}>
           
         </h2>
-        <span className='text-[1.125rem] font-Iciel leading-1.7 font-normal uppercase text-[#42484F] max-md:text-[0.875rem] [&>p>strong]:text-c-nht' dangerouslySetInnerHTML={{__html:dataListEle?.desc||"Chúng tôi tin rằng với một nền móng vững chắc sẽ cho ra đời những sản phẩm thang máy chất lượng nhất. SANYO YUSOKI vẫn liên tục đầu tư cho Nghiên cứu Phát triển (R&D) tất cả các dòng thang máy"}}>
+        <span className='text-[1.125rem] font-Iciel leading-1.7 font-normal uppercase text-[#42484F] max-md:text-[0.875rem] [&>p>strong]:text-c-nht max-md:lowercase' dangerouslySetInnerHTML={{__html:dataListEle?.desc||"Chúng tôi tin rằng với một nền móng vững chắc sẽ cho ra đời những sản phẩm thang máy chất lượng nhất. SANYO YUSOKI vẫn liên tục đầu tư cho Nghiên cứu Phát triển (R&D) tất cả các dòng thang máy"}}>
         </span>
       </div>
       <Button
