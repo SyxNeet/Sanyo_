@@ -22,8 +22,8 @@ const FiveReasonsFamily = ({lang, isMobile, data,heading_reason}) => {
   } = data
   return (
     <section>
-      <div className='flex justify-between pl-[5.75rem] pr-[5.84rem] items-end mt-[8.13rem] pb-[3.69rem] border-b border-[rgba(28,32,28,0.10)] max-md:px-3 max-md:mt-[3.5rem] max-md:pb-[1rem] max-md:border-none'>
-        <h2 className='w-[58.4375rem] font-SVNLagu uppercase text-[3.71738rem] leading-1.4 font-semibold max-md:text-[1.875rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:data?.heading_reason}}>
+      <div className='flex justify-between pl-[5.75rem] pr-[5.84rem] items-end mt-[8.13rem] pb-[3.69rem] border-b border-[rgba(28,32,28,0.10)] max-md:px-3 max-md:mt-[0rem] max-md:pb-[1rem] max-md:border-none'>
+        <h2 className='w-[58.4375rem] font-SVNLagu uppercase text-[3.71738rem] leading-1.4 font-semibold max-md:text-[1.5rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold' dangerouslySetInnerHTML={{__html:data?.heading_reason}}>
          
         </h2>
         <Link

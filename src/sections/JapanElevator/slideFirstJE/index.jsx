@@ -15,6 +15,7 @@ import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
   const dataAllElevatorNew = [dataAllElevator[3],dataAllElevator[6],dataAllElevator[7],dataAllElevator[5],dataAllElevator[2],dataAllElevator[4],dataAllElevator[8],dataAllElevator[1],dataAllElevator[0]]
   const firstRef = useRef(null)
+
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
   useGSAP(() => {
@@ -84,7 +85,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
       </div>
       </div>
       <div
-        className='max-md:flex max-md:flex-col w-full'
+        className='max-md:flex max-md:flex-col w-full relative'
         ref={firstRef}
       >
         <div className='max-md:flex order-3 px-3 max-md:pt[1.38rem] w-full items-center justify-between max-md:pt-[1.38rem] '>
@@ -144,7 +145,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
                 height={1500}
                 className='object-cover h-full rounded-[0.5rem] w-full'
               />
-              <Link href={img?.image?.slug||"/"} className='absolute z-10 bottom-[9%] left-[3.43rem] max-md:left-4 max-md:bottom-[7%] hover:scale-105 transition duration-300 rounded-[0.34344rem] border-[0.458px] border-[#fff] bg-[rgba(0,0,0,0.40)] px-[1.37rem] py-[0.57rem] backdrop-blur-[11.44688606262207px] text-[0.91575rem] font-Iciel font-medium leading-1.5 uppercase text-white'>
+              <Link href={`thang-may-nhat-ban/${img?.slug}`} className='absolute z-10 bottom-[9%] left-[3.43rem] max-md:left-4 max-md:bottom-[7%] hover:scale-105 transition duration-300 rounded-[0.34344rem] border-[0.458px] border-[#fff] bg-[rgba(0,0,0,0.40)] px-[1.37rem] py-[0.57rem] backdrop-blur-[11.44688606262207px] text-[0.91575rem] font-Iciel font-medium leading-1.5 uppercase text-white'>
                 {img?.name}
               </Link>
             </SwiperSlide>

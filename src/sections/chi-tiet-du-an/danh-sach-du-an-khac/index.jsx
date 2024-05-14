@@ -14,14 +14,19 @@ const ListOtherProjects = ({data}) => {
     <section className=' pt-[6.25rem] max-md:pt-[3rem]'>
       <div className='flex justify-between items-center px-[6.25rem] mb-[2.5rem] max-md:px-3 max-md:mb-[1.13rem]'>
         <h2 className='text-[3rem] font-SVNLagu leading-1.4 font-semibold max-md:text-[1.5rem]'>
-          Danh sách <span className='text-[3rem] font-SVNLagu leading-1.4 font-semibold max-md:text-[1.5rem] text-yellow-500 uppercase'>dự án khác</span>
+          Danh sách{' '}
+          <span className='text-[3rem] font-SVNLagu leading-1.4 font-semibold max-md:text-[1.5rem] text-yellow-500 uppercase'>
+            dự án khác
+          </span>
         </h2>
-        <Button
-          text='DANH SÁCH DỰ ÁN'
-          isHover='true'
-          isBlack='true'
-          className="max-md:hidden"
-        />
+        <Link href={'/du-an'}>
+          <Button
+            text='DANH SÁCH DỰ ÁN'
+            isHover='true'
+            isBlack='true'
+            className='max-md:hidden'
+          />
+        </Link>
       </div>
       <div className='relative mx-[6.25rem] max-md:mx-0'>
         <Swiper
@@ -46,18 +51,18 @@ const ListOtherProjects = ({data}) => {
           modules={[Pagination, Navigation]}
           className='mySwiperotherProjects max-md:!pl-3'
         >
-          {
-            data?.other_project?.map((item, index) => (
-              <SwiperSlide className='rounded-xl overflow-hidden' key={index}>
+          {data?.other_project?.map((item, index) => (
+            <SwiperSlide
+              className='rounded-xl overflow-hidden'
+              key={index}
+            >
               <ItemOutStandingProject
                 className={'w-full h-[22.4rem]'}
                 duAn='true'
                 data={item}
               />
             </SwiperSlide>
-            ))
-          }
-         
+          ))}
         </Swiper>
         <div className='max-md:flex order-3 px-3 max-md:pt[1.38rem] w-full items-center justify-between max-md:pt-[1.38rem] '>
           <div className='flex justify-between max-md:hidden'>
@@ -78,14 +83,14 @@ const ListOtherProjects = ({data}) => {
               }
             />
           </div>
-         <Link href='/du-an'>
-         <Button
-          text='XEM TẤT CẢ'
-          isHover='true'
-          isBlack='true'
-          className="md:hidden"
-        />
-         </Link>
+          <Link href='/du-an'>
+            <Button
+              text='XEM TẤT CẢ'
+              isHover='true'
+              isBlack='true'
+              className='md:hidden'
+            />
+          </Link>
           <div className='relative w-[6.25rem] md:hidden'>
             <div className='processOtherProjects rounded-full [&>.swiper-pagination-progressbar-fill]:!bg-yellow-500'></div>
           </div>

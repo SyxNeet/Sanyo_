@@ -13,16 +13,18 @@ const ListElevator = ({isMobile,data,dataElevator}) => {
               key={index}
               type={index % 2 === 0}
               data={item}
+              index={index}
               title={data?.title||dataElevator[0].title}
             />
           ))}
         </>
       ) : (
         <>
-          {(data?.elevator_parameters||dataElevator[0]?.data).map((item, index) => (
+          {(data?.elevator_parameters||dataElevator[0]?.data.reverse()).map((item, index) => (
             <DetailElevatorMb
               key={index}
               data={item}
+              index={index}
               title={data?.title||dataElevator[0].title}
             />
           ))}

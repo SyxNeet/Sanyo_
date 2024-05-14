@@ -37,7 +37,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
         <div className='mb-[2.5rem]'>
           {(
             data?.thong_so_thang_may?.elevator_parameters[0]?.list_advantages ||
-            data?.thong_so?.elevator_parameters[0]?.list_advantages
+            data?.thong_so?.elevator_parameters[0]?.list_advantages || []
           ).map((item, index) => {
             return (
               <div
