@@ -8,7 +8,7 @@ import './styles.css'
 
 const SlideOnlyImagesDownload = ({data}) => {
   return (
-    <section className='mt-6 md:mt-[4.12rem] mb-[3.41rem]'>
+    <section className='mt-6 md:mt-[4.12rem] md:mb-[3.41rem]'>
       <div className='flex px-[6.25rem] max-md:w-full max-md:px-3'>
         <div className='relative w-[70%] border-r max-md:w-full max-md:border-none '>
           <h1

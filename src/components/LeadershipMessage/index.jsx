@@ -50,7 +50,7 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
           height={1080}
         />
       )}
-      <div className='flex w-full overflow-hidden max-md:flex-row-reverse max-md:px-4 max-md:items-center'>
+      <div className='flex w-full overflow-hidden max-md:flex-row-reverse max-md:px-4 max-md:items-center max-md:pt-[4rem]'>
         <div className='relative w-[40%] flex justify-end'>
           <div className='sun w-[32.8125rem] h-[32.8125rem] bg-[#DAB571] absolute -z-[1] rounded-[50%] right-0 top-[-5%] md:top-[100%] transition max-md:w-[9.25rem] max-md:bg-transparent max-md:h-[9.25rem] max-md:bg-[linear-gradient(180deg,_rgba(218,_181,_113,_0.5)_0%,_rgba(218,_181,_113,_0.00)_62.11%)] max-md:left-0'></div>
           <Image
