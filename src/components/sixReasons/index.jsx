@@ -30,7 +30,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
     <div className=' flex flex-col max-md:pl-0'>
       <div className='pl-[6.25rem] max-md:pl-0'>
         <h2
-          className={`font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.875rem] max-md:order-1 max-md:w-[20.9375rem] [&>p>strong]:font-semibold ${
+          className={`font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.5rem] max-md:order-1 max-md:w-[20.9375rem] [&>p>strong]:font-semibold ${
             isJapan ? '[&>p>strong]:text-c-nht' : '[&>p>strong]:text-yellow-500'
           }`}
           dangerouslySetInnerHTML={{__html: data?.sixReasons?.heading}}
@@ -94,7 +94,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
           <ButtonSLide
             className={`swiper-button-prev-sixReasons ${isJapan?'border-c-nht':'!border-yellow-500'} transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] ${!isJapan?'max-md:bg-yellow-500':'max-md:bg-c-nht'} ${isJapan?'max-md:border-c-nht':'max-md:border-yellow-500'} max-md:w-[2.5rem] max-md:h-[2.5rem]`}
             classNameSvg={`w-[1rem] h-[1rem] text-[#FE4127] ${
-              isJapan ? 'text-[#FE4127]' : 'text-yellow-500'
+              isJapan ? 'text-[#FE4127]' : 'text-white'
             }  md:group-hover:text-white ${isJapan?'text-white':'text-black'} max-md:w-[0.875rem] max-md:h-[0.875rem]`}
           />
           <ButtonSLide
@@ -102,7 +102,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
               isJapan ? 'border-[#FE4127]' : 'border-yellow-500'
             }transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-[#FE4127] ${!isJapan?'max-md:bg-yellow-500':'max-md:bg-c-nht'} ${isJapan?'max-md:border-c-nht':'max-md:border-yellow-500'} max-md:w-[2.5rem] max-md:h-[2.5rem]`}
             classNameSvg={`w-[1rem] h-[1rem] ${
-              isJapan ? 'text-[#FE4127]' : 'text-yellow-500'
+              isJapan ? 'text-[#FE4127]' : 'text-white'
             } rotate-180 md:group-hover:text-white ${isJapan?'text-white':'text-black'} max-md:w-[0.875rem] max-md:h-[0.875rem]`}
           />
         </div>

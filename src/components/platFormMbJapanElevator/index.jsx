@@ -29,7 +29,7 @@ export default function SliderMbJapanElevator() {
       >
         {slideImages.map((item, index) => (
           <SwiperSlide key={index}  className='mt-4 pl-3 rounded-[0.5rem]  overflow-hidden '>
-            <div className='rounded-[0.5rem] border-[1px] solid border-[rgba(254,65,39,0.30] bg-opacity-30 relative overflow-hidden bg-[linear-gradient(180deg,rgba(254,65,39,0.40)0%,rgba(255,255,255,0.40)89.5%);]'>
+            <div className='rounded-[0.5rem] border-[1px] solid border-[rgba(254,65,39,0.3)] bg-opacity-30 relative overflow-hidden bg-[linear-gradient(180deg,rgba(254,65,39,0.40)0%,rgba(255,255,255,0.40)89.5%);]'>
               <Link
                 href={'/'}
                 className='absolute bottom-0 md:hidden right-0 border border-[rgba(254,65,39,0.30)] bg-[linear-gradient(272deg,rgba(254,65,39,0.14)-5.86%,rgba(255,255,255,0.14)98.54%)] rounded-tl-full py-[0.81rem] pl-[2.31rem] pr-[1.77rem] flex items-center'

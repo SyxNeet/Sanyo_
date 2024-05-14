@@ -13,7 +13,7 @@ import 'swiper/css/navigation'
 import '../styles.css'
 import ButtonSlide from '@/components/buttonSlideSixReasons/ButtonSLide'
 const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
-  const dataAllElevatorNew = [dataAllElevator[3],dataAllElevator[7],dataAllElevator[6],dataAllElevator[5],dataAllElevator[2],dataAllElevator[4],dataAllElevator[8],dataAllElevator[1],dataAllElevator[0]]
+  const dataAllElevatorNew = [dataAllElevator[3],dataAllElevator[6],dataAllElevator[7],dataAllElevator[5],dataAllElevator[2],dataAllElevator[4],dataAllElevator[8],dataAllElevator[1],dataAllElevator[0]]
   const firstRef = useRef(null)
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)

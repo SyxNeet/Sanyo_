@@ -4,11 +4,11 @@ import Link from 'next/link'
 import bgItemOutStandingProject from '../../../public/images/components/reasonChoose/lydoluachon1.png'
 import flagImg from '../../../public/images/components/itemOutstandingProject/flag.png'
 import './styles.css'
-const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,imgProjectUrl,altImageProject,link,duAn=false}) => {
+const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,imgProjectUrl,altImageProject,link,duAn=false,data}) => {
   return (
     <div className={`itemOutstandingProject relative  ${className||'md:rounded-[1.25rem] rounded-[0.75rem] w-[32.1875rem] h-[25.5rem]'} overflow-hidden flex justify-center items-end max-md:w-full max-md:h-[17.125rem]`}>
       <Image
-        src={imgProjectUrl||bgItemOutStandingProject}
+        src={imgProjectUrl || data?.thumbnail ||bgItemOutStandingProject}
         alt={altImageProject||''}
         width={1500}
         height={1000}
@@ -18,10 +18,10 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
         className={`itemOutStandingProject_overlay max-md:flex-col flex relative h-fit backdrop-blur-[12.5px] rounded-[0.5rem] justify-between md:items-center
           md:pl-[0.94rem] md:pr-[2.06rem]
           bottom-[0.59rem] ${!duAn?'py-[0.645rem]':'py-[0.45rem]'} pl-[1.06rem]  pr-[1.38rem]`}
-        href={link||'/'}
+        href={link||data?.slug ||'/'}
       >
         <Image
-          src={imgFlagUrl||flagImg}
+          src={imgFlagUrl|| data?.image_country?.url ||flagImg}
           alt={altImageFlag||''} 
           width={1500}
           height={1000}
@@ -37,7 +37,7 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
         />
         <div className='flex items-center'>
         <span className={` font-Iciel text-[0.875rem] font-normal leading-1.5 text-white max-md:w-[14.1875rem] max-md:text-[0.75rem] text-ellipsis line-clamp-2 ${!duAn?'w-[19.75rem]':'w-[17.75rem]'}`}>
-          {nameProject||'Intercontinental Hotel, Hangzhou,Zhejiang, China'}
+          {nameProject|| data?.title ||'Intercontinental Hotel, Hangzhou,Zhejiang, China'}
         </span>
         <div>
           <div className='relative flex overflow-hidden h-[2.125rem] w-[2.125rem] max-md:w-[0.76456rem] max-mdL:h-[0.76456rem]'>

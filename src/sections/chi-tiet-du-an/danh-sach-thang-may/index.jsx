@@ -28,7 +28,7 @@ const ListElevatorDuAn = ({data,isMobile,isJapan=false}) => {
           {(data?.elavators || []).map((item, index) => (
             <DetailElevator
               key={index}
-              type={index % 2 === 0}
+              type={index % 2 === 1}
               data={item}
               title={"Thang máy dùng trong dự án"}
             />
@@ -36,10 +36,11 @@ const ListElevatorDuAn = ({data,isMobile,isJapan=false}) => {
         </>
       ) : (
         <>
-          {data?.elevator_parameters?.map((item, index) => (
+          {(data?.elavators || []).map((item, index) => (
             <DetailElevatorMb
               key={index}
               data={item}
+              index={index}
               title={"Thang máy dùng trong dự án"}
             />
           ))}

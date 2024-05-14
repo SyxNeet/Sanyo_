@@ -41,7 +41,7 @@ const SlideOnlyImagesDownloadDV = ({data}) => {
                 SANYO YUSOKI
               </span>
               <div
-                className='font-SVNLagu text-[4rem] text-black font-semibold leading-[130%] w-[50.9375rem] mb-[1.19rem] max-md:w-[18.3125rem] max-md:text-2xl max-md:mb-3 max-md:border-none [&_strong]:font-semibold [&_strong]:text-yellow-500'
+                className='font-SVNLagu text-[4rem] text-black font-semibold leading-[130%] md:hidden w-[50.9375rem] mb-[1.19rem] max-md:w-[18.3125rem] max-md:text-2xl max-md:mb-3 max-md:border-none [&_strong]:font-semibold [&_strong]:text-yellow-500'
                 dangerouslySetInnerHTML={{__html: data?.heading}}
               ></div>
             </div>

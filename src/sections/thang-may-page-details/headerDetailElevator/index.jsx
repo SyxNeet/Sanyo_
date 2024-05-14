@@ -105,7 +105,7 @@ const HeaderDetailElevator = ({data,title}) => {
                 SANYO YUSOKI
               </span>
             </div>
-            <div className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '>
+            <Link href={`${data?.Link}`} target='_blank' className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '>
               <span className='uppercase font-Iciel text-base font-medium leading-[120%] mr-[0.87rem]'>
                 tải xuống ngay
               </span>
@@ -126,7 +126,7 @@ const HeaderDetailElevator = ({data,title}) => {
                 />
                 <div className='absolute w-[50%] h-[0.10025rem] bottom-0 bg-black left-[25%] lineDownLoadElevator'></div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -222,7 +222,7 @@ const HeaderDetailElevator = ({data,title}) => {
               </div>
             </div>
             <Link
-              href='/'
+              href={`${data?.link}`} target='_blank'
               className='md:hidden bg-[linear-gradient(180deg,_#D1B37B_0%,_#E4B867_100%)] w-[5.375rem] h-[5.375rem] rounded-[50%] flex items-center justify-center flex-col absolute -top-[3.8rem] right-[3rem] z-10'
             >
               <span className='font-Iciel text-[0.625rem] font-medium leading-1.2 text-white block w-[3rem] text-center mb-1'>
