@@ -12,6 +12,7 @@ export default function HeaderModalExpand({
   href,
   isFirst,
   handleOnClick,
+  dataImage
 }) {
   return (
     <div
@@ -30,15 +31,15 @@ export default function HeaderModalExpand({
         }}
         onMouseLeave={() => setActiveModalMenuLink('')}
       >
-        {data.map((item2, i2) => {
+        {data.map((item1, i1) => {
           return (
             <Link
-              key={i2}
-              href={item2.href}
+              key={i1}
+              href={item1.href}
               className='font-Iciel text-0.875 leading-1.5 uppercase opacity-60 px-6 py-[0.62rem] text-white border-b-[0.0625rem] border-white/10 hover:text-yellow-500 transition-300 hover:opacity-100 flex flex-row items-center group'
               onMouseEnter={() => {
                 setActiveModalMenuLink(text)
-                setActiveModalMenuChildLink(item2.text)
+                setActiveModalMenuChildLink(item1.text)
               }}
               onMouseLeave={() => {
                 setActiveModalMenuLink('')
@@ -46,10 +47,10 @@ export default function HeaderModalExpand({
               }}
               onClick={handleOnClick}
             >
-              {item2.text}
+              {item1.text}
               <Image
                 src={`/images/layout/header/arrow-right-yellow.svg`}
-                alt={item2.text}
+                alt={item1.text}
                 className='size-[0.75rem] ml-auto opacity-0 group-hover:opacity-100 transition-300'
                 width={120}
                 height={120}
@@ -73,22 +74,22 @@ export default function HeaderModalExpand({
         className='relative flex-none w-[21.875rem] self-stretch'
         onMouseEnter={() => setActiveModalMenuLink(text)}
       >
-        {data.map((item2, i2) => {
+        {dataImage.map((item2, i2) => {
           return (
             <Image
               key={i2}
-              src={item2.src}
-              alt=''
+              src={item2.url}
+              alt={item2.alt}
               className={clsx('object-cover w-full h-full transition-500', {
                 'absolute top-0 left-0': i2 !== 0,
                 'opacity-0 pointer-events-none':
-                  activeModalMenuChildLink !== item2.text,
+                  activeModalMenuChildLink !== data[i2].text,
                 'opacity-100 pointer-events-auto':
-                  activeModalMenuChildLink === item2.text,
+                  activeModalMenuChildLink === data[i2].text,
               })}
               onMouseEnter={() => {
                 setActiveModalMenuLink(text)
-                setActiveModalMenuChildLink(item2.text)
+                setActiveModalMenuChildLink(data[i2].text)
               }}
               onMouseLeave={() => {
                 setActiveModalMenuLink('')
