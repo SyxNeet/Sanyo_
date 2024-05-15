@@ -64,6 +64,16 @@ export default function DuAnNoiBat({
     }
   }, [isMobile])
   useGSAP(() => {
+    if (!isMobile) {
+      gsap.to('.du-an-item', {
+        scale: 1,
+        stagger: 0.12,
+        autoAlpha: 1,
+        duration: 1,
+      })
+    }
+  }, [page, country, type, isMobile])
+  useGSAP(() => {
     ScrollTrigger.refresh()
   }, [page, country, type])
   return (
@@ -129,6 +139,9 @@ export default function DuAnNoiBat({
                 imgProjectUrl={item.feature_image}
                 altImageProject={item.excerpt}
                 href={`/du-an/${item.detail_link}`}
+                page={page}
+                country={country}
+                type={type}
               />
             )
           })}
