@@ -12,7 +12,6 @@ export default async function page({searchParams, params}) {
     getData(`/options/options/contactForm`),
     getDataSlug(`/elevator_project/${slug}`),
     getDataSlug(`/other_project/${slug}`)
-    
   ])
   return <ProjectDetails isMobile={isMobile}  dataSixReason={dataSixReason} dataForm={dataForm} dataListElevator={dataListElevator} dataOtherProjeject={dataOtherProjeject} data={dataDetails}/>
 }

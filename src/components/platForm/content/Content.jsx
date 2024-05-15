@@ -1,5 +1,5 @@
 import {Button} from '@/components/ui/button'
-
+import Link from 'next/link'
 export default function Content({
   title,
   description,
@@ -22,15 +22,17 @@ export default function Content({
           {description}
         </p>
       </div>
-      <Button
-        className={`h-fit bg-transparent border-white ${classNameBtn} max-md:hidden`}
-        isHover={true}
-        text='XEM TẤT CẢ'
-        classtext={`${classText || 'text-white'}`}
-        isBlack={isBlack}
-        classHover={classHover}
-        isRed={isRed}
-      />
+      <Link href={'thang-may-nhat-ban'}>
+        <Button
+          className={`h-fit bg-transparent border-white ${classNameBtn} max-md:hidden`}
+          isHover={true}
+          text='XEM TẤT CẢ'
+          classtext={`${classText || 'text-white'}`}
+          isBlack={isBlack}
+          classHover={classHover}
+          isRed={isRed}
+        />
+      </Link>
     </div>
   )
 }

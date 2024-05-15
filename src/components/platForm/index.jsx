@@ -19,7 +19,7 @@ const PlatFormElevator = forwardRef(
           isRed={isRed}
         />
         {/* Component Slider platform */}
-        <Slider />
+        <Slider data={dataPlatForm.elavators}/>
       </div>
     )
   },

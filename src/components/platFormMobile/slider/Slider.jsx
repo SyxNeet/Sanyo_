@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, {useRef, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {Pagination} from 'swiper/modules'
+import {FreeMode, Pagination} from 'swiper/modules'
 import {Button} from '@/components/ui/button'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -10,17 +10,19 @@ import 'swiper/css/pagination'
 import Link from 'next/link'
 import './styles.css'
 
-export default function Slider() {
-  const slideImages = Array(4).fill(0)
+export default function Slider({data}) {
+  console.log(data)
+  const slideImages = data?.elavators
 
   return (
     <div className='slide_elevator_custom_mb_home'>
       <Swiper
-        className='slide_elevator_custom'
+        className='slide_elevator_custom pl-3'
         pagination={{
           type: 'progressbar',
           el: '.paginationPlatFormMb',
         }}
+
         slidesPerView={1.1}
         spaceBetween={14}
         loop={true}
@@ -30,7 +32,7 @@ export default function Slider() {
           <SwiperSlide key={index}>
             <div className='rounded-[0.5rem] border-[1px] solid border-yellow-500 bg-opacity-30 relative overflow-hidden'>
               <Link
-                href={'/'}
+                href={`/thang-may-nhat-ban/${item?.elevator?.slug_detail?.slug}`}
                 className='absolute bottom-0 md:hidden right-0 bg-yellow-500 rounded-tl-full py-[0.81rem] pl-[2.31rem] pr-[1.77rem] flex items-center'
               >
                 <span className='uppercase text-[0.875rem] font-Iciel mr-[0.62rem] font-medium '>
@@ -46,21 +48,18 @@ export default function Slider() {
                 />
               </Link>
               <Image
-                src={'/images/layout/platForm/anhThangMay1.png'}
-                alt='image'
+                src={item?.thumbnail}
+                alt={item?.title}
                 width={800}
                 height={800}
                 quality={100}
                 className='h-[17.75644rem] w-full object-cover rounded-[0.5rem] mb-[1.05rem]'
               />
               <h3 className='text-yellow-500 text-[1rem] font-SVNLagu font-medium px-[0.87rem] leading-1.5 mb-[0.5rem]'>
-                PLATFORM HOME ELEVATOR
+                {item?.title}
               </h3>
               <p className='mb-[0.75rem] px-[0.87rem] text-[0.75rem] leading-1.5 text-ellipsis line-clamp-5 text-white'>
-                Thang gia đình rất thích hợp cho các toà nhà bị hạn chế về diện
-                tích, thang có thể được lắp đặt bằng cách cải tạo một khu vực
-                thích hợp bên trong hoặc bên ngoài toà nhà vì vậy tính linh hoạt
-                của thang gia đình rất cao
+                {item?.elevator?.mo_ta}
               </p>
 
               <div className='flex items-center max-md:px-[0.88rem] max-md:mb-[4.75rem]'>
@@ -78,7 +77,7 @@ export default function Slider() {
                       TỐC ĐỘ
                     </span>
                     <span className='text-white font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem] max-md:text-[0.75rem]'>
-                      0.4m.s
+                      {item?.elevator?.rated_speed} m/s
                     </span>
                   </div>
                 </div>
@@ -99,7 +98,7 @@ export default function Slider() {
                       tải trọng
                     </span>
                     <span className='text-white font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem] max-md:text-[0.75rem]'>
-                      320 - 400kg
+                      {item?.elevator?.rated_load} - {item?.elevator?.rated_load_2} kg
                     </span>
                   </div>
                 </div>
@@ -111,7 +110,7 @@ export default function Slider() {
       <div className='w-[6.25rem] relative mx-auto mt-8 '>
         <div className='paginationPlatFormMb rounded-full w-full !bg-grey-0'></div>
       </div>
-      <Link href={'/'} className='mt-[3.12rem] flex justify-center'>
+      <Link href={'/thang-may-nhat-ban'} className='mt-[3.12rem] flex justify-center'>
         <Button
           isHover={false}
           text={'XEM TẤT CẢ'}

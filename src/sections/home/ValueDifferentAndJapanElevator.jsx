@@ -13,6 +13,7 @@ export default function ValueDifferentAndJapanElevator({
   isMobile,
   dataValueDifferent,
   dataPlatForm,
+  dataSixReason
 }) {
   const firstRef = useRef(null)
   const secondRef = useRef(null)
@@ -37,6 +38,7 @@ export default function ValueDifferentAndJapanElevator({
       <ValueDifferent
         ref={firstRef}
         isMobile={isMobile}
+        dataSixReason={dataSixReason}
         dataValueDifferent={dataValueDifferent}
       />
       {!isMobile ? (

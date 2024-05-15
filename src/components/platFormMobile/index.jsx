@@ -11,7 +11,7 @@ function PlatFormMobile({dataPlatForm}) {
         title={dataPlatForm?.title}
         description={dataPlatForm?.desc}
       />
-      <Slider />
+      <Slider data={dataPlatForm}/>
     </section>
   )
 }

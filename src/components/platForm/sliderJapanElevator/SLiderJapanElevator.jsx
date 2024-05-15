@@ -14,7 +14,7 @@ function SliderJapanElevator({data}) {
     const activeSlideIndex = swiper.realIndex
     setIndexSlider(activeSlideIndex)
   }
-
+  console.log(data)
   return (
     <div className='flex md:space-x-[2.37rem] border-t-[1px] border-b-[1px] solid border-[rgba(28,32,28,0.10)] border-opacity-10 pl-[6.31rem] mt-10'>
       <div className='md:w-[21.625rem] md:py-[1.98rem] flex flex-col flex-shrink-0'>
@@ -118,23 +118,22 @@ function SliderJapanElevator({data}) {
           modules={[Navigation]}
         >
           {data?.map((item, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className='overflow-hidden'>
               {item.video_ytb ? (
                 <iframe
                   width='800'
                   height='800'
-                  src={item.video_ytb}
+                  src={`https://www.youtube.com/embed/${new URL(item.video_ytb).searchParams.get('v')}`}
                   frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                   allowFullScreen
-                  className='md:h-[36.8535rem] w-full object-cover border border-[rgba(28,32,28,0.10)]'
+                  className='md:h-[36.8535rem] !w-full object-cover border border-[rgba(28,32,28,0.10)]'
                 ></iframe>
               ) : item.video_upload ? (
                 <ReactPlayer
-                  width='800px'
-                  height='800px'
+                  className='md:!h-[36.8535rem] relative !w-full object-cover border border-[rgba(28,32,28,0.10)] [&>video]:object-cover'
                   controls
-                  url={item.video_upload}
+                  url={item?.video_upload?.link}
                 />
               ) : (
                 <Image

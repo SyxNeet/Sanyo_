@@ -1,32 +1,39 @@
 'use client'
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Pagination} from 'swiper/modules'
 import ReasonChoose from '@/components/reasonChoose'
 import './style.css'
-export default function SlideValue({isMobile}) {
-  const slideImages = Array(4)?.fill(0)
+
+export default function SlideValue({isMobile, data}) {
+  const slideImages = data?.sixReasons?.slide_six_reasons?.slice().reverse()
   const [activeSlide, setActiveSlide] = useState(0)
-  const swiperRef = useRef()
+  const swiperRef = useRef(null)
+
   const handleChangeSlide = (swiper) => {
-    setActiveSlide(swiper?.activeIndex)
+    const currentIndex = swiper?.realIndex
+    setActiveSlide(currentIndex)
   }
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      handleChangeSlide(swiperRef.current)
+    }
+  }, [swiperRef.current])
+
   return (
     <>
       <div className='relative'>
         <Swiper
           modules={[Navigation, Pagination]}
-          className='slide_value size-full max-md:!pl-[0.76rem]'
+          className=' max-md:!pl-[0.76rem] md:!pr-[10rem]'
           slidesPerView={1.2}
           spaceBetween={12}
           centeredSlides={!isMobile && true}
-          onSlideChange={handleChangeSlide}
-          initialSlide={isMobile ? 0 : slideImages?.length}
-          onBeforeInit={(swiper) => {
-            swiperRef.current = swiper
-          }}
+          onSlideChange={(swiper) => handleChangeSlide(swiper)}
+          initialSlide={slideImages.length}
           navigation={{
             prevEl: '.btn-next-cus-value',
             nextEl: '.btn-prev-cus-value',
@@ -39,14 +46,17 @@ export default function SlideValue({isMobile}) {
               },
             },
             768: {
-              slidesPerView: 'auto',
+              slidesPerView: 1.8,
               spaceBetween: 35,
             },
           }}
         >
-          {slideImages.map((item, index) => (
+          {(!isMobile
+            ? data?.sixReasons?.slide_six_reasons.slice().reverse()
+            : data?.sixReasons?.slide_six_reasons
+          ).map((item, index) => (
             <SwiperSlide key={index}>
-              <ReasonChoose />
+              <ReasonChoose data={item} />
             </SwiperSlide>
           ))}
         </Swiper>

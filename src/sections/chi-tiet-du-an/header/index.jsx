@@ -7,7 +7,8 @@ import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Autoplay} from 'swiper/modules'
-const HeaderProject = ({data}) => {
+const HeaderProject = ({data,slide}) => {
+  console.log(slide)
   return (
     <section>
       <BreadcrumbContainer className='pl-3 md:pl-[6.25rem]'>
@@ -123,7 +124,7 @@ const HeaderProject = ({data}) => {
           modules={[Navigation, Autoplay]}
           className='mySwiperduan'
         >
-          {data?.slide_image?.map((item, index) => (
+          {slide?.map((item, index) => (
             <SwiperSlide key={index}>
               <Image
                 src={item?.image?.url}
