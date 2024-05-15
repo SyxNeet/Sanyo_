@@ -18,20 +18,25 @@ async function getDanhSachThangMay() {
 async function getSupport() {
   return getData(`/options/options/contactForm`)
 }
-async function getPosts() {
-  return getData(`/posts?page=1&per_page=16`, 'okhub')
+async function getPosts(slug) {
+  return getData(`/feature_post/${slug}`, 'okhub')
+}
+async function getElevatorBySlug(slug) {
+  return getData(`/elavator_by_slug/${slug}`, 'okhub')
 }
 
 export default async function TinTucPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
   const {slug} = params
-  const [dataPost, dataPlatForm, dataSupport, dataPosts] = await Promise.all([
-    getChiTietTinTuc(slug),
-    getDanhSachThangMay(),
-    getSupport(),
-    getPosts(),
-  ])
+  const [dataPost, dataPlatForm, dataSupport, dataPosts, dataElevatorBySlug] =
+    await Promise.all([
+      getChiTietTinTuc(slug),
+      getDanhSachThangMay(),
+      getSupport(),
+      getPosts(slug),
+      getElevatorBySlug(slug),
+    ])
   return (
     <main>
       <BreadcrumbContainer className='pl-3 md:px-[3.75rem]'>
@@ -46,9 +51,9 @@ export default async function TinTucPage({params, searchParams}) {
         data={dataPost}
       />
       {!isMobile ? (
-        <PlatFormElevator dataPlatForm={dataPlatForm.danh_sach_thang_may} />
+        <PlatFormElevator dataElevatorBySlug={dataElevatorBySlug} />
       ) : (
-        <PlatFormMobile dataPlatForm={dataPlatForm.danh_sach_thang_may} />
+        <PlatFormMobile dataElevatorBySlug={dataElevatorBySlug} />
       )}
       <News
         isMobile={isMobile}

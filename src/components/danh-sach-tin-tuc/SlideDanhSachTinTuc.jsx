@@ -3,27 +3,23 @@
 import {Swiper, SwiperSlide} from 'swiper/react'
 import Link from 'next/link'
 import Image from 'next/image'
-import {Navigation} from 'swiper/modules'
+import {Navigation, Pagination} from 'swiper/modules'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import {useEffect, useRef} from 'react'
+import {useRef} from 'react'
 
 export default function SlideDanhSachTinTuc({isMobile, data}) {
-  const progressBarRef = useRef(null)
-  const fillProgressBarRef = useRef(null)
   const swiperRef = useRef(null)
-  useEffect(() => {
-    if (isMobile) {
-      const totalWidth = progressBarRef.current.offsetWidth
-      const fillPercent = 1 / swiperRef.current.slides.length
-      fillProgressBarRef.current.style.width = fillPercent * totalWidth + 'px'
-    }
-  }, [isMobile])
   return (
     <div className='relative max-md:mb-5 max-md:-mx-3'>
       <Swiper
         ref={swiperRef}
+        speed={600}
         slidesPerView={1.12}
+        pagination={{
+          type: 'progressbar',
+          el: '.slide-danh-sach-tin-tuc-pagination',
+        }}
         spaceBetween={
           !isMobile
             ? (window.innerWidth / 100) * 1
@@ -35,8 +31,8 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
         slidesOffsetBefore={
           isMobile ? (window.innerWidth / 100) * 4.267 * 0.75 : 0
         }
-        navigation={{enabled: true, prevEl: '.prev-btn', nextEl: '.next-el'}}
-        modules={[Navigation]}
+        navigation={{enabled: true, prevEl: '.prev-btn', nextEl: '.next-btn'}}
+        modules={[Navigation, Pagination]}
         breakpoints={{
           768: {
             slidesPerView: 4,
@@ -46,25 +42,17 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        onSlideChange={(swiper) => {
-          if (isMobile) {
-            const totalWidth = progressBarRef.current.offsetWidth
-            const fillPercent = (swiper.activeIndex + 1) / swiper.slides.length
-            fillProgressBarRef.current.style.width =
-              fillPercent * totalWidth + 'px'
-          }
-        }}
       >
-        {data.events.map((item, i) => {
+        {data.recent_posts.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Link
-                href={item.detail_link}
+                href={`/tin-tuc/${item.slug}`}
                 className='relative h-[15rem] md:h-[25rem] flex flex-col rounded-[0.75rem] overflow-hidden border border-[#E9E9E9] group hover:border-yellow-500 transition-500 md:pb-[1.5rem]'
               >
                 <div className='rounded-[0.5rem] md:rounded-t-[0.5rem] flex-none h-full md:h-[60%] overflow-hidden'>
                   <Image
-                    src={item.feature_image}
+                    src={item.image.url}
                     alt=''
                     width={1920}
                     height={1080}
@@ -243,7 +231,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
               </defs>
             </svg>
           </button>
-          <button className='absolute right-0 z-10 translate-x-1/2 next-el bottom-1/2'>
+          <button className='absolute right-0 z-10 translate-x-1/2 next-btn bottom-1/2'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='64'
@@ -344,15 +332,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
         </>
       )}
       {isMobile && (
-        <div
-          ref={progressBarRef}
-          className='absolute -bottom-6 right-3 w-[6.25rem] h-1 rounded-full bg-[#E6E9F6]'
-        >
-          <div
-            ref={fillProgressBarRef}
-            className='absolute top-0 left-0 w-0 h-full bg-yellow-500 transition-300'
-          />
-        </div>
+        <div className='slide-danh-sach-tin-tuc-pagination'></div>
       )}
     </div>
   )

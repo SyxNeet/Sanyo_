@@ -2,9 +2,7 @@
 
 import Image from 'next/image'
 import {useEffect, useRef} from 'react'
-import Dropdown from './Dropdown'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
-import DropdownItem from './DropdownItem'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
 import {useGSAP} from '@gsap/react'
@@ -89,7 +87,6 @@ export default function DuAnNoiBat({
             />
           </>
         )}
-        {/* TODO: to client */}
         <div
           ref={pinRef}
           className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
@@ -121,7 +118,6 @@ export default function DuAnNoiBat({
             />
           </div>
         </div>
-        {/* TODO: to server */}
         <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
           {dataProject.events.map((item, i) => {
             return (

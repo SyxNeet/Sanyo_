@@ -7,8 +7,9 @@
 }
 
 .swiper-pagination-progressbar {
-  @apply absolute -bottom-6 right-0 left-auto top-auto w-[6.25rem] rounded-full bg-[#E6E9F6] !important;
+  @apply absolute -bottom-6 right-3 left-auto top-auto w-[6.25rem] rounded-full bg-[#E6E9F6] !important;
 }
+
 .swiper-pagination-progressbar-fill {
   @apply bg-yellow-500 !important;
 }
