@@ -16,6 +16,7 @@ export default function ModalMenuDesktop({
   activeModalMenuChildLink,
   setActiveModalMenuLink,
   setActiveModalMenuChildLink,
+  dataImage
 }) {
   return (
     <>
@@ -135,6 +136,7 @@ export default function ModalMenuDesktop({
                 href={`/thang-may-nhat-ban`}
                 isFirst
                 handleOnClick={handleClickModalLink}
+                dataImage={dataImage.thang_may_nhat_ban}
               />
               <HeaderModalExpand
                 activeModalMenuLink={activeModalMenuLink}
@@ -146,6 +148,7 @@ export default function ModalMenuDesktop({
                 href={`/dich-vu`}
                 isFirst={false}
                 handleOnClick={handleClickModalLink}
+                dataImage={dataImage.dich_vu}
               />
             </div>
           </div>

@@ -8,7 +8,7 @@ import LangDropdown from '@/components/header/LangDropdown'
 import dynamic from 'next/dynamic'
 const DynamicModalMenuDesktop = dynamic(() => import('./ModalMenuDesktop'))
 
-export default function HeaderDesktop({isMobile}) {
+export default function HeaderDesktop({isMobile, data}) {
   const headerRef = useRef(null)
   const [isOpenModalMenu, setIsOpenModalMenu] = useState(false)
   const [activeModalMenuLink, setActiveModalMenuLink] = useState('')
@@ -145,9 +145,7 @@ export default function HeaderDesktop({isMobile}) {
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
                 Chọn ngôn ngữ
               </p>
-              <LangDropdown
-                isMobile={isMobile}
-              />
+              <LangDropdown isMobile={isMobile} />
             </div>
           </div>
         </nav>
@@ -160,6 +158,7 @@ export default function HeaderDesktop({isMobile}) {
         setIsOpenModalMenu={setIsOpenModalMenu}
         setActiveModalMenuLink={setActiveModalMenuLink}
         setActiveModalMenuChildLink={setActiveModalMenuChildLink}
+        dataImage={data}
       />
     </>
   )

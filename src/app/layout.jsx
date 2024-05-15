@@ -85,7 +85,6 @@ const avertaStdCy = localFont({
 })
 
 export default function RootLayout({children, params}) {
-
   const headersList = headers()
   const userAgent = headersList.get('user-agent')
   const isMobile =
