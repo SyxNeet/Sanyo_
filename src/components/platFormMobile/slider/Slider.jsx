@@ -10,7 +10,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import Link from 'next/link'
 import './styles.css'
-import ReactPlayer from 'react-player/lazy'
+import ReactPlayer from 'react-player'
 
 export default function Slider({data}) {
   return (

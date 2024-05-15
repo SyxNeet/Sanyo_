@@ -6,7 +6,8 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import Link from 'next/link'
-import ReactPlayer from 'react-player/lazy'
+import dynamic from 'next/dynamic'
+const ReactPlayer = dynamic(() => import('react-player/lazy'), {ssr: false})
 
 export default function Slider({data}) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -147,13 +148,13 @@ export default function Slider({data}) {
                   className='md:!h-[36.8535rem] !w-full !object-cover'
                 />
               )}
-              {item.video_ytb && (
+              {/* {item.video_ytb && (
                 <ReactPlayer
                   url={item.video_ytb}
                   controls
                   className='md:!h-[36.8535rem] !w-full !object-cover'
                 />
-              )}
+              )} */}
             </SwiperSlide>
           ))}
         </Swiper>
