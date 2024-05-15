@@ -148,13 +148,13 @@ export default function Slider({data}) {
                   className='md:!h-[36.8535rem] !w-full !object-cover'
                 />
               )}
-              {/* {item.video_ytb && (
+              {item.video_ytb && (
                 <ReactPlayer
                   url={item.video_ytb}
                   controls
                   className='md:!h-[36.8535rem] !w-full !object-cover'
                 />
-              )} */}
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
