@@ -109,6 +109,7 @@ function SliderJapanElevator({data}) {
           className='slide_elevator_JE'
           loop={true}
           slidesPerView={1.8}
+          speed={800}
           spaceBetween={20}
           onSlideChange={handleSlideChange}
           navigation={{

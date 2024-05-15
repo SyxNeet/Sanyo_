@@ -41,7 +41,7 @@ export default function CountItem({num, desc, className}) {
   }, [number, isVisible, num])
   return (
     <div
-      className={`relative md:w-[17.86rem] md:h-[20.45rem] group  hover:bg-yellow-500 md:rounded-[0.45775rem] md:border-[0.8px] md:solid border-[#E9E9E9] ${className} transition duration-300`}
+      className={`relative md:w-[17.86rem] md:h-[20.45rem] group  md:hover:bg-yellow-500 md:rounded-[0.45775rem] md:border-[0.8px] md:solid border-[#E9E9E9] ${className} md:transition md:duration-300`}
     >
       <Image
         src={'/images/home/sectionCount/layout.svg'}
@@ -49,7 +49,7 @@ export default function CountItem({num, desc, className}) {
         width={300}
         height={300}
         quality={100}
-        className='absolute left-0 bottom-0 w-full object-fill max-md:hidden opacity-100 group-hover:opacity-0 transition duration-300'
+        className='absolute left-0 bottom-0 w-full object-fill max-md:hidden md:opacity-100 md:group-hover:opacity-0 md:transition md:duration-300'
       />
             <Image
         src={'/images/home/sectionCount/layouthover.svg'}
@@ -62,16 +62,16 @@ export default function CountItem({num, desc, className}) {
       <div className='relative w-fit md:left-[1.73rem] md:top-[2.16rem]'>
         <span
           ref={numberRef}
-          className='text-yellow-500 font-SVNLagu md:text-[4.47175rem] text-[3rem] font-medium leading-1.2 group-hover:text-white transition duration-300'
+          className='text-yellow-500 font-SVNLagu md:text-[4.47175rem] text-[3rem] font-medium leading-1.2 md:group-hover:text-white transition duration-300'
         >
           {number < 10 ? `0${number}` : number}
         </span>
         {/* <Image src={'/images/home/sectionCount/plus.svg'} alt="plus" width={120} height={120} className='' /> */}
-        <span className='text-yellow-500 font-SVNLagu font-[300] md:text-[2.79488rem] text-[1.7rem] leading-1.2 absolute group-hover:text-white transition duration-300'>
+        <span className='text-yellow-500 font-SVNLagu font-[300] md:text-[2.79488rem] text-[1.7rem] leading-1.2 absolute md:group-hover:text-white transition duration-300'>
           +
         </span>
       </div>
-      <h4 className='md:absolute md:top-[7.53rem] md:left-[1.73rem] max-md:uppercase max-md:text-grey-900 text-[0.75rem] md:w-[13.58019rem] text-grey-700 font-SVNLagu md:text-[1.3rem] lg:text-[1.22069rem] font-semibold md:leading-1.4 leading-1.3 group-hover:text-white transition duration-300'>
+      <h4 className='md:absolute md:top-[7.53rem] md:left-[1.73rem] max-md:uppercase max-md:text-grey-900 text-[0.75rem] md:w-[13.58019rem] text-grey-700 font-SVNLagu md:text-[1.3rem] lg:text-[1.22069rem] font-semibold md:leading-1.4 leading-1.3 md:group-hover:text-white transition duration-300'>
         {desc}
       </h4>
     </div>

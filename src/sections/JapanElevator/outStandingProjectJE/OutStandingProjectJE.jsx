@@ -1,10 +1,12 @@
 'use client'
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Pagination, Autoplay, FreeMode} from 'swiper/modules'
 import {outStandingProject} from '/data/japanElevator'
 import gsap from 'gsap'
+import AOS from 'aos'
+
 import {useGSAP} from '@gsap/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -12,8 +14,11 @@ import 'swiper/css/navigation'
 import '../styles.css'
 import {Button} from '@/components/ui/button'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
-
+import 'aos/dist/aos.css'
 const OutStandingProjectJE = ({isMobile, data}) => {
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, [])
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
   useGSAP(() => {
@@ -40,22 +45,31 @@ const OutStandingProjectJE = ({isMobile, data}) => {
           <div>
             <h2
               className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
+              data-aos='fade-left'
+              delay={200}
               dangerouslySetInnerHTML={{__html: data[0]?.title_mb}}
             ></h2>
           </div>
         ) : (
-          <div className=''>
+          <div
+            className=''
+          >
             <h2
               className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
               dangerouslySetInnerHTML={{__html: data[0]?.title}}
+              data-aos='fade-left'
             ></h2>
             <span
               className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'
               dangerouslySetInnerHTML={{__html: data[0]?.desc}}
+              data-aos='fade-left'
             ></span>
           </div>
         )}
-        <Link href={'/du-an'}  >
+        <Link
+          href={'/du-an'}
+          data-aos='fade-left'
+        >
           <Button
             className='w-fit max-md:hidden mt-[2.44rem]'
             isRed={true}
@@ -86,7 +100,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
                 spaceBetween: 0,
               },
             }}
-            modules={[Pagination, Navigation, Autoplay,FreeMode]}
+            modules={[Pagination, Navigation, Autoplay, FreeMode]}
             className='mySwiperOnlyImages w-screen order-1 overflow-hidden'
           >
             {data[0]?.project_data?.map((item, index) => (
@@ -130,6 +144,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
         <div
           className='flex flex-wrap w-[73%]'
           ref={outStandingProjectEndRef}
+          data-aos='fade-left'
         >
           {data[0]?.project_data?.map((item, index) => (
             <ItemOutStandingProject

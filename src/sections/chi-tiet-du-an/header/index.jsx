@@ -8,7 +8,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Autoplay} from 'swiper/modules'
 const HeaderProject = ({data,slide}) => {
-  console.log(slide)
   return (
     <section>
       <BreadcrumbContainer className='pl-3 md:pl-[6.25rem]'>
@@ -116,7 +115,8 @@ const HeaderProject = ({data,slide}) => {
               slidesPerView: 1.7,
             },
           }}
-          speed={7000}
+          loop={true}
+          speed={8000}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
