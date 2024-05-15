@@ -6,11 +6,11 @@ async function getHeader() {
   return getData(`/pages/${pageId}/header`)
 }
 
-export default async function Header() {
+export default async function Header({isMobile}) {
   const dataHeader = await getHeader()
   return (
     <>
-      <HeaderContainer data={dataHeader.header} />
+      <HeaderContainer isMobile={isMobile} data={dataHeader.header} />
     </>
   )
 }
