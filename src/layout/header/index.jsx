@@ -1,39 +1,16 @@
-'use client'
+import getData from '@/lib/getData'
+import HeaderContainer from './HeaderContainer'
 
-import HeaderDesktop from './HeaderDesktop'
-import HeaderMobile from './HeaderMobile'
-import {useEffect, useRef} from 'react'
+const pageId = 1066
+async function getHeader() {
+  return getData(`/pages/${pageId}/header`)
+}
 
-export default function Header({isMobile}) {
-  const headerRef = useRef(null)
-  useEffect(() => {
-    let prevScroll = 0
-    const fnc = () => {
-      const currentScroll = document.documentElement.scrollTop
-      if (currentScroll > prevScroll) {
-        headerRef.current.style.transform = 'translateY(-103%)'
-      } else {
-        headerRef.current.style.transform = 'translateY(0%)'
-      }
-      prevScroll = currentScroll
-    }
-    window.addEventListener('scroll', fnc)
-    return () => window.removeEventListener('scroll', fnc)
-  }, [])
+export default async function Header() {
+  const dataHeader = await getHeader()
   return (
-    <header
-      ref={headerRef}
-      className='fixed top-0 left-0 z-50 w-full header transition-500'
-    >
-      {!isMobile ? (
-        <HeaderDesktop
-          isMobile={isMobile}
-        />
-      ) : (
-        <HeaderMobile
-          isMobile={isMobile}
-        />
-      )}
-    </header>
+    <>
+      <HeaderContainer data={dataHeader.header} />
+    </>
   )
 }

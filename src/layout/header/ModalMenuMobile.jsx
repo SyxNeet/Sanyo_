@@ -160,6 +160,7 @@ export default function ModalMenuMobile({
       <Link
         href={`/lien-he`}
         className='w-full py-3 text-center border border-yellow-500 bg-yellow-500 rounded-full font-Iciel text-grey-900 text-0.75 font-medium leading-1.5 block mb-[0.88rem]'
+        onClick={() => setIsOpenModalMenu(false)}
       >
         ĐĂNG KÍ TƯ VẤN
       </Link>

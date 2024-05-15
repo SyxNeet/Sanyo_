@@ -7,7 +7,7 @@ import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 import {useGSAP} from '@gsap/react'
 import {usePathname} from 'next/navigation'
-import { regDuAnUrl } from '@/lib/reg'
+import {regDuAnUrl} from '@/lib/reg'
 
 export default function FixedLayout({isMobile}) {
   const pathname = usePathname()
@@ -18,7 +18,7 @@ export default function FixedLayout({isMobile}) {
     if (regDuAnUrl.test(pathname) && isMobile) {
       smootherRef.current.kill()
     }
-  }, [])
+  }, [isMobile, pathname])
   useEffect(() => {
     const length = myRef.current.getTotalLength()
     myRef.current.style.strokeDasharray = length

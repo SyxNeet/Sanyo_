@@ -4,14 +4,14 @@ import {cva} from 'class-variance-authority'
 
 import {cn} from '@/lib/utils'
 import Image from 'next/image'
-
+import clsx from 'clsx'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: `relative overflow-hidden rounded-[6.25rem] border-[1px] solid border-[#1E2125] hover:border-transparent hover:bg-transparent bg-[#fff] h-auto`,
+        default: `relative overflow-hidden rounded-[6.25rem] border-[1px] solid border-[#1E2125] hover:border-yellow-500 hover:bg-transparent bg-[#fff] h-auto`,
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         outline:
@@ -37,7 +37,19 @@ const buttonVariants = cva(
 
 const Button = React.forwardRef(
   (
-    {className, variant, size, asChild = false, text, isHover,isBlack,classHover,isRed, ...props},
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      text,
+      isHover,
+      isBlack,
+      classHover,
+      isRed,
+      classText,
+      ...props
+    },
     ref,
   ) => {
     const Comp = asChild ? Slot : 'button'
@@ -52,7 +64,11 @@ const Button = React.forwardRef(
         {...props}
       >
         <span
-          className={`font-Iciel ${isRed?'group-hover:text-white max-md:text-c-nht':''} md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] text-grey-900 ${props?.classtext}`}
+          className={clsx(
+            `font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5]text-grey-900`,
+            {'group-hover:text-white max-md:text-c-nht': isRed},
+            classText,
+          )}
         >
           {text}
         </span>
@@ -62,14 +78,22 @@ const Button = React.forwardRef(
           height='16'
           viewBox='0 0 15 16'
           fill='none'
-          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover} ${isRed?'group-hover:[&>path]:fill-white max-md:[&>path]:fill-c-nht':''}`}
+          className={`md:w-[0.875rem] md:h-[1rem] md:ml-[0.75rem] ml-[0.56rem] w-[0.66963rem] h-[0.76525rem] relative z-[1] ${classHover} ${
+            isRed
+              ? 'group-hover:[&>path]:fill-white max-md:[&>path]:fill-c-nht'
+              : ''
+          }`}
         >
           <path
             d='M14.5 8L4.5 0V6L0.5 8L4.5 10L4.5 16L14.5 8Z'
-            fill={(isBlack ? '#1E2125' : 'white')}
+            fill={isBlack ? '#1E2125' : 'white'}
           />
         </svg>
-        <div className={`absolute inset-0 ${ isRed ? 'bg-hover_button_red' : 'bg-hover_button'} translate-y-[100%] box_button_hover transition-all duration-300 w-[200%]`}></div>
+        <div
+          className={`absolute inset-0 ${
+            isRed ? 'bg-hover_button_red' : 'bg-hover_button'
+          } translate-y-[100%] box_button_hover transition-all duration-300 w-[200%]`}
+        ></div>
       </Comp>
     )
   },
