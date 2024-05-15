@@ -20,7 +20,7 @@ const ProductLine = ({ data ,isMobile}) => {
           </h2>
           <h2 className='md:hidden w-full font-SVNLagu text-[1.5rem] font-bold leading-1.3 mb-2 [&>p>strong]:text-c-nht [&>p>strong]:font-semibold max-md:font-semibold' dangerouslySetInnerHTML={{ __html: data?.heading_mb }}>
           </h2>
-          <span className='w-[47.875rem] block font-Iciel text-[1.125rem] font-normal leading-1.7 uppercase max-md:capitalize max-md:w-full text-[#6D7279] max-md:text-sm' dangerouslySetInnerHTML={{ __html: data?.desc }}>
+          <span className='w-[47.875rem] block font-Iciel text-[1.125rem] font-normal leading-1.7 max-md:text-[0.75rem] uppercase max-md:capitalize max-md:w-full text-[#6D7279] ' dangerouslySetInnerHTML={{ __html: data?.desc }}>
           </span>
         </div>
         <Link

@@ -79,7 +79,7 @@ const PerfectChoiceJE = ({data}) => {
             <div className='md:hidden w-[0.875rem] h-[0.6875rem] bg-c-nht opacity-10 absolute bottom-[2.125rem] right-[2.1875rem]'></div>
             <div className='w-full pt-[7.13rem] pl-[6.19rem] pr-[7.62rem] pb-[8.31rem] max-md:pt-[2.63rem] max-md:px-3 max-md:pb-[3.38rem]'>
               <h2
-                className='text-c-nht font-SVNLagu text-xl font-medium tracking-[0.1rem] uppercase leading-1.5 mb-6 max-md:mb-3 md:[&>p>br]:hidden flex max-md:flex-col [&>p>strong]:font-medium max-md:[&>p>strong]:text-grey-900'
+                className='text-c-nht font-SVNLagu text-xl font-medium tracking-[0.1rem] uppercase leading-1.5 mb-6 max-md:mb-3 md:[&>p>br]:hidden flex space-x-[0.4rem] max-md:space-x-0 max-md:flex-col [&>p>strong]:font-medium max-md:[&>p>strong]:text-grey-900'
                 dangerouslySetInnerHTML={{__html: data?.title}}
               ></h2>
               <p

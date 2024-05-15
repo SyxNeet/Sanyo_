@@ -2,7 +2,7 @@
 import React, {useRef} from 'react'
 import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import {Navigation, Pagination, Autoplay} from 'swiper/modules'
+import {Navigation, Pagination, Autoplay, FreeMode} from 'swiper/modules'
 import {outStandingProject} from '/data/japanElevator'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
@@ -40,30 +40,32 @@ const OutStandingProjectJE = ({isMobile, data}) => {
           <div>
             <h2
               className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
-              dangerouslySetInnerHTML={{__html: data?.title_mb}}
+              dangerouslySetInnerHTML={{__html: data[0]?.title_mb}}
             ></h2>
           </div>
         ) : (
           <div className=''>
             <h2
               className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
-              dangerouslySetInnerHTML={{__html: data?.title}}
+              dangerouslySetInnerHTML={{__html: data[0]?.title}}
             ></h2>
             <span
               className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'
-              dangerouslySetInnerHTML={{__html: data?.desc}}
+              dangerouslySetInnerHTML={{__html: data[0]?.desc}}
             ></span>
           </div>
         )}
-        <Button
-          className='w-fit max-md:hidden mt-[2.44rem]'
-          isRed={true}
-          text='Xem tất cả'
-          isHover={true}
-          isBlack={true}
-          classHover={'group-hover'}
-          classtext={'group-hover:text-white'}
-        />
+        <Link href={'/du-an'}  >
+          <Button
+            className='w-fit max-md:hidden mt-[2.44rem]'
+            isRed={true}
+            text='Xem tất cả'
+            isHover={true}
+            isBlack={true}
+            classHover={'group-hover'}
+            classtext={'group-hover:text-white'}
+          />
+        </Link>
       </div>
       {isMobile ? (
         <div className='mbOutStandingSLide'>
@@ -77,16 +79,17 @@ const OutStandingProjectJE = ({isMobile, data}) => {
               delay: 0,
               disableOnInteraction: false,
             }}
+            freeMode={true}
             breakpoints={{
               0: {
                 slidesPerView: 1.2,
                 spaceBetween: 0,
               },
             }}
-            modules={[Pagination, Navigation, Autoplay]}
+            modules={[Pagination, Navigation, Autoplay,FreeMode]}
             className='mySwiperOnlyImages w-screen order-1 overflow-hidden'
           >
-            {outStandingProject.map((item, index) => (
+            {data[0]?.project_data?.map((item, index) => (
               <SwiperSlide
                 key={index}
                 className={`h-[17.125rem] pl-3`}
@@ -95,19 +98,19 @@ const OutStandingProjectJE = ({isMobile, data}) => {
                   key={index}
                   width='full'
                   height='full'
-                  imgFlagUrl={item.imgFlagUrl}
+                  imgFlagUrl={item?.image_country?.url}
                   className={`rounded-[0.75rem] w-full h-full `}
-                  altImageFlag={item.altFlag}
-                  nameProject={item.nameProject}
-                  imgProjectUrl={item.imgProjectUrl}
-                  altImageProject={item.alt}
-                  link={item.link}
+                  altImageFlag={item?.image_country?.alt}
+                  nameProject={item?.title}
+                  imgProjectUrl={item?.thumbnail}
+                  altImageProject={item?.title}
+                  link={`/du-an/${item.slug}`}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
           <div className='mt-[1.31rem] flex px-3 justify-between mbOutStandingSLideBtn'>
-            <Link href={'/'}>
+            <Link href={'/du-an'}>
               <Button
                 className='w-fit border-[#FE4127] hover:border-[#FE4127]'
                 isRed={true}
@@ -128,20 +131,20 @@ const OutStandingProjectJE = ({isMobile, data}) => {
           className='flex flex-wrap w-[73%]'
           ref={outStandingProjectEndRef}
         >
-          {outStandingProject.map((item, index) => (
+          {data[0]?.project_data?.map((item, index) => (
             <ItemOutStandingProject
               key={index}
               width='32.1875rem'
               height='25.5rem'
-              imgFlagUrl={item.imgFlagUrl}
+              imgFlagUrl={item?.image_country?.url}
               className={`rounded-[0.75rem] w-[32.1875rem] h-[25.5rem] ${
                 (index + 1) % 2 === 0 ? 'lg:ml-4 mb-4 md:ml-2 ' : ''
               }`}
-              altImageFlag={item.altFlag}
-              nameProject={item.nameProject}
-              imgProjectUrl={item.imgProjectUrl}
+              altImageFlag={item?.image_country?.alt}
+              nameProject={item?.title}
+              imgProjectUrl={item?.thumbnail}
               altImageProject={item.alt}
-              link={item.link}
+              link={`/du-an/${item.slug}`}
             />
           ))}
         </div>
