@@ -202,7 +202,7 @@ export default function ModalMenuDesktop({
                 height={120}
               />
               <Link
-                href={`//lien-he`}
+                href={`/lien-he`}
                 className='text-1.375 uppercase font-SVNLagu text-grey-0 font-extrabold leading-1.2 text-center'
                 onClick={handleClickModalLink}
               >

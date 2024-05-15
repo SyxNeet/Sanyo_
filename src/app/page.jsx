@@ -5,6 +5,7 @@ import OutStandingProject from '@/sections/home/outStandingProject/OutStandingPr
 import OutStandingProjectMb from '@/sections/home/outStandingProjectMb'
 import News from '@/sections/home/news/News'
 import {Suspense} from 'react'
+import getDataSlug from '@/lib/getDataSlug'
 import PartnerSection from '@/components/partner/PartnerSection'
 import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
 
@@ -34,6 +35,8 @@ export default async function Home({params, searchParams}) {
     dataValueDifferent,
     dataPlatFormElevator,
     dataPartner,
+    dataSixReason,
+    dataListEle,
   ] = await Promise.all([
     getBanner(pageId),
     getTinhHoaThangMay(pageId),
@@ -54,6 +57,7 @@ export default async function Home({params, searchParams}) {
         />
         <ValueDifferentAndJapanElevator
           isMobile={isMobile}
+          dataSixReason={dataSixReason}
           dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
           dataPlatFormElevator={dataPlatFormElevator}
         />

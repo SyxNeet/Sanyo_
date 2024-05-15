@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, {forwardRef} from 'react'
 import SlideValue from './SlideValue'
 
-const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
+const ValueDifferent = forwardRef(({isMobile, dataValueDifferent,dataSixReason}, ref) => {
   return (
     <section
       ref={ref}
@@ -31,7 +31,7 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent}, ref) => {
           ></div>
         </div>
         {/* slide */}
-        <SlideValue isMobile={isMobile} />
+        <SlideValue isMobile={isMobile} data={dataSixReason}/>
       </div>
       <button className='md:w-[3.5rem] max-md:mt-[1.5rem] max-md:ml-[0.75rem] max-md:mr-[0.38rem] md:h-[3.5rem] rounded-[50%] bg-grey-0 shadow_btn md:absolute left-[6.13rem] z-[1] btn-prev-cus-value w-[2.5rem] h-[2.5rem] max-md:bg-yellow-500'>
         {isMobile ? (
