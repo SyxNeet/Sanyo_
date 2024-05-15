@@ -7,6 +7,8 @@ import LeaderShipMessageAndCoreValues from '@/sections/about-us/LeaderShipMessag
 import Achieved from '@/sections/about-us/Achieved'
 import ProductionLineSection from '@/sections/about-us/ProductionLineSection'
 import PartnerSection from '@/components/partner/PartnerSection'
+import {fetchMetaData} from '@/lib/fetchMetadata'
+import {getMeta} from '@/lib/getMeta'
 
 async function getLeadershipMessage(pageId) {
   return getData(`/pages/${pageId}/leadershipMessage`)
@@ -27,6 +29,11 @@ async function getPartner() {
   return getData(`/options/options/partner`)
 }
 const pageId = 188
+
+export async function generateMetadata() {
+  const result = await fetchMetaData('/ve-chung-toi')
+  return getMeta(result, '/ve-chung-toi')
+}
 
 export default async function AboutUsPage({params, searchParams}) {
   const {viewport} = searchParams
@@ -52,9 +59,7 @@ export default async function AboutUsPage({params, searchParams}) {
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink isLastLink>VỀ CHÚNG TÔI</BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownload
-        data={dataGreatExperience.greatExperience}
-      />
+      <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} />
       <LeaderShipMessageAndCoreValues
         isMobile={isMobile}
         dataLeadershipMessage={dataLeadershipMessage.leadershipMessage}
