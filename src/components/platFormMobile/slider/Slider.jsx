@@ -95,7 +95,7 @@ export default function Slider({data}) {
                       TỐC ĐỘ
                     </span>
                     <span className='text-white font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem] max-md:text-[0.75rem]'>
-                      {item.elevator.rated_speed}m/s
+                      {item.elevator.rated_speed} m/s
                     </span>
                   </div>
                 </div>

@@ -16,7 +16,7 @@ export default function ModalMenuDesktop({
   activeModalMenuChildLink,
   setActiveModalMenuLink,
   setActiveModalMenuChildLink,
-  dataImage
+  data,
 }) {
   return (
     <>
@@ -79,7 +79,9 @@ export default function ModalMenuDesktop({
                 href={`/ve-chung-toi`}
                 text={`VỀ CHÚNG TÔI`}
                 isLink={true}
-                handleOnMouseEnter={() => setActiveModalMenuLink(`VỀ CHÚNG TÔI`)}
+                handleOnMouseEnter={() =>
+                  setActiveModalMenuLink(`VỀ CHÚNG TÔI`)
+                }
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
                 isActive={activeModalMenuLink === `VỀ CHÚNG TÔI`}
                 handleOnClick={handleClickModalLink}
@@ -136,7 +138,7 @@ export default function ModalMenuDesktop({
                 href={`/thang-may-nhat-ban`}
                 isFirst
                 handleOnClick={handleClickModalLink}
-                dataImage={dataImage.thang_may_nhat_ban}
+                dataImage={data.thang_may_nhat_ban}
               />
               <HeaderModalExpand
                 activeModalMenuLink={activeModalMenuLink}
@@ -145,10 +147,9 @@ export default function ModalMenuDesktop({
                 setActiveModalMenuChildLink={setActiveModalMenuChildLink}
                 text={modalMenuService.text}
                 data={modalMenuService.child}
-                href={`/dich-vu`}
                 isFirst={false}
                 handleOnClick={handleClickModalLink}
-                dataImage={dataImage.dich_vu}
+                dataImage={data.dich_vu}
               />
             </div>
           </div>
@@ -167,7 +168,7 @@ export default function ModalMenuDesktop({
               <span className='text-white text-1'>Theo dõi chúng tôi</span>
               <nav className='flex flex-row items-center mt-1'>
                 <Link
-                  href={`/`}
+                  href={data.lien_ket_facebook}
                   className='hover-opacity'
                 >
                   <Image
@@ -179,7 +180,7 @@ export default function ModalMenuDesktop({
                   />
                 </Link>
                 <Link
-                  href={`/`}
+                  href={data.lien_ket_instagram}
                   className='hover-opacity'
                 >
                   <Image

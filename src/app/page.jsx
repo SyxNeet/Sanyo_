@@ -8,22 +8,22 @@ import {Suspense} from 'react'
 import PartnerSection from '@/components/partner/PartnerSection'
 import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
 
-async function getBanner(pageId) {
+const pageId = 11
+async function getBanner() {
   return getData(`/pages/${pageId}/banner`)
 }
-async function getTinhHoaThangMay(pageId) {
+async function getTinhHoaThangMay() {
   return getData(`/pages/${pageId}/tinh_hoa_thang_may`)
 }
-async function getGiaTriKhacBiet(pageId) {
+async function getGiaTriKhacBiet() {
   return getData(`/pages/${pageId}/gia_tri_khac_biet`)
-}
-async function getDanhSachThangMay(pageId) {
-  return getData(`/pages/${pageId}/danh_sach_thang_may`)
 }
 async function getPartner() {
   return getData(`/options/options/partner`)
 }
-const pageId = 11
+async function getElevator() {
+  return getData(`/elavator?id=${pageId}`, 'okhub')
+}
 
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
@@ -32,14 +32,14 @@ export default async function Home({params, searchParams}) {
     dataBanner,
     dataCountUp,
     dataValueDifferent,
-    dataPlatForm,
+    dataPlatFormElevator,
     dataPartner,
   ] = await Promise.all([
     getBanner(pageId),
     getTinhHoaThangMay(pageId),
     getGiaTriKhacBiet(pageId),
-    getDanhSachThangMay(pageId),
-     getPartner(),
+    getElevator(),
+    getPartner(),
   ])
   return (
     <main>
@@ -55,7 +55,7 @@ export default async function Home({params, searchParams}) {
         <ValueDifferentAndJapanElevator
           isMobile={isMobile}
           dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
-          dataPlatForm={dataPlatForm.danh_sach_thang_may}
+          dataPlatFormElevator={dataPlatFormElevator}
         />
         {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
         <News isMobile={isMobile} />

@@ -11,7 +11,6 @@ import ReactPlayer from 'react-player/lazy'
 export default function Slider({data}) {
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef()
-  console.log('🚀 ~ Slider ~ data[activeIndex]:', data[activeIndex])
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
   }
@@ -47,7 +46,7 @@ export default function Slider({data}) {
               TỐC ĐỘ
             </span>
             <span className='text-white font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem]'>
-              {data[activeIndex].elevator.rated_speed}m/s
+              {data[activeIndex].elevator.rated_speed} m/s
             </span>
           </div>
         </div>
@@ -67,7 +66,7 @@ export default function Slider({data}) {
             </span>
             <span className='text-white font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem]'>
               {data[activeIndex].elevator.rated_load} -{' '}
-              {data[activeIndex].elevator.rated_load_2}kg
+              {data[activeIndex].elevator.rated_load_2} kg
             </span>
           </div>
         </div>

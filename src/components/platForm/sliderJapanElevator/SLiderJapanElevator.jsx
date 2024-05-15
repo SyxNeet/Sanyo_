@@ -6,7 +6,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import Link from 'next/link'
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player'
 
 function SliderJapanElevator({data}) {
   const [indexSlider, setIndexSlider] = useState(0)
@@ -58,7 +58,7 @@ function SliderJapanElevator({data}) {
             </span>
             <span className='text-grey-500 font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem]'>
               {data[indexSlider]?.elevator?.rated_load} -{' '}
-              {data[indexSlider]?.elevator?.rated_load_2}
+              {data[indexSlider]?.elevator?.rated_load_2} kg
             </span>
           </div>
         </div>
