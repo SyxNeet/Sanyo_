@@ -23,12 +23,11 @@ export default function HeaderMobile({isMobile}) {
   return (
     <>
       <div className='h-[3.9375rem] bg-grey-0 flex flex-row items-center px-3 border-b border-grey-50'>
-        <LangDropdown
-          isMobile={isMobile}
-        />
+        <LangDropdown isMobile={isMobile} />
         <Link
           href={`/`}
           className='absolute flex flex-row items-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+          onClick={() => setIsOpenModalMenu(false)}
         >
           <Image
             src={`/images/layout/header/logo.svg`}

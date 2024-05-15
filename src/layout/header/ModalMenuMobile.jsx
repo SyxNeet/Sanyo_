@@ -27,6 +27,7 @@ export default function ModalMenuMobile({
         <Link
           href={`/`}
           className='flex flex-col'
+          onClick={() => setIsOpenModalMenu(false)}
         >
           <Image
             src={`/images/layout/header/logo-name-white.svg`}
@@ -61,12 +62,13 @@ export default function ModalMenuMobile({
           text={modalMenuJapanElevator.text}
           accordionData={modalMenuJapanElevator.child}
           href={`/${modalMenuJapanElevator.href}`}
+          setIsOpenModalMenu={setIsOpenModalMenu}
         />
         <div className='w-full h-[0.3rem] rounded-full bg-grey-0 opacity-5' />
         <Accordion
           text={modalMenuService.text}
           accordionData={modalMenuService.child}
-          href={`/${modalMenuService.href}`}
+          setIsOpenModalMenu={setIsOpenModalMenu}
         />
         <div className='w-full h-[0.3rem] rounded-full bg-grey-0 opacity-5' />
         <Link
