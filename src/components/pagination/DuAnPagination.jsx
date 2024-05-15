@@ -75,6 +75,7 @@ export default function DuAnPagination({
               ) {
                 return (
                   <Link
+                    key={item + 1}
                     href={`/du-an?page=${item + 1}${params}`}
                     className={cn(
                       'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
@@ -132,6 +133,7 @@ export default function DuAnPagination({
             {Array.from(Array(totalPage).keys()).map((item) => {
               return (
                 <Link
+                  key={item + 1}
                   href={`/du-an?page=${item + 1}${params}`}
                   className={cn(
                     'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',

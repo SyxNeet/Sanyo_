@@ -83,13 +83,13 @@ export default function HeaderModalExpand({
               className={clsx('object-cover w-full h-full transition-500', {
                 'absolute top-0 left-0': i2 !== 0,
                 'opacity-0 pointer-events-none':
-                  activeModalMenuChildLink !== data[i2].text,
+                  activeModalMenuChildLink !== data[i2]?.text,
                 'opacity-100 pointer-events-auto':
-                  activeModalMenuChildLink === data[i2].text,
+                  activeModalMenuChildLink === data[i2]?.text,
               })}
               onMouseEnter={() => {
                 setActiveModalMenuLink(text)
-                setActiveModalMenuChildLink(data[i2].text)
+                setActiveModalMenuChildLink(data[i2]?.text)
               }}
               onMouseLeave={() => {
                 setActiveModalMenuLink('')
