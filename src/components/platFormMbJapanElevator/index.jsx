@@ -11,7 +11,6 @@ import Link from 'next/link'
 import './styles.css'
 
 export default function SliderMbJapanElevator({data}) {
-  console.log(data)
   const slideImages = Array(4).fill(0)
 
   return (

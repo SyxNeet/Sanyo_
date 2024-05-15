@@ -5,11 +5,15 @@ import OutStandingProject from '@/sections/home/outStandingProject/OutStandingPr
 import OutStandingProjectMb from '@/sections/home/outStandingProjectMb'
 import News from '@/sections/home/news/News'
 import {Suspense} from 'react'
+import getDataSlug from '@/lib/getDataSlug'
 import PartnerSection from '@/components/partner/PartnerSection'
 import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
 
 async function getBanner(pageId) {
   return getData(`/pages/${pageId}/banner`)
+}
+async function getSixReason() {
+  return getData(`/options/options/sixReasons`)
 }
 async function getTinhHoaThangMay(pageId) {
   return getData(`/pages/${pageId}/tinh_hoa_thang_may`)
@@ -23,6 +27,9 @@ async function getDanhSachThangMay(pageId) {
 async function getPartner() {
   return getData(`/options/options/partner`)
 }
+async function getDataListEle() {
+  return getDataSlug(`/elavator?id=35`)
+}
 const pageId = 11
 
 export default async function Home({params, searchParams}) {
@@ -34,12 +41,16 @@ export default async function Home({params, searchParams}) {
     dataValueDifferent,
     dataPlatForm,
     dataPartner,
+    dataSixReason,
+    dataListEle,
   ] = await Promise.all([
     getBanner(pageId),
     getTinhHoaThangMay(pageId),
     getGiaTriKhacBiet(pageId),
     getDanhSachThangMay(pageId),
-     getPartner(),
+    getPartner(),
+    getSixReason(),
+    getDataListEle(),
   ])
   return (
     <main>
@@ -54,8 +65,9 @@ export default async function Home({params, searchParams}) {
         />
         <ValueDifferentAndJapanElevator
           isMobile={isMobile}
+          dataSixReason={dataSixReason}
           dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
-          dataPlatForm={dataPlatForm.danh_sach_thang_may}
+          dataPlatForm={dataListEle}
         />
         {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
         <News isMobile={isMobile} />

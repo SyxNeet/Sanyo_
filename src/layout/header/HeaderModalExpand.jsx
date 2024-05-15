@@ -58,7 +58,7 @@ export default function HeaderModalExpand({
             </Link>
           )
         })}
-        {href && (
+        {(href && href!=='/dich-vu') && (
           <Link
             href={href}
             className='font-Iciel text-0.875 leading-1.5 uppercase px-6 py-[0.8rem] text-white font-bold underline hover:bg-yellow-500 transition-300 text-center'
