@@ -19,6 +19,9 @@ async function getTinhHoaThangMay() {
 async function getGiaTriKhacBiet() {
   return getData(`/pages/${pageId}/gia_tri_khac_biet`)
 }
+async function getSixReasons() {
+  return getData(`/options/options/sixReasons`)
+}
 async function getPartner() {
   return getData(`/options/options/partner`)
 }
@@ -36,13 +39,13 @@ export default async function Home({params, searchParams}) {
     dataPlatFormElevator,
     dataPartner,
     dataSixReason,
-    dataListEle,
   ] = await Promise.all([
     getBanner(pageId),
     getTinhHoaThangMay(pageId),
     getGiaTriKhacBiet(pageId),
     getElevator(),
     getPartner(),
+    getSixReasons(),
   ])
   return (
     <main>
