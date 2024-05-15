@@ -133,7 +133,10 @@ export default function HeaderDesktop({isMobile, data}) {
             </div>
           </Link>
           <div className='flex flex-row items-center ml-auto'>
-            <Link href={`/lien-he`}>
+            <Link
+              href={`/lien-he`}
+              onClick={() => setIsOpenModalMenu(false)}
+            >
               <Button
                 text='LIÊN HỆ NGAY'
                 isHover

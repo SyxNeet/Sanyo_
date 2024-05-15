@@ -59,7 +59,7 @@ export const modalMenuService = {
       text: 'Thiết kế và lắp đặt thang máy theo yêu cầu',
     },
     {
-      href: '/bao-tri-bao-duong',
+      href: '/dich-vu/bao-tri-bao-duong',
       src: '/images/layout/header/service.png',
       text: 'Bảo trì bảo dưỡng thang máy',
     },

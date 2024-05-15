@@ -4,7 +4,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {clsx} from 'clsx'
 
-export default function Accordion({text, accordionData, isLastChild, href}) {
+export default function Accordion({
+  text,
+  accordionData,
+  isLastChild,
+  href,
+  setIsOpenModalMenu,
+}) {
   const accordionRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -57,6 +63,7 @@ export default function Accordion({text, accordionData, isLastChild, href}) {
                 text={item.text}
                 href={item.href}
                 isLastChild={i === accordionData.length - 1}
+                setIsOpenModalMenu={setIsOpenModalMenu}
               />
             )
           })}
