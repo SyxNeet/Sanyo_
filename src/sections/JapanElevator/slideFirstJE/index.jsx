@@ -116,6 +116,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
             nextEl: '.swiper-button-next-thumbJE',
             prevEl: '.swiper-button-prev-thumbJE',
           }}
+          speed={800}
           pagination={{
             type: 'progressbar',
             el: '.processSlideJE',

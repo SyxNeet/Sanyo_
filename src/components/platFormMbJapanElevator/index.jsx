@@ -17,7 +17,7 @@ export default function SliderMbJapanElevator({data}) {
     <div className='slide_elevator_custom_mb'>
       <Swiper
         className='slide_elevator_custom'
-        freeMode={true}
+        freeMode={false}
         pagination={{
           type: 'progressbar',
           el: '.paginationPlatFormMb',

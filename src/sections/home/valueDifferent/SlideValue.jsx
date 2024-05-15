@@ -31,9 +31,10 @@ export default function SlideValue({isMobile, data}) {
           className=' max-md:!pl-[0.76rem] md:!pr-[10rem]'
           slidesPerView={1.2}
           spaceBetween={12}
+          speed={800}
           centeredSlides={!isMobile && true}
           onSlideChange={(swiper) => handleChangeSlide(swiper)}
-          initialSlide={slideImages.length}
+          initialSlide={!isMobile?slideImages.length:0}
           navigation={{
             prevEl: '.btn-next-cus-value',
             nextEl: '.btn-prev-cus-value',

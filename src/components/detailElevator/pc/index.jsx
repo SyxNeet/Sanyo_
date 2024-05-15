@@ -251,6 +251,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
           <Swiper
             dir={!type ? 'rtl' : undefined}
             spaceBetween={30}
+            speed={800}
             navigation={{
               nextEl: type
                 ? `.swiper-button-next-CTtm${data.id}`

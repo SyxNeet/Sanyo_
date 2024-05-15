@@ -25,3 +25,6 @@
   background-size: 100% 1px;
   background-position-x: left;
 }
+.itemnewsHome {
+  transition: ease-in-out 0.5s;
+}

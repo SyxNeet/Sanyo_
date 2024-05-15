@@ -26,7 +26,7 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent,dataSixReason},
         ></h4>
         <div className='relative md:pl-[6.31rem] md:w-[61.25rem] md:mb-[4.44rem] mb-[1.94rem] max-md:ml-[0.75rem] w-[17.4375rem]'>
           <div
-            className='text-grey-700 font-SVNLagu md:text-[2.5rem] text-[1.125rem] font-semibold leading-1.4'
+            className='text-grey-700 font-SVNLagu md:text-[2.5rem] text-[1.125rem] font-semibold leading-1.4 [&>p>strong]:font-semibold [&>p>strong]:uppercase [&>p>strong]:text-yellow-500'
             dangerouslySetInnerHTML={{__html: dataValueDifferent?.desc}}
           ></div>
         </div>

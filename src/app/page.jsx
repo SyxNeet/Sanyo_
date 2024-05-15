@@ -28,7 +28,12 @@ async function getPartner() {
 async function getElevator() {
   return getData(`/elavator?id=${pageId}`, 'okhub')
 }
-
+async function getDataOutstandingProject() {
+  return getDataSlug(`/homepage-projects`)
+}
+async function getDataNews() {
+  return getDataSlug(`/news-on-home`)
+}
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport?.includes('mobile')
@@ -39,6 +44,8 @@ export default async function Home({params, searchParams}) {
     dataPlatFormElevator,
     dataPartner,
     dataSixReason,
+    dataOutstandingProject,
+    datanews,
   ] = await Promise.all([
     getBanner(pageId),
     getTinhHoaThangMay(pageId),
@@ -46,6 +53,8 @@ export default async function Home({params, searchParams}) {
     getElevator(),
     getPartner(),
     getSixReasons(),
+    getDataOutstandingProject(),
+    getDataNews(),
   ])
   return (
     <main>
@@ -64,8 +73,8 @@ export default async function Home({params, searchParams}) {
           dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
           dataPlatFormElevator={dataPlatFormElevator}
         />
-        {!isMobile ? <OutStandingProject /> : <OutStandingProjectMb />}
-        <News isMobile={isMobile} />
+        {!isMobile ? <OutStandingProject data={dataOutstandingProject}/> : <OutStandingProjectMb data={dataOutstandingProject} />}
+        <News isMobile={isMobile} data={datanews}/>
         <PartnerSection
           isMobile={isMobile}
           data={dataPartner.partner}
