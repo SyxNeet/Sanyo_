@@ -29,7 +29,7 @@ export default async function TinTucPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
   const {slug} = params
-  const [dataPost, dataPlatForm, dataSupport, dataPosts, dataElevatorBySlug] =
+  const [dataPost, dataPlatForm, dataSupport, dataPosts, dataPlatFormElevator] =
     await Promise.all([
       getChiTietTinTuc(slug),
       getDanhSachThangMay(),
@@ -51,9 +51,9 @@ export default async function TinTucPage({params, searchParams}) {
         data={dataPost}
       />
       {!isMobile ? (
-        <PlatFormElevator dataElevatorBySlug={dataElevatorBySlug} />
+        <PlatFormElevator dataPlatFormElevator={dataPlatFormElevator} />
       ) : (
-        <PlatFormMobile dataElevatorBySlug={dataElevatorBySlug} />
+        <PlatFormMobile dataPlatFormElevator={dataPlatFormElevator} />
       )}
       <News
         isMobile={isMobile}

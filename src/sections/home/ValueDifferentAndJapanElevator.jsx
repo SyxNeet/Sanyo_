@@ -12,8 +12,7 @@ import {useRef} from 'react'
 export default function ValueDifferentAndJapanElevator({
   isMobile,
   dataValueDifferent,
-  dataPlatForm,
-  dataSixReason
+  dataPlatFormElevator,
 }) {
   const firstRef = useRef(null)
   const secondRef = useRef(null)
@@ -44,10 +43,10 @@ export default function ValueDifferentAndJapanElevator({
       {!isMobile ? (
         <PlatFormElevator
           ref={secondRef}
-          dataPlatForm={dataPlatForm}
+          dataPlatFormElevator={dataPlatFormElevator}
         />
       ) : (
-        <PlatFormMobile dataPlatForm={dataPlatForm} />
+        <PlatFormMobile dataPlatFormElevator={dataPlatFormElevator} />
       )}
     </>
   )

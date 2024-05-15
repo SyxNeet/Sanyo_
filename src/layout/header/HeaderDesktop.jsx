@@ -158,7 +158,7 @@ export default function HeaderDesktop({isMobile, data}) {
         setIsOpenModalMenu={setIsOpenModalMenu}
         setActiveModalMenuLink={setActiveModalMenuLink}
         setActiveModalMenuChildLink={setActiveModalMenuChildLink}
-        dataImage={data}
+        data={data}
       />
     </>
   )

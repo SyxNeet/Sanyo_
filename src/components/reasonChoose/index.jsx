@@ -13,7 +13,6 @@ export default function ReasonChoose({data}) {
         height={500}
         className='w-full absolute h-full object-cover md:rounded-[1.25rem] rounded-[0.75rem]'
       />
-
       <Link
         className=' max-md:flex-col flex overflow-hidden relative h-fit backdrop-blur-[12.5px] rounded-[0.75rem] justify-between md:items-center
           md:pl-[1.44rem] md:pr-[2.06rem]
