@@ -1,4 +1,5 @@
 import './global.css'
+import 'animate.css'
 
 import localFont from 'next/font/local'
 import Footer from '@/layout/footer'

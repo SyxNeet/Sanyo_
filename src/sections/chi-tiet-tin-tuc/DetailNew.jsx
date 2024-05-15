@@ -4,14 +4,26 @@ import Image from 'next/image'
 import {useEffect, useRef, useState} from 'react'
 import {toast} from 'sonner'
 import Link from 'next/link'
+import {useGSAP} from '@gsap/react'
+import {ScrollSmoother} from 'gsap/ScrollSmoother'
+import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
+import {regDuAnUrl} from '@/lib/reg'
+import {usePathname} from 'next/navigation'
 
 export default function DetailNew({isMobile, data}) {
+  const pathname = usePathname()
   const smootherRef = useRef(null)
   const [h4Array, setH4Array] = useState([])
   const [isClient, setIsClient] = useState(false)
   useEffect(() => {
     setIsClient(true)
   }, [])
+  useGSAP(() => {
+    smootherRef.current = ScrollSmoother.create(scrollSmootherConfig)
+    if (regDuAnUrl.test(pathname) && isMobile) {
+      smootherRef.current.kill()
+    }
+  }, [pathname, isMobile])
   useEffect(() => {
     if (data) {
       setH4Array([])
