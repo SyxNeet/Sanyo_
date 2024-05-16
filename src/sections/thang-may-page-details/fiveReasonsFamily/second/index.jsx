@@ -17,32 +17,47 @@ const SecondReasons = ({lang, isMobile, data}) => {
   const [maxHeightSecond, setMaxHeightSecond] = useState('24.5rem')
   const [activeIndex, setActiveIndex] = useState(0)
   const [showAllSecond, setShowAllSecond] = useState(false)
+
   const [expanded, setExpanded] = useState(
     Array(data?.list_system?.length).fill(false),
   )
   const [expandedIndex, setExpandedIndex] = useState(0)
 
-  //handle load more second
-  const handleLoadMoreSecond = () => {
-    if (!showAllSecond) {
-      setMaxHeightSecond(
-        `${
-          isMobile
-            ? 5 * (data?.list_system?.length - 3) + 25
-            : 4.5 * (data?.list_system?.length - 3) + 25
-        }rem`,
-      )
-    } else {
+  useEffect(() => {
+    console.log('useEffect ran', {activeIndex, showAllSecond})
+    if (!showAllSecond && activeIndex === null) {
+      setMaxHeightSecond('12rem')
+    }
+    if (!showAllSecond && activeIndex !== null) {
       setMaxHeightSecond('24.5rem')
     }
-    setShowAllSecond(!showAllSecond)
+    if(showAllSecond && activeIndex === null){
+      setMaxHeightSecond(`${4.2 * (data?.list_system?.length)}rem`);
+    }
+    if(showAllSecond && activeIndex !== null){
+      setMaxHeightSecond(`${4.2 * (data?.list_system?.length)+13}rem`);
+    }
+  }, [activeIndex, showAllSecond])
+  //handle load more second
+  const handleLoadMore = () => {
+    if (!showAllSecond) {
+      setShowAllSecond(!showAllSecond)
+    } else {
+      setShowAllSecond(!showAllSecond)
+    }
   }
   //handle plus show desc
   const toggleItem = (index) => {
     const newExpanded = [...expanded]
     newExpanded[index] = !newExpanded[index]
     setExpanded(newExpanded)
-    setExpandedIndex(index)
+    if (expandedIndex === index) {
+      setExpandedIndex(null)
+      setActiveIndex(null)
+    } else {
+      setExpandedIndex(index)
+      setActiveIndex(index)
+    }
   }
   return (
     <div>
@@ -59,9 +74,9 @@ const SecondReasons = ({lang, isMobile, data}) => {
             className='absolute w-full h-full left-0 bottom-0 object-cover -z-10'
             alt='bg-slide'
           />
-            <div className='titleSlide absolute bg-[rgba(0,0,0,0.4)] uppercase text-white  text-[1rem] font-Iciel leading-1.5 px-6 py-[0.62rem] rounded-[0.375rem] w-fit top-[2.56rem] left-[2rem] z-[999999] backdrop-blur-[12.5px]'>
-              {data?.slide[activeIndex]?.name}
-            </div>
+          <div className='titleSlide absolute bg-[rgba(0,0,0,0.4)] uppercase text-white  text-[1rem] font-Iciel leading-1.5 px-6 py-[0.62rem] rounded-[0.375rem] w-fit top-[2.56rem] left-[2rem] z-[999999] backdrop-blur-[12.5px]'>
+            {data?.slide[activeIndex]?.name}
+          </div>
           <ButtonSlide
             className={
               'prevBtnRtwo absolute w-[3.5rem] h-[3.5rem] border-yellow-500 group-hover:border-yellow-500 max-md:w-[2.11056rem] max-md:h-[2.11056rem] transition left-[1.81rem] top-[50%] hover:bg-yellow-500  z-[999999] cursor-pointer'
@@ -112,7 +127,10 @@ const SecondReasons = ({lang, isMobile, data}) => {
           <div className='absolute right-0 top-0 w-[9.375rem] h-[5.5625rem] bg-yellow-500 opacity-10 max-md:hidden'></div>
           <div className='absolute right-0 bottom-0 w-[14.125rem] h-[5.5625rem] bg-yellow-500 opacity-10 max-md:hidden'></div>
           <div className='absolute right-[9.375rem] bottom-full w-[3.75rem] h-[3.4375rem] bg-yellow-500 opacity-10 max-md:hidden'></div>
-      <Fade direction='right'>
+          <Fade
+            direction='right'
+            triggerOnce='true'
+          >
             <div className='pt-[3.12rem] pl-[3.94rem] pr-[6.37rem] pb-[7rem] max-md:py-0 max-md:px-3'>
               <h3
                 className={`font-SVNLagu text-[3.125rem] leading-1.3 font-semibold w-[31.125rem] mb-10 max-md:w-full max-md:text-[1.25rem] max-md:mb-[1.12rem] `}
@@ -122,71 +140,75 @@ const SecondReasons = ({lang, isMobile, data}) => {
                 </span>
                 {data?.heading}
               </h3>
-              <div
-                className='secondReasons overflow-hidden'
-                style={{height: maxHeightSecond}}
-              >
-                {(data?.list_system || []).map((item, index) => (
-                  <div
-                    className={`itemShowmore mb-[1.25rem] border-b border-[rgba(28,32,28,0.10)] pb-5 ${
-                      expandedIndex === index ? 'h-[16rem]' : 'h-[3rem]'
-                    } overflow-hidden`}
-                    key={index}
-                  >
+              <div className='secondReasons h-full relative pb-12 '>
+                <div
+                  style={{height: maxHeightSecond}}
+                  className='relative overflow-hidden  secondReasons'
+                >
+                  {(data?.list_system || []).map((item, index) => (
                     <div
-                      className='flex items-center justify-between mb-5 cursor-pointer'
-                      onClick={() => toggleItem(index)}
+                      className={`itemShowmore mb-[1.25rem] border-b border-[rgba(28,32,28,0.10)] pb-5 ${
+                        expandedIndex === index ? 'h-[16rem]' : 'h-[3rem]'
+                      } overflow-hidden`}
+                      key={index}
                     >
-                      <span
-                        className={`text-[1.3125rem] font-SVNLagu font-medium leading-1.5 max-md:text-[1rem] ${
-                          expandedIndex === index ? 'text-yellow-500' : ''
-                        }`}
+                      <div
+                        className='flex items-center justify-between mb-5 cursor-pointer'
+                        onClick={() => toggleItem(index)}
                       >
-                        {item.name}
+                        <span
+                          className={`text-[1.3125rem] font-SVNLagu font-medium leading-1.5 max-md:text-[1rem] ${
+                            expandedIndex === index ? 'text-yellow-500' : ''
+                          }`}
+                        >
+                          {item.name}
+                        </span>
+                        <Image
+                          src={
+                            expandedIndex === index
+                              ? '/images/familyElevator/detailFE/minus.svg'
+                              : '/images/familyElevator/detailFE/plus.svg'
+                          }
+                          width={16}
+                          height={16}
+                          className='w-[1.25rem] h-[1.25rem]'
+                          alt='icon'
+                        />
+                      </div>
+                      <span className='font-Iciel text-[1.125rem] font-normal leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem]'>
+                        {item.desc}
                       </span>
-                      <Image
-                        src={
-                          expandedIndex === index
-                            ? '/images/familyElevator/detailFE/minus.svg'
-                            : '/images/familyElevator/detailFE/plus.svg'
-                        }
-                        width={16}
-                        height={16}
-                        className='w-[1.25rem] h-[1.25rem]'
-                        alt='icon'
-                      />
                     </div>
-                    <span className='font-Iciel text-[1.125rem] font-normal leading-1.5 text-[rgba(28,32,28,0.70)] max-md:text-[0.875rem]'>
-                      {item.desc}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div
-                className='flex items-center flex-row-reverse justify-start w-fit pt-6 cursor-pointer '
-                onClick={handleLoadMoreSecond}
-              >
-                <Image
-                  src={'/images/familyElevator/detailFE/down.svg'}
-                  width={30}
-                  height={30}
-                  alt='down'
-                  className={`listSecurity w-[1.1875rem] h-[1.1875rem] max-md:w-[0.8125rem] max-md:h-[0.8125rem]${
-                    showAllSecond ? 'transform -rotate-180' : 'transform rotate-0'
-                  }`}
-                />
-                <span className='uppercase text-[1.125rem] text-yellow-500 mr-[0.62rem] font-medium leading-1.5 max-md:text-[0.875rem]'>
-                  {showAllSecond
-                    ? lang === 'en'
-                      ? 'see less'
-                      : 'rút gọn'
-                    : lang === 'en'
-                    ? 'see more'
-                    : 'xem thêm'}
-                </span>
+                  ))}
+                </div>
+                <div
+                  className='flex items-center flex-row-reverse justify-start w-fit pt-6 cursor-pointer absolute  bottom-[2%] left-0'
+                  onClick={handleLoadMore}
+                >
+                  <Image
+                    src={'/images/familyElevator/detailFE/down.svg'}
+                    width={30}
+                    height={30}
+                    alt='down'
+                    className={`listSecurity w-[1.1875rem] h-[1.1875rem] max-md:w-[0.8125rem] max-md:h-[0.8125rem]${
+                      showAllSecond
+                        ? 'transform -rotate-180'
+                        : 'transform rotate-0'
+                    }`}
+                  />
+                  <span className='uppercase text-[1.125rem] text-yellow-500 mr-[0.62rem] font-medium leading-1.5 max-md:text-[0.875rem]'>
+                    {showAllSecond
+                      ? lang === 'en'
+                        ? 'see less'
+                        : 'rút gọn'
+                      : lang === 'en'
+                      ? 'see more'
+                      : 'xem thêm'}
+                  </span>
+                </div>
               </div>
             </div>
-      </Fade>
+          </Fade>
         </div>
       </div>
     </div>

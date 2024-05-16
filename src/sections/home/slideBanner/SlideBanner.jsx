@@ -49,7 +49,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
   }
 
   return (
-    <section className='md:h-screen h-[23.6875rem] w-full relative'>
+    <section className='md:h-[90vh] h-[23.6875rem] w-full relative'>
       {/* pagination */}
 
       {isMobile ? (
@@ -190,7 +190,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
                 </div>
                 <div className='overflow-hidden h-max'>
                   <h2
-                    className='text-2 md:text-4.975 text-grey-0 md:ml-4 font-averta font-bold leading-1.2 tracking-[-0.25rem] uppercase heading-2 opacity-0'
+                    className='text-2 md:text-4.975 text-grey-0 md:ml-4 font-averta font-bold leading-1.4 tracking-[-0.25rem] uppercase heading-2 opacity-0'
                     style={{textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
                   >
                     {item?.heading2}

@@ -92,7 +92,7 @@ const Button = React.forwardRef(
         <div
           className={`absolute inset-0 ${
             isRed ? 'bg-hover_button_red' : 'bg-hover_button'
-          } translate-y-[100%] box_button_hover transition-all duration-300 w-[200%]`}
+          } translate-y-[110%] box_button_hover transition-all duration-300 w-[200%]`}
         ></div>
       </Comp>
     )

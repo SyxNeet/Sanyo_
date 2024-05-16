@@ -5,7 +5,7 @@ import Image from 'next/image'
 const CardDesign = ({ data }) => { 
 
   return (
-   <div className='bg-[white] rounded-xl h-[32.625rem] flex flex-col relative max-md:h-full max-md:rounded-none'>
+   <div className='bg-[white] rounded-xl h-[32.625rem] flex flex-col relative max-md:h-full max-md:rounded-none select-none	'>
           <Image
             src='/images/familyElevator/detailFE/bgslide.svg'
             width={200}
