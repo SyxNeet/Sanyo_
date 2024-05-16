@@ -8,6 +8,8 @@ import {Suspense} from 'react'
 import getDataSlug from '@/lib/getDataSlug'
 import PartnerSection from '@/components/partner/PartnerSection'
 import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
+import {fetchMetaData} from '@/lib/fetchMetadata'
+import {getMeta} from '@/lib/getMeta'
 
 const pageId = 11
 async function getBanner() {
@@ -34,6 +36,12 @@ async function getDataOutstandingProject() {
 async function getDataNews() {
   return getDataSlug(`/news-on-home`)
 }
+
+export async function generateMetadata() {
+  const result = await fetchMetaData('/trang-chu/')
+  return getMeta(result, '/')
+}
+
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport?.includes('mobile')
@@ -73,8 +81,15 @@ export default async function Home({params, searchParams}) {
           dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
           dataPlatFormElevator={dataPlatFormElevator}
         />
-        {!isMobile ? <OutStandingProject data={dataOutstandingProject}/> : <OutStandingProjectMb data={dataOutstandingProject} />}
-        <News isMobile={isMobile} data={datanews}/>
+        {!isMobile ? (
+          <OutStandingProject data={dataOutstandingProject} />
+        ) : (
+          <OutStandingProjectMb data={dataOutstandingProject} />
+        )}
+        <News
+          isMobile={isMobile}
+          data={datanews}
+        />
         <PartnerSection
           isMobile={isMobile}
           data={dataPartner.partner}

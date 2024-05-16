@@ -2,6 +2,8 @@ import BreadcrumbContainer from '@/components/breadcrumb/BreadcrumbContainer'
 import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import getData from '@/lib/getData'
 import News from '@/sections/tin-tuc/News'
+import {fetchMetaData} from '@/lib/fetchMetadata'
+import {getMeta} from '@/lib/getMeta'
 
 const pageId = 543
 async function getNews(pageId) {
@@ -14,6 +16,11 @@ async function getPosts(page, category) {
     }`,
     'okhub',
   )
+}
+
+export async function generateMetadata() {
+  const result = await fetchMetaData('/tin-tuc/')
+  return getMeta(result, '/tin-tuc/')
 }
 
 export default async function DanhSachTinTucPage({params, searchParams}) {

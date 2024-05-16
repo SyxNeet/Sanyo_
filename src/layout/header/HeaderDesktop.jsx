@@ -104,6 +104,7 @@ export default function HeaderDesktop({isMobile, data}) {
           <Link
             href={`/`}
             className='absolute flex flex-row items-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+            onClick={() => setIsOpenModalMenu(false)}
           >
             <Image
               src={`/images/layout/header/logo.svg`}

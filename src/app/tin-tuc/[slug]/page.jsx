@@ -8,6 +8,8 @@ import getDataSlug from '@/lib/getDataSlug'
 import News from '@/sections/chi-tiet-tin-tuc/News'
 import './styles.css'
 import Support from '@/layout/support'
+import {fetchMetaData} from '@/lib/fetchMetadata'
+import {getMeta} from '@/lib/getMeta'
 
 async function getChiTietTinTuc(slug) {
   return getDataSlug(`/tin-tuc/${slug}`)
@@ -23,6 +25,11 @@ async function getPosts(slug) {
 }
 async function getElevatorBySlug(slug) {
   return getData(`/elavator_by_slug/${slug}`, 'okhub')
+}
+
+export async function generateMetadata({params}) {
+  const result = await fetchMetaData(`/${params.slug}/`)
+  return getMeta(result, `/tin-tuc/${params.slug}/`)
 }
 
 export default async function TinTucPage({params, searchParams}) {

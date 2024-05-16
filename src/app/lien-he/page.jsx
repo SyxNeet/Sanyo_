@@ -3,10 +3,17 @@ import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import LienHeSection from '@/sections/lien-he/LienHeSection'
 import './styles.css'
 import getData from '@/lib/getData'
+import {fetchMetaData} from '@/lib/fetchMetadata'
+import {getMeta} from '@/lib/getMeta'
 
 const pageId = 324
 async function getLienHe(pageId) {
   return getData(`/pages/${pageId}/contact`)
+}
+
+export async function generateMetadata() {
+  const result = await fetchMetaData('/lien-he/')
+  return getMeta(result, '/lien-he/')
 }
 
 export default async function LienHePage({params, searchParams}) {
