@@ -4,13 +4,12 @@ import SubmitMail from './SubmitMail'
 import FollowUs from './FollowUs'
 import getData from '@/lib/getData'
 
-let pageId = 437
-async function getFooter(pageId) {
-  return getData(`/pages/${pageId}`)
+async function getFooter() {
+  return getData(`/options/options/footer`)
 }
 
 export default async function Footer({isMobile}) {
-  const dataFooter = (await getFooter(pageId)).acf.footer
+  const dataFooter = (await getFooter()).footer
   return (
     <>
       <footer className='md:h-[39rem] h-[46.1875rem] w-full flex relative justify-between'>

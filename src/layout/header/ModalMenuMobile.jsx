@@ -13,7 +13,7 @@ export default function ModalMenuMobile({
   isOpenModalMenu,
   isMobile,
   setIsOpenModalMenu,
-  data
+  data,
 }) {
   return createPortal(
     <div
@@ -170,10 +170,11 @@ export default function ModalMenuMobile({
       <div className='flex flex-row items-center justify-center'>
         <Link
           href={
-            data?.facebookLink ||
+            data?.lien_ket_facebook ||
             'https://www.facebook.com/ThangmaySanyoYusokiVietNam?mibextid=ZbWKwL'
           }
           className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+          target='_blank'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -198,10 +199,11 @@ export default function ModalMenuMobile({
         </Link>
         <Link
           href={
-            data?.instagramLink ||
+            data?.lien_ket_in ||
             'https://www.linkedin.com/in/sanyo-yusoki-vi%E1%BB%87t-nam-4283592a5/'
           }
           className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+          target='_blank'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -227,8 +229,9 @@ export default function ModalMenuMobile({
           </svg>
         </Link>
         <Link
-          href={data?.linkZalo || 'https://zalo.me/4574140570292753526'}
+          href={data?.lien_ket_zalo || 'https://zalo.me/4574140570292753526'}
           className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+          target='_blank'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

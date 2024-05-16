@@ -1,5 +1,31 @@
-// TODO: sitemap cho tin tuc, du an
+import getData from '../lib/getData'
+
+async function getAllPosts() {
+  return getData('/all_posts', 'okhub')
+}
+async function getAllProjects() {
+  return getData('/all_projects', 'okhub')
+}
+
 export default async function sitemap() {
+  const [dataAllPosts, dataAllProjects] = await Promise.all([
+    getAllPosts(),
+    getAllProjects(),
+  ])
+  const siteMapAllPosts = dataAllPosts.map((item) => {
+    return {
+      url: `${process.env.DOMAIN}/tin-tuc/${item.slug}`,
+      lastModified: new Date(),
+      priority: 0.8,
+    }
+  })
+  const siteMapAllProjects = dataAllProjects.map((item) => {
+    return {
+      url: `${process.env.DOMAIN}/du-an/${item.slug}`,
+      lastModified: new Date(),
+      priority: 0.9,
+    }
+  })
   return [
     {
       url: process.env.DOMAIN,
@@ -86,5 +112,7 @@ export default async function sitemap() {
       lastModified: new Date(),
       priority: 0.9,
     },
+    ...siteMapAllPosts,
+    ...siteMapAllProjects,
   ]
 }

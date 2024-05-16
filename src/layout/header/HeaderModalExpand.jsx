@@ -12,7 +12,7 @@ export default function HeaderModalExpand({
   href,
   isFirst,
   handleOnClick,
-  dataImage
+  dataImage,
 }) {
   return (
     <div
@@ -58,12 +58,18 @@ export default function HeaderModalExpand({
             </Link>
           )
         })}
-        {(href && href!=='/dich-vu') && (
+        {href && (
           <Link
             href={href}
             className='font-Iciel text-0.875 leading-1.5 uppercase px-6 py-[0.8rem] text-white font-bold underline hover:bg-yellow-500 transition-300 text-center'
-            onMouseEnter={() => setActiveModalMenuLink(text)}
-            onMouseLeave={() => setActiveModalMenuLink('')}
+            onMouseEnter={() => {
+              setActiveModalMenuLink(text)
+              setActiveModalMenuChildLink('xem-tat-ca')
+            }}
+            onMouseLeave={() => {
+              setActiveModalMenuLink('')
+              setActiveModalMenuChildLink('')
+            }}
             onClick={handleOnClick}
           >
             XEM TẤT CẢ
@@ -74,32 +80,97 @@ export default function HeaderModalExpand({
         className='relative flex-none w-[21.875rem] self-stretch'
         onMouseEnter={() => setActiveModalMenuLink(text)}
       >
-        {dataImage.map((item2, i2) => {
-          return (
-            <Image
-              key={i2}
-              src={item2.url}
-              alt={item2.alt}
-              className={clsx('object-cover w-full h-full transition-500', {
-                'absolute top-0 left-0': i2 !== 0,
-                'opacity-0 pointer-events-none':
-                  activeModalMenuChildLink !== data[i2]?.text,
-                'opacity-100 pointer-events-auto':
-                  activeModalMenuChildLink === data[i2]?.text,
-              })}
-              onMouseEnter={() => {
-                setActiveModalMenuLink(text)
-                setActiveModalMenuChildLink(data[i2]?.text)
-              }}
-              onMouseLeave={() => {
-                setActiveModalMenuLink('')
-                setActiveModalMenuChildLink('')
-              }}
-              width={1920}
-              height={1080}
-            />
-          )
-        })}
+        {href ? (
+          <>
+            {dataImage.map((item2, i2) => {
+              if (i2 < dataImage.length - 1) {
+                return (
+                  <Image
+                    key={i2}
+                    src={item2.url}
+                    alt={item2.alt}
+                    className={clsx(
+                      'object-cover w-full h-full transition-500',
+                      {
+                        'absolute top-0 left-0': i2 !== 0,
+                        'opacity-0 pointer-events-none':
+                          activeModalMenuChildLink !== data[i2]?.text,
+                        'opacity-100 pointer-events-auto':
+                          activeModalMenuChildLink === data[i2]?.text,
+                      },
+                    )}
+                    onMouseEnter={() => {
+                      setActiveModalMenuLink(text)
+                      setActiveModalMenuChildLink(data[i2]?.text)
+                    }}
+                    onMouseLeave={() => {
+                      setActiveModalMenuLink('')
+                      setActiveModalMenuChildLink('')
+                    }}
+                    width={1920}
+                    height={1080}
+                  />
+                )
+              } else {
+                return (
+                  <Image
+                    key={i2}
+                    src={item2.url}
+                    alt={item2.alt ?? 'thang máy nhật bản'}
+                    className={clsx(
+                      'absolute top-0 left-0 object-cover w-full h-full transition-500',
+                      {
+                        'opacity-0 pointer-events-none':
+                          activeModalMenuChildLink !== 'xem-tat-ca',
+                        'opacity-100 pointer-events-auto':
+                          activeModalMenuChildLink === 'xem-tat-ca',
+                      },
+                    )}
+                    onMouseEnter={() => {
+                      setActiveModalMenuLink(text)
+                      setActiveModalMenuChildLink('xem-tat-ca')
+                    }}
+                    onMouseLeave={() => {
+                      setActiveModalMenuLink('')
+                      setActiveModalMenuChildLink('')
+                    }}
+                    width={1920}
+                    height={1080}
+                  />
+                )
+              }
+            })}
+          </>
+        ) : (
+          <>
+            {dataImage.map((item2, i2) => {
+              return (
+                <Image
+                  key={i2}
+                  src={item2.url}
+                  alt={item2.alt}
+                  className={clsx('object-cover w-full h-full transition-500', {
+                    'absolute top-0 left-0': i2 !== 0,
+                    'opacity-0 pointer-events-none':
+                      activeModalMenuChildLink !== data[i2]?.text,
+                    'opacity-100 pointer-events-auto':
+                      activeModalMenuChildLink === data[i2]?.text,
+                  })}
+                  onMouseEnter={() => {
+                    setActiveModalMenuLink(text)
+                    setActiveModalMenuChildLink(data[i2]?.text)
+                  }}
+                  onMouseLeave={() => {
+                    setActiveModalMenuLink('')
+                    setActiveModalMenuChildLink('')
+                  }}
+                  width={1920}
+                  height={1080}
+                />
+              )
+            })}
+          </>
+        )}
       </div>
     </div>
   )
