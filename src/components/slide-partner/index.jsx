@@ -10,10 +10,10 @@ export default function SlidePartner({data}) {
   return (
     <Swiper
       slidesPerView={3}
-      slidesPerGroup={3}
       speed={1000}
       grid={{
         rows: 2,
+        fill: 'row',
       }}
       modules={[Grid, Autoplay]}
       autoplay={{
@@ -23,7 +23,6 @@ export default function SlidePartner({data}) {
       breakpoints={{
         768: {
           slidesPerView: 5,
-          slidesPerGroup: 5,
         },
       }}
       className='swiper-partner'
