@@ -9,13 +9,15 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
-import {useState} from 'react'
-
+import {useState,useEffect} from 'react'
+import AOS from 'aos'
+import "aos/dist/aos.css"
 export default function ProductionLineSectionDV({
   isMobile,
   data,
   justSlide = false,
 }) {
+
   const [activeImage, setActiveImage] = useState(0)
   const arrayData = data?.slide ?? data 
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
@@ -37,6 +39,7 @@ export default function ProductionLineSectionDV({
           className={`text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5 ${
             justSlide ? 'hidden' : 'block'
           }`} dangerouslySetInnerHTML={{__html: data?.heading}}
+          data-aos='zoom-in'
         >
          
         </h3>
@@ -47,9 +50,10 @@ export default function ProductionLineSectionDV({
               data?.desc ||
               'Chúng tôi cam kết không ngừng nỗ lực để đảm bảo chất lượng tốt nhất trong quá trình thi công lắp đặt. Điều này là sứ mệnh mang lại sự hài lòng và niềm tin cho khách hàng.',
           }}
+          data-aos='zoom-in'
         ></h2>
       </div>
-      <div className='relative w-full h-full'>
+      <div className='relative w-full h-full'   data-aos='fade-up'>
         <Swiper
           slidesPerView={1}
           effect={'fade'}

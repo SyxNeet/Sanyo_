@@ -7,6 +7,9 @@ import Link from 'next/link'
 
 export default function OutStandingProject({data}) {
   const arr = data
+  const arr1 = data.slice(0, 4);
+  const arr2 = data.slice(4, 8).concat(data.slice(0, Math.max(0, 4 - data.slice(4, 8).length)));
+  const arr3 = data.slice(8, 12).concat(data.slice(0, Math.max(0, 4 - data.slice(8, 12).length)));
   return (
     <section className='box-container-border md:pt-[7.5rem] flex flex-col justify-center items-center relative'>
       <div className='absolute left-0 right-0 top-[10.5rem] rotate-180 overlay_slide_outstanding'></div>
@@ -27,36 +30,36 @@ export default function OutStandingProject({data}) {
         <div className='flex md:gap-[0.75rem] overflow-hidden md:w-full max-md:mt-[2rem]'>
           <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate md:mb-[0.75rem]'>
-              {arr?.map((item, index) => (
+              {arr1?.map((item, index) => (
                 <ItemOutStandingProject key={index} data={item}/>
               ))}
             </div>
             <div className='flex flex-col gap-[0.75rem] items-center maquee-animate'>
-              {arr?.map((item, index) => (
+              {arr1?.map((item, index) => (
                 <ItemOutStandingProject key={index} data={item}/>
               ))}
             </div>
           </div>
           <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate2 md:mb-[0.75rem]'>
-              {arr?.map((item, index) => (
+              {arr2?.map((item, index) => (
                 <ItemOutStandingProject key={index} data={item}/>
               ))}
             </div>
             <div className='flex flex-col gap-[0.75rem] items-center maquee-animate2'>
-              {arr?.map((item, index) => (
+              {arr2?.map((item, index) => (
                 <ItemOutStandingProject key={index} data={item}/>
               ))}
             </div>
           </div>
           <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate md:mb-[0.75rem]'>
-              {arr?.map((item, index) => (
+              {arr3?.map((item, index) => (
                 <ItemOutStandingProject key={index} data={item}/>
               ))}
             </div>
             <div className='flex flex-col gap-[0.75rem] items-center maquee-animate'>
-              {arr?.map((item, index) => (
+              {arr3?.map((item, index) => (
                 <ItemOutStandingProject key={index} data={item}/>
               ))}
             </div>

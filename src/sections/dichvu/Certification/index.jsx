@@ -1,9 +1,9 @@
 'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, {useEffect} from 'react'
+import {Fade, Slide} from 'react-awesome-reveal'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import ButtonSLide from '@/components/buttonSlideSixReasons/ButtonSLide'
-
 import {Navigation} from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -20,15 +20,20 @@ const Certification = ({data}) => {
       />
       <div className='overlay absolute w-full left-0 top-0 h-[30%] z-[1] bg-[linear-gradient(180deg,rgba(255,255,255,1)36%,rgba(255,255,255,0)89%)]'></div>
       <div className='bg-white bg-opacity-90 py-[3.56rem] px-[4.37rem] relative z-50 flex flex-col justify-center w-[84.4375rem] h-[45.0625rem] rounded-1rem max-md:w-[21.9375rem] max-md:px-3 max-md:py-[1.38rem] max-md:h-fit'>
-        <div className='flex flex-col justify-center items-center'>
-          <h2
-            className='text-[3rem] font-SVNLagu font-semibold uppercase leading-1.3 text-grey-900 mb-2 text-center max-md:text-[1.5rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500'
-            dangerouslySetInnerHTML={{__html: data?.heading}}
-          ></h2>
-          <span className=' text-center text-[0.875rem] font-Iciel font-normal leading-1.5 mb-8 text-grey-500 w-[33.0625rem] max-md:w-[21.9375rem] max-md:text-[0.875rem]'>
-            {data?.desc}
-          </span>
-        </div>
+        <Slide direction='up'>
+          <div className='flex flex-col justify-center items-center'>
+            <h2
+              className='text-[3rem] font-SVNLagu font-semibold uppercase leading-1.3 text-grey-900 mb-2 text-center max-md:text-[1.5rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500'
+              dangerouslySetInnerHTML={{__html: data?.heading}}
+            ></h2>
+            <span
+              className=' text-center text-[0.875rem] font-Iciel font-normal leading-1.5 mb-8 text-grey-500 w-[33.0625rem] max-md:w-[21.9375rem] max-md:text-[0.875rem]'
+              data-aos='fade-down'
+            >
+              {data?.desc}
+            </span>
+          </div>
+        </Slide>
         <Swiper
           breakpoints={{
             0: {

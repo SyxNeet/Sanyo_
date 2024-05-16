@@ -5,8 +5,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Pagination, Autoplay, FreeMode} from 'swiper/modules'
 import {outStandingProject} from '/data/japanElevator'
 import gsap from 'gsap'
-import AOS from 'aos'
-
+import { Fade } from 'react-awesome-reveal'
 import {useGSAP} from '@gsap/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -16,9 +15,6 @@ import {Button} from '@/components/ui/button'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
 import 'aos/dist/aos.css'
 const OutStandingProjectJE = ({isMobile, data}) => {
-  useEffect(() => {
-    AOS.init({ duration: 3000 });
-  }, [])
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
   useGSAP(() => {
@@ -45,41 +41,41 @@ const OutStandingProjectJE = ({isMobile, data}) => {
           <div>
             <h2
               className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
-              data-aos='fade-left'
-              delay={200}
+   
               dangerouslySetInnerHTML={{__html: data[0]?.title_mb}}
             ></h2>
           </div>
         ) : (
-          <div
-            className=''
-          >
-            <h2
-              className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
-              dangerouslySetInnerHTML={{__html: data[0]?.title}}
-              data-aos='fade-left'
-            ></h2>
-            <span
-              className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'
-              dangerouslySetInnerHTML={{__html: data[0]?.desc}}
-              data-aos='fade-left'
-            ></span>
-          </div>
+<Fade direction='left' triggerOnce={true}>
+            <div className=''>
+              <h2
+                className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
+                dangerouslySetInnerHTML={{__html: data[0]?.title}}
+     
+              ></h2>
+              <span
+                className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'
+                dangerouslySetInnerHTML={{__html: data[0]?.desc}}
+    
+              ></span>
+            </div>
+</Fade>
         )}
-        <Link
-          href={'/du-an'}
-          data-aos='fade-left'
-        >
-          <Button
-            className='w-fit max-md:hidden mt-[2.44rem]'
-            isRed={true}
-            text='Xem tất cả'
-            isHover={true}
-            isBlack={true}
-            classHover={'group-hover'}
-            classtext={'group-hover:text-white'}
-          />
-        </Link>
+       <Fade direction='up' triggerOnce={true}>
+          <Link
+            href={'/du-an'}
+          >
+            <Button
+              className='w-fit max-md:hidden mt-[2.44rem]'
+              isRed={true}
+              text='Xem tất cả'
+              isHover={true}
+              isBlack={true}
+              classHover={'group-hover'}
+              classtext={'group-hover:text-white'}
+            />
+          </Link>
+       </Fade>
       </div>
       {isMobile ? (
         <div className='mbOutStandingSLide'>
@@ -144,23 +140,24 @@ const OutStandingProjectJE = ({isMobile, data}) => {
         <div
           className='flex flex-wrap w-[73%]'
           ref={outStandingProjectEndRef}
-          data-aos='fade-left'
         >
           {data[0]?.project_data?.map((item, index) => (
-            <ItemOutStandingProject
-              key={index}
-              width='32.1875rem'
-              height='25.5rem'
-              imgFlagUrl={item?.image_country?.url}
-              className={`rounded-[0.75rem] w-[32.1875rem] h-[25.5rem] ${
-                (index + 1) % 2 === 0 ? 'lg:ml-4 mb-4 md:ml-2 ' : ''
-              }`}
-              altImageFlag={item?.image_country?.alt}
-              nameProject={item?.title}
-              imgProjectUrl={item?.thumbnail}
-              altImageProject={item.alt}
-              link={`/du-an/${item.slug}`}
-            />
+           <Fade direction='up' triggerOnce={true} fraction={0}>
+              <ItemOutStandingProject
+                key={index}
+                width='32.1875rem'
+                height='25.5rem'
+                imgFlagUrl={item?.image_country?.url}
+                className={`rounded-[0.75rem] w-[32.1875rem] h-[25.5rem] ${
+                  (index + 1) % 2 === 0 ? 'lg:ml-4 mb-4 md:ml-2 ' : ''
+                }`}
+                altImageFlag={item?.image_country?.alt}
+                nameProject={item?.title}
+                imgProjectUrl={item?.thumbnail}
+                altImageProject={item.alt}
+                link={`/du-an/${item.slug}`}
+              />
+           </Fade>
           ))}
         </div>
       )}

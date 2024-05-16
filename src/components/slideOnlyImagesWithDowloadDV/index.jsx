@@ -9,9 +9,6 @@ import Link from 'next/link'
 import AOS from 'aos'
 import "aos/dist/aos.css"
 const SlideOnlyImagesDownloadDV = ({data}) => {
-  useEffect(() => {
-    AOS.init({ duration: 3000 });
-  }, [])
   return (
     <div className='mt-6 md:mt-[4.12rem]'>
       <div className='flex px-[6.25rem] max-md:w-full max-md:pl-0 max-md:pr-0 max-md:flex-col-reverse'>
@@ -80,7 +77,7 @@ const SlideOnlyImagesDownloadDV = ({data}) => {
           </div>
         </div>
       </div>
-      <div className='w-full mx-auto max-w-[100rem]'>
+      <div className='w-full mx-auto max-w-[100rem]'  data-aos='fade-up'>
         <Swiper
           loop
           breakpoints={{
