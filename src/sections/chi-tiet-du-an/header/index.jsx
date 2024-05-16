@@ -124,7 +124,7 @@ const HeaderProject = ({data,slide}) => {
           modules={[Navigation, Autoplay]}
           className='mySwiperduan'
         >
-          {slide?.map((item, index) => (
+          {(slide||[]).map((item, index) => (
             <SwiperSlide key={index}>
               <Image
                 src={item?.image?.url}
