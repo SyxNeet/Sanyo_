@@ -2,8 +2,10 @@ import BreadcrumbContainer from '@/components/breadcrumb/BreadcrumbContainer'
 import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
 import getData from '@/lib/getData'
 import DuAnNoiBat from '@/sections/du-an/DuAnNoiBat'
+import {fetchMetaData} from '@/lib/fetchMetadata'
+import {getMeta} from '@/lib/getMeta'
 
-const duAnPerPage = 12
+const duAnPerPage = 8
 const pageId = 794
 async function getDanhSachDuAn() {
   return getData(`/pages/${pageId}/project`)
@@ -13,6 +15,11 @@ async function getProject(country = 'all', type = 'all', page = '1') {
     `/projects?country=${country}&type=${type}&page=${page}&per_page=${duAnPerPage}`,
     'okhub',
   )
+}
+
+export async function generateMetadata() {
+  const result = await fetchMetaData('/du-an/')
+  return getMeta(result, '/du-an/')
 }
 
 export default async function DanhSachDuAnPage({params, searchParams}) {

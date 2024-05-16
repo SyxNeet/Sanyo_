@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import SubmitMail from './SubmitMail'
 import FollowUs from './FollowUs'
 import getData from '@/lib/getData'
@@ -72,12 +71,9 @@ export default async function Footer({isMobile}) {
                   height={50}
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
-                <Link
-                  href={`tel:0983859969`}
-                  className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
-                >
+                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
                   Hotline: {dataFooter.tel}
-                </Link>
+                </p>
               </div>
               <div className='flex items-start mb-[1rem]'>
                 <Image
@@ -87,12 +83,9 @@ export default async function Footer({isMobile}) {
                   height={50}
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
-                <Link
-                  href={`mailto:sales@sanyo-yusoki.vn`}
-                  className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
-                >
+                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
                   Email: {dataFooter.email}
-                </Link>
+                </p>
               </div>
               <div className='flex items-start mb-[1rem]'>
                 <Image
@@ -102,12 +95,9 @@ export default async function Footer({isMobile}) {
                   height={50}
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
-                <Link
-                  href={'www.sanyoyusoki.com'}
-                  className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
-                >
+                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
                   {dataFooter.website}
-                </Link>
+                </p>
               </div>
             </div>
           </div>
