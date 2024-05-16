@@ -57,7 +57,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
           alt='Sun image'
           width={500}
           height={500}
-          className='absolute lg:top-[65%] md:top-[68%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%] max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
+          className='absolute lg:top-[65%] md:top-[68%] left-[2%] w-[29.875rem] h-[29.875rem] max-md:left-[-11%]  max-md:w-[10.50131rem] max-md:h-[10.50131rem]'
           id='sunRiseImg'
         />
         <Image

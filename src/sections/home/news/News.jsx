@@ -31,7 +31,7 @@ export default function News({isMobile,data}) {
 
       {!isMobile && (
         <div className='flex justify-between max-md:hidden'>
-          <div className='w-[61.5rem] news_item_home h-[36rem] flex rounded-[0.625rem] mr-[2rem] overflow-hidden group'>
+          <Link href={`/tin-tuc/${listNews?.posts[0]?.post_slug}`} className='w-[61.5rem] news_item_home h-[36rem] flex rounded-[0.625rem] mr-[2rem] overflow-hidden group' >
             <Link href={`/tin-tuc/${listNews?.posts[0]?.post_slug}`}>
               <Image
                 src={listNews?.posts[0]?.thumbnail||'/images/home/danhSachTinTuc/imgNews2.png'}
@@ -82,7 +82,7 @@ export default function News({isMobile,data}) {
               {listNews?.posts[0]?.description}
               </p>
             </div>
-          </div>
+          </Link>
           <div className='flex flex-col flex-1'>
             {listNews?.posts?.slice(1)?.map((item, index) => (
               <NewsItemHome
