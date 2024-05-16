@@ -3,7 +3,7 @@ import SlidePartner from '@/components/slide-partner'
 
 export default function PartnerSection({isMobile, data}) {
   return (
-    <section className='relative h-[27.5rem] w-[23.4375rem] md:w-full md:h-screen'>
+    <section className='relative h-[27.5rem] w-[23.4375rem] md:w-full md:h-[50rem] lg:h-screen'>
       {!isMobile && (
         <Image
           src={`/images/about-us/doi-tac-background-img.png`}

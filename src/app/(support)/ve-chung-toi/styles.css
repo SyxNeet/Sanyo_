@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .swiper.swiper-production-line {
-  @apply md:h-screen h-[26.8125rem] !important;
+  @apply h-screen max-lg:h-[54rem] max-md:h-[26.8125rem] !important;
 }
 
 .swiper-production-line .swiper-slide {

@@ -65,7 +65,7 @@ const Button = React.forwardRef(
       >
         <span
           className={clsx(
-            `font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5]text-grey-900`,
+            `font-Iciel md:text-[0.875rem] text-[0.75rem] relative z-[1] font-medium leading-[1.5] -mb-0.5  text-grey-900`,
             {'group-hover:text-white max-md:text-c-nht': isRed},
             classText,
           )}
