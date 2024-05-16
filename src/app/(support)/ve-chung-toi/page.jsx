@@ -31,8 +31,8 @@ async function getPartner() {
 const pageId = 188
 
 export async function generateMetadata() {
-  const result = await fetchMetaData('/ve-chung-toi')
-  return getMeta(result, '/ve-chung-toi')
+  const result = await fetchMetaData('/ve-chung-toi/')
+  return getMeta(result, '/ve-chung-toi/')
 }
 
 export default async function AboutUsPage({params, searchParams}) {

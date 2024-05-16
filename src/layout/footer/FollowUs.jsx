@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -10,8 +9,12 @@ function FollowUs({data}) {
       </p>
 
       <Link
-        href={data?.facebookLink || 'https://www.facebook.com/ThangmaySanyoYusokiVietNam?mibextid=ZbWKwL'}
+        href={
+          data?.lien_ket_facebook ||
+          'https://www.facebook.com/ThangmaySanyoYusokiVietNam?mibextid=ZbWKwL'
+        }
         className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+        target='_blank'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -34,7 +37,14 @@ function FollowUs({data}) {
           />
         </svg>
       </Link>
-      <Link href={data?.instagramLink || 'https://www.linkedin.com/in/sanyo-yusoki-vi%E1%BB%87t-nam-4283592a5/'}   className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'>
+      <Link
+        href={
+          data?.lien_ket_in ||
+          'https://www.linkedin.com/in/sanyo-yusoki-vi%E1%BB%87t-nam-4283592a5/'
+        }
+        className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+        target='_blank'
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='38'
@@ -58,7 +68,11 @@ function FollowUs({data}) {
           />
         </svg>
       </Link>
-      <Link href={data?.linkZalo || 'https://zalo.me/4574140570292753526'}   className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'>
+      <Link
+        href={data?.lien_ket_zalo || 'https://zalo.me/4574140570292753526'}
+        className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+        target='_blank'
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='38'
