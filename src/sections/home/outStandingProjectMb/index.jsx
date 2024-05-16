@@ -12,7 +12,6 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import imglogo from '/public/images/japanElevator/logotext.png'
 const OutStandingProjectMb = ({data}) => {
-  console.log(data)
   return (
     <div>
       <div className='pt-12 px-7 flex items-center justify-center flex-col mb-[1.55rem]'>

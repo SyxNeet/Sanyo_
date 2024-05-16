@@ -13,7 +13,7 @@ const ValueDifferent = forwardRef(({isMobile, dataValueDifferent,dataSixReason},
           src={
             !isMobile
               ? dataValueDifferent?.background?.url
-              : '/images/home/giaTriKhacBiet/backgroundMb.png'
+              : dataValueDifferent?.background_mobile?.url
           }
           alt={dataValueDifferent?.background?.alt}
           width={1920}

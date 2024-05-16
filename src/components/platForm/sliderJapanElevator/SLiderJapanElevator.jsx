@@ -14,7 +14,6 @@ function SliderJapanElevator({data}) {
     const activeSlideIndex = swiper.realIndex
     setIndexSlider(activeSlideIndex)
   }
-  console.log(data)
   return (
     <div className='flex md:space-x-[2.37rem] border-t-[1px] border-b-[1px] solid border-[rgba(28,32,28,0.10)] border-opacity-10 pl-[6.31rem] mt-10'>
       <div className='md:w-[21.625rem] md:py-[1.98rem] flex flex-col flex-shrink-0'>
