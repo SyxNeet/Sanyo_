@@ -19,7 +19,7 @@ async function getProject(country = 'all', type = 'all', page = '1') {
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/du-an/')
-  return getMeta(result, '/du-an/')
+  return getMeta(result, '/du-an')
 }
 
 export default async function DanhSachDuAnPage({params, searchParams}) {

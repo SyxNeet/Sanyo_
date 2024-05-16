@@ -39,7 +39,7 @@ async function getDataNews() {
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/trang-chu/')
-  return getMeta(result, '/')
+  return getMeta(result, '')
 }
 
 export default async function Home({params, searchParams}) {

@@ -6,7 +6,7 @@ import {getMeta} from '@/lib/getMeta'
 
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/thang-may/${params.slug}/`)
-  return getMeta(result, `/thang-may/${params.slug}/`)
+  return getMeta(result, `/thang-may/${params.slug}`)
 }
 
 export default async function page({searchParams, params}) {

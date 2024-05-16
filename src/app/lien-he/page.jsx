@@ -13,7 +13,7 @@ async function getLienHe(pageId) {
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/lien-he/')
-  return getMeta(result, '/lien-he/')
+  return getMeta(result, '/lien-he')
 }
 
 export default async function LienHePage({params, searchParams}) {
