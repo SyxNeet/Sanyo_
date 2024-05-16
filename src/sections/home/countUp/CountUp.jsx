@@ -80,9 +80,9 @@ export default function CountUp({dataCountUp}) {
         <h3 className='font-SVNLagu  max-md:px-[0.75rem] md:text-[2.125rem] text-[0.625rem] leading-1.5 max-md:tracking-[0.05rem] font-semibold md:leading-[1.2] uppercase md:text-yellow-500 text-grey-500 opacity-80 md:mt-[0.75rem]'>
           {dataCountUp?.title}
         </h3>
-        <p className='text-grey-400  max-md:px-[0.75rem] max-md:font-medium max-md:text-grey-800 font-Iciel leading-1.7 md:uppercase md:mt-[0.75rem] mt-[0.5rem] md:text-[1.3rem] lg:text-[0.875rem] text-[1.125rem]  max-md:leading-1.4 max-md:pb-[1.69rem] max-md:border-b-[1px] border-grey-500 border-opacity-10 [&>p>strong]:font-medium max-md:[&>p>strong]:text-yellow-500 max-md:[&>p>strong]:font-medium' dangerouslySetInnerHTML={{__html:dataCountUp?.description}}>
+        <div className='text-grey-400  max-md:px-[0.75rem] max-md:font-medium max-md:text-grey-800 font-Iciel leading-1.7 md:uppercase md:mt-[0.75rem] mt-[0.5rem] md:text-[1.3rem] lg:text-[0.875rem] text-[1.125rem]  max-md:leading-1.4 max-md:pb-[1.69rem] max-md:border-b-[1px] border-grey-500 border-opacity-10 [&>p>strong]:font-medium max-md:[&>p>strong]:text-yellow-500 max-md:[&>p>strong]:font-medium' dangerouslySetInnerHTML={{__html:dataCountUp?.description}}>
           
-        </p>
+        </div>
         <div className='grid grid-cols-2 max-md:px-[0.81rem] max-md:mt-[1.81rem] md:gap-x-[1.17rem] md:gap-y-[1.48rem] gap-x-[3.31rem] gap-y-[1.75rem] md:mt-[3.4rem]'>
           {dataCountUp?.list_info?.map((item, index) => (
             <CountItem

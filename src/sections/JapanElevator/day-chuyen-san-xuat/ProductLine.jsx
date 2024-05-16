@@ -9,20 +9,37 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import '../styles.css'
 import SlideOnlyImages from '@/components/slideOnlyImages'
-
-const ProductLine = ({ data ,isMobile}) => {
+import {Bounce, Slide} from 'react-awesome-reveal'
+const ProductLine = ({data, isMobile}) => {
   return (
     <section className='mt-[2.25rem] relative z-10 box-container-border bg-white productLineJE max-md:mt-[1.25rem]'>
       <div className='w-[114.75rem] h-[114.75rem] absolute top-0 left-[60%] max-md:left-[62%] max-md:w-[29.125rem] max-md:h-[29.125rem] rounded-[50%] opacity-50 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(254,_65,_39,_0.60)_0%,_rgba(254,_65,_39,_0.00)_100%)] -z-[1]'></div>
       <div className='pt-[9rem] pl-[6.25rem] flex max-md:px-4 max-md:pt-[2rem]'>
         <div className='border-r-[1px] border-[rgba(28,32,28,0.10)] pb-[5.38rem] pr-[6.63rem] max-md:border-none max-md:px-0 max-md:pb-5'>
-          <h2 className='w-[50.0625rem] font-SVNLagu text-[3.125rem] font-semibold leading-1.3 mb-[2.06rem] max-md:hidden [&>p>strong]:text-c-nht [&>p>strong]:font-semibold ' dangerouslySetInnerHTML={{ __html: data?.heading }}>
-          </h2>
-          <h2 className='md:hidden w-full font-SVNLagu text-[1.5rem] font-bold leading-1.3 mb-2 [&>p>strong]:text-c-nht [&>p>strong]:font-semibold max-md:font-semibold' dangerouslySetInnerHTML={{ __html: data?.heading_mb }}>
-          </h2>
-          <span className='w-[47.875rem] block font-Iciel text-[1.125rem] font-normal leading-1.7 max-md:text-[0.75rem] uppercase max-md:capitalize max-md:w-full text-[#6D7279] ' dangerouslySetInnerHTML={{ __html: data?.desc }}>
-          </span>
+          <Slide
+            triggerOnce={true}
+            direction='left'
+          >
+            <h2
+              className='w-[50.0625rem] font-SVNLagu text-[3.125rem] font-semibold leading-1.3 mb-[2.06rem] max-md:hidden [&>p>strong]:text-c-nht [&>p>strong]:font-semibold '
+              dangerouslySetInnerHTML={{__html: data?.heading}}
+            ></h2>
+          </Slide>
+          <h2
+            className='md:hidden w-full font-SVNLagu text-[1.5rem] font-bold leading-1.3 mb-2 [&>p>strong]:text-c-nht [&>p>strong]:font-semibold max-md:font-semibold'
+            dangerouslySetInnerHTML={{__html: data?.heading_mb}}
+          ></h2>
+          <Slide
+            triggerOnce={true}
+            direction='left'
+          >
+            <span
+              className='w-[47.875rem] block font-Iciel text-[1.125rem] font-normal leading-1.7 max-md:text-[0.75rem] uppercase max-md:capitalize max-md:w-full text-[#6D7279] '
+              dangerouslySetInnerHTML={{__html: data?.desc}}
+            ></span>
+          </Slide>
         </div>
+
         <Link
           href={data?.file_dowload_url}
           target='_blank'
@@ -46,9 +63,13 @@ const ProductLine = ({ data ,isMobile}) => {
           </div>
         </Link>
       </div>
-      <SlideOnlyImages className='!h-[41.5625rem]' data={data?.slide} isMobile={isMobile}/>
+      <SlideOnlyImages
+        className='!h-[41.5625rem]'
+        data={data?.slide}
+        isMobile={isMobile}
+      />
     </section>
-  );
+  )
 }
 
-export default ProductLine;
+export default ProductLine

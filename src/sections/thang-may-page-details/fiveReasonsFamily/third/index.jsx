@@ -6,6 +6,7 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import '../styles.css'
+import { Fade } from 'react-awesome-reveal'
 const ThirdReason = ({lang, isMobile,data}) => {
   return (
     <div>
@@ -22,28 +23,30 @@ const ThirdReason = ({lang, isMobile,data}) => {
           height={1000}
           className='md:hidden absolute top-[10%] left-0 -z-10 w-full h-full object-cover'
         />
-          <h2 className='pt-[8.25rem] pl-[5.19rem] text-[3.125rem] text-gray-900 font-SVNLagu font-semibold leading-1.3 mb-[2.94rem] max-md:px-3 max-md:py-0 max-md:text-[1.25rem] max-md:pt-[2.5rem] max-md:mb-8'>
-          <span className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2 md:hidden'>3. </span>{data?.heading} 
-          </h2>
-          <div className='pl-[5.19rem] flex items-center max-md:pl-3 max-md:justify-between max-md:items-start max-md:px-3'>
-            <div className='flex flex-col'>
-              <span className='font-SVNLagu text-[4.125rem] font-semibold leading-1.2 text-yellow-500 mb-[0.19rem]  max-md:text-[2.5rem] max-md:mb-0'>
-                {data?.optical_power_coating?.percent}%
-              </span>
-              <span className='w-[14.6875rem] text-[1.125rem] text-[#6A6A6A] font-medium leading-1.5 max-md:text-[0.75rem] max-md:w-[8.9375rem]'>
-              {data?.optical_power_coating?.desc}
-              </span>
+<Fade direction='left' triggerOnce={true}>
+            <h2 className='pt-[8.25rem] pl-[5.19rem] text-[3.125rem] text-gray-900 font-SVNLagu font-semibold leading-1.3 mb-[2.94rem] max-md:px-3 max-md:py-0 max-md:text-[1.25rem] max-md:pt-[2.5rem] max-md:mb-8'>
+            <span className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2 md:hidden'>3. </span>{data?.heading} 
+            </h2>
+            <div className='pl-[5.19rem] flex items-center max-md:pl-3 max-md:justify-between max-md:items-start max-md:px-3'>
+              <div className='flex flex-col'>
+                <span className='font-SVNLagu text-[4.125rem] font-semibold leading-1.2 text-yellow-500 mb-[0.19rem]  max-md:text-[2.5rem] max-md:mb-0'>
+                  {data?.optical_power_coating?.percent}%
+                </span>
+                <span className='w-[14.6875rem] text-[1.125rem] text-[#6A6A6A] font-medium leading-1.5 max-md:text-[0.75rem] max-md:w-[8.9375rem]'>
+                {data?.optical_power_coating?.desc}
+                </span>
+              </div>
+              <div className='w-[0.0625rem] h-[9.8125rem] bg-[#ECECEC] ml-[4.25rem] mr-[1.5rem] max-md:mx-0 max-md:h-[4.6875rem]'></div>
+              <div className='flex flex-col'>
+                <span className='font-SVNLagu text-[4.125rem] font-semibold leading-1.2 text-yellow-500 mb-[0.19rem] max-md:text-[2.5rem] max-md:mb-0'>
+                {data?.power_saving?.percent}%
+                </span>
+                <span className='w-[14.6875rem] text-[1.125rem] text-[#6A6A6A] font-medium leading-1.5 max-md:text-[0.75rem] max-md:w-[8.9375rem]'>
+                {data?.power_saving?.desc}
+                </span>
+              </div>
             </div>
-            <div className='w-[0.0625rem] h-[9.8125rem] bg-[#ECECEC] ml-[4.25rem] mr-[1.5rem] max-md:mx-0 max-md:h-[4.6875rem]'></div>
-            <div className='flex flex-col'>
-              <span className='font-SVNLagu text-[4.125rem] font-semibold leading-1.2 text-yellow-500 mb-[0.19rem] max-md:text-[2.5rem] max-md:mb-0'>
-              {data?.power_saving?.percent}%
-              </span>
-              <span className='w-[14.6875rem] text-[1.125rem] text-[#6A6A6A] font-medium leading-1.5 max-md:text-[0.75rem] max-md:w-[8.9375rem]'>
-              {data?.power_saving?.desc}
-              </span>
-            </div>
-          </div>
+</Fade>
         </div>
         <Image
           src='/images/familyElevator/detailFE/reason3.png'

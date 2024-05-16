@@ -72,7 +72,7 @@ const DetailElevatorMb = ({data, title, index}) => {
             {data?.thong_so_thang_may?.desc || data?.thong_so.desc}
           </span>
           <div className='px-[0.88rem] mt-[0.75rem] [&>.infoBox:first-child]:border-t [&>.infoBox:first-child]:pt-[0.38rem]'>
-            {(data?.thong_so_thang_may?.elevator_parameters[0]?.list_advantages || data?.thong_so?.elevator_parameters[0]?.list_advantages||[]).map(
+            {(data?.thong_so_thang_may?.list_advantages || data?.thong_so?.list_advantages||[]).map(
               (item, index) => {
                 return (
                   <div
