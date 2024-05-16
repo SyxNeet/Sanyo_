@@ -29,7 +29,7 @@ async function getElevatorBySlug(slug) {
 
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/${params.slug}/`)
-  return getMeta(result, `/tin-tuc/${params.slug}/`)
+  return getMeta(result, `/tin-tuc/${params.slug}`)
 }
 
 export default async function TinTucPage({params, searchParams}) {
