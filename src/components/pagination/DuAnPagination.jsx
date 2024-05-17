@@ -13,7 +13,7 @@ export default function DuAnPagination({
   }`
   if (totalPage > 1) {
     return (
-      <div className='mt-4 md:col-span-2 md:mt-8'>
+      <div className='mt-4 md:mt-8'>
         <nav className='flex flex-row items-center mx-auto w-fit'>
           <Link
             href={`/du-an?page=${

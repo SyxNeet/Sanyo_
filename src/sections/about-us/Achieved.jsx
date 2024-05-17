@@ -5,6 +5,7 @@ import AchievedNum from '@/components/achieved/AchievedNum'
 import Image from 'next/image'
 import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
+import {Fade} from 'react-awesome-reveal'
 
 export default function Achieved({isMobile, data}) {
   const [startCounting, setStartCounting] = useState(true)
@@ -66,10 +67,15 @@ export default function Achieved({isMobile, data}) {
             </>
           )}
           {!isMobile && (
-            <h3
-              className='text-grey-500 font-SVNLagu text-1.25 font-medium tracking-0.1 uppercase pt-[4.2rem] ml-[8.1rem] w-[17.8125rem] mb-[2.2rem] [&_strong]:font-normal'
-              dangerouslySetInnerHTML={{__html: data.heading}}
-            ></h3>
+            <Fade
+              direction='down'
+              triggerOnce
+            >
+              <h3
+                className='text-grey-500 font-SVNLagu text-1.25 font-medium tracking-0.1 uppercase pt-[4.2rem] ml-[8.1rem] w-[17.8125rem] mb-[2.2rem] [&_strong]:font-normal'
+                dangerouslySetInnerHTML={{__html: data.heading}}
+              ></h3>
+            </Fade>
           )}
           {isMobile && (
             <div className='mb-[1.13rem]'>
@@ -82,23 +88,25 @@ export default function Achieved({isMobile, data}) {
               </p>
             </div>
           )}
-          <div className='w-[84%] md:w-full mx-auto achieved-num-container grid grid-cols-2 items-center md:ml-[7.56rem] gap-y-3 md:gap-y-[1.56rem] md:gap-x-[11.4rem]'>
-            {data.content.map((item, i) => {
-              return (
-                <AchievedNum
-                  key={i}
-                  num={item.number}
-                  text={item.content}
-                  style={
-                    isMobile
-                      ? {order: `${i === 1 ? 2 : i === 2 ? 1 : i}`}
-                      : undefined
-                  }
-                  startCounting={startCounting}
-                />
-              )
-            })}
-          </div>
+          <Fade triggerOnce>
+            <div className='w-[84%] md:w-full mx-auto achieved-num-container grid grid-cols-2 items-center md:ml-[7.56rem] gap-y-3 md:gap-y-[1.56rem] md:gap-x-[11.4rem]'>
+              {data.content.map((item, i) => {
+                return (
+                  <AchievedNum
+                    key={i}
+                    num={item.number}
+                    text={item.content}
+                    style={
+                      isMobile
+                        ? {order: `${i === 1 ? 2 : i === 2 ? 1 : i}`}
+                        : undefined
+                    }
+                    startCounting={startCounting}
+                  />
+                )
+              })}
+            </div>
+          </Fade>
         </div>
         <div className='relative md:basis-[40%] h-[24.375rem] md:h-auto flex flex-row items-center justify-center'>
           <Image

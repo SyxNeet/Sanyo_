@@ -3,3 +3,6 @@
     display: none;
   }
 }
+.tin-tuc-item {
+  @apply opacity-0 scale-[0.6];
+}

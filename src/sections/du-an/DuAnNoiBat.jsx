@@ -10,6 +10,7 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import LoaiThangMayDropdown from './LoaiThangMayDropdown'
 import QuocGiaDropdown from './QuocGiaDropdown'
 import DanhSachDuAnSkeleton from '@/components/danh-sach-du-an/DanhSachDuAnSkeleton'
+import {Fade} from 'react-awesome-reveal'
 
 export default function DuAnNoiBat({
   isMobile,
@@ -22,9 +23,6 @@ export default function DuAnNoiBat({
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
-  useEffect(() => {
-    setIsLoading(false)
-  }, [dataProject.events])
   useEffect(() => {
     if (isMobile) {
       gsap.to(stickyRef.current, {
@@ -77,10 +75,11 @@ export default function DuAnNoiBat({
         duration: 1,
       })
     }
-  }, [page, country, type, isMobile, isLoading])
+  }, [page, country, type, isMobile, isLoading, dataProject])
   useEffect(() => {
-    ScrollTrigger.update()
-  }, [page, country, type])
+    setIsLoading(false)
+    setTimeout(() => ScrollTrigger.refresh(), 20)
+  }, [page, country, type, dataProject])
   return (
     <section className='section-du-an mb-[4rem] md:mb-[7rem]'>
       <div className='relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
@@ -141,32 +140,46 @@ export default function DuAnNoiBat({
           {isLoading ? (
             <DanhSachDuAnSkeleton />
           ) : (
-            <>
-              {dataProject.events.map((item, i) => {
-                return (
-                  <DuAnItem
-                    key={i}
-                    imgFlagUrl={item.img_country.url}
-                    altImageFlag={item.img_country.alt}
-                    nameProject={item.title}
-                    imgProjectUrl={item.feature_image}
-                    altImageProject={item.excerpt}
-                    href={`/du-an/${item.detail_link}`}
-                    page={page}
-                    country={country}
-                    type={type}
-                    isMobile={isMobile}
-                  />
-                )
-              })}
-            </>
+           <>
+            {dataProject.events.length > 0 ? (
+               <>
+               {dataProject.events.map((item, i) => {
+                 return (
+                   <DuAnItem
+                     key={i}
+                     imgFlagUrl={item.img_country.url}
+                     altImageFlag={item.img_country.alt}
+                     nameProject={item.title}
+                     imgProjectUrl={item.feature_image}
+                     altImageProject={item.excerpt}
+                     href={`/du-an/${item.detail_link}`}
+                     page={page}
+                     country={country}
+                     type={type}
+                     isMobile={isMobile}
+                   />
+                 )
+               })}
+             </>
+            ) : (
+              <h3 className='col-span-2 py-4 text-2xl text-center font-Iciel text-grey-900'>
+              Hiện tại không có dự án nào.
+            </h3>
+            )}
+           </>
           )}
-          <DuAnPagination
-            totalPage={dataProject.total_pages}
-            activePage={page < 1 ? 0 : page - 1}
-            country={country}
-            type={type}
-          />
+          <Fade
+            direction='up'
+            triggerOnce
+            className='md:col-span-2'
+          >
+            <DuAnPagination
+              totalPage={dataProject.total_pages}
+              activePage={page < 1 ? 0 : page - 1}
+              country={country}
+              type={type}
+            />
+          </Fade>
         </div>
       </div>
     </section>

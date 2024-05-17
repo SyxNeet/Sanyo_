@@ -28,7 +28,11 @@ async function getElevatorBySlug(slug) {
 
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/${params.slug}/`)
-  return getMeta(result, `/tin-tuc/${params.slug}`)
+  return getMeta(
+    result,
+    `/tin-tuc/${params.slug}`,
+    'Chi tiết tin tức - SANYO YUSOKI',
+  )
 }
 
 export default async function TinTucPage({params, searchParams}) {
@@ -52,7 +56,7 @@ export default async function TinTucPage({params, searchParams}) {
     <main>
       <BreadcrumbContainer className='pl-3 md:px-[3.75rem]'>
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
-        <BreadcrumbLink href={`/`}>DANH SÁCH TIN TỨC</BreadcrumbLink>
+        <BreadcrumbLink href={`/tin-tuc`}>DANH SÁCH TIN TỨC</BreadcrumbLink>
         <BreadcrumbLink isLastLink>
           CÁCH ÂM RA SAO KHI CĂN HỘ GIÁP VÁCH THANG MÁY CHUNG CƯ
         </BreadcrumbLink>

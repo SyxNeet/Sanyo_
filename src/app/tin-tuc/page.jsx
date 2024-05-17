@@ -20,7 +20,7 @@ async function getPosts(page, category) {
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/tin-tuc/')
-  return getMeta(result, '/tin-tuc')
+  return getMeta(result, '/tin-tuc', 'Danh sách tin tức - SANYO YUSOKI')
 }
 
 export default async function DanhSachTinTucPage({params, searchParams}) {

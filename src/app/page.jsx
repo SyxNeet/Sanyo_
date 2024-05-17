@@ -39,7 +39,7 @@ async function getDataNews() {
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/trang-chu/')
-  return getMeta(result, '')
+  return getMeta(result, '', 'Trang chủ - SANYO YUSOKI')
 }
 
 export default async function Home({params, searchParams}) {

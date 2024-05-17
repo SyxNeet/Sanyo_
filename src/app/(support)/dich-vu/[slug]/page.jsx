@@ -6,7 +6,11 @@ import {getMeta} from '@/lib/getMeta'
 
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/dich-vu/${params.slug}/`)
-  return getMeta(result, `/dich-vu/${params.slug}`)
+  return getMeta(
+    result,
+    `/dich-vu/${params.slug}`,
+    `Dịch vụ - SANYO YUSOKI`,
+  )
 }
 
 export default async function page({searchParams, params}) {
