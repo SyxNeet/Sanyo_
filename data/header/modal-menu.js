@@ -1,6 +1,6 @@
 export const modalMenuJapanElevator = {
   text: 'THANG MÁY NHẬT BẢN',
-  href: '/',
+  href: '/thang-may-nhat-ban',
   child: [
     {
       href: '/thang-may-nhat-ban/thang-may-gia-dinh',

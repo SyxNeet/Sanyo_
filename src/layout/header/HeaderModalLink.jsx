@@ -15,8 +15,9 @@ export default function HeaderModalLink({
     return (
       <Link
         href={href}
-        className='relative w-full font-Iciel text-1.25 flex flex-row items-center group opacity-60 hover:opacity-100 transition-300 py-[0.9rem]'
+        className='relative w-fit font-Iciel text-1.25 flex flex-row items-center group opacity-60 hover:opacity-100 transition-300 py-[0.9rem]'
         onClick={handleOnClick}
+        onMouseEnter={handleOnMouseLeave}
       >
         <Image
           src={`/images/layout/header/arrow-right-yellow-long.svg`}
@@ -34,13 +35,12 @@ export default function HeaderModalLink({
     return (
       <button
         className={clsx(
-          'relative w-full font-Iciel text-1.25 flex flex-row items-center group py-[0.9rem] transition-300',
+          'relative w-fit font-Iciel text-1.25 flex flex-row items-center group py-[0.9rem] transition-300',
           {
             'opacity-60 hover:opacity-100': !isActive,
           },
         )}
         onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
       >
         <Image
           src={`/images/layout/header/arrow-right-yellow-long.svg`}

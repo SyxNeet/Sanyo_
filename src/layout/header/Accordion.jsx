@@ -73,6 +73,7 @@ export default function Accordion({
               <Link
                 href={href}
                 className='flex flex-row items-center text-0.875 text-yellow-500 font-Iciel leading-1.5 font-medium mx-auto pt-2'
+                onClick={() => setIsOpenModalMenu(false)}
               >
                 XEM TẤT CẢ
                 <Image
