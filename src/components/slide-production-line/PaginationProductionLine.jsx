@@ -2,6 +2,14 @@ import clsx from 'clsx'
 import {useSwiper} from 'swiper/react'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
+import {decodeTranslateValue} from '@/lib/decodeTranslateValue'
+
+const resetTransition = (element) => {
+  setTimeout(() => {
+    element
+    .style.transition = 'all 0.7s ease-out'
+  }, 1)
+}
 
 export default function PaginationProductionLine({activeImage, direction}) {
   const swiper = useSwiper()
@@ -30,60 +38,68 @@ export default function PaginationProductionLine({activeImage, direction}) {
           if (activeImage - 1 >= 0) {
             const translateBar1 = distanceBar + bar1.offsetWidth
             const translateBar2 = distanceBar + bar2.offsetWidth
-            tl.to(bar1, {
-              x: `${translateBar1}px`,
-              duration: 0.8,
-            })
-            tl.to(
-              bar2,
-              {
-                x: `-${translateBar2}px`,
-                duration: 0.8,
-              },
-              '<',
-            )
-            bars.forEach((bar, i) => {
-              if (i !== activeImage) {
-                tl.set(bar, {
-                  x: 0,
-                  autoAlpha: 0.4,
+            bar1.style.transform = `translateX(${
+              decodeTranslateValue(bar1).x + translateBar1
+            }px)`
+            bar2.style.transform = `translateX(-${
+              decodeTranslateValue(bar2).x + translateBar2
+            }px)`
+            setTimeout(() => {
+              bars.forEach((bar, i) => {
+                bar.style.transition = 'none'
+                if (i !== activeImage) {
+                  bar.style.transform = 'none'
+                  bar.style.opacity = 0.4
+                }
+              })
+              bar2.style.transform = 'none'
+              bar2.style.opacity = 1
+              setTimeout(() => {
+                bars.forEach((bar, i) => {
+                  bar.style.transition = 'all 0.7s ease-out'
                 })
-              }
-            })
-            tl.set(
-              bar2,
-              {
-                x: 0,
-                autoAlpha: 1,
-              },
-              '<',
-            )
+              }, 1)
+            }, 700)
           } else {
             const translateBar1 =
               parseFloat(paginationContainer.offsetWidth) -
               parseFloat(bar1.offsetWidth) -
               distanceBar
-            tl.to(bar1, {
-              x: `-${translateBar1}px`,
-              duration: 0.8,
-            })
+            // tl.to(bar1, {
+            //   x: `-${translateBar1}px`,
+            //   duration: 0.8,
+            // })
+            bar1.style.transform = `translateX(-${
+              decodeTranslateValue(bar1).x + translateBar1
+            }px)`
             bars.forEach((bar, i) => {
               const translateBar = distanceBar + bar.offsetWidth
               if (i !== bars.length - 1) {
-                tl.to(
-                  bar,
-                  {
-                    x: `${translateBar}px`,
-                    duration: 0.8,
-                  },
-                  '<',
-                )
+                // tl.to(
+                //   bar,
+                //   {
+                //     x: `${translateBar}px`,
+                //     duration: 0.8,
+                //   },
+                //   '<',
+                // )
+                bar.style.transform = `translateX(${
+                  decodeTranslateValue(bar).x + translateBar
+                }px)`
               }
             })
-            tl.set(bar1, {
-              x: 0,
-              autoAlpha: 0.4,
-            })
+            // tl.set(bar1, {
+            //   x: 0,
+            //   autoAlpha: 0.4,
+            // })
+            setTimeout(() => {
+              bar1.style.transition = 'none'
+              bar1.style.transform = 'none'
+              bar1.style.opacity = 0.4
+              setTimeout(() => {
+                bar1.style.transition = 'all 0.7s ease-out'
+              }, 1)
+            }, 700)
             bars.forEach((bar, i) => {
               if (i !== bars.length - 1) {
                 tl.set(
@@ -151,7 +167,8 @@ export default function PaginationProductionLine({activeImage, direction}) {
             <li
               key={`pagination-bar-${i}`}
               className={clsx(
-                `pagination-bar pagination-bar-${i} grow rounded-none bg-grey-0 h-[0.125rem] md:h-[0.25rem] mx-1 md:mx-3 opacity-40`,
+                `pagination-bar pagination-bar-${i} grow rounded-none bg-grey-0 h-[0.125rem] md:h-[0.25rem] mx-1 md:mx-3 transition-all duration-700`,
+                {'opacity-40': i > 0},
               )}
             />
           )

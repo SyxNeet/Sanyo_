@@ -16,6 +16,7 @@ export default function LeaderShipMessageAndCoreValues({
   const headingRef = useRef(null)
   const firstRef = useRef(null)
   const secondRef = useRef(null)
+  const thirdRef = useRef(null)
   const [activeImage, setActiveImage] = useState(undefined)
   const swiperRef = useRef(null)
   const [activeSlide, setActiveSlide] = useState(0)
@@ -54,6 +55,9 @@ export default function LeaderShipMessageAndCoreValues({
       const coreValuesLinks = document.querySelectorAll('.core-value-link')
       const coreValueLinksLength = coreValuesLinks.length
       const fnc = () => {
+        const height = thirdRef.current.offsetHeight
+        secondRef.current.style.height = height + 'px'
+        container.style.height = height + 'px'
         const rect = container.getBoundingClientRect()
         if (containerHeight >= window.innerHeight) {
           const scrollLength = containerHeight - window.innerHeight
@@ -137,7 +141,10 @@ export default function LeaderShipMessageAndCoreValues({
                 )
               })}
             </div>
-            <div className='ml-auto basis-[40%] xl:basis-[35%] flex-none'>
+            <div
+              ref={thirdRef}
+              className='ml-auto basis-[40%] xl:basis-[35%] flex-none'
+            >
               <h2
                 ref={headingRef}
                 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'

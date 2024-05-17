@@ -78,8 +78,8 @@ export default function DuAnNoiBat({
       })
     }
   }, [page, country, type, isMobile, isLoading])
-  useGSAP(() => {
-    ScrollTrigger.refresh()
+  useEffect(() => {
+    ScrollTrigger.update()
   }, [page, country, type])
   return (
     <section className='section-du-an mb-[4rem] md:mb-[7rem]'>
