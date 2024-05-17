@@ -209,3 +209,6 @@ html {
 .toast {
   @apply text-1 flex flex-row items-center !important;
 }
+.skiptranslate {
+  display: none !important;
+}
