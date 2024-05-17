@@ -16,7 +16,7 @@ import Image from 'next/image'
 import './style.css'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
-
+import GoogleTranslate from '@/components/Language'
 export default function SlideBanner({isMobile, dataBanner}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const swiperRef = useRef()
@@ -176,7 +176,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
-              <div className='flex flex-col md:flex-row'>
+              <div className='flex flex-col md:flex-row items-center'>
                 <div className='overflow-hidden h-max'>
                   <h2
                     className='text-2 md:text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'

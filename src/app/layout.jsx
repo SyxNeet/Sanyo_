@@ -12,7 +12,6 @@ export const metadata = {
   title: 'Sanyo Yosuki',
   description: 'Sanyo Yosuki by create FINNTVD',
 }
-
 const svnLaguSans = localFont({
   src: [
     {

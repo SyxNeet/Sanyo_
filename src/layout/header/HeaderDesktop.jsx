@@ -6,6 +6,7 @@ import Link from 'next/link'
 import {Button} from '@/components/ui/button'
 import LangDropdown from '@/components/header/LangDropdown'
 import dynamic from 'next/dynamic'
+import GoogleTranslate from '@/components/Language'
 const DynamicModalMenuDesktop = dynamic(() => import('./ModalMenuDesktop'))
 
 export default function HeaderDesktop({isMobile, data}) {
@@ -149,7 +150,7 @@ export default function HeaderDesktop({isMobile, data}) {
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
                 Chọn ngôn ngữ
               </p>
-              <LangDropdown isMobile={isMobile} />
+              <GoogleTranslate/>
             </div>
           </div>
         </nav>
