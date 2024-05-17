@@ -100,7 +100,7 @@ export default function LeaderShipMessageAndCoreValues({
           <section className='relative z-10 flex flex-row items-start bg-grey-0 section-container'>
             <div
               ref={secondRef}
-              className='relative basis-[55%] lg:basis-[65%] h-[82rem] lg:h-screen top-0'
+              className='relative basis-[60%] xl:basis-[65%] h-[82rem] xl:h-screen top-0'
             >
               <Image
                 src={dataCoreValues?.image.url}
@@ -137,7 +137,7 @@ export default function LeaderShipMessageAndCoreValues({
                 )
               })}
             </div>
-            <div className='ml-auto max-lg:basis-[45%] basis-[35%] flex-none'>
+            <div className='ml-auto basis-[40%] xl:basis-[35%] flex-none'>
               <h2
                 ref={headingRef}
                 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'
