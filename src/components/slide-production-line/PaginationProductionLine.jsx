@@ -1,19 +1,17 @@
 import clsx from 'clsx'
 import {useSwiper} from 'swiper/react'
-import gsap from 'gsap'
-import {useGSAP} from '@gsap/react'
 import {decodeTranslateValue} from '@/lib/decodeTranslateValue'
+import {useEffect} from 'react'
 
 const resetTransition = (element) => {
   setTimeout(() => {
-    element
-    .style.transition = 'all 0.7s ease-out'
+    element.style.transition = 'all 0.7s ease-out'
   }, 1)
 }
 
 export default function PaginationProductionLine({activeImage, direction}) {
   const swiper = useSwiper()
-  useGSAP(() => {
+  useEffect(() => {
     if (swiper.slides) {
       const paginationContainer = document.querySelector(
         '.pagination-bar-container',
@@ -34,7 +32,6 @@ export default function PaginationProductionLine({activeImage, direction}) {
             parseFloat(
               window.getComputedStyle(bar2).getPropertyValue('margin-left'),
             )
-          const tl = gsap.timeline({})
           if (activeImage - 1 >= 0) {
             const translateBar1 = distanceBar + bar1.offsetWidth
             const translateBar2 = distanceBar + bar2.offsetWidth
@@ -58,60 +55,42 @@ export default function PaginationProductionLine({activeImage, direction}) {
                 bars.forEach((bar, i) => {
                   bar.style.transition = 'all 0.7s ease-out'
                 })
-              }, 1)
+              }, 20)
             }, 700)
           } else {
             const translateBar1 =
               parseFloat(paginationContainer.offsetWidth) -
               parseFloat(bar1.offsetWidth) -
               distanceBar
-            // tl.to(bar1, {
-            //   x: `-${translateBar1}px`,
-            //   duration: 0.8,
-            // })
             bar1.style.transform = `translateX(-${
               decodeTranslateValue(bar1).x + translateBar1
             }px)`
             bars.forEach((bar, i) => {
               const translateBar = distanceBar + bar.offsetWidth
               if (i !== bars.length - 1) {
-                // tl.to(
-                //   bar,
-                //   {
-                //     x: `${translateBar}px`,
-                //     duration: 0.8,
-                //   },
-                //   '<',
-                // )
                 bar.style.transform = `translateX(${
                   decodeTranslateValue(bar).x + translateBar
                 }px)`
               }
             })
-            // tl.set(bar1, {
-            //   x: 0,
-            //   autoAlpha: 0.4,
-            // })
             setTimeout(() => {
               bar1.style.transition = 'none'
               bar1.style.transform = 'none'
               bar1.style.opacity = 0.4
+              bars.forEach((bar, i) => {
+                bar.style.transition = 'none'
+                if (i !== bars.length - 1) {
+                  bar.style.transform = 'none'
+                  bar.style.opacity = i === 0 ? 1 : 0.4
+                }
+              })
               setTimeout(() => {
                 bar1.style.transition = 'all 0.7s ease-out'
-              }, 1)
+                bars.forEach((bar, i) => {
+                  bar.style.transition = 'all 0.7s ease-out'
+                })
+              }, 20)
             }, 700)
-            bars.forEach((bar, i) => {
-              if (i !== bars.length - 1) {
-                tl.set(
-                  bar,
-                  {
-                    x: 0,
-                    autoAlpha: i === 0 ? 1 : 0.4,
-                  },
-                  '<',
-                )
-              }
-            })
           }
         }
       } else {
@@ -127,33 +106,26 @@ export default function PaginationProductionLine({activeImage, direction}) {
             parseFloat(
               window.getComputedStyle(bar2).getPropertyValue('margin-left'),
             )
-          const tl = gsap.timeline({})
           const translateBar1 = distanceBar + bar1.offsetWidth
           const translateBar2 = distanceBar + bar2.offsetWidth
-          tl.to(bar1, {
-            x: `${translateBar1}px`,
-            duration: 0.8,
-          })
-          tl.to(
-            bar2,
-            {
-              x: `-${translateBar2}px`,
-              duration: 0.8,
-            },
-            '<',
-          )
-          tl.set(bar1, {
-            x: 0,
-            autoAlpha: 1,
-          })
-          tl.set(
-            bar2,
-            {
-              x: 0,
-              autoAlpha: 0.4,
-            },
-            '<',
-          )
+          bar1.style.transform = `translateX(${
+            decodeTranslateValue(bar1).x + translateBar1
+          }px)`
+          bar2.style.transform = `translateX(-${
+            decodeTranslateValue(bar2).x + translateBar2
+          }px)`
+          setTimeout(() => {
+            bar1.style.transition = 'none'
+            bar1.style.transform = 'none'
+            bar1.style.opacity = 1
+            bar2.style.transition = 'none'
+            bar2.style.transform = 'none'
+            bar2.style.opacity = 0.4
+            setTimeout(() => {
+              bar1.style.transition = 'all 0.7s ease-out'
+              bar2.style.transition = 'all 0.7s ease-out'
+            }, 20)
+          }, 700)
         }
       }
     }
