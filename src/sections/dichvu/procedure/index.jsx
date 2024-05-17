@@ -35,7 +35,6 @@ const Procedure = ({data}) => {
         pin: true,
         start: 'top 0',
         end: 'bottom+=600 center',
-        markers:true,
         onUpdate: (self) => {
           setTimeout(() => {
             if (self.progress < 0.2) {
