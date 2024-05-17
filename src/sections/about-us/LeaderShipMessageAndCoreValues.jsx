@@ -47,7 +47,6 @@ export default function LeaderShipMessageAndCoreValues({
       })
     }
   }, [isMobile])
-
   useEffect(() => {
     if (!isMobile) {
       const container = document.querySelector('.section-container')

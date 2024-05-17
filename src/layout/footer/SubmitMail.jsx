@@ -42,9 +42,10 @@ export default function SubmitMail() {
       </p>
       <div className='md:w-[35.1875rem] h-[3.1875rem] bg-grey-0 relative rounded-[0.25rem]'>
         <input
-          type='text'
+          type='email'
           name='email'
           value={email}
+          required
           placeholder='hungphamsanyo@gmail.com'
           className='size-full  md:max-w-[70%] py-[0.81rem] md:pl-[1.25rem] pl-[0.62rem]'
           onChange={(e) => handleChangeMail(e.target.value)}
