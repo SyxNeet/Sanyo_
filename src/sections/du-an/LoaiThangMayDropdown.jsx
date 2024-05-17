@@ -3,9 +3,17 @@ import Dropdown from './Dropdown'
 import DropdownItem from './DropdownItem'
 import {generateLinkDuAnType} from '@/lib/generateLinkDuAnType'
 
-export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
+export default function LoaiThangMayDropdown({
+  page,
+  country,
+  type,
+  isMobile,
+  isLoading,
+  setIsLoading,
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const fnc = () => {
+    setIsLoading(true)
     if (isMobile) {
       setIsOpen(false)
     }
@@ -23,6 +31,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Tất cả'
         active={type.includes('all')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -32,6 +41,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang máy gia đình'
         active={type.includes('thang-may-gia-dinh')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -41,6 +51,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang máy tải khách'
         active={type.includes('thang-may-tai-khach')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -50,6 +61,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang máy tải hàng'
         active={type.includes('thang-may-tai-hang')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -59,6 +71,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang máy quan sát'
         active={type.includes('thang-may-quan-sat')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -68,6 +81,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang máy bệnh viện'
         active={type.includes('thang-may-benh-vien')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -77,6 +91,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang tải ô tô'
         active={type.includes('thang-may-o-to')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -86,6 +101,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang tải thực phẩm'
         active={type.includes('thang-may-thuc-pham')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -95,6 +111,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang băng chuyền'
         active={type.includes('thang-bang-chuyen')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
       <DropdownItem
         href={`/du-an?page=${page}&country=${country}&type=${generateLinkDuAnType(
@@ -104,6 +121,7 @@ export default function LoaiThangMayDropdown({page, country, type, isMobile}) {
         content='Thang cuốn'
         active={type.includes('thang-cuon')}
         handleOnClick={fnc}
+        disabled={isLoading}
       />
     </Dropdown>
   )

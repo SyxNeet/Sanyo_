@@ -4,18 +4,17 @@ import DetailNew from '@/sections/chi-tiet-tin-tuc/DetailNew'
 import PlatFormElevator from '@/components/platForm'
 import PlatFormMobile from '@/components/platFormMobile'
 import getData from '@/lib/getData'
-import getDataSlug from '@/lib/getDataSlug'
 import News from '@/sections/chi-tiet-tin-tuc/News'
 import './styles.css'
 import Support from '@/layout/support'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
 
-async function getChiTietTinTuc(slug) {
-  return getDataSlug(`/tin-tuc/${slug}`)
+async function getChiTietTinTuc() {
+  return getData(`/options/options/bai_viet_noi_bat`)
 }
-async function getDanhSachThangMay() {
-  return getData(`/pages/11/danh_sach_thang_may`)
+async function getTinTuc(slug) {
+  return getData(`/tin-tuc/${slug}`, 'okhub')
 }
 async function getSupport() {
   return getData(`/options/options/contactForm`)
@@ -36,14 +35,19 @@ export default async function TinTucPage({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport.includes('mobile')
   const {slug} = params
-  const [dataPost, dataPlatForm, dataSupport, dataPosts, dataPlatFormElevator] =
-    await Promise.all([
-      getChiTietTinTuc(slug),
-      getDanhSachThangMay(),
-      getSupport(),
-      getPosts(slug),
-      getElevatorBySlug(slug),
-    ])
+  const [
+    dataPost,
+    dataSupport,
+    dataPosts,
+    dataPlatFormElevator,
+    dataChiTietTinTuc,
+  ] = await Promise.all([
+    getTinTuc(slug),
+    getSupport(),
+    getPosts(slug),
+    getElevatorBySlug(slug),
+    getChiTietTinTuc(),
+  ])
   return (
     <main>
       <BreadcrumbContainer className='pl-3 md:px-[3.75rem]'>
@@ -64,7 +68,8 @@ export default async function TinTucPage({params, searchParams}) {
       )}
       <News
         isMobile={isMobile}
-        data={dataPosts}
+        dataPosts={dataPosts}
+        dataChiTietTinTuc={dataChiTietTinTuc.bai_viet_noi_bat}
       />
       <Support
         forLienHePage={false}

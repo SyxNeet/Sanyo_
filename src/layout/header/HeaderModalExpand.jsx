@@ -22,14 +22,12 @@ export default function HeaderModalExpand({
         'absolute top-0 left-0 w-full h-full': !isFirst,
       })}
       onMouseEnter={() => setActiveModalMenuLink(text)}
-      onMouseLeave={() => setActiveModalMenuLink('')}
     >
       <nav
         className='flex-none flex flex-col w-[21rem] border-x-[0.0625rem] border-white/10 h-full grow'
         onMouseOver={() => {
           setActiveModalMenuLink(text)
         }}
-        onMouseLeave={() => setActiveModalMenuLink('')}
       >
         {data.map((item1, i1) => {
           return (
@@ -42,7 +40,6 @@ export default function HeaderModalExpand({
                 setActiveModalMenuChildLink(item1.text)
               }}
               onMouseLeave={() => {
-                setActiveModalMenuLink('')
                 setActiveModalMenuChildLink('')
               }}
               onClick={handleOnClick}
@@ -67,7 +64,6 @@ export default function HeaderModalExpand({
               setActiveModalMenuChildLink('xem-tat-ca')
             }}
             onMouseLeave={() => {
-              setActiveModalMenuLink('')
               setActiveModalMenuChildLink('')
             }}
             onClick={handleOnClick}
@@ -104,7 +100,6 @@ export default function HeaderModalExpand({
                       setActiveModalMenuChildLink(data[i2]?.text)
                     }}
                     onMouseLeave={() => {
-                      setActiveModalMenuLink('')
                       setActiveModalMenuChildLink('')
                     }}
                     width={1920}
@@ -131,7 +126,6 @@ export default function HeaderModalExpand({
                       setActiveModalMenuChildLink('xem-tat-ca')
                     }}
                     onMouseLeave={() => {
-                      setActiveModalMenuLink('')
                       setActiveModalMenuChildLink('')
                     }}
                     width={1920}
@@ -161,7 +155,6 @@ export default function HeaderModalExpand({
                     setActiveModalMenuChildLink(data[i2]?.text)
                   }}
                   onMouseLeave={() => {
-                    setActiveModalMenuLink('')
                     setActiveModalMenuChildLink('')
                   }}
                   width={1920}

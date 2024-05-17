@@ -47,25 +47,40 @@ export default function LeaderShipMessageAndCoreValues({
       })
     }
   }, [isMobile])
-
   useEffect(() => {
     if (!isMobile) {
       const container = document.querySelector('.section-container')
-      const scrollLength =
-        parseFloat(container.offsetHeight) - window.innerHeight
+      const containerHeight = parseFloat(container.offsetHeight)
+      const coreValuesLinks = document.querySelectorAll('.core-value-link')
+      const coreValueLinksLength = coreValuesLinks.length
       const fnc = () => {
-        const coreValuesLinks = document.querySelectorAll('.core-value-link')
-        const coreValueLinksLength = coreValuesLinks.length
         const rect = container.getBoundingClientRect()
-        if (rect.top > 0) {
-          setActiveImage(undefined)
-        } else if (rect.top <= 0 && Math.abs(rect.top) <= scrollLength) {
-          const currentScroll = Math.abs(rect.top)
-          const scrollPerLink = scrollLength / coreValueLinksLength
-          const activeIndex = Math.floor(currentScroll / scrollPerLink)
-          setActiveImage(activeIndex)
-        } else if (rect.top <= 0 && Math.abs(rect.top) > scrollLength) {
-          setActiveImage(coreValueLinksLength - 1)
+        if (containerHeight >= window.innerHeight) {
+          const scrollLength = containerHeight - window.innerHeight
+          if (rect.top > 0) {
+            setActiveImage(undefined)
+          } else if (rect.top <= 0 && Math.abs(rect.top) <= scrollLength) {
+            const currentScroll = Math.abs(rect.top)
+            const scrollPerLink = scrollLength / coreValueLinksLength
+            const activeIndex = Math.floor(currentScroll / scrollPerLink)
+            setActiveImage(activeIndex)
+          } else if (rect.top <= 0 && Math.abs(rect.top) > scrollLength) {
+            setActiveImage(coreValueLinksLength - 1)
+          }
+        } else {
+          const rect = container.getBoundingClientRect()
+          const scrollLength = firstRef.current.offsetHeight
+          if (rect.top > scrollLength) {
+            setActiveImage(undefined)
+          }
+          if (rect.top <= scrollLength && rect.top >= 0) {
+            const currentScroll = scrollLength - Math.abs(rect.top)
+            const scrollPerLink = scrollLength / coreValueLinksLength
+            const activeIndex = Math.floor(currentScroll / scrollPerLink)
+            setActiveImage(activeIndex)
+          } else if (rect.top < 0) {
+            setActiveImage(coreValueLinksLength - 1)
+          }
         }
       }
       window.addEventListener('scroll', fnc)
@@ -85,7 +100,7 @@ export default function LeaderShipMessageAndCoreValues({
           <section className='relative z-10 flex flex-row items-start bg-grey-0 section-container'>
             <div
               ref={secondRef}
-              className='relative basis-[65%] h-screen top-0'
+              className='relative basis-[55%] lg:basis-[65%] h-[82rem] lg:h-screen top-0'
             >
               <Image
                 src={dataCoreValues?.image.url}
@@ -122,7 +137,7 @@ export default function LeaderShipMessageAndCoreValues({
                 )
               })}
             </div>
-            <div className='ml-auto basis-[35%]'>
+            <div className='ml-auto max-lg:basis-[45%] basis-[35%] flex-none'>
               <h2
                 ref={headingRef}
                 className='text-3 font-SVNLagu font-semibold leading-1.3 text-grey-900 pl-[2.94rem] pt-[5.56rem] pr-[6.5rem] pb-[2.94rem] [&_strong]:font-semibold [&_strong]:text-yellow-500'

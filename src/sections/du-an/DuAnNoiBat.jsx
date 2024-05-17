@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import DuAnItem from '@/components/danh-sach-du-an/DuAnItem'
 import gsap from 'gsap'
 import DuAnPagination from '@/components/pagination/DuAnPagination'
@@ -9,6 +9,7 @@ import {useGSAP} from '@gsap/react'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import LoaiThangMayDropdown from './LoaiThangMayDropdown'
 import QuocGiaDropdown from './QuocGiaDropdown'
+import DanhSachDuAnSkeleton from '@/components/danh-sach-du-an/DanhSachDuAnSkeleton'
 
 export default function DuAnNoiBat({
   isMobile,
@@ -20,6 +21,10 @@ export default function DuAnNoiBat({
 }) {
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    setIsLoading(false)
+  }, [dataProject.events])
   useEffect(() => {
     if (isMobile) {
       gsap.to(stickyRef.current, {
@@ -64,7 +69,7 @@ export default function DuAnNoiBat({
     }
   }, [isMobile])
   useGSAP(() => {
-    if (!isMobile) {
+    if (!isMobile && !isLoading) {
       gsap.to('.du-an-item', {
         scale: 1,
         stagger: 0.12,
@@ -72,7 +77,7 @@ export default function DuAnNoiBat({
         duration: 1,
       })
     }
-  }, [page, country, type, isMobile])
+  }, [page, country, type, isMobile, isLoading])
   useGSAP(() => {
     ScrollTrigger.refresh()
   }, [page, country, type])
@@ -119,32 +124,43 @@ export default function DuAnNoiBat({
               page={page}
               country={country}
               type={type}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
             />
             <LoaiThangMayDropdown
               isMobile={isMobile}
               page={page}
               country={country}
               type={type}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
             />
           </div>
         </div>
         <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
-          {dataProject.events.map((item, i) => {
-            return (
-              <DuAnItem
-                key={i}
-                imgFlagUrl={item.img_country.url}
-                altImageFlag={item.img_country.alt}
-                nameProject={item.title}
-                imgProjectUrl={item.feature_image}
-                altImageProject={item.excerpt}
-                href={`/du-an/${item.detail_link}`}
-                page={page}
-                country={country}
-                type={type}
-              />
-            )
-          })}
+          {isLoading ? (
+            <DanhSachDuAnSkeleton />
+          ) : (
+            <>
+              {dataProject.events.map((item, i) => {
+                return (
+                  <DuAnItem
+                    key={i}
+                    imgFlagUrl={item.img_country.url}
+                    altImageFlag={item.img_country.alt}
+                    nameProject={item.title}
+                    imgProjectUrl={item.feature_image}
+                    altImageProject={item.excerpt}
+                    href={`/du-an/${item.detail_link}`}
+                    page={page}
+                    country={country}
+                    type={type}
+                    isMobile={isMobile}
+                  />
+                )
+              })}
+            </>
+          )}
           <DuAnPagination
             totalPage={dataProject.total_pages}
             activePage={page < 1 ? 0 : page - 1}
