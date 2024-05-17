@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 const Certification = ({data}) => {
   return (
-    <section className='w-full relative h-[100vh] flex justify-center items-center max-md:h-[33.5rem]'>
+    <section className='w-full relative h-[100vh] flex justify-center items-center max-lg:h-[57vh] max-md:h-[33.5rem]'>
       <Image
         src='/images/dich-vu/bgCerti.png'
         width={1000}

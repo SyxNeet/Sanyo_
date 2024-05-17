@@ -87,9 +87,9 @@ export default function RootLayout({children, params}) {
   const headersList = headers()
   const userAgent = headersList.get('user-agent')
   const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
-      userAgent,
-    )
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini|MyDevice/i.test(
+    userAgent,
+  )
     const isTablet =
     /iPad|Tablet|Macintosh|Playbook|Nexus 7|Nexus 10|SM-T|GT-P|Galaxy Tab|Kindle/i.test(
       userAgent,
