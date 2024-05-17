@@ -18,7 +18,7 @@ async function getProject(country = 'all', type = 'all', page = '1') {
 }
 
 export async function generateMetadata() {
-  const result = await fetchMetaData('/du-an/')
+  const result = await fetchMetaData('/danh-sach-du-an/')
   return getMeta(result, '/du-an')
 }
 
