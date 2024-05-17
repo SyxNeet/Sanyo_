@@ -67,7 +67,6 @@ const FifthReason = ({isMobile, data}) => {
   </Fade>
       </div>
      
- <Fade direction='left' triggerOnce={true}>
         <div className='w-full overflow-x-auto noScrollBar'>
           <div className='flex ml-[6.25rem] border-b border-[rgba(255,255,255,0.20)] space-x-[4.94rem] relative z-10 mb-[3.06rem] w-fit max-md:ml-3 max-md:space-x-[1.69rem] max-md:max-w-fit max-md:w-fit overflow-x-auto max-md:mb-[1.84rem]'>
             {(data?.list_design||[]).map((key, index) => (
@@ -86,16 +85,18 @@ const FifthReason = ({isMobile, data}) => {
             ))}
           </div>
         </div>
- </Fade>
+
 
       <div>
-<Fade direction='up' triggerOnce={true} fraction={0}>
+
           <Swiper
             ref={swiperRef}
             pagination={{
               type: 'progressbar',
               el: '.processFifth',
             }}
+            speed={800}
+            
             grid={{
               rows: isMobile ? 2 : 1,
               fill: 'row',
@@ -115,15 +116,15 @@ const FifthReason = ({isMobile, data}) => {
                 key={index}
                 className={
                   index === activeIndex
-                    ? 'brightness-50 max-md:brightness-100'
-                    : ''
+                    ? 'brightness-50 max-md:brightness-100 transition duration-1000 ease-in-out'
+                    : 'transition duration-1000 ease-in-out'
                 }
               >
                 <CardDesign data={item} />
               </SwiperSlide>
             ))}
           </Swiper>
-</Fade>
+
       </div>
       <div className='flex absolute z-10 w-[100%] bottom-[32%] left-0 max-md:relative max-md:bottom-0 max-md:mt-[1.12rem] max-md:px-3 items-start max-md:justify-between mb-[2.5rem]'>
         <div className='flex justify-between w-full px-[4.5rem] max-md:justify-start max-md:w-fit max-md:px-0'>

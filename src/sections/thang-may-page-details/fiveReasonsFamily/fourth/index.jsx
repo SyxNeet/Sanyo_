@@ -49,7 +49,13 @@ const FourthReason = ({lang, isMobile,data}) => {
     const newExpanded = [...expanded]
     newExpanded[index] = !newExpanded[index]
     setExpanded(newExpanded)
-    setExpandedIndex(index)
+    if (expandedIndex === index) {
+      setExpandedIndex(null)
+      setActiveIndex(null)
+    } else {
+      setExpandedIndex(index)
+      setActiveIndex(index)
+    }
   }
   return (
     <div>

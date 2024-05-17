@@ -19,7 +19,7 @@ const FamilyElevator = ({isMobile,data,dataElevator}) => {
     list_image_construction,heading
   }
   return (
-    <main>
+    <main className='max-md:w-screen overflow-hidden'>
       <HeaderDetailElevator data={banner} title={title}/>
       <ConnectLove data={connectLove}/>
       <ListElevator isMobile={isMobile} dataElevator={dataElevator} />
