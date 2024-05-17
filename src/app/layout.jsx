@@ -87,7 +87,11 @@ export default function RootLayout({children, params}) {
   const headersList = headers()
   const userAgent = headersList.get('user-agent')
   const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini/i.test(
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini|MyDevice/i.test(
+    userAgent,
+  )
+    const isTablet =
+    /iPad|Tablet|Macintosh|Playbook|Nexus 7|Nexus 10|SM-T|GT-P|Galaxy Tab|Kindle/i.test(
       userAgent,
     )
   return (
@@ -97,11 +101,21 @@ export default function RootLayout({children, params}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
-        <Header isMobile={isMobile} />
-        <GsapProvider isMobile={isMobile}>
-          {children}
-          <Footer isMobile={isMobile} />
-        </GsapProvider>
+        <Header
+          isMobile={isMobile}
+          isTablet={isTablet}
+        />
+        {!isMobile ? (
+          <GsapProvider isMobile={isMobile}>
+            {children}
+            <Footer isMobile={isMobile} />
+          </GsapProvider>
+        ) : (
+          <>
+            {children}
+            <Footer isMobile={isMobile} />
+          </>
+        )}
         <FixedLayout isMobile={isMobile} />
         <Toaster
           expand={true}

@@ -9,7 +9,7 @@ import OutStandingProject from './outStandingProject/OutStandingProject'
 import News from './news/News'
 import OutStandingProjectMb from './outStandingProjectMb'
 
-export default function HomePage({isMobile}) {
+export default function HomePage({isMobile,isTablet}) {
   return (
     <div>
       <SlideBanner isMobile={isMobile} />

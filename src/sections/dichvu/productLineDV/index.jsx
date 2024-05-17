@@ -102,7 +102,7 @@ export default function ProductionLineSectionDV({
                   className='object-cover w-full h-[50rem] max-md:h-[26.8125rem]'
                   width={1920}
                   height={1080}
-                  priority={i < 1}
+                  priority={true}
                 />
                 <div
                   className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'

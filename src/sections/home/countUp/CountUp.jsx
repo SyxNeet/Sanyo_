@@ -11,7 +11,7 @@ export default function CountUp({dataCountUp}) {
   const imageRef = useRef(null)
   const rightRef = useRef(null)
   useGSAP(() => {
-    if (window?.innerWidth > 767) {
+    if (window?.innerWidth > 1024) {
       gsap.to(imageRef.current, {
         scrollTrigger: {
           trigger: imageRef.current,
@@ -98,7 +98,7 @@ export default function CountUp({dataCountUp}) {
       </div>
 
       <Link
-        className='absolute md:bottom-[5.88rem] md:right-[28%] bottom-[6rem] max-md:left-[7rem]'
+        className='absolute md:bottom-[5.88rem] md:right-[28%] bottom-[6rem] max-md:left-[7rem] md:pt-4'
         href={`/ve-chung-toi`}
       >
         <Button

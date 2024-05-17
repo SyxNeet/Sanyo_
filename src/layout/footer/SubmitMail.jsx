@@ -13,7 +13,6 @@ export default function SubmitMail() {
     return re.test(String(email).toLowerCase());
   };
   const onSubmit = (value) => {
-    console.log('mail', email)
     if (email.trim() !== email) {
       toast.error('Địa chỉ email không được chứa khoảng trắng ở đầu hoặc cuối');
       return;

@@ -10,6 +10,7 @@ import PartnerSection from '@/components/partner/PartnerSection'
 import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
+import { Table } from 'lucide-react'
 
 const pageId = 11
 async function getBanner() {
@@ -45,7 +46,8 @@ export async function generateMetadata() {
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport?.includes('mobile')
-  const [
+  console.log(viewport)
+    const [
     dataBanner,
     dataCountUp,
     dataValueDifferent,
@@ -64,6 +66,7 @@ export default async function Home({params, searchParams}) {
     getDataOutstandingProject(),
     getDataNews(),
   ])
+  console.log(viewport)
   return (
     <main>
       <SlideBanner

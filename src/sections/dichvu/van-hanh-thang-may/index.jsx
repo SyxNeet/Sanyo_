@@ -44,7 +44,7 @@ const Operate = ({isMobile = true, data}) => {
           <ItemOperate data={data?.list_operate[0]} />
         </SwiperSlide>
         <SwiperSlide className={`${isMobile ? '!hidden' : ''}`}>
-          <Fade direction='down'>
+          <Fade direction='fade-down' fraction={0}                                                    >
             <div className='flex flex-col items-center justify-center py-[1.5rem] px-4'>
               <h2
                 className='font-SVNLagu text-center text-[3rem] font-semibold leading-[134%] text-grey-900 mb-[0.75rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500'
