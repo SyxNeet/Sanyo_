@@ -15,7 +15,7 @@ const ActualConstruction = ({isMobile, data, heading}) => {
         triggerOnce={true}
       >
         <h2
-          className='text-center text-[3rem] max-md:text-[1.5rem] max-md:pt-[4.56rem] max-md:mb-[1.5rem] font-semibold leading-1.4 text-grey-900 pt-[8.13rem] mb-[3.06rem] font-SVNLagu [&>p>strong]:font-semibold [&>p>strong]:uppercase [&>p>strong]:text-yellow-500 max-md:uppercase '
+          className='text-center text-[3rem] max-md:text-[1.5rem] max-md:pt-[4.56rem] max-md:mb-[1.5rem] font-semibold leading-1.4 text-grey-900 pt-[8.13rem] mb-[3.06rem] font-SVNLagu [&>p>strong]:font-semibold [&>p>strong]:uppercase [&>p>strong]:text-yellow-500 max-md:uppercase [&>p>font>strong>font]:text-yellow-500 [&>p>font>strong>font]:font-semibold [&>p>font>strong>font]:uppercase'
           dangerouslySetInnerHTML={{__html: heading || data?.heading}}
         ></h2>
       </Fade>

@@ -23,7 +23,7 @@ const Certification = ({data}) => {
         <Slide direction='up'>
           <div className='flex flex-col justify-center items-center'>
             <h2
-              className='text-[3rem] font-SVNLagu font-semibold uppercase leading-1.3 text-grey-900 mb-2 text-center max-md:text-[1.5rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500'
+              className='text-[3rem] font-SVNLagu font-semibold uppercase leading-1.3 text-grey-900 mb-2 text-center max-md:text-[1.5rem] [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500 [&>p>font>strong>font]:text-yellow-500 [&>p>font>strong>font]:font-semibold [&>p>font>strong>font]:uppercase'
               dangerouslySetInnerHTML={{__html: data?.heading}}
             ></h2>
             <span

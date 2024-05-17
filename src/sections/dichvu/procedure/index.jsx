@@ -33,8 +33,9 @@ const Procedure = ({data}) => {
       scrollTrigger: {
         trigger: firstRef.current,
         pin: true,
-        start: 'top top',
+        start: 'top 0',
         end: 'bottom+=600 center',
+        markers:true,
         onUpdate: (self) => {
           setTimeout(() => {
             if (self.progress < 0.2) {
@@ -60,7 +61,7 @@ const Procedure = ({data}) => {
   })
   return (
     <section
-      className='flex max-h-screen overflow-hidden'
+      className='flex max-h-screen max-lg:max-h-[40vh] max-lg:h-[40vh] overflow-hidden'
       ref={firstRef}
     >
       <div className='w-[58%] pt-[10.6rem] pl-[4.75rem]'>
@@ -109,7 +110,7 @@ const Procedure = ({data}) => {
                 src={item?.img?.url}
                 width={1500}
                 height={1500}
-                className='h-[100vh] object-cover'
+                className='h-[100vh] max-lg:h-[40vh] object-cover'
               />
             </SwiperSlide>
           ))}

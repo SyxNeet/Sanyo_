@@ -21,7 +21,7 @@ const ProductLine = ({data, isMobile}) => {
             direction='left'
           >
             <h2
-              className='w-[50.0625rem] font-SVNLagu text-[3.125rem] font-semibold leading-1.3 mb-[2.06rem] max-md:hidden [&>p>strong]:text-c-nht [&>p>strong]:font-semibold '
+              className='w-[50.0625rem] font-SVNLagu text-[3.125rem] font-semibold leading-1.3 mb-[2.06rem] max-md:hidden [&>p>strong]:text-c-nht [&>p>strong]:font-semibold  [&>p>font>strong>font]:text-c-nht'
               dangerouslySetInnerHTML={{__html: data?.heading}}
             ></h2>
           </Slide>

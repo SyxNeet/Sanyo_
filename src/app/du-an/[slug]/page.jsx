@@ -20,12 +20,14 @@ export default async function page({searchParams, params}) {
     dataForm,
     dataListElevator,
     dataOtherProjeject,
+    dataTypeElevator,
   ] = await Promise.all([
     getData(`/options/options/sixReasons`),
     getDataSlug(`/du-an/${slug}`),
     getData(`/options/options/contactForm`),
     getDataSlug(`/elevator_project/${slug}`),
     getDataSlug(`/other_project/${slug}`),
+    getDataSlug(`/project-categories/${slug}`)
   ])
   return (
     <ProjectDetails
@@ -35,6 +37,7 @@ export default async function page({searchParams, params}) {
       dataListElevator={dataListElevator}
       dataOtherProjeject={dataOtherProjeject}
       data={dataDetails}
+      dataTypeElevator={dataTypeElevator}
     />
   )
 }

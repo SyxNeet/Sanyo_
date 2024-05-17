@@ -8,6 +8,7 @@ import {
 import Accordion from './Accordion'
 import LangDropdownPopup from '@/components/header/LangDropdownPopup'
 import {createPortal} from 'react-dom'
+import GoogleTranslate from '@/components/Language'
 
 export default function ModalMenuMobile({
   isOpenModalMenu,
@@ -105,44 +106,12 @@ export default function ModalMenuMobile({
             LIÊN HỆ
           </Link>
         </div>
-        <div className='flex flex-col ml-auto mr-10'>
+        {/* <div className='flex flex-col ml-auto mr-10'>
           <p className='mb-1 text-grey-0/60 text-0.625 font-Iciel leading-1.4'>
             Chọn ngôn ngữ
           </p>
-          <button className='relative flex flex-row items-center text-grey-0 text-0.75 font-medium leading-1.5 font-Iciel group'>
-            {/* {lang === 'vi' ? ( */}
-            <>
-              <Image
-                src={`/images/layout/header/vietnam-lang.png`}
-                alt='vietnam language'
-                className='rounded-[0.0625rem] w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
-                width={120}
-                height={120}
-              />
-              VIỆT NAM
-            </>
-            {/* ) : (
-              <>
-                <Image
-                  src={`/images/layout/header/english-lang.png`}
-                  alt='vietnam language'
-                  className='rounded-[0.0625rem] w-[1.0625rem] h-[0.625rem] mr-[0.4rem]'
-                  width={120}
-                  height={120}
-                />
-                ENGLISH
-              </>
-            )} */}
-            <Image
-              src={`/images/layout/header/arrow-down-white.svg`}
-              alt='arrow down'
-              className='w-[0.8125rem] h-[0.5625rem] ml-2'
-              width={120}
-              height={120}
-            />
-            <LangDropdownPopup isMobile={isMobile} />
-          </button>
-        </div>
+         <GoogleTranslate/>
+        </div> */}
       </div>
       <div className='flex flex-col mb-[0.88rem]'>
         <p className='text-grey-0 font-Iciel text-0.75 leading-1.5 opacity-60'>

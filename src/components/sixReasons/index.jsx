@@ -8,7 +8,6 @@ import 'swiper/css'
 import './style.css'
 import ReasonChoose from '../reasonChoose'
 const SixReasons = ({isMobile, data, isJapan}) => {
-
   const slides = data?.sixReasons?.slide_six_reasons.slice(0, 6)
   const [activeSlide, setActiveSlide] = useState(0)
   const handleSlideChange = (swiper) => {
@@ -84,8 +83,6 @@ const SixReasons = ({isMobile, data, isJapan}) => {
 
       <div
         className='overflow-auto'
-        data-aos='fade-up'
-        data-aos-duration='2000'
       >
         <Swiper
           className='mySwiperSix overflow-hidden !ml-[6.25rem] max-md:!ml-0'

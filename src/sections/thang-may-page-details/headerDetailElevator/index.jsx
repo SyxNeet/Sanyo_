@@ -33,7 +33,7 @@ const HeaderDetailElevator = ({data, title}) => {
               >
                 <div className='relative'>
                   <h1
-                    className='font-SVNLagu text-[5.46506rem] font-semibold leading-1.3 text-grey-900 mb-[0.62rem] max-md:text-[1.875rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold'
+                    className='font-SVNLagu text-[5.46506rem] font-semibold leading-1.3 text-grey-900 mb-[0.62rem] max-md:text-[1.875rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold [&>p>font>strong>font]:text-yellow-500 [&>p>font>strong>font]:font-semibold'
                     dangerouslySetInnerHTML={{__html: data?.heading}}
                   ></h1>
 

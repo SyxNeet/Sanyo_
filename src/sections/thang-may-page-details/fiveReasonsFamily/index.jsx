@@ -29,7 +29,7 @@ const FiveReasonsFamily = ({lang, isMobile, data, heading_reason}) => {
           triggerOnce="true"
         >
           <h2
-            className='w-[58.4375rem] max-md:w-[19rem] font-SVNLagu uppercase text-[3.71738rem] leading-1.4 font-semibold max-md:text-[1.5rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold'
+            className='w-[58.4375rem] max-md:w-[19rem] font-SVNLagu uppercase text-[3.71738rem] leading-1.4 font-semibold max-md:text-[1.5rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold [&>p>font>strong>font]:text-yellow-500 [&>p>font>strong>font]:font-semibold'
             dangerouslySetInnerHTML={{__html: data?.heading_reason}}
           ></h2>
         </Fade>
