@@ -4,7 +4,7 @@ import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
 import {useEffect, useRef} from 'react'
 
-export default function HeaderContainer({isMobile, data}) {
+export default function HeaderContainer({isMobile, data, isTablet}) {
   const headerRef = useRef(null)
   useEffect(() => {
     let prevScroll = 0
@@ -25,14 +25,16 @@ export default function HeaderContainer({isMobile, data}) {
       ref={headerRef}
       className='fixed top-0 left-0 z-50 w-full header transition-500'
     >
-      {!isMobile ? (
-        <HeaderDesktop
+      {isMobile || isTablet ? (
+        <HeaderMobile
           isMobile={isMobile}
+          isTablet={isTablet}
           data={data}
         />
       ) : (
-        <HeaderMobile
+        <HeaderDesktop
           isMobile={isMobile}
+          isTablet={isTablet}
           data={data}
         />
       )}

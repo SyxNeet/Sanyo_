@@ -28,6 +28,7 @@ const slideFirstJE = ({isMobile,data,dataAllElevator}) => {
           end: 'bottom top',
           pinSpacing: false,
           anticipatePin: 1
+          
         },
       })
     }

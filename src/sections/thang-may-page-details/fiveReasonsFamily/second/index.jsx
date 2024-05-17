@@ -24,7 +24,6 @@ const SecondReasons = ({lang, isMobile, data}) => {
   const [expandedIndex, setExpandedIndex] = useState(0)
 
   useEffect(() => {
-    console.log('useEffect ran', {activeIndex, showAllSecond})
     if (!showAllSecond && activeIndex === null) {
       setMaxHeightSecond('12rem')
     }

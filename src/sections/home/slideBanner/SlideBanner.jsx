@@ -49,7 +49,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
   }
 
   return (
-    <section className='md:h-[90vh] h-[23.6875rem] w-full relative'>
+    <section className='md:h-[55vh] lg:h-[90vh] h-[23.6875rem] w-full relative'>
       {/* pagination */}
 
       {isMobile ? (
@@ -175,7 +175,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
               priority={index < 1}
               className='size-full object-cover z-[-1] absolute inset-0'
             />
-            <div className='relative md:top-[4.25rem] md:left-[4.06rem] '>
+            <div className='relative md:top-[6.25rem] lg:top-[4.25rem] md:left-[4.06rem] '>
               <div className='flex flex-col md:flex-row items-center'>
                 <div className='overflow-hidden h-max'>
                   <h2

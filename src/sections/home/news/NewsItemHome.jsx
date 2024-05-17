@@ -46,11 +46,11 @@ function NewsItemHome({className, data}) {
             height={120}
             className='w-[0.75rem] h-[0.75rem] object-cover'
           />
-          <span className='text-white font-Iciel text-[0.75rem] leading-1.3 ml-[0.25rem]'>
+          <span className='text-white font-Iciel lg:text-[0.75rem] text-[1.3rem] leading-1.3 ml-[0.25rem]'>
             {data?.date}
           </span>
         </div>
-        <h3 className='text-white font-Iciel text-[0.875rem] font-medium leading-1.5 md:w-[17.5rem] line-clamp-2 text-ellipsis'>
+        <h3 className='text-white font-Iciel lg:text-[0.875rem] text-[1.3rem] font-medium leading-1.5 md:w-[17.5rem] line-clamp-2 text-ellipsis'>
           <Link href={`tin-tuc/${data.post_slug}`}>{data.title}</Link>
         </h3>
       </div>
