@@ -78,7 +78,7 @@ export default function News({isMobile,data}) {
                 {listNews?.posts[0]?.title}
                 </Link>
               </h3>
-              <p className='pr-[1.44rem] text-white text-ellipsis line-clamp-[9] font-Iciel leading-1.7 text-[0.875rem] opacity-70'>
+              <p className='pr-[1.44rem] text-white text-ellipsis line-clamp-[9] font-Iciel leading-1.7 lg:text-[0.875rem] opacity-70 text-[1.3rem] '>
               {listNews?.posts[0]?.description}
               </p>
             </div>

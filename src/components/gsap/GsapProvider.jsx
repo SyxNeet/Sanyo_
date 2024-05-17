@@ -21,10 +21,7 @@ export default function GsapProvider({children, isMobile}) {
     <div id='smooth-wrapper'>
       <div
         id='smooth-content'
-        className={clsx('', {
-          'pt-[3.9375rem]': isMobile,
-          'pt-[5.5rem]': !isMobile,
-        })}
+        className='pt-[5.5rem] max-lg:pt-[0.5rem]'
       >
         {children}
       </div>

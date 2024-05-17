@@ -36,7 +36,7 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
 
         />
         <div className='flex items-center'>
-        <span className={` font-Iciel text-[0.875rem] font-normal leading-1.5 text-white max-md:w-[14.1875rem] max-md:text-[0.75rem] text-ellipsis line-clamp-2 ${!duAn?'w-[19.75rem]':'w-[17.75rem]'} notranslate`}>
+        <span className={` font-Iciel text-[0.875rem] font-normal leading-1.5 text-white max-md:w-[14.1875rem] max-md:text-[0.75rem] max-lg:text-[1.3rem] text-ellipsis line-clamp-2 ${!duAn?'w-[19.75rem]':'w-[17.75rem]'} notranslate`}>
           {nameProject|| data?.title ||'Intercontinental Hotel, Hangzhou,Zhejiang, China'}
         </span>
         <div>
