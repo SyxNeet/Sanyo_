@@ -8,7 +8,20 @@ export default function SubmitMail() {
   const handleChangeMail = (text) => {
     setEmail(text)
   }
+  const validateEmail = (email) => {
+    const re = /^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
   const onSubmit = (value) => {
+    console.log('mail', email)
+    if (email.trim() !== email) {
+      toast.error('Địa chỉ email không được chứa khoảng trắng ở đầu hoặc cuối');
+      return;
+    }
+    if (!validateEmail(email)) {
+      toast.error('Địa chỉ email không hợp lệ');
+      return;
+    }
     startTransition(async () => {
       const formData = new FormData()
 

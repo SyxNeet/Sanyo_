@@ -7,7 +7,7 @@ import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Autoplay} from 'swiper/modules'
-const HeaderProject = ({data,slide}) => {
+const HeaderProject = ({data,slide,dataTypeElevator}) => {
   return (
     <section>
       <BreadcrumbContainer className='pl-3 md:pl-[6.25rem]'>
@@ -90,10 +90,10 @@ const HeaderProject = ({data,slide}) => {
                 loại thang máy
               </span>
               <span className='text-grey-900 font-semibold uppercase max-md:text-[0.6875rem]'>
-                {data?.project_details?.list_elevator_used?.map(
+                {dataTypeElevator?.map(
                   (item, index, array) => (
                     <span key={index}>
-                      {item.post_title}
+                      {item.name}
                       {index < array.length - 1 ? ', ' : ''}
                     </span>
                   ),

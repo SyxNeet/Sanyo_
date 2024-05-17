@@ -17,7 +17,7 @@ export default function DichVu({isMobile ,data}) {
     AOS.init({duration:2500});
   }, [])
   return (
-    <main className='pt-9'>
+    <main>
       <HeaderDichVu isMobile={isMobile} data={header}/>
       {isMobile ? <ProcedureMb  data={procedure}/> : <Procedure data={procedure}/>}
       <ProductionLineSectionDV data={slideCommit} isMobile={isMobile}/>
