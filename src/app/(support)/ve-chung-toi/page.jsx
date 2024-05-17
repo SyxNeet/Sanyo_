@@ -32,7 +32,7 @@ const pageId = 188
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/ve-chung-toi/')
-  return getMeta(result, '/ve-chung-toi')
+  return getMeta(result, '/ve-chung-toi', 'Về chúng tôi - SANYO YUSOKI')
 }
 
 export default async function AboutUsPage({params, searchParams}) {

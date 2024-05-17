@@ -9,8 +9,8 @@ import {headers} from 'next/headers'
 import {Toaster} from '@/components/ui/sonner'
 import FixedLayout from '@/layout/3-nut-noi/FixedLayout'
 export const metadata = {
-  title: 'Sanyo Yosuki',
-  description: 'Sanyo Yosuki by create FINNTVD',
+  title: 'Sanyo YUSOKI',
+  description: 'Sanyo YUSOKI by create FINNTVD',
 }
 const svnLaguSans = localFont({
   src: [

@@ -8,7 +8,7 @@ import {getMeta} from '@/lib/getMeta'
 
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/thang-may-nhat-ban/`)
-  return getMeta(result, `/thang-may-nhat-ban`)
+  return getMeta(result, `/thang-may-nhat-ban`, 'Thang máy Nhật Bản - SANYO YUSOKI')
 }
 
 export default async function page({searchParams, params}) {
