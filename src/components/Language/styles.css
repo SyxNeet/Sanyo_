@@ -1,0 +1,25 @@
+#google_translate_element .goog-te-combo:first-child{
+    display: none !important;
+}
+#google_translate_element span {
+    display: none !important;
+}
+#google_translate_element .goog-te-gadget:last-child {
+    display: none !important;
+}
+#google_translate_element .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+    display: none !important;
+}
+.fatherLang {
+    position: relative;
+  }
+  
+  .childLang {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .fatherLang:hover .childLang,
+  .fatherLang:focus-within .childLang {
+    visibility: visible;
+  }
