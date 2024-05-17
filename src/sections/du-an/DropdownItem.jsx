@@ -2,9 +2,20 @@ import Image from 'next/image'
 import {cn} from '@/lib/utils'
 import Link from 'next/link'
 
-export default function DropdownItem({active, content, href = '/', handleOnClick}) {
+export default function DropdownItem({
+  active,
+  content,
+  href = '/',
+  handleOnClick,
+  disabled,
+}) {
   return (
-    <li onClick={handleOnClick}>
+    <li
+      onClick={handleOnClick}
+      className={
+        disabled ? 'pointer-events-none opacity-60' : 'pointer-events-auto opacity-100'
+      }
+    >
       <Link
         href={href}
         className='flex flex-row items-center px-3.5 py-2 md:px-4 md:py-[0.4rem] flex-none cursor-pointer select-none last:max-md:pb-4'

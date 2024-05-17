@@ -209,9 +209,24 @@ html {
 .toast {
   @apply text-1 flex flex-row items-center !important;
 }
+
+@keyframes skeleton {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-skeleton {
+  animation: skeleton 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
 .skiptranslate {
   display: none !important;
 }
 .ddict_btn {
   display: none !important;
 }
+

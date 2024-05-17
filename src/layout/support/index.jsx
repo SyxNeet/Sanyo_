@@ -26,6 +26,7 @@ export default function Support({
   const [messageFocused, setMessageFocused] = useState(false)
   const [nameError, setNameError] = useState('')
   const [phoneError, setPhoneError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const handleNameChange = (e) => {
     setName(e.target.value)
     setNameError('')
@@ -67,13 +68,16 @@ export default function Support({
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     const validName = nameReg.test(name)
     const validPhone = phoneReg.test(phone)
     if (!validName) {
       setNameError('Vui lòng nhập tên hợp lệ')
+      setIsLoading(false)
     }
     if (!validPhone) {
       setPhoneError('Vui lòng nhập số điện thoại hợp lệ')
+      setIsLoading(false)
     }
     if (validName && validPhone) {
       const formData = new FormData()
@@ -87,7 +91,7 @@ export default function Support({
       )
       const result = await res.json()
       if (result.status === 'mail_sent') {
-        toast.success('Gửi thông tin thành công')
+        toast.success('Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ liên lạc với bạn sớm nhất có thể.')
         setName('')
         setPhone('')
         setMessage('')
@@ -95,8 +99,9 @@ export default function Support({
         setPhoneFocused(false)
         setMessageFocused(false)
       } else {
-        toast.error('Gửi thông tin thất bại')
+        toast.error('Có lỗi xảy ra. Không thể gửi thông tin.')
       }
+      setIsLoading(false)
     }
   }
   useEffect(() => {
@@ -268,11 +273,16 @@ export default function Support({
           >
             <Button
               isHover={true}
-              text='GỬI THÔNG TIN'
+              text={isLoading ? 'ĐANG GỬI...' : 'GỬI THÔNG TIN'}
+              isLoading={isLoading}
               isBlack={true}
-              className={`bg-transparent ${pathname==='/thang-may-nhat-ban'?'max-md:bg-transparent max-md:border-c-nht ':'max-md:bg-yellow-500 max-md:border-none'} `}
+              className={`bg-transparent ${
+                pathname === '/thang-may-nhat-ban'
+                  ? 'max-md:bg-transparent max-md:border-c-nht '
+                  : 'max-md:bg-yellow-500 max-md:border-none'
+              } `}
               onClick={handleSubmit}
-              isRed={pathname === '/thang-may-nhat-ban'?true:false}
+              isRed={pathname === '/thang-may-nhat-ban' ? true : false}
             ></Button>
           </div>
         </div>

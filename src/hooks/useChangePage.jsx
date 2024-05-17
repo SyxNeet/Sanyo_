@@ -1,16 +1,12 @@
 'use client'
-import { useEffect } from "react";
-import { Router } from "next/router";
+import {useEffect} from 'react'
+import {useParams, useSearchParams} from 'next/navigation'
 
 const useChangePage = () => {
+  const params = useParams()
+  const searchParams = useSearchParams()
   useEffect(() => {
-    const handleRouteChange = () => {
-      window.scrollTo(0, 0);
-    };
-    Router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      Router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
-};
-export default useChangePage;
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }, [params, searchParams])
+}
+export default useChangePage

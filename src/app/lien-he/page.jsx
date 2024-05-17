@@ -21,7 +21,7 @@ export default async function LienHePage({params, searchParams}) {
   const isMobile = viewport.includes('mobile')
   const [dataContact] = await Promise.all([getLienHe(pageId)])
   return (
-    <main>
+    <main className='min-h-[calc(100vh-5.55rem-39.25rem)]'>
       <BreadcrumbContainer className='md:ml-[3.75rem] ml-3'>
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink isLastLink>LIÊN HỆ</BreadcrumbLink>

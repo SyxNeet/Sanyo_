@@ -50,7 +50,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                 href={`/tin-tuc/${item.slug}`}
                 className='relative h-[15rem] md:h-[25rem] flex flex-col rounded-[0.75rem] overflow-hidden border border-[#E9E9E9] group hover:border-yellow-500 transition-500 md:pb-[1.5rem]'
               >
-                <div className='rounded-[0.5rem] md:rounded-t-[0.5rem] flex-none h-full md:h-[60%] overflow-hidden'>
+                <div className='rounded-[0.5rem] md:rounded-t-[0.5rem] md:rounded-b-none flex-none h-full md:h-[60%] overflow-hidden'>
                   <Image
                     src={item.image.url}
                     alt=''
@@ -142,7 +142,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
               style={{filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))'}}
             >
               <g filter='url(#filter0_d_4504_65425)'>
-                <g clip-path='url(#clip0_4504_65425)'>
+                <g clipPath='url(#clip0_4504_65425)'>
                   <circle
                     cx='28'
                     cy='28'
@@ -242,7 +242,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
               style={{filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))'}}
             >
               <g filter='url(#filter0_d_4504_65426)'>
-                <g clip-path='url(#clip0_4504_65426)'>
+                <g clipPath='url(#clip0_4504_65426)'>
                   <circle
                     cx='32'
                     cy='28'

@@ -11,15 +11,15 @@ export default async function Footer({isMobile}) {
   const dataFooter = (await getFooter()).footer
   return (
     <>
-      <footer className='md:h-[39rem] h-[46.1875rem] w-full flex relative justify-between'>
+      <footer className='relative flex items-stretch justify-between w-full'>
         <Image
           src={'/images/layout/footer/decoFooter.png'}
           alt='decoration'
           width={1000}
           height={1000}
-          className='object-cover absolute md:w-[45%] md:h-full right-0 bottom-0 z-0'
+          className='object-cover absolute lg:w-[45%] lg:h-full right-0 bottom-0 z-0'
         />
-        <div className='w-[38.5rem] h-full max-md:hidden'>
+        <div className='w-[38.5rem] max-md:hidden'>
           <Image
             src={'/images/layout/footer/imgFooter.png'}
             alt='hoa dao'

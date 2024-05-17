@@ -28,10 +28,10 @@ export default function Slider({data}) {
         className='relative md:w-[21.625rem] md:py-[1.98rem] flex flex-col flex-shrink-0'
       >
         <h4 className='text-yellow-500 font-SVNLagu lg:text-[1.5rem] font-semibold md:leading-[1.25] md:tracking-[-0.03125rem] md:mb-[1.12rem] animate__animated animate__fadeIn'>
-          {data[activeIndex].title}
+          {data[activeIndex]?.title}
         </h4>
         <p className='text-white text-justify font-Iciel lg:text-[0.875rem] leading-[1.5] md:mb-[1.81rem] animate__animated animate__fadeIn'>
-          {data[activeIndex].elevator.mo_ta}
+          {data[activeIndex]?.elevator.mo_ta}
         </p>
         <div className='flex items-center md:mb-[1.25rem] md:pb-[1.25rem] border-b-[1px] solid border-white border-opacity-10 animate__animated animate__fadeIn'>
           <Image
@@ -47,7 +47,7 @@ export default function Slider({data}) {
               TỐC ĐỘ
             </span>
             <span className='text-white font-Iciel font-medium leading-[1.29] block md:tracking-[-0.03125rem]'>
-              {data[activeIndex].elevator.rated_speed} m/s
+              {data[activeIndex]?.elevator.rated_speed} m/s
             </span>
           </div>
         </div>
@@ -66,13 +66,13 @@ export default function Slider({data}) {
               tải trọng
             </span>
             <span className='text-white font-Iciel font-medium block leading-[1.29] md:tracking-[-0.03125rem]'>
-              {data[activeIndex].elevator.rated_load} -{' '}
-              {data[activeIndex].elevator.rated_load_2} kg
+              {data[activeIndex]?.elevator.rated_load} -{' '}
+              {data[activeIndex]?.elevator.rated_load_2} kg
             </span>
           </div>
         </div>
         <Link
-          href={`/thang-may-nhat-ban/${data[activeIndex].elevator.slug_detail.slug}`}
+          href={`/thang-may-nhat-ban/${data[activeIndex]?.elevator.slug_detail.slug}`}
           className='text-yellow-500 font-Iciel lg:text-[0.875rem] font-medium leading-[1.2] underline uppercase animate__animated animate__fadeIn'
         >
           CHI TIẾT SẢN PHẨM
