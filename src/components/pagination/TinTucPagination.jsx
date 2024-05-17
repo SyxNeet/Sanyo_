@@ -59,7 +59,7 @@ export default function TinTucPagination({totalPage, activePage, category}) {
                 />
               </button>
             )}
-            {Array.from(Array(totalPage).keys()).map((item) => {
+            {Array.from(Array(totalPage).keys()).map((item, i) => {
               if (
                 item > 0 &&
                 item < totalPage - 1 &&
@@ -68,6 +68,7 @@ export default function TinTucPagination({totalPage, activePage, category}) {
               ) {
                 return (
                   <Link
+                    key={i}
                     href={`/tin-tuc?page=${item + 1}${params}`}
                     className={cn(
                       'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
@@ -122,9 +123,10 @@ export default function TinTucPagination({totalPage, activePage, category}) {
           </>
         ) : (
           <>
-            {Array.from(Array(totalPage).keys()).map((item) => {
+            {Array.from(Array(totalPage).keys()).map((item, i) => {
               return (
                 <Link
+                  key={i}
                   href={`/tin-tuc?page=${item + 1}${params}`}
                   className={cn(
                     'flex items-center justify-center rounded-full bg-grey-100 size-8 text-0.875 font-medium leading-1.5 mx-[0.25rem] md:mx-[0.33rem] text-grey-0 select-none',
