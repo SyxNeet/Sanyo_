@@ -46,7 +46,7 @@ export default function HeaderDesktop({isMobile, data}) {
                 : 'w-9 h-5 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
             }
             onClick={() => {
-              setIsOpenModalMenu(false)
+              setIsOpenModalMenu(!isOpenModalMenu)
               setActiveModalMenuLink('')
               setActiveModalMenuChildLink('')
             }}
