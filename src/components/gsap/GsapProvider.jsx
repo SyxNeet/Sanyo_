@@ -19,10 +19,11 @@ export default function GsapProvider({children, isMobile}) {
   const pathname = usePathname()
   useChangePage()
   useGSAP(() => {
-    const scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
+    let scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
     if (regDuAnUrl.test(pathname) && isMobile) {
       scrollSmooth.kill()
     } else {
+      scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
       const header = document.querySelector('.header')
       header.style.opacity = 1
       header.style.pointerEvents = 'all'
