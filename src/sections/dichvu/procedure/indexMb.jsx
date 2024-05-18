@@ -33,7 +33,7 @@ const ProcedureMb = ({data}) => {
               key={index}
               
             >
-              <div className='flex flex-col md:flex-row'>
+              <div className='flex flex-col md:flex-row px-[4.5rem]'>
                 <div className='flex flex-col w-full md:w-[50%]'>
                   <div className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3 [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500 md:text-[3rem] md:pt-[5rem]' dangerouslySetInnerHTML={{__html:item?.name_step}}>
                   </div>
@@ -59,8 +59,8 @@ const ProcedureMb = ({data}) => {
           ))}
         </Swiper>
       </div>
-      <div className='lg:hidden flex px-3 mt-[1.5rem] justify-between'>
-        <div className='flex'>
+      <div className='lg:hidden flex max-md:px-3 mt-[1.5rem] justify-between px-[3rem]'>
+        <div className='flex relative  md:justify-between md:absolute md:w-[99%] md:top-[57%] md:left-[1rem] z-20'>
           <ButtonSLide
             className={
               ' swiper-button-prev-procedure border-yellow-500 transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-yellow-500 md:hover:bg-yellow-500 max-md:bg-yellow-500 max-md:border-yellow-500 max-md:w-[2.5rem] max-md:h-[2.5rem]'
