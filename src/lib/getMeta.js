@@ -1,7 +1,9 @@
 export const getMeta = (result, slug, fallbackTitle) => {
   const meta = {
     metadataBase: new URL(`${process.env.DOMAIN}`),
-    title: result?.json?.title ?? fallbackTitle,
+    title: result?.json?.title.includes('not found')
+      ? fallbackTitle
+      : result?.json?.title,
     description: result?.json?.description,
     alternates: {
       canonical: `${process.env.DOMAIN}${slug}`,

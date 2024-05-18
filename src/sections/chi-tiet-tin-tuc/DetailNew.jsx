@@ -9,6 +9,7 @@ import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 import {regDuAnUrl} from '@/lib/reg'
 import {usePathname} from 'next/navigation'
+import {Fade} from 'react-awesome-reveal'
 
 export default function DetailNew({isMobile, data}) {
   const pathname = usePathname()
@@ -37,30 +38,42 @@ export default function DetailNew({isMobile, data}) {
   }, [data])
   return (
     <section className='pt-5 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3'>
-      <h1 className='text-1.5 md:text-3 font-semibold leading-1.1 text-grey-700 font-SVNLagu md:text-center w-[18.875rem] md:w-[53.625rem] md:mx-auto mb-6 md:mb-8'>
-        {data?.posts[0].title}
-      </h1>
+      <Fade
+        direction='down'
+        triggerOnce
+      >
+        <h1 className='text-1.5 md:text-3 font-semibold leading-1.1 text-grey-700 font-SVNLagu md:text-center w-[18.875rem] md:w-[53.625rem] md:mx-auto mb-6 md:mb-8'>
+          {data?.posts[0].title}
+        </h1>
+      </Fade>
       <div className='px-5 py-4 md:p-[1.88rem] border border-yellow-500 rounded-[0.75rem] md:rounded-[1rem] mb-5 md:mb-8 bg-yellow-500/5'>
         <h4 className='text-grey-700 md:text-grey-900 font-Iciel text-1 md:text-1.25 font-medium md:font-bold leading-1.3 mb-[0.87rem] md:mb-4'>
           Nội dung chính
         </h4>
         <nav className='grid grid-cols-1 gap-2'>
-          {h4Array.map((item, i) => {
-            return (
-              <button
-                className='text-grey-500 font-Iciel md:font-medium leading-1.5 text-start text-0.875 md:text-1'
-                onClick={() =>
-                  smootherRef.current.scrollTo(
-                    document
-                      .querySelector('.content-container')
-                      .querySelectorAll('h4')[i],
-                  )
-                }
-              >
-                {item}
-              </button>
-            )
-          })}
+          <Fade
+            direction='up'
+            cascade
+            damping={0.2}
+            triggerOnce
+          >
+            {h4Array.map((item, i) => {
+              return (
+                <button
+                  className='text-grey-500 font-Iciel md:font-medium leading-1.5 text-start text-0.875 md:text-1'
+                  onClick={() =>
+                    smootherRef.current.scrollTo(
+                      document
+                        .querySelector('.content-container')
+                        .querySelectorAll('h4')[i],
+                    )
+                  }
+                >
+                  {item}
+                </button>
+              )
+            })}
+          </Fade>
         </nav>
       </div>
       <div

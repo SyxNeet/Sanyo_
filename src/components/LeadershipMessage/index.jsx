@@ -28,7 +28,7 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
   return (
     <section
       ref={ref}
-      className='relative flex flex-col section-leader-message-container max-md:mb-[2.5rem] min-h-[40rem]'
+      className='relative flex flex-col section-leader-message-container max-md:mb-[2.5rem] md:min-h-[40rem]'
     >
       {isMobile && (
         <div className='absolute left-0 w-full h-12 bottom-1/3 bg-gradient-to-t from-white to-white/0' />

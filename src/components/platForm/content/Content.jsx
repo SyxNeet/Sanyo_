@@ -28,14 +28,20 @@ export default function Content({title, description}) {
           </p>
         </Fade>
       </div>
-      <Link href={`/thang-may-nhat-ban`}>
-        <Button
-          className={`h-fit bg-transparent border-white max-md:hidden`}
-          classText='text-white'
-          isHover={true}
-          text='XEM TẤT CẢ'
-        />
-      </Link>
+      <Fade
+        direction='right'
+        triggerOnce
+        className='ml-auto'
+      >
+        <Link href={`/thang-may-nhat-ban`}>
+          <Button
+            className={`h-fit bg-transparent border-white max-md:hidden`}
+            classText='text-white'
+            isHover={true}
+            text='XEM TẤT CẢ'
+          />
+        </Link>
+      </Fade>
     </div>
   )
 }
