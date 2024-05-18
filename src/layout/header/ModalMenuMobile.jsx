@@ -139,7 +139,7 @@ export default function ModalMenuMobile({
         >
           ĐĂNG KÍ TƯ VẤN
         </Link>
-        <div className='flex flex-row items-center justify-center'>
+        <div className='flex flex-row items-center justify-center pb-[5rem]'>
           <Link
             href={
               data?.lien_ket_facebook ||
