@@ -39,7 +39,7 @@ export default function ProductionLineSectionDV({
           className={`text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5 ${
             justSlide ? 'hidden' : 'block'
           }`} dangerouslySetInnerHTML={{__html: data?.heading}}
-          data-aos='zoom-in'
+
         >
          
         </h3>
@@ -50,10 +50,10 @@ export default function ProductionLineSectionDV({
               data?.desc ||
               'Chúng tôi cam kết không ngừng nỗ lực để đảm bảo chất lượng tốt nhất trong quá trình thi công lắp đặt. Điều này là sứ mệnh mang lại sự hài lòng và niềm tin cho khách hàng.',
           }}
-          data-aos='zoom-in'
+  
         ></h2>
       </div>
-      <div className='relative w-full h-full'   data-aos='fade-up'>
+      <div className='relative w-full h-full' >
         <Swiper
           slidesPerView={1}
           effect={'fade'}
@@ -93,7 +93,7 @@ export default function ProductionLineSectionDV({
             setPreviousActiveImage(swiper.realIndex)
           }
         >
-          {arrayData?.map((item, i) => {
+         {(Array.isArray(arrayData) ? arrayData : []).map((item, i) => {
             return (
               <SwiperSlide key={i}>
                 <Image

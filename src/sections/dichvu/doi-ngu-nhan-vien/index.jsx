@@ -61,11 +61,11 @@ const SlideTeamSanyo = ({isMobile, data}) => {
   //     desc: 'Lorem ipsum dolor sit amet consectetur. Tristique semper feugiat et pharetra. Pretium proin netus semper nulla ut suspendisse faucibus enim. Pharetra pulvinar consectetur potenti tellus',
   //   },
   // ]
-  const [activeSlide, setActiveSlide] = useState(data?.list_staff[0])
+  const [activeSlide, setActiveSlide] = useState(data?.list_staff?.[0] || null)
 
   const handleSlideChange = (swiper) => {
     const activeSlideIndex = swiper.realIndex
-    setActiveSlide(data?.list_staff[activeSlideIndex])
+    setActiveSlide(data?.list_staff ? data.list_staff[activeSlideIndex] : null)
   }
   return (
     <section className='mt-[8rem] max-md:mt-[3.13rem]'>

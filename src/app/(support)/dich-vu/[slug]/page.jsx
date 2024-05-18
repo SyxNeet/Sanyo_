@@ -19,6 +19,7 @@ export default async function page({searchParams, params}) {
   data = await getDataSlug(`/dich-vu/${slug}`)
   const {viewport} = searchParams
   const isMobile = viewport?.includes('mobile')
+  console.log(data)
   return (
     <div>
       <DichVu

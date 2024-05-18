@@ -41,7 +41,7 @@ const Operate = ({isMobile = true, data}) => {
         className='mySwiper !pl-3'
       >
         <SwiperSlide>
-          <ItemOperate data={data?.list_operate[0]} />
+        <ItemOperate data={(data?.list_operate && data.list_operate[0]) || {}} />
         </SwiperSlide>
         <SwiperSlide className={`${isMobile ? '!hidden' : ''}`}>
           <Fade direction='fade-down' fraction={0}                                                    >
@@ -64,7 +64,7 @@ const Operate = ({isMobile = true, data}) => {
           </Fade>
         </SwiperSlide>
         <Fade direction='up'>
-          {data?.list_operate.slice(1).map((item, index) => (
+          {(Array.isArray(data?.list_operate) ? data.list_operate.slice(1) : []).map((item, index) => (
             <SwiperSlide key={index}>
               <ItemOperate data={item} />
             </SwiperSlide>
