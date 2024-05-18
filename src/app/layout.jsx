@@ -105,17 +105,11 @@ export default function RootLayout({children, params}) {
           isMobile={isMobile}
           isTablet={isTablet}
         />
-        {!isMobile ? (
+
           <GsapProvider isMobile={isMobile}>
             {children}
             <Footer isMobile={isMobile} />
           </GsapProvider>
-        ) : (
-          <>
-            {children}
-            <Footer isMobile={isMobile} />
-          </>
-        )}
         <FixedLayout isMobile={isMobile} />
         <Toaster
           expand={true}

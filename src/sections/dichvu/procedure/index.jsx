@@ -11,7 +11,7 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import {EffectFade, Navigation, Pagination} from 'swiper/modules'
 const Procedure = ({data}) => {
-  const [item, setItem] = useState(data?.list_procedure[0])
+  const [item, setItem] = useState(data?.list_procedure?.[0] || null)
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef(null);
   useEffect(() => {
