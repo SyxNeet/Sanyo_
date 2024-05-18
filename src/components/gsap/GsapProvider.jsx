@@ -23,7 +23,8 @@ export default function GsapProvider({children, isMobile}) {
     if (regDuAnUrl.test(pathname) && isMobile) {
       scrollSmooth.kill()
     } else {
-      scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
+      // scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
+      setTimeout(() => scrollSmooth.refresh(), 20)
       const header = document.querySelector('.header')
       header.style.opacity = 1
       header.style.pointerEvents = 'all'
