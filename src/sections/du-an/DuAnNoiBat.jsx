@@ -129,7 +129,7 @@ export default function DuAnNoiBat({
             />
           </div>
         </div>
-        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
+        {/* <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
           {isLoading ? (
             <DanhSachDuAnSkeleton />
           ) : (
@@ -173,7 +173,7 @@ export default function DuAnNoiBat({
               type={type}
             />
           </Fade>
-        </div>
+        </div> */}
       </div>
     </section>
   )

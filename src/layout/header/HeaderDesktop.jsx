@@ -39,28 +39,19 @@ export default function HeaderDesktop({isMobile, data}) {
         className='h-[5.5rem] bg-grey-0 border-b border-grey-50'
       >
         <div className='px-10 py-[1.13rem] flex flex-row items-center'>
-          {!isOpenModalMenu ? (
-            <button
-              className='w-9 h-5 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
-              onClick={() => {
-                setIsOpenModalMenu(true)
-                setActiveModalMenuLink('')
-                setActiveModalMenuChildLink('')
-              }}
-            >
-              <span className='w-3/4 h-[0.12rem] bg-grey-900'></span>
-              <span className='w-full h-[0.12rem] bg-grey-900'></span>
-              <span className='w-1/2 h-[0.12rem] bg-grey-900'></span>
-            </button>
-          ) : (
-            <button
-              className='flex items-center justify-center h-5 w-9 hover-opacity'
-              onClick={() => {
-                setIsOpenModalMenu(false)
-                setActiveModalMenuLink('')
-                setActiveModalMenuChildLink('')
-              }}
-            >
+          <button
+            className={
+              isOpenModalMenu
+                ? 'flex items-center justify-center h-5 w-9 hover-opacity'
+                : 'w-9 h-5 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
+            }
+            onClick={() => {
+              setIsOpenModalMenu(false)
+              setActiveModalMenuLink('')
+              setActiveModalMenuChildLink('')
+            }}
+          >
+            {isOpenModalMenu ? (
               <Image
                 src={`/images/layout/header/x-mark.svg`}
                 alt='close modal menu'
@@ -69,8 +60,14 @@ export default function HeaderDesktop({isMobile, data}) {
                 height={120}
                 priority
               />
-            </button>
-          )}
+            ) : (
+              <>
+                <span className='w-3/4 h-[0.12rem] bg-grey-900'></span>
+                <span className='w-full h-[0.12rem] bg-grey-900'></span>
+                <span className='w-1/2 h-[0.12rem] bg-grey-900'></span>
+              </>
+            )}
+          </button>
           <div className='w-[0.075rem] h-[2.5rem] opacity-10 bg-grey-900 mx-10' />
           <button
             className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'

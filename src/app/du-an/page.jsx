@@ -35,7 +35,7 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
         <BreadcrumbLink isLastLink>DANH SÁCH DỰ ÁN</BreadcrumbLink>
       </BreadcrumbContainer>
       <DuAnNoiBat
-        dataDanhSachDuAn={dataDanhSachDuAn.project}
+        dataDanhSachDuAn={dataDanhSachDuAn?.project}
         dataProject={dataProject}
         page={page ?? 1}
         country={country ?? 'all'}
