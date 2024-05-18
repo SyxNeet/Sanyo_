@@ -33,7 +33,7 @@ const ProcedureMb = ({data}) => {
               key={index}
               
             >
-              <div className='flex flex-col md:flex-row px-[4.5rem]'>
+              <div className='flex flex-col md:flex-row px-[4.5rem] max-md:px-3'>
                 <div className='flex flex-col w-full md:w-[50%]'>
                   <div className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3 [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500 md:text-[3rem] md:pt-[5rem]' dangerouslySetInnerHTML={{__html:item?.name_step}}>
                   </div>
