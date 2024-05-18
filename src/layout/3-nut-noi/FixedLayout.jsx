@@ -8,6 +8,8 @@ import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 import {useGSAP} from '@gsap/react'
 import {usePathname} from 'next/navigation'
 import {regDuAnUrl} from '@/lib/reg'
+import gsap from 'gsap'
+
 export default function FixedLayout({isMobile}) {
   const pathname = usePathname()
   const myRef = useRef(null)
@@ -58,14 +60,7 @@ export default function FixedLayout({isMobile}) {
         />
       </Link>
       {!isMobile && (
-        <button
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            })
-          }
-        >
+        <button onClick={() => gsap.to(window, {duration: 0.8, scrollTo: 0})}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='56'
