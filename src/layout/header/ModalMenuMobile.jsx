@@ -27,7 +27,7 @@ export default function ModalMenuMobile({
     >
       <div className='absolute w-full h-full bg-grey-600 opacity-40'>
       </div>
-<div className='w-[45%] bg-grey-600 px-[0.87rem] py-4 relative z-[99] max-md:w-full'>
+<div className='w-[45%] bg-grey-600 px-[0.87rem] py-4 relative z-[99] max-md:w-full h-fit min-h-screen'>
         <div className='flex flex-row items-center w-full'>
           <Link
             href={`/`}
@@ -62,7 +62,7 @@ export default function ModalMenuMobile({
             />
           </button>
         </div>
-        <div className='grid grid-cols-1 gap-[1.12rem] mt-[2.7rem]'>
+        <div className='grid grid-cols-1 gap-[1.12rem] mt-[1.7rem]'>
           <Accordion
             text={modalMenuJapanElevator.text}
             accordionData={modalMenuJapanElevator.child}
@@ -96,7 +96,7 @@ export default function ModalMenuMobile({
           <div className='flex flex-col'>
             <Link
               href={`/tin-tuc`}
-              className='mb-5 text-grey-0 text-0.875 font-Iciel md:text-[1.3rem]'
+              className='mb-3 text-grey-0 text-0.875 font-Iciel  md:text-[1.3rem]'
               onClick={() => setIsOpenModalMenu(false)}
             >
               TIN TỨC
@@ -139,7 +139,7 @@ export default function ModalMenuMobile({
         >
           ĐĂNG KÍ TƯ VẤN
         </Link>
-        <div className='flex flex-row items-center justify-center'>
+        <div className='flex flex-row items-center justify-center pb-[5rem]'>
           <Link
             href={
               data?.lien_ket_facebook ||

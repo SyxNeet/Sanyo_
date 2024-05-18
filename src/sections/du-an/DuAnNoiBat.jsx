@@ -22,6 +22,7 @@ export default function DuAnNoiBat({
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
+  console.log(isMobile)
   useEffect(() => {
     if (window.innerWidth < 768) {
       gsap.to(stickyRef.current, {
