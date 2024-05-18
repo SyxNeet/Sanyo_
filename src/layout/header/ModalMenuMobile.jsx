@@ -25,8 +25,7 @@ export default function ModalMenuMobile({
         },
       )}
     >
-      <div className='absolute w-full h-full bg-grey-600 opacity-40'>
-      </div>
+      <div className='absolute w-full h-full bg-grey-600 opacity-40'></div>
 <div className='w-[45%] bg-grey-600 px-[0.87rem] py-4 relative z-[99] max-md:w-full h-fit min-h-screen'>
         <div className='flex flex-row items-center w-full'>
           <Link
