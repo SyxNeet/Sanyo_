@@ -30,9 +30,9 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
   ])
   return (
     <main className=''>
-      <BreadcrumbContainer className='px-3 md:px-[6.25rem]'>
+      <BreadcrumbContainer className='px-3 md:px-[6.25rem] z-10'>
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
-        <BreadcrumbLink>DANH SÁCH DỰ ÁN</BreadcrumbLink>
+        <BreadcrumbLink isLastLink>DANH SÁCH DỰ ÁN</BreadcrumbLink>
       </BreadcrumbContainer>
       <DuAnNoiBat
         dataDanhSachDuAn={dataDanhSachDuAn.project}
