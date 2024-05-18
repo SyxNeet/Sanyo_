@@ -46,7 +46,6 @@ export async function generateMetadata() {
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport?.includes('mobile')
-  console.log(viewport)
     const [
     dataBanner,
     dataCountUp,
@@ -66,7 +65,6 @@ export default async function Home({params, searchParams}) {
     getDataOutstandingProject(),
     getDataNews(),
   ])
-  console.log(viewport)
   return (
     <main>
       <SlideBanner
