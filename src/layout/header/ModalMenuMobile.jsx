@@ -62,7 +62,7 @@ export default function ModalMenuMobile({
             />
           </button>
         </div>
-        <div className='grid grid-cols-1 gap-[1.12rem] mt-[2.7rem]'>
+        <div className='grid grid-cols-1 gap-[1.12rem] mt-[1.7rem]'>
           <Accordion
             text={modalMenuJapanElevator.text}
             accordionData={modalMenuJapanElevator.child}
@@ -96,7 +96,7 @@ export default function ModalMenuMobile({
           <div className='flex flex-col'>
             <Link
               href={`/tin-tuc`}
-              className='mb-5 text-grey-0 text-0.875 font-Iciel md:text-[1.3rem]'
+              className='mb-3 text-grey-0 text-0.875 font-Iciel  md:text-[1.3rem]'
               onClick={() => setIsOpenModalMenu(false)}
             >
               TIN TỨC
