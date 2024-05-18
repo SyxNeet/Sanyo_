@@ -13,7 +13,7 @@ async function getLienHe(pageId) {
 
 export async function generateMetadata() {
   const result = await fetchMetaData('/lien-he/')
-  return getMeta(result, '/lien-he', 'Liên hệ - SANYO YUSOKI')
+  return getMeta(result, '/lien-he')
 }
 
 export default async function LienHePage({params, searchParams}) {
@@ -21,7 +21,7 @@ export default async function LienHePage({params, searchParams}) {
   const isMobile = viewport.includes('mobile')
   const [dataContact] = await Promise.all([getLienHe(pageId)])
   return (
-    <main>
+    <main className='min-h-[calc(100vh-5rem-39.25rem)] overflow-x-hidden'>
       <BreadcrumbContainer className='md:ml-[3.75rem] ml-3'>
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink isLastLink>LIÊN HỆ</BreadcrumbLink>

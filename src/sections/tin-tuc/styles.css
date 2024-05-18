@@ -4,5 +4,5 @@
   }
 }
 .tin-tuc-item {
-  @apply opacity-0 scale-[0.6];
+  @apply md:opacity-0 md:scale-[0.6];
 }

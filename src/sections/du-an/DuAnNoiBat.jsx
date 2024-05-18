@@ -140,33 +140,33 @@ export default function DuAnNoiBat({
           {isLoading ? (
             <DanhSachDuAnSkeleton />
           ) : (
-           <>
-            {dataProject.events.length > 0 ? (
-               <>
-               {dataProject.events.map((item, i) => {
-                 return (
-                   <DuAnItem
-                     key={i}
-                     imgFlagUrl={item.img_country.url}
-                     altImageFlag={item.img_country.alt}
-                     nameProject={item.title}
-                     imgProjectUrl={item.feature_image}
-                     altImageProject={item.excerpt}
-                     href={`/du-an/${item.detail_link}`}
-                     page={page}
-                     country={country}
-                     type={type}
-                     isMobile={isMobile}
-                   />
-                 )
-               })}
-             </>
-            ) : (
-              <h3 className='col-span-2 py-4 text-2xl text-center font-Iciel text-grey-900'>
-              Hiện tại không có dự án nào.
-            </h3>
-            )}
-           </>
+            <>
+              {dataProject.events.length > 0 ? (
+                <>
+                  {dataProject.events.map((item, i) => {
+                    return (
+                      <DuAnItem
+                        key={i}
+                        imgFlagUrl={item.img_country.url}
+                        altImageFlag={item.img_country.alt}
+                        nameProject={item.title}
+                        imgProjectUrl={item.feature_image}
+                        altImageProject={item.excerpt}
+                        href={`/du-an/${item.detail_link}`}
+                        page={page}
+                        country={country}
+                        type={type}
+                        isMobile={isMobile}
+                      />
+                    )
+                  })}
+                </>
+              ) : (
+                <h3 className='col-span-2 py-4 text-2xl text-center font-Iciel text-grey-900'>
+                  Hiện tại không có dự án nào.
+                </h3>
+              )}
+            </>
           )}
           <Fade
             direction='up'

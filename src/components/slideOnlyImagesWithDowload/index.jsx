@@ -33,11 +33,15 @@ const SlideOnlyImagesDownload = ({data}) => {
         </div>
         <div className='w-[30%] max-md:hidden'>
           <div className='ml-28 mt-[10%] relative w-16  h-[14.3125rem]'>
-            <Fade triggerOnce>
+            <Fade
+              direction='left'
+              triggerOnce
+              className='absolute top-0 left-0 object-fill w-full h-full'
+            >
               <Image
                 src={`/images/components/slideAutoplay/thangmay.png`}
                 alt='imgThangmay'
-                className='absolute top-0 left-0 object-fill w-full h-full'
+                className='object-fill w-full h-full'
                 width={120}
                 height={120}
               />
