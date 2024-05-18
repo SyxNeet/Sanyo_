@@ -174,7 +174,7 @@ export default function ModalMenuMobile({
               data?.lien_ket_in ||
               'https://www.linkedin.com/in/sanyo-yusoki-vi%E1%BB%87t-nam-4283592a5/'
             }
-            className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
+            className='block w-[2.31494rem] h-[2.31494rem] mr-[0.6rem] group'
             target='_blank'
           >
             <svg

@@ -105,10 +105,10 @@ export default function DuAnNoiBat({
         >
           <h2
             className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 [&_p]:block'
-            dangerouslySetInnerHTML={{__html: dataDanhSachDuAn.heading}}
+            dangerouslySetInnerHTML={{__html: dataDanhSachDuAn?.heading}}
           ></h2>
           <p className='hidden md:block text-grey-500 text-justify font-Iciel text-1 leading-1.5'>
-            {dataDanhSachDuAn.description}
+            {dataDanhSachDuAn?.description}
           </p>
           <div
             ref={stickyRef}
@@ -135,9 +135,10 @@ export default function DuAnNoiBat({
             <DanhSachDuAnSkeleton />
           ) : (
             <>
-              {dataProject.events.length > 0 ? (
+              {Array.isArray(dataProject?.events) &&
+              dataProject?.events?.length > 0 ? (
                 <>
-                  {dataProject.events.map((item, i) => {
+                  {dataProject?.events?.map((item, i) => {
                     return (
                       <DuAnItem
                         key={i}
@@ -167,7 +168,7 @@ export default function DuAnNoiBat({
             className='md:col-span-2'
           >
             <DuAnPagination
-              totalPage={dataProject.total_pages}
+              totalPage={dataProject?.total_pages}
               activePage={page < 1 ? 0 : page - 1}
               country={country}
               type={type}

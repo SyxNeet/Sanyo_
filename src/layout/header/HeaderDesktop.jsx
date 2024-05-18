@@ -38,7 +38,7 @@ export default function HeaderDesktop({isMobile, data}) {
         ref={headerRef}
         className='h-[5.5rem] bg-grey-0 border-b border-grey-50'
       >
-        <nav className='px-10 py-[1.13rem] flex flex-row items-center'>
+        <div className='px-10 py-[1.13rem] flex flex-row items-center'>
           {!isOpenModalMenu ? (
             <button
               className='w-9 h-5 grid grid-cols-1 gap-[0.5625rem] hover-opacity'
@@ -161,7 +161,7 @@ export default function HeaderDesktop({isMobile, data}) {
               <GoogleTranslate />
             </div>
           </div>
-        </nav>
+        </div>
       </div>
       <DynamicModalMenuDesktop
         isOpenModalMenu={isOpenModalMenu}
