@@ -6,9 +6,10 @@ import {Button} from '@/components/ui/button'
 import {usePathname} from 'next/navigation'
 import {cn} from '@/lib/utils'
 import {toast} from 'sonner'
+import {Fade} from 'react-awesome-reveal'
 
-const nameReg = /[a-zA-Z\s]+/
-const phoneReg = /\d{10,}/
+const nameReg = /^[a-zA-Z]+(\s[a-zA-Z]+)*$/
+const phoneReg = /^\d{10,}$/
 
 export default function Support({
   className,
@@ -91,7 +92,9 @@ export default function Support({
       )
       const result = await res.json()
       if (result.status === 'mail_sent') {
-        toast.success('Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ liên lạc với bạn sớm nhất có thể.')
+        toast.success(
+          'Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ liên lạc với bạn sớm nhất có thể.',
+        )
         setName('')
         setPhone('')
         setMessage('')
@@ -148,32 +151,42 @@ export default function Support({
             'w-[40%] mr-[6.19rem] max-md:mb-[1.25rem]': !forLienHePage,
           })}
         >
-          <h2
-            className={cn(
-              'font-SVNLagu supportText text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold',
-              pathname === '/thang-may-nhat-ban'
-                ? ' [&_strong]:text-c-nht'
-                : ' [&_strong]:text-yellow-500',
-              '[&>p>trong]:font-semibold [&>p>trong]:text-yellow-500 [&>p>strong]:uppercase',
-              {
-                'mb-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]':
-                  !forLienHePage,
-                'mb-[0.75rem] max-md:mb-[0.5rem]': forLienHePage,
-              },
-            )}
-            dangerouslySetInnerHTML={{__html: data?.heading}}
-          ></h2>
-          <p
-            className={cn(
-              'text-[1rem] font-Iciel text-grey-500 font-normal leading-[150%] max-md:block max-md:text-[0.875rem] max-md:text-justify max-md:mb-0',
-              {
-                'max-md:w-[18.375rem] mb-10': !forLienHePage,
-                'mb-0 md:mb-10': forLienHePage,
-              },
-            )}
+          <Fade
+            direction='down'
+            triggerOnce
           >
-            {data?.description}
-          </p>
+            <h2
+              className={cn(
+                'font-SVNLagu supportText text-[3rem] font-[600] leading-1.2 mb-[1.5rem] max-md:text-[1.5rem] [&_strong]:font-semibold',
+                pathname === '/thang-may-nhat-ban'
+                  ? ' [&_strong]:text-c-nht'
+                  : ' [&_strong]:text-yellow-500',
+                '[&>p>trong]:font-semibold [&>p>trong]:text-yellow-500 [&>p>strong]:uppercase',
+                {
+                  'mb-[1.5rem] max-md:w-[16.75rem] max-md:mb-[0.75rem]':
+                    !forLienHePage,
+                  'mb-[0.75rem] max-md:mb-[0.5rem]': forLienHePage,
+                },
+              )}
+              dangerouslySetInnerHTML={{__html: data?.heading}}
+            ></h2>
+          </Fade>
+          <Fade
+            direction='up'
+            triggerOnce
+          >
+            <p
+              className={cn(
+                'text-[1rem] font-Iciel text-grey-500 font-normal leading-[150%] max-md:block max-md:text-[0.875rem] max-md:text-justify max-md:mb-0',
+                {
+                  'max-md:w-[18.375rem] mb-10': !forLienHePage,
+                  'mb-0 md:mb-10': forLienHePage,
+                },
+              )}
+            >
+              {data?.description}
+            </p>
+          </Fade>
         </div>
         <div
           className={cn('max-md:w-full pt-2 max-md:pt-0', {
@@ -271,19 +284,24 @@ export default function Support({
               'max-md:mt-[2.25rem]': !forLienHePage,
             })}
           >
-            <Button
-              isHover={true}
-              text={isLoading ? 'ĐANG GỬI...' : 'GỬI THÔNG TIN'}
-              isLoading={isLoading}
-              isBlack={true}
-              className={`bg-transparent ${
-                pathname === '/thang-may-nhat-ban'
-                  ? 'max-md:bg-transparent max-md:border-c-nht '
-                  : 'max-md:bg-yellow-500 max-md:border-none'
-              } `}
-              onClick={handleSubmit}
-              isRed={pathname === '/thang-may-nhat-ban' ? true : false}
-            ></Button>
+            <Fade
+              direction='up'
+              triggerOnce
+            >
+              <Button
+                isHover={true}
+                text={isLoading ? 'ĐANG GỬI...' : 'GỬI THÔNG TIN'}
+                isLoading={isLoading}
+                isBlack={true}
+                className={`bg-transparent ${
+                  pathname === '/thang-may-nhat-ban'
+                    ? 'max-md:bg-transparent max-md:border-c-nht '
+                    : 'max-md:bg-yellow-500 max-md:border-none'
+                } `}
+                onClick={handleSubmit}
+                isRed={pathname === '/thang-may-nhat-ban' ? true : false}
+              ></Button>
+            </Fade>
           </div>
         </div>
       </div>

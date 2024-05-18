@@ -4,7 +4,6 @@ import {useEffect, useState, useRef} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
-import LangDropdown from '@/components/header/LangDropdown'
 import dynamic from 'next/dynamic'
 import GoogleTranslate from '@/components/Language'
 const DynamicModalMenuDesktop = dynamic(() => import('./ModalMenuDesktop'))
@@ -27,6 +26,11 @@ export default function HeaderDesktop({isMobile, data}) {
       }
     }
   }, [isOpenModalMenu, isMobile])
+  useEffect(() => {
+    if (!isOpenModalMenu) {
+      setActiveModalMenuLink(false)
+    }
+  }, [isOpenModalMenu])
   const handleClickModalLink = () => setIsOpenModalMenu(false)
   return (
     <>
@@ -71,7 +75,9 @@ export default function HeaderDesktop({isMobile, data}) {
           <button
             className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'
             onClick={() => {
-              setIsOpenModalMenu(!isOpenModalMenu)
+              setIsOpenModalMenu(
+                activeModalMenuLink === 'THANG MÁY NHẬT BẢN' ? false : true,
+              )
               setActiveModalMenuLink('THANG MÁY NHẬT BẢN')
             }}
           >
@@ -88,7 +94,9 @@ export default function HeaderDesktop({isMobile, data}) {
           <button
             className='flex flex-row items-center font-Iciel text-grey-900 text-1 font-medium leading-1.5 ml-10 hover-opacity py-2'
             onClick={() => {
-              setIsOpenModalMenu(!isOpenModalMenu)
+              setIsOpenModalMenu(
+                activeModalMenuLink === 'DỊCH VỤ' ? false : true,
+              )
               setActiveModalMenuLink('DỊCH VỤ')
             }}
           >
@@ -150,7 +158,7 @@ export default function HeaderDesktop({isMobile, data}) {
               <p className='text-0.75 font-Iciel text-grey-700 opacity-60 font-medium mb-[0.2rem]'>
                 Chọn ngôn ngữ
               </p>
-              <GoogleTranslate/>
+              <GoogleTranslate />
             </div>
           </div>
         </nav>

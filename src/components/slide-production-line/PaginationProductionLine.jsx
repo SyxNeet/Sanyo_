@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import {useSwiper} from 'swiper/react'
 import gsap from 'gsap'
-import {useGSAP} from '@gsap/react'
+import { useGSAP } from '@gsap/react'
 
 export default function PaginationProductionLine({activeImage, direction}) {
   const swiper = useSwiper()
@@ -151,7 +151,8 @@ export default function PaginationProductionLine({activeImage, direction}) {
             <li
               key={`pagination-bar-${i}`}
               className={clsx(
-                `pagination-bar pagination-bar-${i} grow rounded-none bg-grey-0 h-[0.125rem] md:h-[0.25rem] mx-1 md:mx-3 opacity-40`,
+                `pagination-bar pagination-bar-${i} grow rounded-none bg-grey-0 h-[0.125rem] md:h-[0.25rem] mx-1 md:mx-3`,
+                {'opacity-40': i > 0},
               )}
             />
           )

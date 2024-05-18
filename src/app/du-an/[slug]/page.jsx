@@ -7,7 +7,11 @@ import {getMeta} from '@/lib/getMeta'
 
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/du-an/${params.slug}/`)
-  return getMeta(result, `/du-an/${params.slug}`)
+  return getMeta(
+    result,
+    `/du-an/${params.slug}`,
+    'Chi tiết dự án - SANYO YUSOKI',
+  )
 }
 
 export default async function page({searchParams, params}) {
@@ -27,7 +31,7 @@ export default async function page({searchParams, params}) {
     getData(`/options/options/contactForm`),
     getDataSlug(`/elevator_project/${slug}`),
     getDataSlug(`/other_project/${slug}`),
-    getDataSlug(`/project-categories/${slug}`)
+    getDataSlug(`/project-categories/${slug}`),
   ])
   return (
     <ProjectDetails

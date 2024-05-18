@@ -13,7 +13,7 @@ export const scrollSmootherConfig = {
 }
 
 export default function GsapProvider({children, isMobile}) {
-  useChangePage()
+  // useChangePage()
   useGSAP(() => {
     ScrollSmoother.create(scrollSmootherConfig)
   }, [])
