@@ -3,7 +3,6 @@ import Dropdown from './Dropdown'
 import DropdownItem from './DropdownItem'
 
 export default function QuocGiaDropdown({
-  isMobile,
   page,
   country,
   type,
@@ -13,7 +12,7 @@ export default function QuocGiaDropdown({
   const [isOpen, setIsOpen] = useState(false)
   const fnc = () => {
     setIsLoading(true)
-    if (isMobile) {
+    if (window.innerWidth < 768) {
       setIsOpen(false)
     }
   }

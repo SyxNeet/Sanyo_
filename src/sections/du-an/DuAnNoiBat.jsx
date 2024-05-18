@@ -13,7 +13,6 @@ import DanhSachDuAnSkeleton from '@/components/danh-sach-du-an/DanhSachDuAnSkele
 import {Fade} from 'react-awesome-reveal'
 
 export default function DuAnNoiBat({
-  isMobile,
   dataDanhSachDuAn,
   dataProject,
   page,
@@ -24,7 +23,7 @@ export default function DuAnNoiBat({
   const pinRef = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    if (isMobile) {
+    if (window.innerWidth < 768) {
       gsap.to(stickyRef.current, {
         scrollTrigger: {
           trigger: stickyRef.current,
@@ -50,9 +49,9 @@ export default function DuAnNoiBat({
         },
       })
     }
-  }, [isMobile])
+  }, [])
   useGSAP(() => {
-    if (!isMobile) {
+    if (window.innerWidth > 768) {
       gsap.to(pinRef.current, {
         scrollTrigger: {
           trigger: pinRef.current,
@@ -65,9 +64,9 @@ export default function DuAnNoiBat({
         },
       })
     }
-  }, [isMobile])
+  }, [])
   useGSAP(() => {
-    if (!isMobile && !isLoading) {
+    if (window.innerWidth > 768 && !isLoading) {
       gsap.to('.du-an-item', {
         scale: 1,
         stagger: 0.12,
@@ -75,7 +74,7 @@ export default function DuAnNoiBat({
         duration: 1,
       })
     }
-  }, [page, country, type, isMobile, isLoading, dataProject])
+  }, [page, country, type, , isLoading, dataProject])
   useEffect(() => {
     setIsLoading(false)
     setTimeout(() => ScrollTrigger.refresh(), 20)
@@ -83,24 +82,22 @@ export default function DuAnNoiBat({
   return (
     <section className='section-du-an mb-[4rem] md:mb-[7rem]'>
       <div className='relative flex flex-col md:flex-row flex-nowrap px-3 md:px-[3.75rem] pt-8 md:pt-[5rem]'>
-        {!isMobile && (
-          <>
-            <Image
-              src={`/images/du-an/du-an-bg.jpg`}
-              alt=''
-              width={1920}
-              height={1080}
-              className='absolute w-full h-[66.75rem] opacity-25 top-0 left-0 object-cover -translate-y-1/4 object-right'
-            />
-            <div
-              className='absolute top-0 left-0 w-full h-[66.75rem] -translate-y-1/4'
-              style={{
-                background:
-                  'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 45.5%, rgba(255, 255, 255, 0.38) 78.5%, #FFF 100%)',
-              }}
-            />
-          </>
-        )}
+        <div className='hidden md:block'>
+          <Image
+            src={`/images/du-an/du-an-bg.jpg`}
+            alt=''
+            width={1920}
+            height={1080}
+            className='absolute w-full h-[66.75rem] opacity-25 top-0 left-0 object-cover -translate-y-1/4 object-right'
+          />
+          <div
+            className='absolute top-0 left-0 w-full h-[66.75rem] -translate-y-1/4'
+            style={{
+              background:
+                'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 45.5%, rgba(255, 255, 255, 0.38) 78.5%, #FFF 100%)',
+            }}
+          />
+        </div>
         <div
           ref={pinRef}
           className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
@@ -109,17 +106,14 @@ export default function DuAnNoiBat({
             className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 [&_p]:block'
             dangerouslySetInnerHTML={{__html: dataDanhSachDuAn.heading}}
           ></h2>
-          {!isMobile && (
-            <p className='text-grey-500 text-justify font-Iciel text-1 leading-1.5'>
-              {dataDanhSachDuAn.description}
-            </p>
-          )}
+          <p className='hidden md:block text-grey-500 text-justify font-Iciel text-1 leading-1.5'>
+            {dataDanhSachDuAn.description}
+          </p>
           <div
             ref={stickyRef}
             className='relative z-10 flex flex-row items-start w-full md:pt-6 max-md:justify-around max-md:py-2 max-md:bg-white'
           >
             <QuocGiaDropdown
-              isMobile={isMobile}
               page={page}
               country={country}
               type={type}
@@ -127,7 +121,6 @@ export default function DuAnNoiBat({
               setIsLoading={setIsLoading}
             />
             <LoaiThangMayDropdown
-              isMobile={isMobile}
               page={page}
               country={country}
               type={type}
@@ -156,7 +149,6 @@ export default function DuAnNoiBat({
                         page={page}
                         country={country}
                         type={type}
-                        isMobile={isMobile}
                       />
                     )
                   })}

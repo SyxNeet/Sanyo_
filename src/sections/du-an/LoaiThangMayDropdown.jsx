@@ -14,7 +14,7 @@ export default function LoaiThangMayDropdown({
   const [isOpen, setIsOpen] = useState(false)
   const fnc = () => {
     setIsLoading(true)
-    if (isMobile) {
+    if (window.innerWidth < 768) {
       setIsOpen(false)
     }
   }
