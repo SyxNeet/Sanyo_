@@ -94,7 +94,7 @@ export default function News({
       ) : (
         <>
           {dataPosts.events.length > 0 ? (
-            <>
+            <div>
             <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
               <div className='md:col-span-2 md:row-span-3 h-[15.65rem] md:h-[36.375rem]'>
                 {dataPosts && (
@@ -253,7 +253,7 @@ export default function News({
                 )
               })}
             </div>
-          </>
+          </div>
           ) : (
             <h3 className='py-4 text-2xl text-center font-Iciel text-grey-900'>
               Hiện tại không có bài viết nào.
