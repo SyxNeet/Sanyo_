@@ -134,7 +134,7 @@ export default function DuAnNoiBat({
             <DanhSachDuAnSkeleton />
           ) : (
             <>
-              {dataProject.total_posts > 0 ? (
+              {dataProject?.total_posts && dataProject?.total_posts > 0 ? (
                 <>
                   {dataProject?.events?.map((item, i) => {
                     return (
