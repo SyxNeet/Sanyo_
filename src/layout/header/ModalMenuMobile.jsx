@@ -26,7 +26,7 @@ export default function ModalMenuMobile({
       )}
     >
       <div className='absolute w-full h-full bg-grey-600 opacity-40'></div>
-<div className='w-[45%] bg-grey-600 px-[0.87rem] py-4 relative z-[99] max-md:w-full h-fit min-h-screen'>
+      <div className='w-[45%] bg-grey-600 px-[0.87rem] py-4 relative z-[99] max-md:w-full h-fit min-h-screen'>
         <div className='flex flex-row items-center w-full'>
           <Link
             href={`/`}
@@ -173,7 +173,7 @@ export default function ModalMenuMobile({
               data?.lien_ket_in ||
               'https://www.linkedin.com/in/sanyo-yusoki-vi%E1%BB%87t-nam-4283592a5/'
             }
-            className='block w-[2.31494rem] h-[2.31494rem] mr-[0.6rem] group'
+            className='block w-[2.31494rem] h-[2.31494rem]  mr-[0.6rem] group'
             target='_blank'
           >
             <svg
@@ -230,7 +230,7 @@ export default function ModalMenuMobile({
             </svg>
           </Link>
         </div>
-</div>
+      </div>
     </div>,
     document.body,
   )
