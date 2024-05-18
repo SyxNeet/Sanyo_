@@ -5,7 +5,10 @@ import {ScrollSmoother} from 'gsap/ScrollSmoother'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
 import clsx from 'clsx'
+import {usePathname} from 'next/navigation'
+import {regDuAnUrl} from '@/lib/reg'
 import useChangePage from '@/hooks/useChangePage'
+
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
 export const scrollSmootherConfig = {
   effects: true,
@@ -13,15 +16,26 @@ export const scrollSmootherConfig = {
 }
 
 export default function GsapProvider({children, isMobile}) {
-  // useChangePage()
+  const pathname = usePathname()
+  useChangePage()
   useGSAP(() => {
-    ScrollSmoother.create(scrollSmootherConfig)
-  }, [])
+    const scrollSmooth = ScrollSmoother.create(scrollSmootherConfig)
+    if (regDuAnUrl.test(pathname) && isMobile) {
+      scrollSmooth.kill()
+    } else {
+      const header = document.querySelector('.header')
+      header.style.opacity = 1
+      header.style.pointerEvents = 'all'
+    }
+  }, [pathname, isMobile])
   return (
     <div id='smooth-wrapper'>
       <div
         id='smooth-content'
-        className='pt-[5.5rem] max-lg:pt-[0.5rem]'
+        className={clsx('', {
+          'pt-[3.9375rem]': isMobile,
+          'pt-[5.5rem]': !isMobile,
+        })}
       >
         {children}
       </div>

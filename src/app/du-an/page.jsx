@@ -23,7 +23,8 @@ export async function generateMetadata() {
 }
 
 export default async function DanhSachDuAnPage({params, searchParams}) {
-  const {country, type, page} = searchParams
+  const {viewport, country, type, page} = searchParams
+  const isMobile = viewport.includes('mobile')
   const [dataDanhSachDuAn, dataProject] = await Promise.all([
     getDanhSachDuAn(),
     getProject(country, type, page),
@@ -35,6 +36,7 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
         <BreadcrumbLink>DANH SÁCH DỰ ÁN</BreadcrumbLink>
       </BreadcrumbContainer>
       <DuAnNoiBat
+        isMobile={isMobile}
         dataDanhSachDuAn={dataDanhSachDuAn.project}
         dataProject={dataProject}
         page={page ?? 1}
