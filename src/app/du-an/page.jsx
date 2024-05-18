@@ -36,7 +36,6 @@ export default async function DanhSachDuAnPage({params, searchParams}) {
         <BreadcrumbLink>DANH SÁCH DỰ ÁN</BreadcrumbLink>
       </BreadcrumbContainer>
       <DuAnNoiBat
-        isMobile={isMobile}
         dataDanhSachDuAn={dataDanhSachDuAn.project}
         dataProject={dataProject}
         page={page ?? 1}
