@@ -6,8 +6,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import {Autoplay} from 'swiper/modules'
 import './styles.css'
 import Link from 'next/link'
-import AOS from 'aos'
-import "aos/dist/aos.css"
+
 const SlideOnlyImagesDownloadDV = ({data}) => {
   return (
     <div className='mt-6 md:mt-[4.12rem]'>
@@ -16,16 +15,16 @@ const SlideOnlyImagesDownloadDV = ({data}) => {
           <h1
             className='font-SVNLagu text-[4rem] text-black font-semibold leading-[130%] max-md:hidden w-[50.9375rem] mb-[1.19rem] max-md:w-[18.3125rem] max-md:text-2xl max-md:mb-3 max-md:border-none [&_strong]:font-semibold [&_strong]:text-yellow-500'
             dangerouslySetInnerHTML={{__html: data?.heading}}
-            data-aos='fade-right'
+            
           ></h1>
           <span
             className='w-[40.125rem] font-Iciel text-base font-normal max-md:mt-[1rem] max-md:px-3 leading-[188%] text-justify mb-20 block max-md:w-full max-md:text-[0.875rem] max-md:text-grey-500 max-md:[&>p>strong]:text-grey-900 max-md:mb-5'
             dangerouslySetInnerHTML={{__html: data?.description}}
-            data-aos='fade-right'
+
           ></span>
           <div className='absolute block w-[4.375rem] h-16 bg-yellow-500 opacity-[0.14] bottom-0 right-0 max-md:hidden'></div>
         </div>
-        <div className='w-[30%] max-md:w-full relative overflow-hidden'   data-aos='fade-up'>
+        <div className='w-[30%] max-md:w-full relative overflow-hidden' >
           <Image src='/images/dich-vu/bgheadermb.svg' width={1000} height={1000} alt='bgheadermb' className='absolute w-full h-full object-contain top-0 -right-[36%] opacity-50'/>
           <div className='ml-28 mt-[10%] relative w-16  h-[14.3125rem] bg-slate-400  max-md:ml-3'>
             <Image
@@ -50,7 +49,7 @@ const SlideOnlyImagesDownloadDV = ({data}) => {
             </div>
             <div className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '>
               <Link
-                href={data?.link}
+                href={data?.link||''}
                 target='_blank'
                 className='uppercase font-Iciel text-base font-medium leading-[120%] mr-[0.87rem]'
               >
@@ -77,7 +76,7 @@ const SlideOnlyImagesDownloadDV = ({data}) => {
           </div>
         </div>
       </div>
-      <div className='w-full mx-auto max-w-[100rem]'  data-aos='fade-up'>
+      <div className='w-full mx-auto max-w-[100rem]' >
         <Swiper
           loop
           breakpoints={{

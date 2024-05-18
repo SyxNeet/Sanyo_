@@ -54,7 +54,7 @@ export const modalMenuService = {
   text: 'DỊCH VỤ',
   child: [
     {
-      href: '/dich-vu/thiet-ke-va-lap-dat-thang-may-theo-yeu-cau',
+      href: '/dich-vu/lap-dat-thang-may',
       src: '/images/layout/header/service.png',
       text: 'Thiết kế và lắp đặt thang máy theo yêu cầu',
     },
