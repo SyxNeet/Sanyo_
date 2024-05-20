@@ -13,6 +13,7 @@ export default function ProductionLineSection({
   data,
   justSlide = false,
 }) {
+  console.log(data)
   const [activeImage, setActiveImage] = useState(0)
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
@@ -33,7 +34,7 @@ export default function ProductionLineSection({
         </Fade>
         <Fade
           direction='left'
-          triggerOnce
+          triggerOnce={true}
         >
           <h2
             className='md:w-[65.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
@@ -41,74 +42,72 @@ export default function ProductionLineSection({
           ></h2>
         </Fade>
       </div>
-      <Fade triggerOnce>
-        <Swiper
-          slidesPerView={1}
-          effect={'fade'}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          loop
-          speed={500}
-          modules={[Autoplay, EffectFade]}
-          className='swiper-production-line'
-          onActiveIndexChange={(swiper) => {
-            setActiveImage(swiper.realIndex)
-            if (
-              previousActiveImage < swiper.realIndex ||
-              (previousActiveImage === swiper.slides.length - 1 &&
-                swiper.realIndex === 0)
-            ) {
-              setDirection('right')
-            } else if (
-              previousActiveImage > swiper.realIndex ||
-              (previousActiveImage === 0 &&
-                swiper.realIndex === swiper.slides.length - 1)
-            ) {
-              setDirection('left')
-            }
-          }}
-          onBeforeTransitionStart={(swiper) =>
-            setPreviousActiveImage(swiper.realIndex)
+      <Swiper
+        slidesPerView={1}
+        effect={'fade'}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop
+        speed={500}
+        modules={[Autoplay, EffectFade]}
+        className='swiper-production-line'
+        onActiveIndexChange={(swiper) => {
+          setActiveImage(swiper.realIndex)
+          if (
+            previousActiveImage < swiper.realIndex ||
+            (previousActiveImage === swiper.slides.length - 1 &&
+              swiper.realIndex === 0)
+          ) {
+            setDirection('right')
+          } else if (
+            previousActiveImage > swiper.realIndex ||
+            (previousActiveImage === 0 &&
+              swiper.realIndex === swiper.slides.length - 1)
+          ) {
+            setDirection('left')
           }
-        >
-          {(data?.slide || []).map((item, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <Image
-                  src={item.image.url}
-                  alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
-                  className='object-cover w-full h-full max-md:h-[26.8125rem]'
-                  width={1920}
-                  height={1080}
-                  priority
-                />
-                <div
-                  className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'
-                  style={{
-                    background:
-                      'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 60.17%, rgba(0, 0, 0, 0.50) 84.52%)',
-                  }}
-                >
-                  <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full'>
-                    <h3 className='font-SVNLagu text-grey-0 text-0.625 md:text-1.375 tracking-0.1 font-semibold text-center mb-1 md:mb-2'>
-                      {item.heading}
-                    </h3>
-                    <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0'>
-                      {item.description}
-                    </h2>
-                  </div>
+        }}
+        onBeforeTransitionStart={(swiper) =>
+          setPreviousActiveImage(swiper.realIndex)
+        }
+      >
+        {(data || []).map((item, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <Image
+                src={item.image.url}
+                alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
+                className='object-cover w-full h-full max-md:h-[26.8125rem]'
+                width={1920}
+                height={1080}
+                priority
+              />
+              <div
+                className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 60.17%, rgba(0, 0, 0, 0.50) 84.52%)',
+                }}
+              >
+                <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full'>
+                  <h3 className='font-SVNLagu text-grey-0 text-0.625 md:text-1.375 tracking-0.1 font-semibold text-center mb-1 md:mb-2'>
+                    {item.heading}
+                  </h3>
+                  <h2 className='font-SVNLagu text-1.125 md:text-3 font-semibold leading-1.4 text-center text-grey-0'>
+                    {item.description}
+                  </h2>
                 </div>
-              </SwiperSlide>
-            )
-          })}
-          <PaginationProductionLine
-            activeImage={activeImage}
-            direction={direction}
-          />
-        </Swiper>
-      </Fade>
+              </div>
+            </SwiperSlide>
+          )
+        })}
+        <PaginationProductionLine
+          activeImage={activeImage}
+          direction={direction}
+        />
+      </Swiper>
     </section>
   )
 }
