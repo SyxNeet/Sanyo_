@@ -4,6 +4,20 @@ import getDataSlug from '@/lib/getDataSlug'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
 
+export async function generateStaticParams() {
+  return [
+    {slug: 'thang-may-gia-dinh'},
+    {slug: 'thang-may-tai-khach'},
+    {slug: 'thang-may-tai-hang'},
+    {slug: 'thang-may-quan-sat'},
+    {slug: 'thang-may-benh-vien'},
+    {slug: 'thang-tai-o-to'},
+    {slug: 'thang-tai-thuc-pham'},
+    {slug: 'thang-cuon'},
+    {slug: 'thang-bang-chuyen'},
+  ]
+}
+
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/type_elavator/${params.slug}/`)
   return getMeta(

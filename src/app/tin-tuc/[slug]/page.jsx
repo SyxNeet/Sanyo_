@@ -26,6 +26,13 @@ async function getElevatorBySlug(slug) {
   return getData(`/elavator_by_slug/${slug}`, 'okhub')
 }
 
+export async function generateStaticParams() {
+  const posts = await getData('/all_posts', 'okhub')
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/${params.slug}/`)
   return getMeta(
