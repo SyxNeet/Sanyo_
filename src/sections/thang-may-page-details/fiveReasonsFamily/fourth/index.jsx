@@ -106,7 +106,7 @@ const FourthReason = ({lang, isMobile,data}) => {
         </div>
         <div className='w-[50%]  relative max-md:w-full'>
           <div className='pt-[3.12rem] pl-[3.94rem] pr-[6.37rem] pb-[7rem] max-md:px-3 max-md:py-0 max-md:pt-[3.5rem]'>
-   <Fade direction='right' triggerOnce={true}>
+   <Fade direction='up' triggerOnce={true}>
               <h3
                 className={`font-SVNLagu text-[3.125rem] leading-1.3 font-semibold w-[31.125rem] mb-[0.75rem] max-md:text-[1.25rem]`}
               >

@@ -85,7 +85,7 @@ export default function DuAnNoiBat({
         <div className='hidden md:block'>
           <Image
             src={`/images/du-an/du-an-bg.jpg`}
-            alt=''
+            alt='background image'
             width={1920}
             height={1080}
             className='absolute w-full h-[66.75rem] opacity-25 top-0 left-0 object-cover -translate-y-1/4 object-right'

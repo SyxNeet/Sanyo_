@@ -83,7 +83,7 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
               </Fade>
             )}
             <Fade
-              direction='down'
+              direction='up'
               triggerOnce
             >
               <h2 className='font-SVNLagu text-[1.25rem] uppercase font-medium leading-1.5 mb-[1.56rem] text-[#484F57] opacity-80 max-md:text-[0.625rem] max-md:mb-2'>
@@ -91,7 +91,7 @@ const LeadershipMessage = forwardRef(({isMobile, data}, ref) => {
               </h2>
             </Fade>
             <Fade
-              direction='right'
+              direction='up'
               triggerOnce
             >
               <h3

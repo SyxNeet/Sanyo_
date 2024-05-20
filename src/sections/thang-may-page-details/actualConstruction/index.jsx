@@ -11,7 +11,7 @@ const ActualConstruction = ({isMobile, data, heading}) => {
       <div className='absolute top-0 right-0 w-[4rem] h-[2.3125rem] bg-yellow-500 opacity-10'></div>
       <div className='absolute top-[2.3125rem] right-[4rem] w-[1rem] h-[1rem] bg-yellow-500 opacity-10'></div>
       <Fade
-        direction='down'
+        direction='up'
         triggerOnce={true}
       >
         <h2

@@ -9,8 +9,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
-import {useState,useEffect} from 'react'
-import AOS from 'aos'
+import {useState} from 'react'
 import "aos/dist/aos.css"
 export default function ProductionLineSectionDV({
   isMobile,
@@ -39,9 +38,7 @@ export default function ProductionLineSectionDV({
           className={`text-grey-500 font-SVNLagu text-0.625 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80 mb-2 md:mb-5 ${
             justSlide ? 'hidden' : 'block'
           }`} dangerouslySetInnerHTML={{__html: data?.heading}}
-
-        >
-         
+        >       
         </h3>
         <h2
           className='md:w-[66.8125rem] font-SVNLagu text-1.125 md:text-2.25 font-semibold leading-1.4 [&_strong]:font-semibold [&_strong]:text-yellow-500'
@@ -57,10 +54,6 @@ export default function ProductionLineSectionDV({
         <Swiper
           slidesPerView={1}
           effect={'fade'}
-          //   autoplay={{
-          //     delay: 3000,
-          //     disableOnInteraction: false,
-          //   }}
           pagination={{
             el: '.swiper-pagination-procedure-pl',
             type: 'fraction',
@@ -130,7 +123,7 @@ export default function ProductionLineSectionDV({
           />
         </Swiper>
         <div className=' flex w-full justify-between absolute top-[45%] z-50 px-8'>
-          <div className='flex w-full justify-between'>
+          <div className='flex justify-between w-full'>
             <ButtonSLide
               className={
                 ' swiper-button-prev-procedure-pl border-[#fff] bg-white transition ease-in cursor-pointer w-[3.5rem] h-[3.5rem] mr-[0.75rem] md:hover:border-white md:hover:bg-yellow-500 max-md:bg-white max-md:border-white max-md:w-[2.5rem] max-md:h-[2.5rem]'

@@ -17,7 +17,7 @@ const ConnectLove = ({data}) => {
         className='absolute w-full h-full object-cover -z-10'
       />
       <div className='flex pl-[6.25rem] max-md:px-3 max-md:pb-4'>
-<Fade direction='left' triggerOnce={true}>
+<Fade direction='up' triggerOnce={true}>
           <div className='w-fit pt-[5.06rem] max-md:hidden'>
             <h3 className='uppercase font-SVNLagu text-xl font-medium leading-1.5 tracking-[0.1rem]  mb-[9.56rem] w-[23.5rem] '>
               {data?.sub_title}
@@ -40,7 +40,7 @@ const ConnectLove = ({data}) => {
           </div>
 </Fade>
      <Fade triggerOnce={true}>   <div className='w-[0.0625rem] h-[26.3125rem] bg-[rgba(28,32,28,0.10)] mx-[4.81rem] max-md:hidden'></div></Fade>
-<Fade direction='right' triggerOnce={true}>
+<Fade direction='up' triggerOnce={true}>
           <div className='w-[44.875rem] pt-[3.37rem]'>
             <h2 className='font-SVNLagu text-[3.415rem] font-semibold leading-1.3 text-grey-900 mb-[0.94rem] max-md:text-[1.5rem] max-md:mb-[0.62rem] [&>p>strong]:text-yellow-500 [&>p>strong]:font-semibold max-md:w-[20rem]' dangerouslySetInnerHTML={{__html:data?.heading}}></h2>
             <span className='text-justify font-Iciel text-[1.125rem] font-normal leading-1.5 max-md:text-[0.875rem] text-grey-900 block max-md:w-[21.875rem]'> 

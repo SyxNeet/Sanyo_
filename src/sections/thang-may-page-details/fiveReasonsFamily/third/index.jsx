@@ -23,7 +23,7 @@ const ThirdReason = ({lang, isMobile,data}) => {
           height={1000}
           className='md:hidden absolute top-[10%] left-0 -z-10 w-full h-full object-cover'
         />
-<Fade direction='left' triggerOnce={true}>
+<Fade direction='up' triggerOnce={true}>
             <h2 className='pt-[8.25rem] pl-[5.19rem] text-[3.125rem] text-gray-900 font-SVNLagu font-semibold leading-1.3 mb-[2.94rem] max-md:px-3 max-md:py-0 max-md:text-[1.25rem] max-md:pt-[2.5rem] max-md:mb-8'>
             <span className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2 md:hidden'>3. </span>{data?.heading} 
             </h2>

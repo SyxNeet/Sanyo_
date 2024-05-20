@@ -32,7 +32,7 @@ const FirstReason = ({lang, isMobile, data}) => {
         ref={endRef}
       >
         <div className='absolute w-[9.375rem] h-[5.5625rem] bg-yellow-500 opacity-10 top-0 -right-[1rem] -z-[1] max-md:hidden'></div>
-        <Fade direction='left' triggerOnce>
+        <Fade direction='up' triggerOnce>
           <div className='pl-[6.37rem] pt-[3rem] pr-[5.19rem] pb-12 max-md:px-4 max-md:pt-0 max-md:pb-[2rem]'>
             <h3 className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2'>
               <span className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold mb-[1.5rem] max-md:text-[1.25rem] max-md:mb-2 md:hidden'>
@@ -83,7 +83,7 @@ const FirstReason = ({lang, isMobile, data}) => {
         </Fade>
       </div>
       <div className='w-[50%] max-md:w-full max-md:relative overflow-visible'>
-<Fade triggerOnce={true} direction='right'>
+<Fade triggerOnce={true} direction='up'>
           <Image
             ref={imageRef}
             src={data?.image?.url}

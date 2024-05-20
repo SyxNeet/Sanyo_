@@ -10,7 +10,7 @@ export default function PartnerSection({isMobile, data}) {
       {!isMobile && (
         <Image
           src={`/images/about-us/doi-tac-background-img.png`}
-          alt={``}
+          alt={`background image`}
           className='absolute hidden object-cover w-full h-full md:block -z-10'
           width={1920}
           height={1080}
@@ -19,7 +19,7 @@ export default function PartnerSection({isMobile, data}) {
       {isMobile && (
         <Image
           src={`/images/about-us/doi-tac-background-img-mobile.png`}
-          alt={``}
+          alt={`background image`}
           className='absolute block object-cover w-full h-full md:hidden -z-10'
           width={1920}
           height={1080}
@@ -27,7 +27,7 @@ export default function PartnerSection({isMobile, data}) {
       )}
       <div className='absolute top-[3.37rem] md:top-[5rem] left-1/2 -translate-x-1/2'>
         <Fade
-          direction='down'
+          direction='up'
           triggerOnce
         >
           <h3 className='font-SVNLagu font-medium leading-1.5 tracking-0.1 text-0.625 md:text-1.25 text-gray-500 text-center mb-[0.59rem] md:mb-4 uppercase opacity-80'>

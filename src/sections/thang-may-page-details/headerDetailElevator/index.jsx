@@ -29,7 +29,7 @@ const HeaderDetailElevator = ({data, title}) => {
             <div className='pl-[6.25rem] w-[65.875rem] max-md:px-3 max-md:w-full'>
               <Fade
                 triggerOnce
-                direction='down'
+                direction='up'
               >
                 <div className='relative'>
                   <h1
@@ -49,7 +49,7 @@ const HeaderDetailElevator = ({data, title}) => {
                 </div>
               </Fade>
               <Fade
-                direction='left'
+                direction='up'
                 triggerOnce
               >
                 <span
@@ -114,7 +114,7 @@ const HeaderDetailElevator = ({data, title}) => {
           </div>
         </div>
         <Fade
-          direction='right'
+          direction='up'
           triggerOnce
         >
           <div className='w-[30%] max-md:hidden'>

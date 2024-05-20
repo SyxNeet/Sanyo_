@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import './style.css'
 
-export default function News({isMobile,data}) {
+export default function News({isMobile, data}) {
   const listNews = data
   return (
     <section className='md:pt-[5.44rem] md:px-[4.69rem] pt-[2.94rem] '>
@@ -20,21 +20,27 @@ export default function News({isMobile,data}) {
           Dòng chảy <span className='text-yellow-500'>SANYO YUSOKI</span>
         </h2>
         <Link href={'/tin-tuc'}>
-        <Button
-          className='h-[3.5rem] max-md:hidden'
-          isHover={true}
-          isBlack={true}
-          text={'XEM TẤT CẢ'}
-        />
+          <Button
+            className='h-[3.5rem] max-md:hidden'
+            isHover={true}
+            isBlack={true}
+            text={'XEM TẤT CẢ'}
+          />
         </Link>
       </div>
 
       {!isMobile && (
         <div className='flex justify-between max-md:hidden'>
-          <Link href={`/tin-tuc/${listNews?.posts[0]?.post_slug}`} className='w-[61.5rem] news_item_home h-[36rem] flex rounded-[0.625rem] mr-[2rem] overflow-hidden group' >
+          <Link
+            href={`/tin-tuc/${listNews?.posts[0]?.post_slug}`}
+            className='w-[61.5rem] news_item_home h-[36rem] flex rounded-[0.625rem] mr-[2rem] overflow-hidden group'
+          >
             <Link href={`/tin-tuc/${listNews?.posts[0]?.post_slug}`}>
               <Image
-                src={listNews?.posts[0]?.thumbnail||'/images/home/danhSachTinTuc/imgNews2.png'}
+                src={
+                  listNews?.posts[0]?.thumbnail ||
+                  '/images/home/danhSachTinTuc/imgNews2.png'
+                }
                 alt='image'
                 quality={100}
                 width={1000}
@@ -52,7 +58,7 @@ export default function News({isMobile,data}) {
                   alt='icon'
                   className='itemnewsHome w-[1.1rem] h-[1.2rem] absolute top-[17%] left-[29%] object-cover group-hover:left-[68%] max-md:group-hover:left-[29%]'
                 />
-                  <Image
+                <Image
                   src={'/images/home/danhSachTinTuc/arrow.svg'}
                   width={120}
                   height={120}
@@ -69,17 +75,17 @@ export default function News({isMobile,data}) {
                   className='w-[0.75rem] h-[0.75rem] object-cover'
                 />
                 <span className='text-white font-Iciel text-[0.75rem] leading-1.3 ml-[0.25rem]'>
-                 {listNews?.posts[0]?.date}
+                  {listNews?.posts[0]?.date}
                 </span>
               </div>
 
               <h3 className='w-[16.125rem] pb-[1.88rem] mb-[1.81rem] border-b-[1px] solid border-[#555B61]  text-ellipsis line-clamp-4 text-white font-Iciel text-[1.3125rem] font-medium leading-1.4 uppercase'>
                 <Link href={`/tin-tuc/${listNews?.posts[0]?.post_slug}`}>
-                {listNews?.posts[0]?.title}
+                  {listNews?.posts[0]?.title}
                 </Link>
               </h3>
               <p className='pr-[1.44rem] text-white text-ellipsis line-clamp-[9] font-Iciel leading-1.7 lg:text-[0.875rem] opacity-70 text-[1.3rem] '>
-              {listNews?.posts[0]?.description}
+                {listNews?.posts[0]?.description}
               </p>
             </div>
           </Link>
@@ -99,7 +105,7 @@ export default function News({isMobile,data}) {
           <Swiper
             navigation={false}
             className='mySwiperNewsHome'
-            slidesPerView={1.6}
+            slidesPerView={1.4}
             spaceBetween={0}
           >
             {listNews?.posts?.map((item, index) => (
