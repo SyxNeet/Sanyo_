@@ -8,10 +8,13 @@ import GsapProvider from '@/components/gsap/GsapProvider'
 import {headers} from 'next/headers'
 import {Toaster} from '@/components/ui/sonner'
 import FixedLayout from '@/layout/3-nut-noi/FixedLayout'
+import LoadingBarProvider from '@/components/loading-bar/LoadingBarProvider'
+
 export const metadata = {
   title: 'Sanyo YUSOKI',
   description: 'Sanyo YUSOKI by create FINNTVD',
 }
+
 const svnLaguSans = localFont({
   src: [
     {
@@ -87,10 +90,10 @@ export default function RootLayout({children, params}) {
   const headersList = headers()
   const userAgent = headersList.get('user-agent')
   const isMobile =
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini|MyDevice/i.test(
-    userAgent,
-  )
-    const isTablet =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|ZaloTheme|FB_IAB|Opera Mini|MyDevice/i.test(
+      userAgent,
+    )
+  const isTablet =
     /iPad|Tablet|Macintosh|Playbook|Nexus 7|Nexus 10|SM-T|GT-P|Galaxy Tab|Kindle/i.test(
       userAgent,
     )
@@ -101,25 +104,26 @@ export default function RootLayout({children, params}) {
         suppressContentEditableWarning={true}
         className={`${icielSteradian.className} ${icielSteradian.variable} ${svnLaguSans.variable} antialiased `}
       >
-        <Header
-          isMobile={isMobile}
-          isTablet={isTablet}
-        />
-
+        <LoadingBarProvider>
+          <Header
+            isMobile={isMobile}
+            isTablet={isTablet}
+          />
           <GsapProvider isMobile={isMobile}>
             {children}
             <Footer isMobile={isMobile} />
           </GsapProvider>
-        <FixedLayout isMobile={isMobile} />
-        <Toaster
-          expand={true}
-          toastOptions={{
-            className: 'toast',
-            duration: 3000,
-            position: 'bottom-right',
-            closeButton: true,
-          }}
-        />
+          <FixedLayout isMobile={isMobile} />
+          <Toaster
+            expand={true}
+            toastOptions={{
+              className: 'toast',
+              duration: 3000,
+              position: 'bottom-right',
+              closeButton: true,
+            }}
+          />
+        </LoadingBarProvider>
       </body>
     </html>
   )

@@ -11,7 +11,7 @@ const SlideOnlyImagesDownload = ({data}) => {
       <div className='flex px-[6.25rem] max-md:w-full max-md:px-3'>
         <div className='relative w-[70%] border-r max-md:w-full max-md:border-none '>
           <Fade
-            direction='left'
+            direction='up'
             triggerOnce
           >
             <h1
@@ -34,7 +34,7 @@ const SlideOnlyImagesDownload = ({data}) => {
         <div className='w-[30%] max-md:hidden'>
           <div className='ml-28 mt-[10%] relative w-16  h-[14.3125rem]'>
             <Fade
-              direction='left'
+              direction='up'
               triggerOnce
               className='absolute top-0 left-0 object-fill w-full h-full'
             >
@@ -49,7 +49,7 @@ const SlideOnlyImagesDownload = ({data}) => {
             </Fade>
             <div className='absolute flex flex-col w-56 left-[106%] bottom-[46%]'>
               <Fade
-                direction='down'
+                direction='up'
                 triggerOnce
               >
                 <span className='font-SVNLagu text-base font-medium leading-1.4 uppercase mb-[0.12rem]'>
@@ -57,7 +57,7 @@ const SlideOnlyImagesDownload = ({data}) => {
                 </span>
               </Fade>
               <Fade
-                direction='down'
+                direction='up'
                 triggerOnce
               >
                 <span className='font-SVNLagu text-[1.68588rem] font-extrabold leading-1.4 text-gray-900'>

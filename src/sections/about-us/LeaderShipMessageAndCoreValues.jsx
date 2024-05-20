@@ -233,7 +233,7 @@ export default function LeaderShipMessageAndCoreValues({
               spaceBetween={
                 isClient ? (window.innerWidth / 100) * 4.267 * 0.75 : 0
               }
-              speed={800}
+              speed={400}
               slidesPerView='auto'
               className='swiper-core-values'
               onActiveIndexChange={(swiper) => {

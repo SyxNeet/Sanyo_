@@ -72,6 +72,7 @@ export default async function AboutUsPage({params, searchParams}) {
       <ProductionLineSection
         isMobile={isMobile}
         data={dataService.service}
+        kKao4
       />
       <PartnerSection
         isMobile={isMobile}

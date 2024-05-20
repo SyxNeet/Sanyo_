@@ -5,19 +5,18 @@ import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import ButtonSLide from '@/components/buttonSlideSixReasons/ButtonSLide'
 import {Fade} from 'react-awesome-reveal'
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-// import required modules
 import {Navigation} from 'swiper/modules'
 import './styles.css'
+
 const DetailElevator = ({type = false, data, title, isJapan = false}) => {
   return (
     <div
       className={`flex border-t border-b border-[rgba(28,32,28,0.10)] detailElevator ${
         type
           ? 'justify-between'
-          : 'flex-row-reverse w-ful justify-end  border-t-0'
+          : 'flex-row-reverse w-full justify-end border-t-0'
       } `}
     >
       <div
@@ -26,7 +25,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
         }`}
       >
         <Fade
-          direction='left'
+          direction='up'
           triggerOnce={true}
         >
           <h3 className='mb-1 text-xl font-medium tracking-widest uppercase font-SVNLagu text-grey-500 opacity-80'>
@@ -61,7 +60,11 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
             })}
           </div>
         </Fade>
-  <Fade direction='up' fraction={0} triggerOnce={true}>
+        <Fade
+          direction='up'
+          fraction={0}
+          triggerOnce={true}
+        >
           <table className='mb-[3.12rem]'>
             <tbody>
               <tr>
@@ -205,8 +208,12 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
               </tr>
             </tbody>
           </table>
-  </Fade>
- <Fade direction='up' fraction={0} triggerOnce={true}>
+        </Fade>
+        <Fade
+          direction='up'
+          fraction={0}
+          triggerOnce={true}
+        >
           <Link
             className='linkdowloadDE flex px-[2.44rem] bg-yellow-500 items-center w-fit rounded-full mb-[3.23rem]'
             href={`${data?.thong_so?.link}`}
@@ -232,16 +239,20 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
               />
             </div>
           </Link>
- </Fade>
+        </Fade>
       </div>
 
-        <div
-          className={`w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ${
-            !type ? 'mr-[5.81rem] ml-[6.25rem]' : 'mr-[5.69rem] ml-[2.69rem] '
-          }`}
-        ></div>
+      <div
+        className={`w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ${
+          !type ? 'mr-[5.81rem] ml-[6.25rem]' : 'mr-[5.69rem] ml-[2.69rem] '
+        }`}
+      ></div>
 
-<Fade triggerOnce={true} direction='right' fraction={0}>
+      <Fade
+        triggerOnce={true}
+        direction='up'
+        fraction={0}
+      >
         <div
           className={`pt-[3.5rem] ${
             data?.thong_so?.image.length > 1 ||
@@ -276,7 +287,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
             <Swiper
               dir={!type ? 'rtl' : undefined}
               spaceBetween={30}
-              speed={800}
+              speed={400}
               navigation={{
                 nextEl: type
                   ? `.swiper-button-next-CTtm${data.id}`
@@ -339,7 +350,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
             </div>
           )}
         </div>
-</Fade>
+      </Fade>
     </div>
   )
 }

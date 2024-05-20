@@ -68,7 +68,7 @@ export default function Achieved({isMobile, data}) {
           )}
           {!isMobile && (
             <Fade
-              direction='down'
+              direction='up'
               triggerOnce
             >
               <h3

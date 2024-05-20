@@ -34,7 +34,7 @@ export default function News({
     <section className='pb-[3.12rem] md:pb-[6.5rem] mt-[2rem] md:mt-[4.12rem]'>
       <div className='flex flex-col mb-5 md:flex-row md:items-center md:mb-8'>
         <Fade
-          direction='left'
+          direction='up'
           triggerOnce
         >
           <h1
@@ -43,7 +43,7 @@ export default function News({
           ></h1>
         </Fade>
         <Fade
-          direction='right'
+          direction='up'
           triggerOnce
           className='ml-auto'
         >

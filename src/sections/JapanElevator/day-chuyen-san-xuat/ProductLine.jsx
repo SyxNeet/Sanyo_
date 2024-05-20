@@ -18,7 +18,7 @@ const ProductLine = ({data, isMobile}) => {
         <div className='border-r-[1px] border-[rgba(28,32,28,0.10)] pb-[5.38rem] pr-[6.63rem] max-md:border-none max-md:px-0 max-md:pb-5'>
           <Slide
             triggerOnce={true}
-            direction='left'
+            direction='up'
           >
             <h2
               className='w-[50.0625rem] font-SVNLagu text-[3.125rem] font-semibold leading-1.3 mb-[2.06rem] max-md:hidden [&>p>strong]:text-c-nht [&>p>strong]:font-semibold  [&>p>font>strong>font]:text-c-nht'
@@ -31,7 +31,7 @@ const ProductLine = ({data, isMobile}) => {
           ></h2>
           <Slide
             triggerOnce={true}
-            direction='left'
+            direction='up'
           >
             <span
               className='w-[47.875rem] block font-Iciel text-[1.125rem] font-normal leading-1.7 max-md:text-[0.75rem] uppercase max-md:capitalize max-md:w-full text-[#6D7279] '

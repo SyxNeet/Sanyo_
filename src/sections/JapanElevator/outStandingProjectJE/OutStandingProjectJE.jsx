@@ -46,7 +46,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
             ></h2>
           </div>
         ) : (
-<Fade direction='left' triggerOnce={true}>
+<Fade direction='up' triggerOnce={true}>
             <div className=''>
               <h2
                 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'

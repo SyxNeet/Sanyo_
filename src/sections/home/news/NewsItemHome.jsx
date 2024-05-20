@@ -37,7 +37,7 @@ function NewsItemHome({className, data}) {
         </div>
       </Link>
 
-      <div className='md:pl-[1.19rem] md:pb-[1.5rem] relative max-md:px-3 max-md:mb-[1.13rem]'>
+      <div className='md:pl-[1.19rem] md:pb-[1.5rem] relative max-md:mx-3 max-md:mb-[1.13rem] z-20 bg-transparent'>
         <div className='flex items-center mb-[0.5rem]'>
           <Image
             src={'/images/home/danhSachTinTuc/callendar.svg'}
@@ -46,14 +46,21 @@ function NewsItemHome({className, data}) {
             height={120}
             className='w-[0.75rem] h-[0.75rem] object-cover'
           />
-          <span className='text-white font-Iciel lg:text-[0.75rem] text-[1.3rem] leading-1.3 ml-[0.25rem]'>
+          <span className='text-white font-Iciel text-[0.625rem] lg:text-[1.3rem] leading-1.3 ml-[0.25rem]'>
             {data?.date}
           </span>
         </div>
-        <h3 className='text-white font-Iciel lg:text-[0.875rem] text-[1.3rem] font-medium leading-1.5 md:w-[17.5rem] line-clamp-2 text-ellipsis'>
+        <h3 className='text-white font-Iciel text-[0.875rem] lg:text-[1.3rem] font-medium leading-1.5 md:w-[17.5rem] line-clamp-2 text-ellipsis'>
           <Link href={`tin-tuc/${data.post_slug}`}>{data.title}</Link>
         </h3>
       </div>
+      <Image
+        src={'/images/home/danhSachTinTuc/bg-deco.svg'}
+        alt='background deco'
+        className='absolute bottom-0 left-0 z-10 object-cover w-full'
+        width={120}
+        height={120}
+      />
     </div>
   )
 }

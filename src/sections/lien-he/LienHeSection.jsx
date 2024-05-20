@@ -19,7 +19,7 @@ export default function LienHeSection({isMobile, data}) {
           </Fade>
           <div className='mt-4 md:mt-[1.75rem] grid grid-cols-1 gap-1 md:gap-3'>
             <Fade
-              direction='right'
+              direction='up'
               cascade
               triggerOnce
               damping={0.1}

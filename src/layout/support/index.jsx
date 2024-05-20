@@ -152,7 +152,7 @@ export default function Support({
           })}
         >
           <Fade
-            direction='down'
+            direction='up'
             triggerOnce
           >
             <h2

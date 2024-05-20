@@ -176,7 +176,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
               className='size-full object-cover z-[-1] absolute inset-0'
             />
             <div className='relative md:top-[6.25rem] lg:top-[4.25rem] md:left-[4.06rem] '>
-              <div className='flex flex-col md:flex-row items-center'>
+              <div className='flex flex-col md:flex-row md:items-center'>
                 <div className='overflow-hidden h-max'>
                   <h2
                     className='text-2 md:text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'

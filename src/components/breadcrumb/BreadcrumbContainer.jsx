@@ -6,7 +6,7 @@ import {Fade} from 'react-awesome-reveal'
 export default function BreadcrumbContainer({children, className}) {
   return (
     <Fade
-      direction='down'
+      direction='up'
       triggerOnce
       className='relative z-10'
     >
