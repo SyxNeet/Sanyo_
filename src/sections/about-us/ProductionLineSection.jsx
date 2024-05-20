@@ -13,7 +13,6 @@ export default function ProductionLineSection({
   data,
   justSlide = false,
 }) {
-  console.log(data)
   const [activeImage, setActiveImage] = useState(0)
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
@@ -73,7 +72,7 @@ export default function ProductionLineSection({
           setPreviousActiveImage(swiper.realIndex)
         }
       >
-        {(data || []).map((item, i) => {
+        {data.slide.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Image
