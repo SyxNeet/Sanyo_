@@ -263,7 +263,7 @@ export default function ModalMenuDesktop({
             <button className='relative w-[20.4375rem] h-[5.3125rem] flex flex-row justify-center items-center hover-opacity flex-none ml-[20rem]'>
               <Image
                 src={`/images/layout/header/contact-now.svg`}
-                alt=''
+                alt='contact us'
                 className='absolute top-0 left-0 object-cover w-full h-full -z-10'
                 width={120}
                 height={120}
@@ -277,7 +277,7 @@ export default function ModalMenuDesktop({
               </Link>
               <Image
                 src={`/images/layout/header/arrow-right-white.svg`}
-                alt=''
+                alt='icon'
                 className='w-[0.95rem] h-[1.05rem] ml-3'
                 width={120}
                 height={120}

@@ -96,7 +96,7 @@ export default function DetailNew({isMobile, data}) {
         >
           <Image
             src={`/images/tin-tuc/facebook.svg`}
-            alt=''
+            alt='facebook'
             width={120}
             height={120}
             className='mr-[0.375rem] md:mr-2 size-8'
@@ -110,7 +110,7 @@ export default function DetailNew({isMobile, data}) {
         >
           <Image
             src={`/images/tin-tuc/copy.svg`}
-            alt=''
+            alt='copy'
             width={120}
             height={120}
             className='size-7'

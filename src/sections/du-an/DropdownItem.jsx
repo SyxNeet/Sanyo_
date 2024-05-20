@@ -32,7 +32,7 @@ export default function DropdownItem({
             <Image
               src={`/images/du-an/checkmark.svg`}
               className='absolute top-0 left-0 size-full'
-              alt=''
+              alt='checkmark icon'
               width={120}
               height={120}
             />

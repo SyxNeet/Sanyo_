@@ -10,7 +10,7 @@ export default function PartnerSection({isMobile, data}) {
       {!isMobile && (
         <Image
           src={`/images/about-us/doi-tac-background-img.png`}
-          alt={``}
+          alt={`background image`}
           className='absolute hidden object-cover w-full h-full md:block -z-10'
           width={1920}
           height={1080}
@@ -19,7 +19,7 @@ export default function PartnerSection({isMobile, data}) {
       {isMobile && (
         <Image
           src={`/images/about-us/doi-tac-background-img-mobile.png`}
-          alt={``}
+          alt={`background image`}
           className='absolute block object-cover w-full h-full md:hidden -z-10'
           width={1920}
           height={1080}

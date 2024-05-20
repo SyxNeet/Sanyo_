@@ -49,10 +49,10 @@ export default function DuAnItem({
                 width={120}
                 height={120}
                 className='mr-6 opacity-0 size-[0.8rem] md:size-5 group-hover:opacity-100 transition-500'
-                alt='icon'
+                alt='previous slide'
               />
               <Image
-                alt='icon'
+                alt='next slide'
                 src='/images/du-an/plus.svg'
                 width={120}
                 height={120}

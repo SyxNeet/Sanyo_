@@ -126,7 +126,7 @@ export default function Support({
         <>
           <Image
             src={`/images/support/support-bg-mobile.png`}
-            alt=''
+            alt='background image'
             className='absolute top-0 left-0 w-full h-[31.5rem] object-cover opacity-10'
             width={1920}
             height={1080}

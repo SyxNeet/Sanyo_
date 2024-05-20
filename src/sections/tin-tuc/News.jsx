@@ -104,7 +104,7 @@ export default function News({
                     >
                       <Image
                         src={dataPosts.events[0].feature_image}
-                        alt=''
+                        alt={dataPosts.events[0].excerpt}
                         className='absolute top-0 left-0 object-cover w-full h-full group-hover:scale-110 transition-500'
                         width={1920}
                         height={1080}
@@ -114,7 +114,7 @@ export default function News({
                         <div className='flex flex-row items-center mb-[0.39rem] md:mb-4'>
                           <Image
                             src={`/images/tin-tuc/calendar.svg`}
-                            alt=''
+                            alt='thông tin ngày đăng'
                             className='size-[0.785rem] md:size-[0.875rem] mr-1 md:mr-2'
                             width={120}
                             height={120}
@@ -144,7 +144,7 @@ export default function News({
                           <div className='size-[8rem] md:size-[9.3125rem] overflow-hidden rounded-[0.5rem] flex-none'>
                             <Image
                               src={item.feature_image}
-                              alt=''
+                              alt={item.excerpt}
                               className='size-full object-cover
                           rounded-[0.5rem] group-hover:scale-[1.15] transition-500'
                               width={1920}
@@ -161,7 +161,7 @@ export default function News({
                             <div className='flex flex-row items-center'>
                               <Image
                                 src={`/images/tin-tuc/calendar-black.svg`}
-                                alt=''
+                                alt='thông tin ngày đăng'
                                 className='size-[0.785rem] md:size-[0.875rem] mr-1 md:mr-2'
                                 width={120}
                                 height={120}
@@ -205,7 +205,7 @@ export default function News({
                       <div className='max-md:size-[8rem] rounded-t-[0.5rem] flex-none md:h-[60%] overflow-hidden'>
                         <Image
                           src={item.feature_image}
-                          alt=''
+                          alt={item.excerpt}
                           width={1920}
                           height={1080}
                           className='h-full object-cover w-full group-hover:scale-[1.15] transition-500'
@@ -221,7 +221,7 @@ export default function News({
                         <div className='flex flex-row items-center'>
                           <Image
                             src={`/images/tin-tuc/calendar-black.svg`}
-                            alt=''
+                            alt={'thông tin ngày đăng'}
                             width={120}
                             height={120}
                             className='size-[0.785rem] md:size-[0.875rem]'

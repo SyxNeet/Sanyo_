@@ -123,7 +123,7 @@ export default function HeaderDesktop({isMobile, data}) {
             <div className='flex flex-col items-center'>
               <Image
                 src={`/images/layout/header/logo-name.svg`}
-                alt=''
+                alt='sanyo yusoki'
                 className='w-[12rem] h-[1.6rem] ml-1 mb-[0.3rem]'
                 width={120}
                 height={120}

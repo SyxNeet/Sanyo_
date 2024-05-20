@@ -210,7 +210,7 @@ export default function LeaderShipMessageAndCoreValues({
                       </svg>
                       <Image
                         src={`/images/about-us/core-value-link-hover-deco.svg`}
-                        alt=''
+                        alt='icon'
                         className='absolute bottom-0 right-0 w-[8rem] h-[11.267rem]'
                         width={120}
                         height={120}

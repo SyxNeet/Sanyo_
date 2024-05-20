@@ -119,7 +119,7 @@ export default function Achieved({isMobile, data}) {
           <div className='relative h-full md:h-[85%] w-full overflow-hidden'>
             <Image
               src={`/images/about-us/japan.png`}
-              alt=''
+              alt='japan'
               className='absolute object-contain h-full -translate-x-1/2 -translate-y-1/2 japan top-1/2 left-1/2'
               style={{transformOrigin: '49% 65%'}}
               width={1920}

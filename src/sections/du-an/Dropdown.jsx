@@ -33,7 +33,7 @@ export default function Dropdown({
       >
         <Image
           src={icon}
-          alt=''
+          alt='dropdown icon'
           className='size-[0.8125rem] md:size-[1.1875rem] mr-2'
           width={120}
           height={120}
@@ -43,7 +43,7 @@ export default function Dropdown({
         </p>
         <Image
           src={`/images/du-an/dropdown.svg`}
-          alt=''
+          alt='dropdown icon'
           className={cn('w-[0.7rem] h-2 ml-6 transition-300', {
             'rotate-180': isOpen,
           })}

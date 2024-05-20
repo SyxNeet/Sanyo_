@@ -29,7 +29,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
           direction='left'
           triggerOnce={true}
         >
-          <h3 className='font-SVNLagu font-medium text-xl text-grey-500 uppercase tracking-widest opacity-80 mb-1'>
+          <h3 className='mb-1 text-xl font-medium tracking-widest uppercase font-SVNLagu text-grey-500 opacity-80'>
             {title}
           </h3>
           <span className='font-SVNLagu text-[3.125rem] font-semibold leading-1.3 text-grey-900 mb-[1rem] '>
@@ -125,8 +125,8 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
               </tr>
               <tr>
                 <td className='parameter'>
-                  <div className='font-Iciel flex flex-col'>
-                    <span className='border-b border-black py-2'>
+                  <div className='flex flex-col font-Iciel'>
+                    <span className='py-2 border-b border-black'>
                       {data?.thong_so_thang_may?.rated_load ||
                         data?.thong_so?.rated_load}
                     </span>
@@ -149,8 +149,8 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
                   </div>
                 </td>
                 <td className='parameter'>
-                  <div className='font-Iciel flex flex-col'>
-                    <span className='border-b border-black py-2 px-1'>
+                  <div className='flex flex-col font-Iciel'>
+                    <span className='px-1 py-2 border-b border-black'>
                       {data?.thong_so_thang_may?.cabin_size ||
                         data?.thong_so?.cabin_size}
                     </span>
@@ -161,8 +161,8 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
                   </div>
                 </td>
                 <td className='parameter'>
-                  <div className='font-Iciel flex flex-col'>
-                    <span className='border-b border-black py-2'>
+                  <div className='flex flex-col font-Iciel'>
+                    <span className='py-2 border-b border-black'>
                       {data?.thong_so_thang_may?.door_opening ||
                         data?.thong_so?.door_opening}
                     </span>
@@ -173,8 +173,8 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
                   </div>
                 </td>
                 <td className='parameter'>
-                  <div className='font-Iciel flex flex-col'>
-                    <span className='border-b border-black py-2'>
+                  <div className='flex flex-col font-Iciel'>
+                    <span className='py-2 border-b border-black'>
                       {data?.thong_so_thang_may?.shaft_size ||
                         data?.thong_so?.shaft_size}
                     </span>
@@ -220,15 +220,15 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
                 src='/images/familyElevator/detailFE/vector.svg'
                 width={16}
                 height={16}
-                className='w-full h-full absolute bottom-full left-0'
-                alt='down'
+                className='absolute left-0 w-full h-full bottom-full'
+                alt='tải xuống bản vẽ kĩ thuật'
               />
               <Image
                 src='/images/familyElevator/detailFE/vector.svg'
                 width={16}
                 height={16}
-                alt='down'
-                className='w-full h-full absolute bottom-0 left-0'
+                alt='tải xuống bản vẽ kĩ thuật'
+                className='absolute bottom-0 left-0 w-full h-full'
               />
             </div>
           </Link>
