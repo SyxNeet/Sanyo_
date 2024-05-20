@@ -5,6 +5,13 @@ import getData from '@/lib/getData'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
 
+export async function generateStaticParams() {
+  const projects = await getData('/all_projects', 'okhub')
+  return projects.map((project) => ({
+    slug: project.slug,
+  }))
+}
+
 export async function generateMetadata({params}) {
   const result = await fetchMetaData(`/du-an/${params.slug}/`)
   return getMeta(
