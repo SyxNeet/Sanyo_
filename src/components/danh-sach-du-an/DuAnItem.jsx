@@ -18,7 +18,7 @@ export default function DuAnItem({
     <Link
       key={page + country + type}
       className={cn(
-        'du-an-item relative rounded-[0.5rem] md:rounded-[0.75rem] aspect-[1.35] w-full overflow-hidden flex justify-center items-end max-md:w-full max-md:h-[17.125rem] md:opacity-0 md:scale-[0.6] group',
+        'du-an-item relative rounded-[0.5rem] md:rounded-[0.75rem] aspect-[1.35] w-full overflow-hidden flex justify-center items-end max-md:w-full max-md:h-[17.125rem] md:opacity-0 md:scale-[0.8] group',
         className,
       )}
       href={href || '/'}
