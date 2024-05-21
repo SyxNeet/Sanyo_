@@ -5,6 +5,7 @@ import bgItemOutStandingProject from '../../../public/images/components/reasonCh
 import flagImg from '../../../public/images/components/itemOutstandingProject/flag.png'
 import './styles.css'
 const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,imgProjectUrl,altImageProject,link,duAn=false,data}) => {
+  console.log('data',data)
   return (
     <div className={`itemOutstandingProject relative  ${className||'md:rounded-[1.25rem] rounded-[0.75rem] w-[32.1875rem] h-[25.5rem]'} overflow-hidden flex justify-center items-end max-md:w-full max-md:h-[17.125rem]`}>
       <Image
@@ -18,7 +19,7 @@ const ItemOutStandingProject = ({imgFlagUrl,className,altImageFlag,nameProject,i
         className={`itemOutStandingProject_overlay max-md:flex-col flex relative h-fit backdrop-blur-[12.5px] rounded-[0.5rem] justify-between md:items-center
           md:pl-[0.94rem] md:pr-[2.06rem]
           bottom-[0.59rem] ${!duAn?'py-[0.645rem]':'py-[0.45rem]'} pl-[1.06rem]  pr-[1.38rem]`}
-        href={link||data?.slug ||'/'}
+          href={link || `/du-an/${data?.slug}` || '/'}
       >
         <Image
           src={imgFlagUrl|| data?.image_country?.url ||flagImg}

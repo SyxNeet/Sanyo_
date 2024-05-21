@@ -1,5 +1,5 @@
 'use client'
-
+import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 
@@ -27,7 +27,7 @@ const CardDesign = ({data}) => {
         quality={100}
         className='w-[18.0625rem] h-[18.0625rem] relative z-10 mx-auto max-md:w-[8.375rem] max-md:h-[8.375rem] max-md:mb-4'
       />
-    </div>
+<Link href="/" className='text-[1rem] relative z-10 text-grey-900 font-Iciel bg-yellow-500 w-fit mx-auto px-[1.5rem] py-[0.75rem] rounded-full uppercase font-normal mt-[1.5rem] hover:bg-white shadow-2xl hover:text-yellow-500 transition ease-in duration-75 hover:border hover:border-yellow-500'>Chi tiết</Link>    </div>
   )
 }
 

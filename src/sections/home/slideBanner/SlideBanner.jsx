@@ -50,7 +50,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
   }
 
   return (
-    <section className='md:h-[55vh] lg:h-[90vh] h-[23.6875rem] w-full relative'>
+    <section className='md:h-[55vh] lg:h-[calc(100vh-5.5rem)] h-[23.6875rem] w-full relative'>
       {/* pagination */}
 
       {isMobile ? (

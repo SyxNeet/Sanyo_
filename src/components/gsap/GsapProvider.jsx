@@ -34,7 +34,7 @@ export default function GsapProvider({children, isMobile}) {
       <div
         id='smooth-content'
         className={clsx('', {
-          'pt-[3.9375rem]': isMobile,
+          'pt-[5.5rem]': isMobile,
           'pt-[5.5rem]': !isMobile,
         })}
       >
