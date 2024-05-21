@@ -10,7 +10,7 @@ import {useEffect, useRef, useState} from 'react'
 import {useDetectDirectionScroll} from '@/hooks/useDetectDirectionScroll'
 import {cn} from '@/lib/utils'
 
-const scrollLengthPerItem = 300
+const scrollLengthPerItem = 400
 
 const Procedure = ({data}) => {
   const sectionRef = useRef(null)

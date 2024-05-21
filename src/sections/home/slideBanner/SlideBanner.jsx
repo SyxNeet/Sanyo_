@@ -16,7 +16,7 @@ import Image from 'next/image'
 import './style.css'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
-import GoogleTranslate from '@/components/Language'
+
 export default function SlideBanner({isMobile, dataBanner}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const swiperRef = useRef()
@@ -30,6 +30,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
         yPercent: 0,
         autoAlpha: 1,
         duration: 0.5,
+        overwrite: true,
       },
     )
     gsap.fromTo(
