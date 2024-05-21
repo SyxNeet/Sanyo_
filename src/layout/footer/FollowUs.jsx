@@ -3,21 +3,12 @@ import React from 'react'
 
 function FollowUs({data}) {
   return (
-<<<<<<< HEAD
-    <div className='flex flex-col max-md:mt-[1.53rem] max-md:mb-[2.62rem] max-md:flex-col'>
-      <p className='font-averta text-[1.5rem] font-bold leading-1.4 text-white mr-[1.5rem] md:whitespace-nowrap'>
-        Theo dõi chúng tôi
-      </p>
-
-    <div className='max-md:flex max-md:flex-row flex flex-row'>
-=======
     <div className='flex max-md:mt-[1.53rem] max-md:mb-[2.62rem] max-md:flex-col'>
       <p className='font-averta text-[1.5rem] font-bold leading-1.4 text-white mr-[1.5rem] mb-2 md:whitespace-nowrap'>
         Theo dõi chúng tôi
       </p>
 
     <div className='flex flex-row'>
->>>>>>> 617d42e37e820dd099d97cdf648626cd2f8a0cfe
         <Link
           href={
             data?.lien_ket_facebook ||
