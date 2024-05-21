@@ -62,10 +62,14 @@ const Procedure = ({data}) => {
           duration: 0.3,
           overwrite: true,
         })
-        tl.to(pinElementsRef.current[activePinElement], {
-          autoAlpha: 1,
-          duration: 0.3,
-        })
+        tl.to(
+          pinElementsRef.current[activePinElement],
+          {
+            autoAlpha: 1,
+            duration: 0.3,
+          },
+          '<',
+        )
       }
     } else if (directionScroll === 'up') {
       if (activePinElement < pinElementsRef.current.length - 1) {
@@ -74,10 +78,14 @@ const Procedure = ({data}) => {
           duration: 0.3,
           overwrite: true,
         })
-        tl.to(pinElementsRef.current[activePinElement], {
-          autoAlpha: 1,
-          duration: 0.3,
-        })
+        tl.to(
+          pinElementsRef.current[activePinElement],
+          {
+            autoAlpha: 1,
+            duration: 0.3,
+          },
+          '<',
+        )
       }
     }
   }, [activePinElement, directionScroll, data])
