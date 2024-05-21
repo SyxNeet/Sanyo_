@@ -21,14 +21,17 @@ const Procedure = ({data}) => {
     pinElementsRef.current = document.querySelectorAll('.pin-element')
   }, [data])
   useGSAP(() => {
-    const scrollPerPinElement = 1 / (pinElementsRef.current?.length ?? 1)
+    const scrollPerPinElement =
+      1 / document.querySelectorAll('.pin-element').length
     gsap.to(sectionRef.current, {
       scrollTrigger: {
         trigger: sectionRef.current,
         pin: true,
         anticipatePin: 1,
         start: 'top top',
-        end: `+=${scrollLengthPerItem * (pinElementsRef.current?.length ?? 1)}`,
+        end: `+=${
+          scrollLengthPerItem * document.querySelectorAll('.pin-element').length
+        }`,
         preventOverlaps: true,
         fastScrollEnd: true,
         onUpdate: (self) => {
@@ -43,7 +46,7 @@ const Procedure = ({data}) => {
                 ),
                 0,
               ),
-              (pinElementsRef.current?.length ?? 1) - 1,
+              document.querySelectorAll('.pin-element').length - 1,
             ),
           )
         },
