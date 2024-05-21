@@ -206,7 +206,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
             </tbody>
           </table>
   </Fade>
- <Fade direction='up' fraction={0} triggerOnce={true}>
+ <Fade direction='up' triggerOnce={true}>
           <Link
             className='linkdowloadDE flex px-[2.44rem] bg-yellow-500 items-center w-fit rounded-full mb-[3.23rem]'
             href={`${data?.thong_so?.link}`}
@@ -236,7 +236,7 @@ const DetailElevator = ({type = false, data, title, isJapan = false}) => {
       </div>
 
         <div
-          className={`w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-[full] ${
+          className={`w-[0.0625rem] bg-[rgba(28,32,28,0.10)] h-full ${
             !type ? 'mr-[5.81rem] ml-[6.25rem]' : 'mr-[5.69rem] ml-[2.69rem] '
           }`}
         ></div>
