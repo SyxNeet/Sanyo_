@@ -9,7 +9,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import '../styles.css'
 import SlideOnlyImages from '@/components/slideOnlyImages'
-import {Bounce, Slide} from 'react-awesome-reveal'
+import {Bounce, Fade, Slide} from 'react-awesome-reveal'
 const ProductLine = ({data, isMobile}) => {
   return (
     <section className='mt-[2.25rem] relative z-10 box-container-border bg-white productLineJE max-md:mt-[1.25rem]'>
@@ -39,29 +39,30 @@ const ProductLine = ({data, isMobile}) => {
             ></span>
           </Slide>
         </div>
-
-        <Link
-          href={data?.file_dowload_url}
-          target='_blank'
-          className='dowloadfileJE w-[10.6875rem] h-[10.6875rem] rounded-[50%] ml-[14rem] bg-[#FE4127] flex items-center justify-center flex-col relative mt-[1%] max-md:hidden z-10'
-        >
-          <span className='font-Iciel text-[1.22144rem] w-[5.875rem] text-center font-normal leading-1.2 mb-1 text-white'>
-            Tải xuống profile
-          </span>
-          <div className='w-[2rem] h-[1.9085rem] overflow-hidden relative'>
-            <Image
-              src={imgDownArrow}
-              alt='download'
-              className='downArrowTop absolute left-0 bottom-full'
-            />
-            <Image
-              src={imgDownArrow}
-              alt='download'
-              className='downArrowBottom absolute left-0 bottom-[5%]'
-            />
-            <div className='absolute w-[68%] left-[17%] bottom-0 h-[2px] rounded-full bg-grey-0'></div>
-          </div>
-        </Link>
+        <Fade triggerOnce>
+          <Link
+            href={data?.file_dowload_url}
+            target='_blank'
+            className='dowloadfileJE w-[10.6875rem] h-[10.6875rem] rounded-[50%] ml-[14rem] bg-[#FE4127] flex items-center justify-center flex-col relative mt-[1%] max-md:hidden z-10'
+          >
+            <span className='font-Iciel text-[1.22144rem] w-[5.875rem] text-center font-normal leading-1.2 mb-1 text-white'>
+              Tải xuống profile
+            </span>
+            <div className='w-[2rem] h-[1.9085rem] overflow-hidden relative'>
+              <Image
+                src={imgDownArrow}
+                alt='download'
+                className='absolute left-0 downArrowTop bottom-full'
+              />
+              <Image
+                src={imgDownArrow}
+                alt='download'
+                className='downArrowBottom absolute left-0 bottom-[5%]'
+              />
+              <div className='absolute w-[68%] left-[17%] bottom-0 h-[2px] rounded-full bg-grey-0'></div>
+            </div>
+          </Link>
+        </Fade>
       </div>
       <SlideOnlyImages
         className='!h-[41.5625rem]'

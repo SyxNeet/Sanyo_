@@ -22,7 +22,7 @@ export default function ProductionLineSectionDV({
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
-    <section className='mt-14 md:mt-[6.5rem] border-t border-[rgba(28,32,28,0.10)] relative pt-[9.19rem] max-md:pt-[3.94rem]'>
+    <section className='mt-14 md:mt-[4rem] border-t border-[rgba(28,32,28,0.10)] relative pt-[9.19rem] max-md:pt-[3.94rem]'>
       <div className='w-[8rem] h-[4.6875rem] opacity-10 bg-yellow-500 top-0 left-0 absolute max-md:hidden'></div>
       <div className='w-[8rem] h-[4.6875rem] opacity-10 bg-yellow-500 top-0 right-0 absolute max-md:w-[4rem] max-md:h-[3rem]'></div>
       <div className='w-[3.625rem] h-[3.625rem] opacity-10 bg-yellow-500 top-[4.6875rem] right-[8rem] absolute max-md:w-[1rem] max-md:h-[1rem] max-md:top-[3rem] max-md:right-[4rem] '></div>

@@ -256,25 +256,27 @@ const HeaderDetailElevator = ({data, title}) => {
             <div className='paginationHeaderFE rounded-full w-full !bg-[#E6E9F6] [&>.swiper-pagination-progressbar-fill]:!bg-yellow-500 [&>.swiper-pagination-progressbar-fill]:!rounded-full'></div>
           </div>
         </div>
-        <Link
-          href={`${data?.link}`}
-          target='_blank'
-          className='md:hidden bg-[linear-gradient(180deg,_#D1B37B_0%,_#E4B867_100%)] w-[5.375rem] h-[5.375rem] rounded-[50%] flex items-center justify-center flex-col absolute -top-[3.8rem] right-[3rem] z-10'
-        >
-          <span className='font-Iciel text-[0.625rem] font-medium leading-1.2 text-white block w-[3rem] text-center mb-1'>
-            Tải xuống profile
-          </span>
-          <div className='flex flex-col items-center justify-center'>
-            <Image
-              src={'/images/familyElevator/connectLove/downArrow.svg'}
-              width={16}
-              height={16}
-              alt='download icon'
-              className='w-[0.95981rem] h-[0.84463rem] mb-[1px]'
-            />
-            <div className='bg-white w-[0.57588rem] h-[0.07038rem] rounded-full'></div>
-          </div>
-        </Link>
+        <Fade triggerOnce>
+          <Link
+            href={`${data?.link}`}
+            target='_blank'
+            className='md:hidden bg-[linear-gradient(180deg,_#D1B37B_0%,_#E4B867_100%)] w-[5.375rem] h-[5.375rem] rounded-[50%] flex items-center justify-center flex-col absolute -top-[3.8rem] right-[3rem] z-10'
+          >
+            <span className='font-Iciel text-[0.625rem] font-medium leading-1.2 text-white block w-[3rem] text-center mb-1'>
+              Tải xuống profile
+            </span>
+            <div className='flex flex-col items-center justify-center'>
+              <Image
+                src={'/images/familyElevator/connectLove/downArrow.svg'}
+                width={16}
+                height={16}
+                alt='download icon'
+                className='w-[0.95981rem] h-[0.84463rem] mb-[1px]'
+              />
+              <div className='bg-white w-[0.57588rem] h-[0.07038rem] rounded-full'></div>
+            </div>
+          </Link>
+        </Fade>
       </div>
     </section>
   )
