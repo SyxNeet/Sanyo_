@@ -38,44 +38,42 @@ const SlideTeamSanyo = ({isMobile, data}) => {
           </h3>
         </Fade>
       </div>
-      <Fade>
-        <Swiper
-          navigation={{
-            nextEl: '.swiper-button-next-team',
-            prevEl: '.swiper-button-prev-team',
-          }}
-          loop={true}
-          onSlideChange={handleSlideChange}
-          modules={[Navigation]}
-          slidesPerView={4}
-          breakpoints={{
-            0: {
-              slidesPerView: 1.2,
-            },
-            768: {
-              slidesPerView: 4,
-            },
-          }}
-          centeredSlides={true}
-          spaceBetween={isMobile ? 8 : 25}
-          className='mySwiperTeamSanyo'
-        >
-          {(data?.list_staff || []).map((item, index) => (
-            <SwiperSlide
-              key={index}
-              className={`!h-[31.9375rem] max-md:!h-[20.13119rem] `}
-            >
-              <Image
-                src={item?.image?.url}
-                alt={item?.image?.alt}
-                width={1000}
-                height={1000}
-                className='object-cover'
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Fade>
+      <Swiper
+        navigation={{
+          nextEl: '.swiper-button-next-team',
+          prevEl: '.swiper-button-prev-team',
+        }}
+        loop={true}
+        onSlideChange={handleSlideChange}
+        modules={[Navigation]}
+        slidesPerView={4}
+        breakpoints={{
+          0: {
+            slidesPerView: 1.2,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+        }}
+        centeredSlides={true}
+        spaceBetween={isMobile ? 8 : 25}
+        className='mySwiperTeamSanyo'
+      >
+        {(data?.list_staff || []).map((item, index) => (
+          <SwiperSlide
+            key={index}
+            className={`!h-[31.9375rem] max-md:!h-[20.13119rem] `}
+          >
+            <Image
+              src={item?.image?.url}
+              alt={item?.image?.alt}
+              width={1000}
+              height={1000}
+              className='object-cover'
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div className='flex flex-col items-center'>
         <div className='flex items-center justify-between mt-[1.63rem] max-w-[29.9375rem] w-full max-md:max-w-none max-md:px-3'>
           <ButtonSLide
