@@ -13,14 +13,13 @@ import {cn} from '@/lib/utils'
 const scrollLengthPerItem = 300
 
 const Procedure = ({data}) => {
-  console.log('🚀 ~ Procedure ~ data:', data)
   const sectionRef = useRef(null)
   const pinElementsRef = useRef(null)
   const [activePinElement, setActivePinElement] = useState(0)
   const directionScroll = useDetectDirectionScroll()
   useEffect(() => {
     pinElementsRef.current = document.querySelectorAll('.pin-element')
-  }, [])
+  }, [data])
   useGSAP(() => {
     const scrollPerPinElement = 1 / (pinElementsRef.current?.length ?? 1)
     gsap.to(sectionRef.current, {
@@ -50,7 +49,7 @@ const Procedure = ({data}) => {
         },
       },
     })
-  }, [])
+  }, [data])
   useGSAP(() => {
     const tl = gsap.timeline({})
     if (directionScroll === 'down') {
@@ -78,10 +77,7 @@ const Procedure = ({data}) => {
         })
       }
     }
-  }, [activePinElement, directionScroll])
-  useEffect(() => {
-    console.log(activePinElement)
-  }, [activePinElement])
+  }, [activePinElement, directionScroll, data])
   return (
     <section
       className='relative h-[49.25rem]'
