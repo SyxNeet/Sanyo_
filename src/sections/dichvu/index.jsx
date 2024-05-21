@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect} from 'react'
+
 import Procedure from './procedure'
 import HeaderDichVu from './header'
 import ProcedureMb from './procedure/indexMb'
@@ -8,6 +8,7 @@ import Certification from './Certification'
 import Operate from './van-hanh-thang-may'
 import SlideTeamSanyo from './doi-ngu-nhan-vien'
 import ActualConstruction from '../thang-may-page-details/actualConstruction'
+
 export default function DichVu({isMobile, data}) {
   const {
     header,
