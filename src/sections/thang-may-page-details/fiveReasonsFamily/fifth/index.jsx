@@ -61,7 +61,7 @@ const FifthReason = ({isMobile, data}) => {
       />
       <div className='flex items-center mb-[3.38rem] pl-[6.25rem] max-md:mb-[1.5rem] max-md:pl-3' >
       <p className='font-SVNLagu text-[3.125rem] leading-1.3 font-semibold  max-md:text-[1.25rem]  md:hidden mr-1'>5. </p>
-  <Fade direction='down' triggerOnce={true}>
+  <Fade direction='up' triggerOnce={true}>
         <h3 className='font-SVNLagu text-[4rem] font-semibold leading-1.5 max-md:text-[1.25rem]  [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500  [&>p>strong]:uppercase' dangerouslySetInnerHTML={{__html:data?.heading}}>
         </h3>
   </Fade>
@@ -95,7 +95,7 @@ const FifthReason = ({isMobile, data}) => {
               type: 'progressbar',
               el: '.processFifth',
             }}
-            speed={800}
+            speed={400}
             
             grid={{
               rows: isMobile ? 2 : 1,

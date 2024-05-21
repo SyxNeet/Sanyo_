@@ -23,7 +23,7 @@ export default function DuAnPagination({
           >
             <Image
               src={`/images/du-an/prev-pagination.svg`}
-              alt=''
+              alt='trang trước'
               width={120}
               height={120}
               className='size-[0.59rem]'
@@ -46,21 +46,21 @@ export default function DuAnPagination({
                 <button className='flex flex-row items-center justify-center rounded-full size-8 text-0.875 font-medium leading-1.5 bg-grey-0 mx-[0.25rem] md:mx-[0.33rem] select-none'>
                   <Image
                     src={`/images/du-an/dot.svg`}
-                    alt=''
+                    alt='dot icon'
                     width={120}
                     height={120}
                     className='block size-1'
                   />
                   <Image
                     src={`/images/du-an/dot.svg`}
-                    alt=''
+                    alt='dot icon'
                     width={120}
                     height={120}
                     className='size-1 block mx-[0.25rem] md:mx-[0.33rem]'
                   />
                   <Image
                     src={`/images/du-an/dot.svg`}
-                    alt=''
+                    alt='dot icon'
                     width={120}
                     height={120}
                     className='block size-1'
@@ -94,21 +94,21 @@ export default function DuAnPagination({
                 <button className='flex flex-row items-center justify-center rounded-full size-8 text-0.875 font-medium leading-1.5 bg-grey-0 mx-[0.25rem] md:mx-[0.33rem] select-none'>
                   <Image
                     src={`/images/du-an/dot.svg`}
-                    alt=''
+                    alt='dot icon'
                     width={120}
                     height={120}
                     className='size-1'
                   />
                   <Image
                     src={`/images/du-an/dot.svg`}
-                    alt=''
+                    alt='dot icon'
                     width={120}
                     height={120}
                     className='size-1 mx-[0.25rem] md:mx-[0.33rem]'
                   />
                   <Image
                     src={`/images/du-an/dot.svg`}
-                    alt=''
+                    alt='dot icon'
                     width={120}
                     height={120}
                     className='size-1'
@@ -157,7 +157,7 @@ export default function DuAnPagination({
           >
             <Image
               src={`/images/du-an/next-pagination.svg`}
-              alt=''
+              alt='trang sau'
               width={120}
               height={120}
               className='size-[0.59rem]'

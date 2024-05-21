@@ -30,7 +30,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
   return (
     <div className=' flex flex-col max-md:pl-0'>
       <div className='pl-[6.25rem] max-md:pl-0'>
-<Fade direction='down' fraction={0} triggerOnce={true}>
+<Fade direction='up' fraction={0} triggerOnce={true}>
           <h2
             className={`font-SVNLagu text-[3.125rem] font-semibold leading-[140%] w-[49rem] mb-3 max-md:mb-2 max-md:px-4 max-md:text-[1.5rem] max-md:order-1 max-md:w-[20.9375rem] [&>p>strong]:font-semibold ${
               isJapan ? '[&>p>strong]:text-c-nht' : '[&>p>strong]:text-yellow-500'
@@ -40,7 +40,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
           ></h2>
 </Fade>
         <div className='flex justify-between mb-[1.96rem]'>
-<Fade direction='left' triggerOnce={true}>
+<Fade direction='up' triggerOnce={true}>
             <span
               className='w-[35rem] font-Iciel block text-base leading-[150%] font-normal mb-[0.5rem]  max-md:text-[0.875rem] max-md:text-justify max-md:px-4 max-md:w-full max-md:mb-6'
       
@@ -48,7 +48,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
               {data?.sixReasons?.desc}
             </span>
 </Fade>
-<Fade triggerOnce direction='right'>
+<Fade triggerOnce direction='up'>
             <div
               className='pr-[7rem] max-md:hidden'
      
@@ -91,7 +91,7 @@ const SixReasons = ({isMobile, data, isJapan}) => {
             el: '.swiper-pagination-sixReasons',
           }}
           freeMode={isMobile ? true : false}
-          speed={800}
+          speed={400}
           navigation={{
             nextEl: '.swiper-button-next-sixReasons',
             prevEl: '.swiper-button-prev-sixReasons',

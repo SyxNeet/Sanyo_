@@ -31,13 +31,13 @@ export default function SlideValue({isMobile, data}) {
           className=' max-md:!pl-[0.76rem] md:!pr-[10rem]'
           slidesPerView={1.2}
           spaceBetween={12}
-          speed={800}
+          speed={400}
           centeredSlides={!isMobile && true}
           onSlideChange={(swiper) => handleChangeSlide(swiper)}
           initialSlide={!isMobile?slideImages.length:0}
           navigation={{
-            prevEl: '.btn-next-cus-value',
-            nextEl: '.btn-prev-cus-value',
+            prevEl: '.btn-prev-cus-value',
+            nextEl: '.btn-next-cus-value',
           }}
           breakpoints={{
             375: {

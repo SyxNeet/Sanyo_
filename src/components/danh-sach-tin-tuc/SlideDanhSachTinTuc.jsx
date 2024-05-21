@@ -53,7 +53,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                 <div className='rounded-[0.5rem] md:rounded-t-[0.5rem] md:rounded-b-none flex-none h-full md:h-[60%] overflow-hidden'>
                   <Image
                     src={item.image.url}
-                    alt=''
+                    alt={item.image.alt}
                     width={1920}
                     height={1080}
                     className='h-full object-cover w-full group-hover:scale-[1.15] transition-500'
@@ -65,7 +65,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                     <div className='flex flex-row items-center mb-[0.39rem] md:mb-4'>
                       <Image
                         src={`/images/tin-tuc/calendar.svg`}
-                        alt=''
+                        alt='thời gian đăng bài'
                         className='size-[0.785rem] md:size-[0.875rem] mr-1 md:mr-2'
                         width={120}
                         height={120}
@@ -94,7 +94,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                       <div className='flex flex-row items-center'>
                         <Image
                           src={`/images/tin-tuc/calendar-black.svg`}
-                          alt=''
+                          alt='thời gian đăng bài'
                           width={120}
                           height={120}
                           className='size-[0.875rem]'
@@ -110,14 +110,14 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
                           src={'/images/home/danhSachTinTuc/arrow.svg'}
                           width={120}
                           height={120}
-                          alt='icon'
+                          alt='previous slide'
                           className='w-[0.9rem] h-[1em] object-cover'
                         />
                         <Image
                           src={'/images/home/danhSachTinTuc/arrow.svg'}
                           width={120}
                           height={120}
-                          alt='icon'
+                          alt='next slide'
                           className='w-[0.9rem] h-[1em] object-cover ml-[3.5rem]'
                         />
                       </div>
@@ -331,9 +331,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
           </button>
         </>
       )}
-      {isMobile && (
-        <div className='slide-danh-sach-tin-tuc-pagination'></div>
-      )}
+      {isMobile && <div className='slide-danh-sach-tin-tuc-pagination'></div>}
     </div>
   )
 }

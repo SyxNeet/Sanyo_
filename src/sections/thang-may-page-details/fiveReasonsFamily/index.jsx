@@ -25,7 +25,7 @@ const FiveReasonsFamily = ({lang, isMobile, data, heading_reason}) => {
     <section>
       <div className='flex justify-between pl-[5.75rem] pr-[5.84rem] items-end mt-[8.13rem] pb-[3.69rem] border-b border-[rgba(28,32,28,0.10)] max-md:px-3 max-md:mt-[0rem] max-md:pb-[1rem] max-md:border-none'>
         <Fade
-          direction='left'
+          direction='up'
           triggerOnce="true"
         >
           <h2
@@ -34,7 +34,7 @@ const FiveReasonsFamily = ({lang, isMobile, data, heading_reason}) => {
           ></h2>
         </Fade>
         <Fade
-          direction='right'
+          direction='up'
           triggerOnce={true}
         >
           <Link

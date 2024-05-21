@@ -127,7 +127,7 @@ const SecondReasons = ({lang, isMobile, data}) => {
           <div className='absolute right-0 bottom-0 w-[14.125rem] h-[5.5625rem] bg-yellow-500 opacity-10 max-md:hidden'></div>
           <div className='absolute right-[9.375rem] bottom-full w-[3.75rem] h-[3.4375rem] bg-yellow-500 opacity-10 max-md:hidden'></div>
           <Fade
-            direction='right'
+            direction='up'
             triggerOnce='true'
           >
             <div className='pt-[3.12rem] pl-[3.94rem] pr-[6.37rem] pb-[7rem] max-md:py-0 max-md:px-3'>

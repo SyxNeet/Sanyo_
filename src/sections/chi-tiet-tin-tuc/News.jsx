@@ -11,7 +11,7 @@ export default function News({isMobile, dataPosts, dataChiTietTinTuc}) {
       <div className='flex flex-row items-end mb-5 md:mb-10'>
         <div>
           <Fade
-            direction='down'
+            direction='up'
             triggerOnce
           >
             <h3 className='text-grey-500 font-SVNLagu text-0.875 md:text-1.25 font-medium leading-1.5 tracking-0.1 opacity-80'>
@@ -30,7 +30,7 @@ export default function News({isMobile, dataPosts, dataChiTietTinTuc}) {
         </div>
         {!isMobile && (
           <Fade
-            direction='right'
+            direction='up'
             triggerOnce
             className='ml-auto'
           >

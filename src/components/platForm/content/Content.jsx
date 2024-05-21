@@ -11,7 +11,7 @@ export default function Content({title, description}) {
     >
       <div className='md:w-[58rem] w-full max-md:mb-5'>
         <Fade
-          direction='down'
+          direction='up'
           triggerOnce
         >
           <h2
@@ -29,7 +29,7 @@ export default function Content({title, description}) {
         </Fade>
       </div>
       <Fade
-        direction='right'
+        direction='up'
         triggerOnce
         className='ml-auto'
       >

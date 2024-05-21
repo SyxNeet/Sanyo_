@@ -44,7 +44,7 @@ export default function FixedLayout({isMobile}) {
       <Link href={`tel:0393580688`}>
         <Image
           src={`/images/layout/3-nut-noi/call.svg`}
-          alt=''
+          alt='call us'
           width={120}
           height={120}
           className='size-[2.875rem] md:size-[3.125rem] object-cover'
@@ -53,7 +53,7 @@ export default function FixedLayout({isMobile}) {
       <Link href={`https://zalo.me/4574140570292753526 `}>
         <Image
           src={`/images/layout/3-nut-noi/messenger.svg`}
-          alt=''
+          alt='messenger'
           width={120}
           height={120}
           className='size-[2.875rem] md:size-[3.125rem] object-cover'

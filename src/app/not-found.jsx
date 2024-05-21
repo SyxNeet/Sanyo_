@@ -7,7 +7,7 @@ export default function NotFound() {
     <main className='relative flex justify-center w-full h-screen'>
       <Image
         src={`/images/404/404-bg.jpg`}
-        alt=''
+        alt='Page not found'
         width={1920}
         height={1080}
         className='absolute top-0 left-0 object-cover w-full h-full opacity-15'
@@ -26,7 +26,7 @@ export default function NotFound() {
         >
           <Image
             src={`/images/404/logo.svg`}
-            alt=''
+            alt='SANYO YUSOKI'
             width={120}
             height={120}
             className='size-[2.75rem] md:size-[3.75rem]'
@@ -34,14 +34,14 @@ export default function NotFound() {
           <div className='flex flex-col gap-[0.32rem] md:gap-[0.43rem]'>
             <Image
               src={`/images/404/logo-text.svg`}
-              alt=''
+              alt='SANYO YUSOKI'
               width={120}
               height={120}
               className='w-[12.56rem] h-[1.68rem] md:w-[17.2rem] md:h-[2.3rem]'
             />
             <Image
               src={`/images/404/logo-text-jap.svg`}
-              alt=''
+              alt='SANYO YUSOKI'
               width={120}
               height={120}
               className='w-[12.56rem] h-[0.8rem] md:w-[17.2rem] md:h-[1.1rem]'
