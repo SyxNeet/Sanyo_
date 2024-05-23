@@ -47,7 +47,10 @@ export default function DetailNew({isMobile, data}) {
         </h1>
       </Fade>
       <div className='px-5 py-4 md:p-[1.88rem] border border-yellow-500 rounded-[0.75rem] md:rounded-[1rem] mb-5 md:mb-8 bg-yellow-500/5'>
-        <Fade direction='up' triggerOnce>
+        <Fade
+          direction='up'
+          triggerOnce
+        >
           <h4 className='text-grey-700 md:text-grey-900 font-Iciel text-1 md:text-1.25 font-medium md:font-bold leading-1.3 mb-[0.87rem] md:mb-4'>
             Nội dung chính
           </h4>
@@ -62,6 +65,7 @@ export default function DetailNew({isMobile, data}) {
             {h4Array.map((item, i) => {
               return (
                 <button
+                  key={i}
                   className='text-grey-500 font-Iciel md:font-medium leading-1.5 text-start text-0.875 md:text-1'
                   onClick={() =>
                     smootherRef.current.scrollTo(

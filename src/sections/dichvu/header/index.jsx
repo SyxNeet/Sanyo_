@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react'
 import BreadcrumbContainer from '@/components/breadcrumb/BreadcrumbContainer'
 import BreadcrumbLink from '@/components/breadcrumb/BreadcrumbLink'
@@ -6,8 +7,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import SlideOnlyImagesDownloadDV from '@/components/slideOnlyImagesWithDowloadDV'
-const HeaderDichVu = ({data,isMobile}) => {
-  
+const HeaderDichVu = ({data, isMobile}) => {
   return (
     <section>
       <BreadcrumbContainer className='ml-3 md:mx-[6.25rem]'>
@@ -17,7 +17,10 @@ const HeaderDichVu = ({data,isMobile}) => {
           DỊCH VỤ LẮP ĐẶT THANG MÁY THEO YÊU CẦU
         </BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownloadDV data={data} isMobile={isMobile}/>
+      <SlideOnlyImagesDownloadDV
+        data={data}
+        isMobile={isMobile}
+      />
     </section>
   )
 }
