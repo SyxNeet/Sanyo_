@@ -10,7 +10,7 @@ import PartnerSection from '@/components/partner/PartnerSection'
 import ValueDifferentAndJapanElevator from '@/sections/home/ValueDifferentAndJapanElevator'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
-import { Table } from 'lucide-react'
+import {Table} from 'lucide-react'
 
 const pageId = 11
 async function getBanner() {
@@ -46,7 +46,7 @@ export async function generateMetadata() {
 export default async function Home({params, searchParams}) {
   const {viewport} = searchParams
   const isMobile = viewport?.includes('mobile')
-    const [
+  const [
     dataBanner,
     dataCountUp,
     dataValueDifferent,
@@ -76,25 +76,33 @@ export default async function Home({params, searchParams}) {
           isMobile={isMobile}
           dataCountUp={dataCountUp.tinh_hoa_thang_may}
         />
-        <ValueDifferentAndJapanElevator
-          isMobile={isMobile}
-          dataSixReason={dataSixReason}
-          dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
-          dataPlatFormElevator={dataPlatFormElevator}
-        />
-        {!isMobile ? (
-          <OutStandingProject data={dataOutstandingProject} />
-        ) : (
-          <OutStandingProjectMb data={dataOutstandingProject} />
-        )}
-        <News
-          isMobile={isMobile}
-          data={datanews}
-        />
-        <PartnerSection
-          isMobile={isMobile}
-          data={dataPartner.partner}
-        />
+        <Suspense>
+          <ValueDifferentAndJapanElevator
+            isMobile={isMobile}
+            dataSixReason={dataSixReason}
+            dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
+            dataPlatFormElevator={dataPlatFormElevator}
+          />
+          <Suspense>
+            {!isMobile ? (
+              <OutStandingProject data={dataOutstandingProject} />
+            ) : (
+              <OutStandingProjectMb data={dataOutstandingProject} />
+            )}
+            <Suspense>
+              <News
+                isMobile={isMobile}
+                data={datanews}
+              />
+              <Suspense>
+                <PartnerSection
+                  isMobile={isMobile}
+                  data={dataPartner.partner}
+                />
+              </Suspense>
+            </Suspense>
+          </Suspense>
+        </Suspense>
       </Suspense>
     </main>
   )

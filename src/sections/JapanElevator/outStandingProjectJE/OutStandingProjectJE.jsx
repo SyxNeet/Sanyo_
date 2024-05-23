@@ -5,7 +5,7 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Pagination, Autoplay, FreeMode} from 'swiper/modules'
 import {outStandingProject} from '/data/japanElevator'
 import gsap from 'gsap'
-import { Fade } from 'react-awesome-reveal'
+import {Fade} from 'react-awesome-reveal'
 import {useGSAP} from '@gsap/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -41,30 +41,31 @@ const OutStandingProjectJE = ({isMobile, data}) => {
           <div>
             <h2
               className='text-[1.5rem] font-SVNLagu font-semibold leading-1.3 px-3 mb-[1.19rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
-   
               dangerouslySetInnerHTML={{__html: data[0]?.title_mb}}
             ></h2>
           </div>
         ) : (
-<Fade direction='up' triggerOnce={true}>
+          <Fade
+            direction='up'
+            triggerOnce={true}
+          >
             <div className=''>
               <h2
                 className='text-[3rem] font-SVNLagu font-semibold leading-1.2 mb-[1.2rem] [&>p>strong]:font-semibold [&>p>strong]:text-c-nht'
                 dangerouslySetInnerHTML={{__html: data[0]?.title}}
-     
               ></h2>
               <span
                 className='font-Iciel text-base font-normal leading-1.5 mb-[2.24rem]'
                 dangerouslySetInnerHTML={{__html: data[0]?.desc}}
-    
               ></span>
             </div>
-</Fade>
+          </Fade>
         )}
-       <Fade direction='up' triggerOnce={true}>
-          <Link
-            href={'/du-an'}
-          >
+        <Fade
+          direction='up'
+          triggerOnce={true}
+        >
+          <Link href={'/du-an'}>
             <Button
               className='w-fit max-md:hidden mt-[2.44rem]'
               isRed={true}
@@ -75,7 +76,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
               classtext={'group-hover:text-white'}
             />
           </Link>
-       </Fade>
+        </Fade>
       </div>
       {isMobile ? (
         <div className='mbOutStandingSLide'>
@@ -97,7 +98,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
               },
             }}
             modules={[Pagination, Navigation, Autoplay, FreeMode]}
-            className='mySwiperOnlyImages w-screen order-1 overflow-hidden'
+            className='order-1 w-screen overflow-hidden mySwiperOnlyImages'
           >
             {data[0]?.project_data?.map((item, index) => (
               <SwiperSlide
@@ -132,7 +133,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
               />
             </Link>
             <div className='relative w-[6.25rem]'>
-              <div className='processSlideOutStandingJE rounded-full'></div>
+              <div className='rounded-full processSlideOutStandingJE'></div>
             </div>
           </div>
         </div>
@@ -142,9 +143,13 @@ const OutStandingProjectJE = ({isMobile, data}) => {
           ref={outStandingProjectEndRef}
         >
           {data[0]?.project_data?.map((item, index) => (
-           <Fade direction='up' triggerOnce={true} fraction={0}>
+            <Fade
+              key={index}
+              direction='up'
+              triggerOnce={true}
+              fraction={0}
+            >
               <ItemOutStandingProject
-                key={index}
                 width='32.1875rem'
                 height='25.5rem'
                 imgFlagUrl={item?.image_country?.url}
@@ -157,7 +162,7 @@ const OutStandingProjectJE = ({isMobile, data}) => {
                 altImageProject={item.alt}
                 link={`/du-an/${item.slug}`}
               />
-           </Fade>
+            </Fade>
           ))}
         </div>
       )}

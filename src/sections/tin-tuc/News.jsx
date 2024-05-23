@@ -148,9 +148,10 @@ export default function News({
                 </div>
                 {dataPosts && (
                   <>
-                    {dataPosts.events.slice(1, 4).map((item) => {
+                    {dataPosts.events.slice(1, 4).map((item, i) => {
                       return (
                         <Link
+                          key={i}
                           href={`/tin-tuc/${item.detail_link}`}
                           className='relative rounded-[0.75rem] border border-[#E9E9E9] flex flex-row items-center p-[0.79rem] md:px-[1.13rem] md:py-4 overflow-hidden group max-md:-mt-2 first-of-type:mt-0 hover:border-yellow-500 transition-500 tin-tuc-item'
                         >
@@ -209,9 +210,10 @@ export default function News({
                 )}
               </div>
               <div className='grid grid-cols-1 md:grid-cols-4 mt-[0.52rem] md:mt-5 gap-y-[0.52rem] md:gap-x-4 md:gap-y-5'>
-                {dataPosts.events.slice(4).map((item) => {
+                {dataPosts.events.slice(4).map((item, i) => {
                   return (
                     <Link
+                      key={i}
                       href={`/tin-tuc/${item.detail_link}`}
                       className='relative md:h-[25rem] flex flex-row max-md:items-center max-md:p-[0.79rem] md:flex-col rounded-[0.75rem] overflow-hidden border border-[#E9E9E9] group hover:border-yellow-500 transition-500 pb-[1.5rem] tin-tuc-item'
                     >
