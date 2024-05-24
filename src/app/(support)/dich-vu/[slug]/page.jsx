@@ -12,8 +12,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({params}) {
-  const result = await fetchMetaData(`/dich-vu/${params.slug}/`)
-  return getMeta(result, `/dich-vu/${params.slug}`, `Dịch vụ - SANYO YUSOKI`)
+  const result = await fetchMetaData(`/service/${params.slug}/`)
+  return getMeta(result, `/service/${params.slug}`, `Dịch vụ - SANYO YUSOKI`)
 }
 
 export default async function page({searchParams, params}) {
