@@ -13,7 +13,7 @@ import useChangePage from '@/hooks/useChangePage'
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother, ScrollToPlugin)
 export const scrollSmootherConfig = {
   effects: true,
-  speed: 0.75,
+  speed: 0.9,
 }
 
 export default function GsapProvider({children, isMobile}) {
