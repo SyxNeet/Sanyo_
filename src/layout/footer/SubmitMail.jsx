@@ -18,7 +18,6 @@ export default function SubmitMail() {
       return;
     }
     if (!validateEmail(email)) {
-      console.log('email', email)
       toast.error('Địa chỉ email không hợp lệ');
 
       return;
