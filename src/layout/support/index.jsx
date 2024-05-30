@@ -8,7 +8,8 @@ import {cn} from '@/lib/utils'
 import {toast} from 'sonner'
 import {Fade} from 'react-awesome-reveal'
 
-const nameReg = /^[a-zA-Z]+(\s[a-zA-Z]+)*$/
+const nameReg =
+  /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơẮẰẲẴẶẤẦẨẪẬẾỀỂỄỆỐỒỔỖỘỨỪỬỮỰÝỲỶỸỴýỳỷỹỵ]+(\s[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơẮẰẲẴẶẤẦẨẪẬẾỀỂỄỆỐỒỔỖỘỨỪỬỮỰÝỲỶỸỴýỳỷỹỵ]+)*$/
 const phoneReg = /^\d{10,}$/
 
 export default function Support({
