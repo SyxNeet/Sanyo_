@@ -9,7 +9,7 @@ export default function SubmitMail() {
     setEmail(text)
   }
   const validateEmail = (email) => {
-    const re = /^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     return re.test(String(email).toLowerCase());
   };
   const onSubmit = (value) => {
@@ -18,7 +18,9 @@ export default function SubmitMail() {
       return;
     }
     if (!validateEmail(email)) {
+      console.log('email', email)
       toast.error('Địa chỉ email không hợp lệ');
+
       return;
     }
     startTransition(async () => {
