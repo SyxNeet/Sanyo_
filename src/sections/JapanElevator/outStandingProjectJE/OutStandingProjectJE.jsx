@@ -17,6 +17,7 @@ import 'aos/dist/aos.css'
 const OutStandingProjectJE = ({isMobile, data}) => {
   const outStandingProjectRef = useRef(null)
   const outStandingProjectEndRef = useRef(null)
+
   useGSAP(() => {
     !isMobile &&
       gsap.to(outStandingProjectRef.current, {
