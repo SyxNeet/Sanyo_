@@ -7,7 +7,7 @@ import HeaderMobile from './HeaderMobile'
 export default function HeaderContainer({isMobile, data, isTablet}) {
   const headerRef = useRef(null)
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== 'undefined' ? window.innerWidth : 0,
+    typeof window !== 'undefined' ? window.innerWidth : 1025,
   )
   useEffect(() => {
     let prevScroll = 0
