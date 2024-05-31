@@ -9,6 +9,7 @@ import ProductionLineSection from '@/sections/about-us/ProductionLineSection'
 import PartnerSection from '@/components/partner/PartnerSection'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
+import 'swiper/css/effect-fade';
 
 async function getLeadershipMessage(pageId) {
   return getData(`/pages/${pageId}/leadershipMessage`)
