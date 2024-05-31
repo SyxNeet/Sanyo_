@@ -38,7 +38,7 @@ const ProcedureMb = ({data}) => {
                     className='text-[1.125rem] font-SVNLagu font-semibold leading-1.4 mb-[0.88rem] text-grey-800 px-3 [&>p>strong]:font-semibold [&>p>strong]:text-yellow-500 md:text-[3rem] md:pt-[5rem] h-[3.15rem] line-clamp-2'
                     dangerouslySetInnerHTML={{__html: item?.name_step}}
                   ></h4>
-                  <div className='h-[10rem] overflow-auto mb-5'>
+                  <div className='h-auto overflow-auto mb-5'>
                     {item?.list_steps?.map((item, index) => (
                       <div
                         key={index}

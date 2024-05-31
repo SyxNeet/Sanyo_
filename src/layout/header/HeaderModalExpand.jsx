@@ -78,8 +78,8 @@ export default function HeaderModalExpand({
       >
         {href ? (
           <>
-            {dataImage.map((item2, i2) => {
-              if (i2 < dataImage.length - 1) {
+            {dataImage?.map((item2, i2) => {
+              if (i2 < dataImage?.length - 1) {
                 return (
                   <Image
                     key={i2}
@@ -137,7 +137,7 @@ export default function HeaderModalExpand({
           </>
         ) : (
           <>
-            {dataImage.map((item2, i2) => {
+            {dataImage?.map((item2, i2) => {
               return (
                 <Image
                   key={i2}

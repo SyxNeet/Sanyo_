@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import './styles.css'
 import Slide from './Slide'
+import Link from 'next/link'
 import {Fade} from 'react-awesome-reveal'
 
 const SlideOnlyImagesDownload = ({data}) => {
@@ -66,7 +67,7 @@ const SlideOnlyImagesDownload = ({data}) => {
               </Fade>
             </div>
             <Fade triggerOnce>
-              <a
+              <Link
                 href={data.credential}
                 target='_blank'
                 className='dowloadElevator absolute left-full bottom-[13%] w-[13.9375rem] h-[3.9375rem] flex items-center justify-center cursor-pointer '
@@ -96,7 +97,7 @@ const SlideOnlyImagesDownload = ({data}) => {
                     <div className='absolute w-[50%] h-[0.10025rem] bottom-0 bg-black left-[25%] lineDownLoadElevator'></div>
                   </div>
                 </Fade>
-              </a>
+              </Link>
             </Fade>
           </div>
         </div>

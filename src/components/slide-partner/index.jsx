@@ -27,7 +27,7 @@ export default function SlidePartner({data}) {
       }}
       className='swiper-partner'
     >
-      {data.images.map((item, i) => {
+      {data?.images?.map((item, i) => {
         return (
           <SwiperSlide key={i}>
             <Image

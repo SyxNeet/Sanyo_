@@ -40,7 +40,7 @@ export default function PartnerSection({isMobile, data}) {
         >
           <h2
             className='w-[20.5rem] md:w-[51.875rem] font-SVNLagu text-1.125 md:text-2 font-semibold leading-1.4 text-center text-gray-600 [&_strong]:text-yellow-500 [&_strong]:font-semibold md:[&_strong]:uppercase'
-            dangerouslySetInnerHTML={{__html: data.heading}}
+            dangerouslySetInnerHTML={{__html: data?.heading}}
           ></h2>
         </Fade>
       </div>

@@ -12,7 +12,7 @@ export default async function Header({isMobile,isTablet}) {
       <HeaderContainer
         isMobile={isMobile}
         isTablet={isTablet}
-        data={dataHeader.header}
+        data={dataHeader?.header}
       />
     </>
   )
