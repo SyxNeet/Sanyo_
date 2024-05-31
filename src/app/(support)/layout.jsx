@@ -19,7 +19,7 @@ export default async function SupportLayout({children, params, type}) {
       {children}
       <Support
         forLienHePage={false}
-        data={dataSupport.contactForm}
+        data={dataSupport?.contactForm}
         isMobile={isMobile}
       />
     </>

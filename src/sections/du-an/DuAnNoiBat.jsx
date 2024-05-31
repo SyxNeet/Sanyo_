@@ -98,37 +98,39 @@ export default function DuAnNoiBat({
             }}
           />
         </div>
-        <div
-          ref={pinRef}
-          className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
-        >
-          <h2
-            className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 [&_p]:block'
-            dangerouslySetInnerHTML={{__html: dataDanhSachDuAn?.heading}}
-          ></h2>
-          <p className='hidden md:block text-grey-500 text-justify font-Iciel text-1 leading-1.5'>
-            {dataDanhSachDuAn?.description}
-          </p>
+      <Fade triggerOnce={true} direction='left'>
           <div
-            ref={stickyRef}
-            className='relative z-10 flex flex-row items-start w-full md:pt-6 max-md:justify-around max-md:py-2 max-md:bg-white'
+            ref={pinRef}
+            className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
           >
-            <QuocGiaDropdown
-              page={page}
-              country={country}
-              type={type}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-            <LoaiThangMayDropdown
-              page={page}
-              country={country}
-              type={type}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
+            <h2
+              className='text-grey-900 font-SVNLagu text-1.875 md:text-3 font-semibold leading-1.2 uppercase [&_strong]:text-yellow-500 [&_strong]:font-semibold max-md:w-[64%] mb-3.5 [&_p]:block'
+              dangerouslySetInnerHTML={{__html: dataDanhSachDuAn?.heading}}
+            ></h2>
+            <p className='hidden md:block text-grey-500 text-justify font-Iciel text-1 leading-1.5'>
+              {dataDanhSachDuAn?.description}
+            </p>
+            <div
+              ref={stickyRef}
+              className='relative z-10 flex flex-row items-start w-full md:pt-6 max-md:justify-around max-md:py-2 max-md:bg-white'
+            >
+              <QuocGiaDropdown
+                page={page}
+                country={country}
+                type={type}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+              <LoaiThangMayDropdown
+                page={page}
+                country={country}
+                type={type}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            </div>
           </div>
-        </div>
+      </Fade>
         <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
           {isLoading ? (
             <DanhSachDuAnSkeleton />
