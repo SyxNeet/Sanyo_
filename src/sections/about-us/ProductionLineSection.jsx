@@ -52,40 +52,37 @@ export default function ProductionLineSection({
         speed={500}
         modules={[EffectFade, Autoplay]}
         className='swiper-production-line'
-        // onActiveIndexChange={(swiper) => {
-        //   setActiveImage(swiper.realIndex)
-        //   if (
-        //     previousActiveImage < swiper.realIndex ||
-        //     (previousActiveImage === swiper.slides.length - 1 &&
-        //       swiper.realIndex === 0)
-        //   ) {
-        //     setDirection('right')
-        //   } else if (
-        //     previousActiveImage > swiper.realIndex ||
-        //     (previousActiveImage === 0 &&
-        //       swiper.realIndex === swiper.slides.length - 1)
-        //   ) {
-        //     setDirection('left')
-        //   }
-        // }}
-        // onBeforeTransitionStart={(swiper) =>
-        //   setPreviousActiveImage(swiper.realIndex)
-        // }
+        onActiveIndexChange={(swiper) => {
+          setActiveImage(swiper.realIndex)
+          if (
+            previousActiveImage < swiper.realIndex ||
+            (previousActiveImage === swiper.slides.length - 1 &&
+              swiper.realIndex === 0)
+          ) {
+            setDirection('right')
+          } else if (
+            previousActiveImage > swiper.realIndex ||
+            (previousActiveImage === 0 &&
+              swiper.realIndex === swiper.slides.length - 1)
+          ) {
+            setDirection('left')
+          }
+        }}
+        onBeforeTransitionStart={(swiper) =>
+          setPreviousActiveImage(swiper.realIndex)
+        }
       >
         {data && (
           <>
             {(kKao4 ? data.slide : data).map((item, i) => {
               return (
-                <SwiperSlide
-                // key={i}
-                >
+                <SwiperSlide key={i}>
                   <Image
                     src={item.image.url}
                     alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
                     className='object-cover w-full h-full max-md:h-[26.8125rem]'
                     width={1920}
                     height={1080}
-                    priority
                   />
                   {/* <div
                     className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'
@@ -108,10 +105,10 @@ export default function ProductionLineSection({
             })}
           </>
         )}
-        {/* <PaginationProductionLine
+        <PaginationProductionLine
           activeImage={activeImage}
           direction={direction}
-        /> */}
+        />
       </Swiper>
     </section>
   )
