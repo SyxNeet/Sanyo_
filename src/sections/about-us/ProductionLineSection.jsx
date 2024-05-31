@@ -84,12 +84,12 @@ export default function ProductionLineSection({
                     width={1920}
                     height={1080}
                   />
-                  {/* <div
+                  <div
                     className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'
-                    style={{
-                      background:
-                        'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 60.17%, rgba(0, 0, 0, 0.50) 84.52%)',
-                    }}
+                    // style={{
+                    //   background:
+                    //     'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 60.17%, rgba(0, 0, 0, 0.50) 84.52%)',
+                    // }}
                   >
                     <div className='absolute -translate-x-1/2 select-none bottom-[10%] md:bottom-[11%] left-1/2 w-full'>
                       <h3 className='font-SVNLagu text-grey-0 text-0.625 md:text-1.375 tracking-0.1 font-semibold text-center mb-1 md:mb-2'>
@@ -99,7 +99,7 @@ export default function ProductionLineSection({
                         {item.description}
                       </h2>
                     </div>
-                  </div> */}
+                  </div>
                 </SwiperSlide>
               )
             })}
