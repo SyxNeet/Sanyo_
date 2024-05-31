@@ -7,7 +7,7 @@
 }
 
 .swiper-production-line .swiper-slide {
-  @apply flex justify-center items-center !important;
+  @apply relative flex justify-center items-center !important;
 }
 
 .swiper-core-values .swiper-wrapper {
