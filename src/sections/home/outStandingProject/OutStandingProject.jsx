@@ -7,9 +7,9 @@ import Link from 'next/link'
 
 export default function OutStandingProject({data}) {
   const arr = data
-  const arr1 = data.slice(0, 4);
-  const arr2 = data.slice(4, 8).concat(data.slice(0, Math.max(0, 4 - data.slice(4, 8).length)));
-  const arr3 = data.slice(8, 12).concat(data.slice(0, Math.max(0, 4 - data.slice(8, 12).length)));
+  const arr1 = data?.slice(0, 4);
+  const arr2 = data?.slice(4, 8).concat(data.slice(0, Math.max(0, 4 - data.slice(4, 8).length)));
+  const arr3 = data?.slice(8, 12).concat(data.slice(0, Math.max(0, 4 - data.slice(8, 12).length)));
   return (
     <section className='box-container-border md:pt-[7.5rem] flex flex-col justify-center items-center relative'>
       <div className='absolute left-0 right-0 top-[10.5rem] rotate-180 overlay_slide_outstanding'></div>

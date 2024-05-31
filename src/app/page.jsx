@@ -68,18 +68,18 @@ export default async function Home({params, searchParams}) {
     <main>
       <SlideBanner
         isMobile={isMobile}
-        dataBanner={dataBanner.banner}
+        dataBanner={dataBanner?.banner}
       />
       <Suspense>
         <CountUp
           isMobile={isMobile}
-          dataCountUp={dataCountUp.tinh_hoa_thang_may}
+          dataCountUp={dataCountUp?.tinh_hoa_thang_may}
         />
         <Suspense>
           <ValueDifferentAndJapanElevator
             isMobile={isMobile}
             dataSixReason={dataSixReason}
-            dataValueDifferent={dataValueDifferent.gia_tri_khac_biet}
+            dataValueDifferent={dataValueDifferent?.gia_tri_khac_biet}
             dataPlatFormElevator={dataPlatFormElevator}
           />
           <Suspense>
@@ -96,7 +96,7 @@ export default async function Home({params, searchParams}) {
               <Suspense>
                 <PartnerSection
                   isMobile={isMobile}
-                  data={dataPartner.partner}
+                  data={dataPartner?.partner}
                 />
               </Suspense>
             </Suspense>

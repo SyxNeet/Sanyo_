@@ -138,7 +138,7 @@ export default function ModalMenuDesktop({
                 href={`/thang-may-nhat-ban`}
                 isFirst
                 handleOnClick={handleClickModalLink}
-                dataImage={data.thang_may_nhat_ban}
+                dataImage={data?.thang_may_nhat_ban}
               />
               <HeaderModalExpand
                 activeModalMenuLink={activeModalMenuLink}
@@ -149,7 +149,7 @@ export default function ModalMenuDesktop({
                 data={modalMenuService.child}
                 isFirst={false}
                 handleOnClick={handleClickModalLink}
-                dataImage={data.dich_vu}
+                dataImage={data?.dich_vu}
               />
             </div>
           </div>

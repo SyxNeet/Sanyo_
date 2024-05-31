@@ -55,7 +55,7 @@ export default function SlideValue({isMobile, data}) {
           {(!isMobile
             ? data?.sixReasons?.slide_six_reasons.slice().reverse()
             : data?.sixReasons?.slide_six_reasons
-          ).map((item, index) => (
+          )?.map((item, index) => (
             <SwiperSlide key={index}>
               <ReasonChoose data={item} />
             </SwiperSlide>

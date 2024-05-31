@@ -12,7 +12,7 @@ function NewsItemHome({className, data}) {
         href={`tin-tuc/${data.post_slug}`}
       >
         <Image
-          src={data?.thumbnail}
+          src={data?.thumbnail||"https://cms.sanyoyusoki.com/wp-content/uploads/2024/05/service-2.jpg"}
           alt='image'
           quality={100}
           width={500}

@@ -8,7 +8,7 @@ async function getFooter() {
 }
 
 export default async function Footer({isMobile}) {
-  const dataFooter = (await getFooter()).footer
+  const dataFooter = (await getFooter())?.footer
   return (
     <>
       <footer className='relative flex items-stretch justify-between w-full'>
@@ -40,7 +40,7 @@ export default async function Footer({isMobile}) {
                 className='w-[21.1875rem] h-[2.8125rem] object-cover'
               />
               <p className='md:mt-[1.88rem] md:mb-[1.88rem] mt-[0.94rem] mb-[2.62rem] w-full text-white font-Iciel lg:text-[1rem] md:text-[1.3rem] text-[0.875rem] max-md:italic leading-[1.5rem]'>
-                {dataFooter.description}
+                {dataFooter?.description}
               </p>
               {isMobile && <SubmitMail />}
 
@@ -60,7 +60,7 @@ export default async function Footer({isMobile}) {
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
                 <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                  {dataFooter.location}
+                  {dataFooter?.location}
                 </p>
               </div>
               <div className='flex items-start mb-[1rem]'>
@@ -72,7 +72,7 @@ export default async function Footer({isMobile}) {
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
                 <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                  Hotline: {dataFooter.tel}
+                  Hotline: {dataFooter?.tel}
                 </p>
               </div>
               <div className='flex items-start mb-[1rem]'>
@@ -84,7 +84,7 @@ export default async function Footer({isMobile}) {
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
                 <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                  Email: {dataFooter.email}
+                  Email: {dataFooter?.email}
                 </p>
               </div>
               <div className='flex items-start mb-[1rem]'>
@@ -96,7 +96,7 @@ export default async function Footer({isMobile}) {
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
                 <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                  {dataFooter.website}
+                  {dataFooter?.website}
                 </p>
               </div>
             </div>

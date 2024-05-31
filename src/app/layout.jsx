@@ -109,7 +109,7 @@ export default function RootLayout({children, params}) {
             isMobile={isMobile}
             isTablet={isTablet}
           />
-          <GsapProvider isMobile={isMobile}>
+          <GsapProvider isMobile={isMobile} >
             {children}
             <Footer isMobile={isMobile} />
           </GsapProvider>

@@ -180,7 +180,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
               <div className='flex flex-col md:flex-row md:items-center'>
                 <div className='overflow-hidden h-max'>
                   <h2
-                    className='text-2 md:text-4.975 font-bold leading-1.2 uppercase font-averta text-transparent heading-1 opacity-0'
+                    className='text-2 md:text-4.975 font-bold leading-1.4 uppercase font-averta text-transparent heading-1 opacity-0'
                     style={{
                       WebkitTextStroke: '1px #FFF',
                       filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',

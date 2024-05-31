@@ -13,7 +13,7 @@ const PlatFormElevator = forwardRef(({dataPlatFormElevator}, ref) => {
         title={dataPlatFormElevator?.title}
         description={dataPlatFormElevator?.desc}
       />
-      <Slider data={dataPlatFormElevator.elavators} />
+      <Slider data={dataPlatFormElevator?.elavators} />
     </div>
   )
 })

@@ -19,7 +19,7 @@ export default function ProductionLineSection({
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)
   return (
-    <section className='mt-14 md:mt-[6.5rem]'>
+    <section className='mt-14 md:mt-[6.5rem] max-md:mb-[3.37rem]'>
       <div className='w-[93%] md:w-auto mx-auto md:ml-[6.25rem] mb-6 md:mb-10'>
         <Fade
           direction='up'
