@@ -87,7 +87,7 @@ export default function ProductionLineSection({
                     height={1080}
                     priority
                   />
-                  <div
+                  {/* <div
                     className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'
                     style={{
                       background:
@@ -102,7 +102,7 @@ export default function ProductionLineSection({
                         {item.description}
                       </h2>
                     </div>
-                  </div>
+                  </div> */}
                 </SwiperSlide>
               )
             })}
