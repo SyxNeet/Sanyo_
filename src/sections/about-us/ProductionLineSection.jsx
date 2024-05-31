@@ -74,9 +74,9 @@ export default function ProductionLineSection({
       >
         {data && (
           <>
-            {(kKao4 ? data.slide : data).map((item, i) => {
+            {(kKao4 ? data.slide : data).map((item) => {
               return (
-                <SwiperSlide key={i}>
+                <SwiperSlide>
                   <Image
                     src={item.image.url}
                     alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
