@@ -165,7 +165,7 @@ const HeaderDetailElevator = ({data, title}) => {
           </div>
         </Fade>
       </div>
-      <div className='px-[3.75rem] mt-[4.94rem] relative max-md:px-3 max-md:mt-[1.17rem]'>
+      <div className='px-[3.75rem] mt-[4.94rem] relative max-md:px-3 max-md:mt-[1.17rem] tmgd'>
         <Swiper
           spaceBetween={10}
           thumbs={{swiper: thumbsSwiper}}
