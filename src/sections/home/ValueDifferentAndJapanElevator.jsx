@@ -29,7 +29,7 @@ export default function ValueDifferentAndJapanElevator({
   const firstRef = useRef(null)
   const secondRef = useRef(null)
   useGSAP(() => {
-    if (windowWidth > 1024) {
+    if (windowWidth > 1024 && firstRef.current && secondRef.current) {
       gsap.to(firstRef.current, {
         scrollTrigger: {
           trigger: firstRef.current,

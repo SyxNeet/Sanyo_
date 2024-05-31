@@ -166,7 +166,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
           prevEl: '.swiper-button-prev-custom-home',
         }}
       >
-        {dataBanner.map((item, index) => (
+        {dataBanner?.map((item, index) => (
           <SwiperSlide key={index}>
             <Image
               src={item?.background?.url}
