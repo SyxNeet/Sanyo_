@@ -9,7 +9,7 @@ function NewsItemHome({className, data}) {
     >
       <Link
         className='absolute size-full'
-        href={`tin-tuc/${data.post_slug}`}
+        href={`tin-tuc/${data?.post_slug}`}
       >
         <Image
           src={data?.thumbnail||"https://cms.sanyoyusoki.com/wp-content/uploads/2024/05/service-2.jpg"}
@@ -19,7 +19,7 @@ function NewsItemHome({className, data}) {
           height={400}
           className='object-cover size-full'
         />
-        <div className='absolute overflow-hidden right-0 top-0 md:bottom-0 md:top-auto size-[8rem] translate-x-[48%] -translate-y-[62%] md:translate-y-[60%] bg-yellow-500 rounded-full'>
+        <div className='absolute overflow-hidden right-0 top-0 md:bottom-0 md:top-auto size-[8rem] translate-x-[48%] -translate-y-[62%] md:translate-y-[60%] bg-yellow-500 rounded-full z-[12]'>
           <Image
             src={'/images/home/danhSachTinTuc/arrow.svg'}
             width={120}
@@ -51,7 +51,7 @@ function NewsItemHome({className, data}) {
           </span>
         </div>
         <h3 className='text-white font-Iciel text-[0.875rem] lg:text-[1.3rem] font-medium leading-1.5 md:w-[17.5rem] line-clamp-2 text-ellipsis'>
-          <Link href={`tin-tuc/${data.post_slug}`}>{data.title}</Link>
+          <Link href={`tin-tuc/${data?.post_slug}`}>{data?.title}</Link>
         </h3>
       </div>
       <Image

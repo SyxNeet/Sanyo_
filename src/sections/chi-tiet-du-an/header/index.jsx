@@ -8,12 +8,13 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation, Autoplay} from 'swiper/modules'
 const HeaderProject = ({data,slide,dataTypeElevator}) => {
+
   return (
     <section>
       <BreadcrumbContainer className='pl-3 md:pl-[6.25rem]'>
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
-        <BreadcrumbLink href={`/`}>DANH SÁCH DỰ ÁN</BreadcrumbLink>
-        <BreadcrumbLink isLastLink>DỰ ÁN BIỆT THỰ PHÚ QUỐC</BreadcrumbLink>
+        <BreadcrumbLink href={`/du-an`}>DANH SÁCH DỰ ÁN</BreadcrumbLink>
+        <BreadcrumbLink isLastLink>{data?.heading}</BreadcrumbLink>
       </BreadcrumbContainer>
       <div className='border-b border-[rgba(28,32,28,0.10)] pb-[3.28rem] max-md:border-b-0 max-md:pb-0'>
         <div className='ml-[6.25rem] mt-[3.31rem] max-md:mt-6 max-md:ml-3'>

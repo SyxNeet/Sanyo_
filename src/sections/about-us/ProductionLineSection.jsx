@@ -14,7 +14,6 @@ export default function ProductionLineSection({
   justSlide = false,
   kKao4,
 }) {
-  console.log('🚀 ~ data:', data)
   const [activeImage, setActiveImage] = useState(0)
   const [previousActiveImage, setPreviousActiveImage] = useState(0)
   const [direction, setDirection] = useState(undefined)

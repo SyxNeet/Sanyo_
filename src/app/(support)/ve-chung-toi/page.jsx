@@ -59,24 +59,24 @@ export default async function AboutUsPage({params, searchParams}) {
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink isLastLink>VỀ CHÚNG TÔI</BreadcrumbLink>
       </BreadcrumbContainer>
-      <SlideOnlyImagesDownload data={dataGreatExperience.greatExperience} />
+      <SlideOnlyImagesDownload data={dataGreatExperience?.greatExperience} />
       <LeaderShipMessageAndCoreValues
         isMobile={isMobile}
-        dataLeadershipMessage={dataLeadershipMessage.leadershipMessage}
-        dataCoreValues={dataCoreValues.coreValues}
+        dataLeadershipMessage={dataLeadershipMessage?.leadershipMessage}
+        dataCoreValues={dataCoreValues?.coreValues}
       />
       <Achieved
         isMobile={isMobile}
-        data={dataAchieved.achieved}
+        data={dataAchieved?.achieved}
       />
       <ProductionLineSection
         isMobile={isMobile}
-        data={dataService.service}
+        data={dataService?.service}
         kKao4
       />
       <PartnerSection
         isMobile={isMobile}
-        data={dataPartner.partner}
+        data={dataPartner?.partner}
       />
     </main>
   )
