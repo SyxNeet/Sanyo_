@@ -52,7 +52,7 @@ export default function ProductionLineSection({
         }}
         loop
         speed={500}
-        modules={[Autoplay, EffectFade]}
+        modules={[Autoplay]}
         className='swiper-production-line'
         onActiveIndexChange={(swiper) => {
           setActiveImage(swiper.realIndex)
