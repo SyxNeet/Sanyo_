@@ -52,33 +52,31 @@ export default function ProductionLineSection({
         speed={500}
         modules={[EffectFade, Autoplay]}
         className='swiper-production-line'
-        // onActiveIndexChange={(swiper) => {
-        //   setActiveImage(swiper.realIndex)
-        //   if (
-        //     previousActiveImage < swiper.realIndex ||
-        //     (previousActiveImage === swiper.slides.length - 1 &&
-        //       swiper.realIndex === 0)
-        //   ) {
-        //     setDirection('right')
-        //   } else if (
-        //     previousActiveImage > swiper.realIndex ||
-        //     (previousActiveImage === 0 &&
-        //       swiper.realIndex === swiper.slides.length - 1)
-        //   ) {
-        //     setDirection('left')
-        //   }
-        // }}
-        // onBeforeTransitionStart={(swiper) =>
-        //   setPreviousActiveImage(swiper.realIndex)
-        // }
+        onActiveIndexChange={(swiper) => {
+          setActiveImage(swiper.realIndex)
+          if (
+            previousActiveImage < swiper.realIndex ||
+            (previousActiveImage === swiper.slides.length - 1 &&
+              swiper.realIndex === 0)
+          ) {
+            setDirection('right')
+          } else if (
+            previousActiveImage > swiper.realIndex ||
+            (previousActiveImage === 0 &&
+              swiper.realIndex === swiper.slides.length - 1)
+          ) {
+            setDirection('left')
+          }
+        }}
+        onBeforeTransitionStart={(swiper) =>
+          setPreviousActiveImage(swiper.realIndex)
+        }
       >
         {data && (
           <>
             {(kKao4 ? data.slide : data).map((item, i) => {
               return (
-                <SwiperSlide
-                // key={i}
-                >
+                <SwiperSlide key={i}>
                   <Image
                     src={item.image.url}
                     alt={item.image.alt ?? 'các bước tiến hành dịch vụ'}
@@ -108,10 +106,10 @@ export default function ProductionLineSection({
             })}
           </>
         )}
-        {/* <PaginationProductionLine
+        <PaginationProductionLine
           activeImage={activeImage}
           direction={direction}
-        /> */}
+        />
       </Swiper>
     </section>
   )
