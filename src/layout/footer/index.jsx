@@ -2,7 +2,7 @@ import Image from 'next/image'
 import SubmitMail from './SubmitMail'
 import FollowUs from './FollowUs'
 import getData from '@/lib/getData'
-
+import Link from 'next/link'
 async function getFooter() {
   return getData(`/options/options/footer`)
 }
@@ -62,6 +62,18 @@ export default async function Footer({isMobile}) {
                 <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
                   {dataFooter?.location}
                 </p>
+              </div>
+              <div className='flex items-start mb-[1rem]'>
+              <Image
+                  src={'/images/layout/footer/location.png'}
+                  alt='location'
+                  width={50}
+                  height={50}
+                  className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
+                />
+                <Link href={dataFooter?.link_google_map||'/'} className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
+                 Google map
+                </Link>
               </div>
               <div className='flex items-start mb-[1rem]'>
                 <Image
