@@ -2,11 +2,10 @@
 
 import {Swiper, SwiperSlide} from 'swiper/react'
 import Image from 'next/image'
-import {Autoplay, EffectFade} from 'swiper/modules'
-import 'swiper/css/effect-fade'
 import PaginationProductionLine from '@/components/slide-production-line/PaginationProductionLine'
 import {useState} from 'react'
 import {Fade} from 'react-awesome-reveal'
+import {Autoplay, EffectFade} from 'swiper/modules'
 
 export default function ProductionLineSection({
   isMobile,
@@ -51,7 +50,7 @@ export default function ProductionLineSection({
         }}
         loop
         speed={500}
-        modules={[Autoplay, EffectFade]}
+        modules={[EffectFade, Autoplay]}
         className='swiper-production-line'
         onActiveIndexChange={(swiper) => {
           setActiveImage(swiper.realIndex)
@@ -84,7 +83,6 @@ export default function ProductionLineSection({
                     className='object-cover w-full h-full max-md:h-[26.8125rem]'
                     width={1920}
                     height={1080}
-                    priority
                   />
                   <div
                     className='absolute top-0 z-10 flex-col w-full h-full -translate-x-1/2 pointer-events-none left-1/2'
