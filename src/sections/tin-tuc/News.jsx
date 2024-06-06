@@ -92,7 +92,7 @@ export default function News({
                 'text-grey-600 border border-grey-200 rounded-full font-Iciel text-0.75 md:text-1 leading-1.5 px-[1.19rem] py-[0.56rem] md:px-[1.31rem] md:py-[0.81rem] ml-3 flex-none transition-300',
                 {
                   'text-grey-900 bg-yellow-500 border-yellow-500':
-                    category === 'tin-tuc-doanh-nghiep',
+                    category === 'co-hoi-nghe-nghiep',
                 },
               )}
               onClick={() => setIsLoading(true)}

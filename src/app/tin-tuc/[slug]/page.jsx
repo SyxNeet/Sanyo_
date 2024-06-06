@@ -72,7 +72,7 @@ export default async function TinTucPage({params, searchParams}) {
         isMobile={isMobile}
         data={dataPost}
       />
-      {dataPlatFormElevator && (
+      {dataPlatFormElevator.elavators.length > 0 && (
         <>
           {!isMobile ? (
             <PlatFormElevator dataPlatFormElevator={dataPlatFormElevator} />
