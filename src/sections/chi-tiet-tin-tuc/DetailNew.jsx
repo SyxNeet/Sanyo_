@@ -83,7 +83,7 @@ export default function DetailNew({isMobile, data}) {
         </nav>
       </div>
       <div
-        className='content-container [&_h4]:mt-5 [&_h4]:md:mt-8 [&_h4]:text-1 [&_h4]:md:text-1.125 [&_h4]:font-medium [&_h4]:md:font-bold [&_h4]:leading-1.5 [&_h4]:text-grey-700 [&_h4]:md:text-[#454545] [&_h4]:font-Iciel [&_h4]:mb-2 [&_h4]:md:mb-3 [&_p]:text-grey-500 [&_p]:text-0.875 md:[&_p]:text-1 [&_p]:leading-1.5 [&_p]:font-Iciel [&_p]:mb-4 md:[&_p]:mb-5 [&_img]:object-cover [&_img]:w-full [&_img]:mb-2.5 [&_img]:mt-5 max-md:text-justify'
+        className='content-container [&_h4]:mt-5 [&_h4]:md:mt-8 [&_h4]:text-1 [&_h4]:md:text-1.125 [&_h4]:font-medium [&_h4]:md:font-bold [&_h4]:leading-1.5 [&_h4]:text-grey-700 [&_h4]:md:text-[#454545] [&_h4]:font-Iciel [&_h4]:mb-2 [&_h4]:md:mb-3 [&_p]:text-grey-500 [&_p]:text-0.875 md:[&_p]:text-1 [&_p]:leading-1.5 [&_p]:font-Iciel [&_p]:mb-4 md:[&_p]:mb-5 [&_img]:object-cover [&_img]:w-full [&_img]:mb-2.5 [&_img]:mt-5 max-md:text-justify [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:list-inside [&_ol]:list-inside [&_ul]:mb-4 [&_ol]:mb-4 md:[&_ul]:mb-5 md:[&_ol]:mb-5 [&_li]:mb-1 [&_ul]:text-0.875 md:[&_ul:text-1 [&_ol]:text-0.875 md:[&_ol]:text-1'
         dangerouslySetInnerHTML={{__html: data?.posts[0].content}}
       ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>
