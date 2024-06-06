@@ -40,7 +40,7 @@ export default function FixedLayout({isMobile}) {
     }
   }, [isMobile])
   return (
-    <div className='z-30 fixed bottom-3.5 right-3 md:bottom-6 md:right-6 flex flex-col gap-[0.88rem] md:gap-[1.38rem] '>
+    <div className='z-30 fixed bottom-3.5 right-3 md:bottom-6 md:right-6 flex flex-col gap-[0.88rem] md:gap-[1.38rem]'>
       <Link href={`tel:0393580688`}>
         <Image
           src={`/images/layout/3-nut-noi/call.svg`}
