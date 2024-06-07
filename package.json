@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@gsap/react": "^2.1.0",
+    "@tailwindcss/typography": "^0.5.13",
     "aos": "^2.3.4",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
     "postcss": "^8",
