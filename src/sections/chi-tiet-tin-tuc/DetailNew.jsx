@@ -70,19 +70,12 @@ export default function DetailNew({isMobile, data}) {
           >
             {headingArray.map((item, i) => {
               return (
-                <button
+                <strong
                   key={i}
                   className='text-grey-500 font-Iciel md:font-medium leading-1.5 text-start text-0.875 md:text-1'
-                  onClick={() =>
-                    smootherRef.current.scrollTo(
-                      document
-                        .querySelector('.content-container')
-                        .querySelectorAll('h4')[i],
-                    )
-                  }
                 >
                   {item}
-                </button>
+                </strong>
               )
             })}
           </Fade>
