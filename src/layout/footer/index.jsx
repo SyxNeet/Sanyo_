@@ -9,6 +9,7 @@ async function getFooter() {
 
 export default async function Footer({isMobile}) {
   const dataFooter = (await getFooter())?.footer
+  
   return (
     <>
       <footer className='relative flex items-stretch justify-between w-full'>

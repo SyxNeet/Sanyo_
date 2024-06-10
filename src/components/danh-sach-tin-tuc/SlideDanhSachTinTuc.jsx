@@ -43,7 +43,7 @@ export default function SlideDanhSachTinTuc({isMobile, data}) {
           swiperRef.current = swiper
         }}
       >
-        {data.recent_posts.map((item, i) => {
+        {data?.recent_posts?.map((item, i) => {
           return (
             <SwiperSlide key={i}>
               <Link
