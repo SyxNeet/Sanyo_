@@ -82,12 +82,9 @@ export default function DetailNew({isMobile, data}) {
         </nav>
       </div>
       <div
-        className='min-w-full prose content-container prose-neutral [&_img]:w-full prose-base'
+        className='min-w-full prose content-container prose-neutral [&_img]:w-full prose-base [&_em]:italic [&_i]:italic'
         dangerouslySetInnerHTML={{__html: data?.posts[0].content}}
       ></div>
-      <div className='min-w-full prose content-container prose-neutral [&_img]:w-full prose-base [&_em]:italic [&_i]:italic'>
-        <em>THIS IS SOME TEXT</em>
-      </div>
       <div className='flex flex-row items-center ml-auto w-fit'>
         <p className='font-Iciel text-grey-500 text-0.875 md:text-1 leading-1.2 mr-3 md:mr-4'>
           Chia sẻ :
