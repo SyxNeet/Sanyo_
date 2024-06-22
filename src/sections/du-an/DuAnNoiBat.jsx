@@ -11,7 +11,6 @@ import LoaiThangMayDropdown from './LoaiThangMayDropdown'
 import QuocGiaDropdown from './QuocGiaDropdown'
 import DanhSachDuAnSkeleton from '@/components/danh-sach-du-an/DanhSachDuAnSkeleton'
 import {Fade} from 'react-awesome-reveal'
-
 export default function DuAnNoiBat({
   dataDanhSachDuAn,
   dataProject,
@@ -22,6 +21,7 @@ export default function DuAnNoiBat({
   const stickyRef = useRef(null)
   const pinRef = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     if (window.innerWidth < 768) {
       gsap.to(stickyRef.current, {
@@ -61,6 +61,7 @@ export default function DuAnNoiBat({
           endTrigger: '.section-du-an',
           end: 'bottom bottom',
           pinSpacer: false,
+          markers: true,
         },
       })
     }
@@ -98,9 +99,8 @@ export default function DuAnNoiBat({
             }}
           />
         </div>
-      <Fade triggerOnce={true} direction='left'>
           <div
-            ref={pinRef}
+          ref={pinRef}
             className='md:basis-[27%] z-20 md:!mr-[3rem] md:py-[6.5rem] md:-translate-y-[5.5rem]'
           >
             <h2
@@ -130,8 +130,7 @@ export default function DuAnNoiBat({
               />
             </div>
           </div>
-      </Fade>
-        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0'>
+        <div className='md:basis-[71%] grid md:grid-cols-2 gap-3 md:gap-4 z-10 mt-3.5 shrink-0 '>
           {isLoading ? (
             <DanhSachDuAnSkeleton />
           ) : (
