@@ -53,7 +53,7 @@ export default function Dropdown({
       </button>
       <ul
         ref={ref}
-        className='flex flex-col overflow-hidden transition-500 max-h-0 pt-0.5 opacity-0'
+        className='flex flex-col overflow-hidden transition-500 max-h-0 pt-0.5 opacity-0 z-9 '
       >
         {children}
       </ul>
