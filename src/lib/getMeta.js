@@ -26,15 +26,27 @@ export const getMeta = (result, slug, fallbackTitle) => {
       images: [],
     },
   }
-  if (result?.json?.og_image && result.json.og_image.length > 0) {
-    meta.openGraph.images.push({
-      url: result.json.og_image[0]?.url,
-      width: result.json.og_image[0]?.width,
-      height: result.json.og_image[0]?.height,
-    })
-    meta.twitter.images.push({
-      url: result.json.og_image[0]?.url,
-    })
-  }
+  // if (result?.json?.og_image && result.json.og_image.length > 0) {
+  //   meta.openGraph.images.push({
+  //     url: result.json.og_image[0]?.url,
+  //     width: result.json.og_image[0]?.width,
+  //     height: result.json.og_image[0]?.height,
+  //   })
+  //   meta.twitter.images.push({
+  //     url: result.json.og_image[0]?.url,
+  //   })
+  // }
+  meta.openGraph.images.push({
+    // url: result?.json?.og_image?.[0]?.url,
+    // width: result?.json?.og_image?.[0]?.width,
+    // height: result?.json?.og_image?.[0]?.height,
+    url: '/images/logosanyo.jpg',
+    width: 1200,
+    height: 725,
+  })
+  meta.twitter.images.push({
+    // url: result?.json?.og_image?.[0]?.url,
+    url: '/images/logosanyo.jpg',
+  })
   return meta
 }
