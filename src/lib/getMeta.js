@@ -40,7 +40,7 @@ export const getMeta = (result, slug, fallbackTitle) => {
     // url: result?.json?.og_image?.[0]?.url,
     // width: result?.json?.og_image?.[0]?.width,
     // height: result?.json?.og_image?.[0]?.height,
-    url: '/images/logosanyo.jpg',
+    url: '/images/sanyo.jpg',
     width: 1200,
     height: 725,
   })
