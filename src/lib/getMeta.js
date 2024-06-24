@@ -46,7 +46,7 @@ export const getMeta = (result, slug, fallbackTitle) => {
   })
   meta.twitter.images.push({
     // url: result?.json?.og_image?.[0]?.url,
-    url: '/images/logosanyo.jpg',
+    url: '/images/sanyo.jpg',
   })
   return meta
 }
