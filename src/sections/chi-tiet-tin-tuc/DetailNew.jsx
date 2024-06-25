@@ -10,7 +10,7 @@ import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 import {regDuAnUrl} from '@/lib/reg'
 import {usePathname} from 'next/navigation'
 import {Fade} from 'react-awesome-reveal'
-
+import './styles.css'
 export default function DetailNew({isMobile, data}) {
   const pathname = usePathname()
   const smootherRef = useRef(null)
@@ -82,9 +82,11 @@ export default function DetailNew({isMobile, data}) {
         </nav>
       </div>
       <div
-        className='min-w-full prose content-container prose-neutral [&_img]:w-full prose-base [&_ul]:ml-6'
+        className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto  prose-base [&_ul]:ml-6'
         dangerouslySetInnerHTML={{__html: data?.posts[0].content}}
-      ></div>
+      >
+
+      </div>
       <div className='flex flex-row items-center ml-auto w-fit'>
         <p className='font-Iciel text-grey-500 text-0.875 md:text-1 leading-1.2 mr-3 md:mr-4'>
           Chia sẻ :
