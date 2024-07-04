@@ -10,7 +10,9 @@ import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
 import {regDuAnUrl} from '@/lib/reg'
 import {usePathname} from 'next/navigation'
 import {Fade} from 'react-awesome-reveal'
+import gsap from 'gsap'
 import './styles.css'
+
 export default function DetailNew({isMobile, data}) {
   const pathname = usePathname()
   const smootherRef = useRef(null)
@@ -37,11 +39,17 @@ export default function DetailNew({isMobile, data}) {
       headingElements.forEach((element) => {
         setHeadingArray((prevState) => [
           ...prevState,
-          element.textContent.trim(),
+          {
+            element,
+            text: element.textContent.trim(),
+          },
         ])
       })
     }
   }, [data])
+  useEffect(() => {
+    console.log(headingArray)
+  }, [headingArray])
   return (
     <section className='pt-5 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3'>
       <Fade
@@ -70,12 +78,25 @@ export default function DetailNew({isMobile, data}) {
           >
             {headingArray.map((item, i) => {
               return (
-                <strong
+                <button
                   key={i}
                   className='text-grey-500 font-Iciel md:font-medium leading-1.5 text-start text-0.875 md:text-1'
+                  onClick={() => {
+                    gsap.to(window, {
+                      scrollTo: {
+                        y: document.querySelectorAll('h2')[i],
+                        offsetY: -parseFloat(
+                          window.getComputedStyle(
+                            document.querySelector('#smooth-content'),
+                          ).paddingTop,
+                        ),
+                      },
+                      duration: 0.8,
+                    })
+                  }}
                 >
-                  {item}
-                </strong>
+                  {item.text}
+                </button>
               )
             })}
           </Fade>
@@ -84,9 +105,7 @@ export default function DetailNew({isMobile, data}) {
       <div
         className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto  prose-base [&_ul]:ml-6'
         dangerouslySetInnerHTML={{__html: data?.posts[0].content}}
-      >
-
-      </div>
+      ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>
         <p className='font-Iciel text-grey-500 text-0.875 md:text-1 leading-1.2 mr-3 md:mr-4'>
           Chia sẻ :

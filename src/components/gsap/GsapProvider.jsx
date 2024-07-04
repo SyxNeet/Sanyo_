@@ -30,7 +30,7 @@ export default function GsapProvider({children, isMobile}) {
     }
   }, [pathname, isMobile])
   return (
-    <div id='smooth-wrapper' className='max-md:pt-14'>
+    <div id='smooth-wrapper'>
       <div
         id='smooth-content'
         className={clsx('', {
