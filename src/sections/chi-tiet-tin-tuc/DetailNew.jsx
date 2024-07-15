@@ -32,7 +32,6 @@ export default function DetailNew({isMobile, data}) {
       setHeadingArray([])
       const headingElements = [
         ...document.querySelector('.content-container').querySelectorAll('h2'),
-        ...document.querySelector('.content-container').querySelectorAll('h3'),
       ]
       headingElements.forEach((element) => {
         setHeadingArray((prevState) => [
