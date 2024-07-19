@@ -13,7 +13,7 @@ export default async function getDataSlug(api, port = 'acf') {
           headers: {
             'Content-Type': 'application/json',
           },
-          next: {revalidate: 60},
+          next: {revalidate: 40},
         },
       )
   
