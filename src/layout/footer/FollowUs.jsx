@@ -39,7 +39,7 @@ function FollowUs({data}) {
         </Link>
         <Link
           href={data?.lien_ket_zalo || 'https://zalo.me/4574140570292753526'}
-          className='block w-[2.25rem] h-[2.25rem]  mr-[0.6rem] group'
+          className='block w-[2.25rem] h-[2.25rem] mr-[0.6rem] group'
           target='_blank'
         >
           <img
