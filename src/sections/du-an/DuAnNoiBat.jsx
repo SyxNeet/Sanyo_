@@ -61,7 +61,6 @@ export default function DuAnNoiBat({
           endTrigger: '.section-du-an',
           end: 'bottom bottom',
           pinSpacer: false,
-          markers: true,
         },
       })
     }
