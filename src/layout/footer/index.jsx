@@ -72,9 +72,10 @@ export default async function Footer({isMobile}) {
                   height={50}
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
-                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                  {dataFooter?.location_jp}
-                </p>
+                <p
+                  className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
+                  dangerouslySetInnerHTML={{__html: dataFooter?.location_jp}}
+                ></p>
               </div>
               <div className='flex items-start mb-[1rem]'>
                 <Image
@@ -84,9 +85,10 @@ export default async function Footer({isMobile}) {
                   height={50}
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
-                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                  {dataFooter?.location_china}
-                </p>
+                <p
+                  className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
+                  dangerouslySetInnerHTML={{__html: dataFooter?.location_china}}
+                ></p>
               </div>
               <div className='flex items-start mb-[1rem]'>
                 <Image
