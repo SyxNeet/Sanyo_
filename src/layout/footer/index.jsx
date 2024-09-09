@@ -9,7 +9,7 @@ async function getFooter() {
 
 export default async function Footer({isMobile}) {
   const dataFooter = (await getFooter())?.footer
-  
+
   return (
     <>
       <footer className='relative flex items-stretch justify-between w-full'>
@@ -65,15 +65,42 @@ export default async function Footer({isMobile}) {
                 </p>
               </div>
               <div className='flex items-start mb-[1rem]'>
-              <Image
+                <Image
                   src={'/images/layout/footer/location.png'}
                   alt='location'
                   width={50}
                   height={50}
                   className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
                 />
-                <Link href={dataFooter?.link_google_map||'/'} className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
-                 Google map
+                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
+                  {dataFooter?.location_jp}
+                </p>
+              </div>
+              <div className='flex items-start mb-[1rem]'>
+                <Image
+                  src={'/images/layout/footer/location.png'}
+                  alt='location'
+                  width={50}
+                  height={50}
+                  className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
+                />
+                <p className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '>
+                  {dataFooter?.location_china}
+                </p>
+              </div>
+              <div className='flex items-start mb-[1rem]'>
+                <Image
+                  src={'/images/layout/footer/location.png'}
+                  alt='location'
+                  width={50}
+                  height={50}
+                  className='w-[1.25rem] h-[1.25rem] mr-[0.62rem] relative top-[0.2rem]'
+                />
+                <Link
+                  href={dataFooter?.link_google_map || '/'}
+                  className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
+                >
+                  Google map
                 </Link>
               </div>
               <div className='flex items-start mb-[1rem]'>
