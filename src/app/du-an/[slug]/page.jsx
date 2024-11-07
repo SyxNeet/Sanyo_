@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({params}) {
-  const result = await fetchMetaData(`/du-an/${params.slug}/`)
+  const result = await fetchMetaData(`/du-an/${params.slug}`)
   return getMeta(
     result,
     `/du-an/${params.slug}`,
