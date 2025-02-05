@@ -65,7 +65,7 @@ export default async function TinTucPage({params, searchParams}) {
         <BreadcrumbLink href={`/`}>TRANG CHỦ</BreadcrumbLink>
         <BreadcrumbLink href={`/tin-tuc`}>DANH SÁCH TIN TỨC</BreadcrumbLink>
         <BreadcrumbLink isLastLink>
-          CÁCH ÂM RA SAO KHI CĂN HỘ GIÁP VÁCH THANG MÁY CHUNG CƯ
+          {dataPost?.posts[0].title}
         </BreadcrumbLink>
       </BreadcrumbContainer>
       <DetailNew

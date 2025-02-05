@@ -9,7 +9,7 @@ import ProductionLineSection from '@/sections/about-us/ProductionLineSection'
 import PartnerSection from '@/components/partner/PartnerSection'
 import {fetchMetaData} from '@/lib/fetchMetadata'
 import {getMeta} from '@/lib/getMeta'
-import 'swiper/css/effect-fade';
+import 'swiper/css/effect-fade'
 
 async function getLeadershipMessage(pageId) {
   return getData(`/pages/${pageId}/leadershipMessage`)
@@ -32,8 +32,9 @@ async function getPartner() {
 const pageId = 188
 
 export async function generateMetadata() {
-  const result = await fetchMetaData('/ve-chung-toi/')
-  return getMeta(result, '/ve-chung-toi', 'Về chúng tôi - SANYO YUSOKI')
+  const result = await fetchMetaData(`/ve-chung-toi/`)
+  console.log('result', result)
+  return getMeta(result, `/ve-chung-toi`, 'Về chúng tôi - SANYO YUSOKI')
 }
 
 export default async function AboutUsPage({params, searchParams}) {
