@@ -8,6 +8,7 @@ import {
 } from '../../../data/header/modal-menu'
 import clsx from 'clsx'
 
+
 export default function ModalMenuDesktop({
   isOpenModalMenu,
   activeModalMenuLink,
@@ -17,7 +18,9 @@ export default function ModalMenuDesktop({
   setActiveModalMenuLink,
   setActiveModalMenuChildLink,
   data,
+  dataModal,
 }) {
+  const dataImage = dataModal?.child?.map((item) => item.src) || []
   return (
     <>
       <div
@@ -65,14 +68,14 @@ export default function ModalMenuDesktop({
           <div className='flex flex-row items-center border-y-[0.0625rem] border-white/10 overflow-hidden'>
             <nav className='flex-none grid grid-cols-1 w-[24.5rem]'>
               <HeaderModalLink
-                href={`/${modalMenuJapanElevator.href}`}
-                text={modalMenuJapanElevator.text}
+                href={`/${dataModal.href}`}
+                text={dataModal.text}
                 isLink={false}
                 handleOnMouseEnter={() =>
-                  setActiveModalMenuLink(modalMenuJapanElevator.text)
+                  setActiveModalMenuLink(dataModal.text)
                 }
                 handleOnMouseLeave={() => setActiveModalMenuLink('')}
-                isActive={activeModalMenuLink === modalMenuJapanElevator.text}
+                isActive={activeModalMenuLink === dataModal.text}
                 handleOnClick={handleClickModalLink}
               />
               <HeaderModalLink
@@ -133,12 +136,12 @@ export default function ModalMenuDesktop({
                 activeModalMenuChildLink={activeModalMenuChildLink}
                 setActiveModalMenuLink={setActiveModalMenuLink}
                 setActiveModalMenuChildLink={setActiveModalMenuChildLink}
-                text={modalMenuJapanElevator.text}
-                data={modalMenuJapanElevator.child}
+                text={dataModal.text}
+                data={dataModal.child}
                 href={`/thang-may-nhat-ban`}
                 isFirst
                 handleOnClick={handleClickModalLink}
-                dataImage={data?.thang_may_nhat_ban}
+                dataImage={dataImage}
               />
               <HeaderModalExpand
                 activeModalMenuLink={activeModalMenuLink}
@@ -189,10 +192,10 @@ export default function ModalMenuDesktop({
                   target='_blank'
                 >
                   <img
-            src='/images/layout/footer/linkedin.png'
-            alt=''
-            className='object-cover w-full h-full'
-          />
+                    src='/images/layout/footer/linkedin.png'
+                    alt=''
+                    className='object-cover w-full h-full'
+                  />
                 </Link>
                 <Link
                   href={
@@ -201,11 +204,11 @@ export default function ModalMenuDesktop({
                   className='block w-[2.25rem] h-[2.25rem] mr-[0.6rem] group'
                   target='_blank'
                 >
-                 <img
-            src='/images/layout/footer/zalo.png'
-            alt=''
-            className='object-cover w-full h-full'
-          />
+                  <img
+                    src='/images/layout/footer/zalo.png'
+                    alt=''
+                    className='object-cover w-full h-full'
+                  />
                 </Link>
               </nav>
             </div>
