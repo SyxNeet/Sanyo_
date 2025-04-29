@@ -79,6 +79,7 @@ export default function HeaderModalExpand({
         {href ? (
           <>
             {dataImage?.map((item2, i2) => {
+
               if (i2 < dataImage?.length - 1) {
                 return (
                   <Image
@@ -110,7 +111,7 @@ export default function HeaderModalExpand({
                 return (
                   <Image
                     key={i2}
-                    src={item2.url}
+                    src={item2}
                     alt={item2.alt ?? 'thang máy nhật bản'}
                     className={clsx(
                       'absolute top-0 left-0 object-cover w-full h-full transition-500',
