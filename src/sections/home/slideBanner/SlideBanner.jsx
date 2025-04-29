@@ -1,7 +1,7 @@
 'use client'
 
-import React, {useRef, useState} from 'react'
-import {Swiper, SwiperSlide} from 'swiper/react'
+import React, { useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/effect-fade'
@@ -15,9 +15,9 @@ import {
 import Image from 'next/image'
 import './style.css'
 import gsap from 'gsap'
-import {useGSAP} from '@gsap/react'
+import { useGSAP } from '@gsap/react'
 
-export default function SlideBanner({isMobile, dataBanner}) {
+export default function SlideBanner({ isMobile, dataBanner }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const swiperRef = useRef()
   const [indexSlider, setIndexSlider] = useState(0)
@@ -25,7 +25,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
   useGSAP(() => {
     gsap.fromTo(
       '.heading-1',
-      {yPercent: 103, autoAlpha: 1},
+      { yPercent: 103, autoAlpha: 1 },
       {
         yPercent: 0,
         autoAlpha: 1,
@@ -35,7 +35,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
     )
     gsap.fromTo(
       '.heading-2',
-      {yPercent: 103, autoAlpha: 1},
+      { yPercent: 103, autoAlpha: 1 },
       {
         yPercent: 0,
         autoAlpha: 1,
@@ -51,6 +51,7 @@ export default function SlideBanner({isMobile, dataBanner}) {
 
   return (
     <section className='md:h-[55vh] lg:h-[calc(100vh-5.5rem)] h-[23.6875rem] w-full relative'>
+
       {/* pagination */}
 
       {isMobile ? (
@@ -83,16 +84,14 @@ export default function SlideBanner({isMobile, dataBanner}) {
           {dataBanner?.map((item, index) => (
             <div
               key={index}
-              className={`md:w-[1rem] w-[0.6rem] h-[0.6rem] md:h-[1rem] md:mr-[1rem] mr-[0.58rem]  rounded-[50%] bg-gray-800 bg-opacity-20 relative ${
-                indexSlider === index
-                  ? 'border-[0.25rem] solid border-white'
-                  : ''
-              }`}
+              className={`md:w-[1rem] w-[0.6rem] h-[0.6rem] md:h-[1rem] md:mr-[1rem] mr-[0.58rem]  rounded-[50%] bg-gray-800 bg-opacity-20 relative ${indexSlider === index
+                ? 'border-[0.25rem] solid border-white'
+                : ''
+                }`}
             >
               <div
-                className={`md:w-[0.25rem] md:h-[0.25rem] w-[0.15rem] h-[0.15rem] flex flex-shrink-0 rounded-[50%] ${
-                  indexSlider === index ? '' : 'bg-grey-0'
-                } absolute -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%]`}
+                className={`md:w-[0.25rem] md:h-[0.25rem] w-[0.15rem] h-[0.15rem] flex flex-shrink-0 rounded-[50%] ${indexSlider === index ? '' : 'bg-grey-0'
+                  } absolute -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%]`}
               ></div>
             </div>
           ))}
@@ -150,10 +149,10 @@ export default function SlideBanner({isMobile, dataBanner}) {
         spaceBetween={0}
         loop={true}
         effect={'fade'}
-        thumbs={{swiper: thumbsSwiper}}
-        autoplay={{
-          delay: 3000,
-        }}
+        thumbs={{ swiper: thumbsSwiper }}
+        // autoplay={{
+        //   delay: 5000,
+        // }}
         onSlideChange={handleSlideChange}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
@@ -192,13 +191,13 @@ export default function SlideBanner({isMobile, dataBanner}) {
                 <div className='overflow-hidden h-max'>
                   <h2
                     className='text-2 md:text-4.975 text-grey-0 md:ml-4 font-averta font-bold leading-1.4 tracking-[-0.25rem] uppercase heading-2 opacity-0'
-                    style={{textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'}}
+                    style={{ textShadow: 'rgba(0, 0, 0, 0.25) 0px 4px 4px' }}
                   >
                     {item?.heading2}
                   </h2>
                 </div>
               </div>
-              <p className='md:w-[45.5rem] max-md:hidden md:mt-[0.37rem] text-white lg:text-[1.125rem] font-medium leading-1.5 font-Iciel'>
+              <p style={{ textShadow: '0px 4px 3px rgba(0, 0, 0, 0.7)' }} className='md:w-[45.5rem] max-md:hidden md:mt-[0.37rem] text-white lg:text-[1.125rem] font-medium leading-1.5 font-Iciel '>
                 {item?.description}
               </p>
             </div>

@@ -2,14 +2,14 @@
 import Image from 'next/image'
 import './style.css'
 import ItemOutStandingProject from '@/components/itemOutstandingProject'
-import {Button} from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function OutStandingProject({data}) {
+export default function OutStandingProject({ data }) {
   const arr = data
-  const arr1 = data?.slice(0, 4);
-  const arr2 = data?.slice(4, 8).concat(data.slice(0, Math.max(0, 4 - data.slice(4, 8).length)));
-  const arr3 = data?.slice(8, 12).concat(data.slice(0, Math.max(0, 4 - data.slice(8, 12).length)));
+  const arr1 = data?.slice(0, 3);
+  const arr2 = data?.slice(3, 6).concat(data.slice(0, Math.max(0, 3 - data.slice(3, 6).length)));
+  const arr3 = data?.slice(6, 9).concat(data.slice(0, Math.max(0, 3 - data.slice(6, 9).length)));
   return (
     <section className='box-container-border md:pt-[7.5rem] flex flex-col justify-center items-center relative'>
       <div className='absolute left-0 right-0 top-[10.5rem] rotate-180 overlay_slide_outstanding'></div>
@@ -31,36 +31,36 @@ export default function OutStandingProject({data}) {
           <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate md:mb-[0.75rem]'>
               {arr1?.map((item, index) => (
-                <ItemOutStandingProject key={index} data={item}/>
+                <ItemOutStandingProject key={index} data={item} />
               ))}
             </div>
             <div className='flex flex-col gap-[0.75rem] items-center maquee-animate'>
               {arr1?.map((item, index) => (
-                <ItemOutStandingProject key={index} data={item}/>
+                <ItemOutStandingProject key={index} data={item} />
               ))}
             </div>
           </div>
           <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate2 md:mb-[0.75rem]'>
               {arr2?.map((item, index) => (
-                <ItemOutStandingProject key={index} data={item}/>
+                <ItemOutStandingProject key={index} data={item} />
               ))}
             </div>
             <div className='flex flex-col gap-[0.75rem] items-center maquee-animate2'>
               {arr2?.map((item, index) => (
-                <ItemOutStandingProject key={index} data={item}/>
+                <ItemOutStandingProject key={index} data={item} />
               ))}
             </div>
           </div>
           <div className='relative z-10 flex flex-col maquee'>
             <div className='flex flex-col gap-[0.75rem] items-center justify-center maquee-animate md:mb-[0.75rem]'>
               {arr3?.map((item, index) => (
-                <ItemOutStandingProject key={index} data={item}/>
+                <ItemOutStandingProject key={index} data={item} />
               ))}
             </div>
             <div className='flex flex-col gap-[0.75rem] items-center maquee-animate'>
               {arr3?.map((item, index) => (
-                <ItemOutStandingProject key={index} data={item}/>
+                <ItemOutStandingProject key={index} data={item} />
               ))}
             </div>
           </div>

@@ -1,10 +1,10 @@
 'use client'
 
-import {useEffect, useRef, useState} from 'react'
+import { useEffect, useRef, useState } from 'react'
 import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
 
-export default function HeaderContainer({isMobile, data, isTablet}) {
+export default function HeaderContainer({ isMobile, data, isTablet, dataModal }) {
   const headerRef = useRef(null)
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 1025,
@@ -43,11 +43,13 @@ export default function HeaderContainer({isMobile, data, isTablet}) {
           <HeaderMobile
             isMobile={isMobileView}
             data={data}
+            dataModal={dataModal}
           />
         ) : (
           <HeaderDesktop
             isMobile={isMobileView}
             data={data}
+            dataModal={dataModal}
           />
         )}
       </header>

@@ -1,19 +1,19 @@
 'use client'
 
 import Image from 'next/image'
-import {useEffect, useRef, useState} from 'react'
-import {toast} from 'sonner'
+import { useEffect, useRef, useState } from 'react'
+import { toast } from 'sonner'
 import Link from 'next/link'
-import {useGSAP} from '@gsap/react'
-import {ScrollSmoother} from 'gsap/ScrollSmoother'
-import {scrollSmootherConfig} from '@/components/gsap/GsapProvider'
-import {regDuAnUrl} from '@/lib/reg'
-import {usePathname} from 'next/navigation'
-import {Fade} from 'react-awesome-reveal'
+import { useGSAP } from '@gsap/react'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
+import { scrollSmootherConfig } from '@/components/gsap/GsapProvider'
+import { regDuAnUrl } from '@/lib/reg'
+import { usePathname } from 'next/navigation'
+import { Fade } from 'react-awesome-reveal'
 import gsap from 'gsap'
 import './styles.css'
 
-export default function DetailNew({isMobile, data}) {
+export default function DetailNew({ isMobile, data }) {
   const pathname = usePathname()
   const smootherRef = useRef(null)
   const [headingArray, setHeadingArray] = useState([])
@@ -45,7 +45,6 @@ export default function DetailNew({isMobile, data}) {
     }
   }, [data])
   useEffect(() => {
-    console.log(headingArray)
   }, [headingArray])
   return (
     <section className='pt-5 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3'>
@@ -100,8 +99,8 @@ export default function DetailNew({isMobile, data}) {
         </nav>
       </div>
       <div
-        className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto  prose-base [&_ul]:ml-6'
-        dangerouslySetInnerHTML={{__html: data?.posts[0].content}}
+        className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto  prose-base [&_ul]:ml-6 lg:text-[1.2rem]'
+        dangerouslySetInnerHTML={{ __html: data?.posts[0].content }}
       ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>
         <p className='font-Iciel text-grey-500 text-0.875 md:text-1 leading-1.2 mr-3 md:mr-4'>

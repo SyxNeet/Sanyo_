@@ -83,8 +83,8 @@ export default function HeaderModalExpand({
                 return (
                   <Image
                     key={i2}
-                    src={item2.url}
-                    alt={item2.alt}
+                    src={item2}
+                    alt=''
                     className={clsx(
                       'object-cover w-full h-full transition-500',
                       {
@@ -141,8 +141,8 @@ export default function HeaderModalExpand({
               return (
                 <Image
                   key={i2}
-                  src={item2.url}
-                  alt={item2.alt}
+                  src={item2}
+                  alt={item2.alt ?? 'thang máy'}
                   className={clsx('object-cover w-full h-full transition-500', {
                     'absolute top-0 left-0': i2 !== 0,
                     'opacity-0 pointer-events-none':
