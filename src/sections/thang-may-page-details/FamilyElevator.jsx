@@ -6,7 +6,7 @@ import ProductionLineSection from '../about-us/ProductionLineSection'
 import FiveReasonsFamily from './fiveReasonsFamily'
 import ActualConstruction from './actualConstruction'
 
-const FamilyElevator = ({isMobile, data, dataElevator}) => {
+const FamilyElevator = ({ isMobile, data, dataElevator }) => {
   const {
     banner,
     title,

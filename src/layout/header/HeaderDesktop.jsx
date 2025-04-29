@@ -1,14 +1,14 @@
 'use client'
 
-import {useEffect, useState, useRef} from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {Button} from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import dynamic from 'next/dynamic'
 import GoogleTranslate from '@/components/Language'
 const DynamicModalMenuDesktop = dynamic(() => import('./ModalMenuDesktop'))
 
-export default function HeaderDesktop({isMobile, data}) {
+export default function HeaderDesktop({ isMobile, data, dataModal }) {
   const headerRef = useRef(null)
   const [isOpenModalMenu, setIsOpenModalMenu] = useState(false)
   const [activeModalMenuLink, setActiveModalMenuLink] = useState('')
@@ -169,6 +169,7 @@ export default function HeaderDesktop({isMobile, data}) {
         setActiveModalMenuLink={setActiveModalMenuLink}
         setActiveModalMenuChildLink={setActiveModalMenuChildLink}
         data={data}
+        dataModal={dataModal}
       />
     </>
   )

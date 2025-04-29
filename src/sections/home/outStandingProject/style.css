@@ -1,22 +1,22 @@
 .maquee .maquee-animate {
-  animation: maquee_image 30s linear infinite;
+  animation: maquee_image 50s linear infinite;
 }
+
 .maquee .maquee-animate2 {
-  animation: maquee_image_reverse 30s linear infinite;
+  animation: maquee_image_reverse 50s linear infinite;
 }
 
 .overlay_slide_outstanding {
   height: 15rem;
   opacity: 0.97;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.6) 10%,
-    rgba(255, 255, 255, 0.8) 25%,
-    #fff 46.15%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 10%,
+      rgba(255, 255, 255, 0.8) 25%,
+      #fff 46.15%);
   z-index: 11;
 }
+
 @keyframes maquee_image {
   0% {
     transform: translateY(0);
@@ -26,6 +26,7 @@
     transform: translateY(calc(-100% - 20px));
   }
 }
+
 @keyframes maquee_image_reverse {
   0% {
     transform: translateY(calc(-100% - 20px));

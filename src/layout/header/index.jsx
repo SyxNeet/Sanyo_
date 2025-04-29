@@ -1,18 +1,18 @@
 import getData from '@/lib/getData'
 import HeaderContainer from './HeaderContainer'
 
-async function getHeader() {
-  return getData(`/options/options/header`)
-}
-
-export default async function Header({isMobile,isTablet}) {
-  const dataHeader = await getHeader()
+export default async function Header({ isMobile, isTablet }) {
+  const [dataHeader, dataModal] = await Promise.all([
+    getData(`/options/options/header`),
+    getData(`/elevator-terms`, 'custom'),
+  ])
   return (
     <>
       <HeaderContainer
         isMobile={isMobile}
         isTablet={isTablet}
         data={dataHeader?.header}
+        dataModal={dataModal}
       />
     </>
   )
