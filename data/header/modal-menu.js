@@ -55,12 +55,12 @@ export const modalMenuService = {
   child: [
     {
       href: '/dich-vu/lap-dat-thang-may',
-      src: '/images/layout/header/service.png',
+      src: 'https://cms.sanyoyusoki.com/wp-content/uploads/2024/05/kiem-dinh-thang-may-1.jpg',
       text: 'Thiết kế và lắp đặt thang máy theo yêu cầu',
     },
     {
       href: '/dich-vu/bao-tri-bao-duong',
-      src: '/images/layout/header/service.png',
+      src: 'https://cms.sanyoyusoki.com/wp-content/uploads/2024/05/service-1.jpg',
       text: 'Bảo trì bảo dưỡng thang máy',
     },
   ],

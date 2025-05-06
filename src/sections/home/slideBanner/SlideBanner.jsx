@@ -150,9 +150,9 @@ export default function SlideBanner({ isMobile, dataBanner }) {
         loop={true}
         effect={'fade'}
         thumbs={{ swiper: thumbsSwiper }}
-        // autoplay={{
-        //   delay: 5000,
-        // }}
+        autoplay={{
+          delay: 5000,
+        }}
         onSlideChange={handleSlideChange}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
