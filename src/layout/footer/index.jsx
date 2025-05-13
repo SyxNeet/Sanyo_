@@ -7,7 +7,7 @@ async function getFooter() {
   return getData(`/options/options/footer`)
 }
 
-export default async function Footer({isMobile}) {
+export default async function Footer({ isMobile }) {
   const dataFooter = (await getFooter())?.footer
 
   return (
@@ -30,7 +30,7 @@ export default async function Footer({isMobile}) {
           />
         </div>
 
-        <div className='flex-1 bg-grey-600 md:pb-[1.88rem]  md:pt-[5.13rem] md:pl-[4.31rem] md:pr-[8.25rem]  max-md:pt-[4.31rem] max-md:px-[0.75rem] max-md:pb-[1.37rem]  '>
+        <div className='relative flex-1 bg-grey-600 md:pb-[1.88rem]  md:pt-[5.13rem] md:pl-[4.31rem] md:pr-[8.25rem]  max-md:pt-[4.31rem] max-md:px-[0.75rem] max-md:pb-[1.37rem]  '>
           <div className='flex justify-between max-md:flex-col'>
             <div className='md:w-[23.1875rem] relative z-[1]'>
               <Image
@@ -74,7 +74,7 @@ export default async function Footer({isMobile}) {
                 />
                 <p
                   className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
-                  dangerouslySetInnerHTML={{__html: dataFooter?.location_jp}}
+                  dangerouslySetInnerHTML={{ __html: dataFooter?.location_jp }}
                 ></p>
               </div>
               <div className='flex items-start mb-[1rem]'>
@@ -87,7 +87,7 @@ export default async function Footer({isMobile}) {
                 />
                 <p
                   className='text-white font-Iciel md:text-[1.3rem] text-[0.875rem] lg:text-[1rem] leading-1.5 '
-                  dangerouslySetInnerHTML={{__html: dataFooter?.location_china}}
+                  dangerouslySetInnerHTML={{ __html: dataFooter?.location_china }}
                 ></p>
               </div>
               <div className='flex items-start mb-[1rem]'>
@@ -142,6 +142,9 @@ export default async function Footer({isMobile}) {
                 </p>
               </div>
             </div>
+          </div>
+          <div>
+            <iframe className='absolute w-[30rem] max-md:w-full max-md:unset h-[20rem] top-[20rem] left-[2rem]' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.295378351059!2d105.81096917539632!3d20.980793580656506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acee88cfe381%3A0xd4739d48e410af2e!2zTmcuIDY2IMSQxrDhu51uZyBLaW0gR2lhbmcsIEhvw6BuZyBNYWksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1747149114304!5m2!1svi!2s" width={600} height={450} style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           {isMobile && <FollowUs data={dataFooter} />}
           {!isMobile && <SubmitMail />}
