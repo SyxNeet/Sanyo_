@@ -144,7 +144,7 @@ export default async function Footer({ isMobile }) {
             </div>
           </div>
           <div>
-            <iframe className='absolute w-[30rem] max-md:w-full max-md:unset h-[20rem] top-[20rem] left-[2rem]' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.295378351059!2d105.81096917539632!3d20.980793580656506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acee88cfe381%3A0xd4739d48e410af2e!2zTmcuIDY2IMSQxrDhu51uZyBLaW0gR2lhbmcsIEhvw6BuZyBNYWksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1747149114304!5m2!1svi!2s" width={600} height={450} style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe className='md:absolute z-[1] w-[30rem] max-md:w-full  h-[20rem] top-[20rem] left-[2rem]' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.2864790926433!2d105.8144674!3d20.9811505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad45b62057bb%3A0x9b5ea2c0c1abb0d5!2zQ8O0bmcgdHkgVE5ISCB0aGnhur90IGLhu4sgdsOgIHRoYW5nIG3DoXkgU2FueW8gWXVzb2tpIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1747887240326!5m2!1svi!2s" width={600} height={450} style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           {isMobile && <FollowUs data={dataFooter} />}
           {!isMobile && <SubmitMail />}
