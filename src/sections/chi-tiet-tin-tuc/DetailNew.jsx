@@ -99,7 +99,7 @@ export default function DetailNew({ isMobile, data }) {
         </nav>
       </div>
       <div
-        className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto  prose-base [&_ul]:ml-6 lg:text-[1.2rem]'
+        className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto prose-base [&_ul]:ml-6 lg:text-[1.2rem] [&_td]:text-center [&_td]:align-middle'
         dangerouslySetInnerHTML={{ __html: data?.posts[0].content }}
       ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>
@@ -107,11 +107,7 @@ export default function DetailNew({ isMobile, data }) {
           Chia sẻ :
         </p>
         <Link
-          href={`https://www.facebook.com/dialog/feed?
-          app_id=145634995501895
-          &display=popup&caption=An%20example%20caption 
-          &link=${isClient && window.location.href}
-          &redirect_uri=https://developers.facebook.com/tools/explorer`}
+          href={`https://www.facebook.com/sharer/sharer.php?u=${isClient && window.location.href}`}
           target='_blank'
         >
           <Image

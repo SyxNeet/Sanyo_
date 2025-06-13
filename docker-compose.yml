@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  next-app:
+    container_name: sanyo
+    platform: linux/amd64
+    image: okhubvn/sanyo:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API: ${NEXT_PUBLIC_API}
+        NEXT_PUBLIC_REST_API: ${NEXT_PUBLIC_REST_API}
+        DOMAIN: ${DOMAIN}
+        API: ${API}
+        WP_API: ${WP_API}
+        OKHUB_API: ${OKHUB_API}
+        API_SLUG: ${API_SLUG}
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - sanyo
+  # Add more containers below (nginx, postgres, etc.)
+
+  # Define a network, which allows containers to communicate
+  # with each other, by using their container name as a hostname
+networks:
+  sanyo:
+    external: true
