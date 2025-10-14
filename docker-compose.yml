@@ -3,6 +3,7 @@ version: '3.9'
 services:
   next-app:
     container_name: sanyo
+    platform: linux/amd64
     image: okhubvn/sanyo:latest
     build:
       context: .
@@ -20,11 +21,10 @@ services:
       - 3000:3000
     networks:
       - sanyo
-
   # Add more containers below (nginx, postgres, etc.)
 
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
+  # Define a network, which allows containers to communicate
+  # with each other, by using their container name as a hostname
 networks:
   sanyo:
     external: true

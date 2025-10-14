@@ -4,7 +4,6 @@ export const getMeta = (result, slug, fallbackTitle) => {
     title: result?.json?.title.includes('not found')
       ? fallbackTitle
       : result?.json?.title,
-    // title: result?.json?.title,
     description: result?.json?.description,
     alternates: {
       canonical: `${process.env.DOMAIN}${slug}`,
@@ -25,28 +24,34 @@ export const getMeta = (result, slug, fallbackTitle) => {
       creator: process.env.NEXT_PUBLIC_CREDENTIAL_REST_API,
       images: [],
     },
+  };
+
+  // Xử lý hình ảnh cho Open Graph và Twitter
+  if (result?.json?.og_image && result.json.og_image.length > 0) {
+    const imageUrl = result.json.og_image[0]?.url?.startsWith('http')
+      ? result.json.og_image[0]?.url
+      : `${process.env.DOMAIN}${result.json.og_image[0]?.url}`; // Đảm bảo URL tuyệt đối
+
+    meta.openGraph.images.push({
+      url: imageUrl,
+      width: result.json.og_image[0]?.width || 1200, // Fallback width nếu không có
+      height: result.json.og_image[0]?.height || 725, // Fallback height nếu không có
+    });
+    meta.twitter.images.push({
+      url: imageUrl,
+    });
+  } else {
+    // Fallback hình ảnh mặc định
+    const defaultImageUrl = `${process.env.DOMAIN}/images/sanyo.jpg`;
+    meta.openGraph.images.push({
+      url: defaultImageUrl,
+      width: 1200,
+      height: 725,
+    });
+    meta.twitter.images.push({
+      url: defaultImageUrl,
+    });
   }
-  // if (result?.json?.og_image && result.json.og_image.length > 0) {
-  //   meta.openGraph.images.push({
-  //     url: result.json.og_image[0]?.url,
-  //     width: result.json.og_image[0]?.width,
-  //     height: result.json.og_image[0]?.height,
-  //   })
-  //   meta.twitter.images.push({
-  //     url: result.json.og_image[0]?.url,
-  //   })
-  // }
-  meta.openGraph.images.push({
-    // url: result?.json?.og_image?.[0]?.url,
-    // width: result?.json?.og_image?.[0]?.width,
-    // height: result?.json?.og_image?.[0]?.height,
-    url: '/images/sanyo.jpg',
-    width: 1200,
-    height: 725,
-  })
-  meta.twitter.images.push({
-    // url: result?.json?.og_image?.[0]?.url,
-    url: '/images/sanyo.jpg',
-  })
-  return meta
-}
+
+  return meta;
+};

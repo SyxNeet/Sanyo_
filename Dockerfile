@@ -72,7 +72,7 @@ RUN \
 FROM base AS runner
 
 WORKDIR /app
-
+ENV NODE_ENV=production
 # Copy the .npmrc file to use the credentials during the build process
 COPY .npmrc .npmrc
 

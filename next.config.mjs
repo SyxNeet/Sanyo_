@@ -4,7 +4,7 @@ const nextConfig = {
     formats: ['image/webp'],
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
-    remotePatterns: [{protocol: 'https', hostname: '**'}],
+    remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
   output: 'standalone',
 }

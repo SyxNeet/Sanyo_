@@ -1,3 +1,26 @@
+.animate-shake {
+    animation: shake 1s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+.amiation-zoom {
+    position: absolute;
+    box-shadow: 0 0 0 0 rgb(218 181 113);
+    background-color: rgb(218 181 113);
+    transition: all .5s;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    width: 3.25rem;
+    height: 3.25rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: zoom 1.3s infinite;
+}
+
 @keyframes shake {
     0% {
         -webkit-transform: rotate(0) scale(1) skew(1deg);
@@ -28,6 +51,18 @@
     }
 }
 
-.animate-shake {
-    animation: shake 1s ease-in-out infinite;
+@keyframes zoom {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    70% {
+        transform: scale(1) translate(-50%, -50%);
+        box-shadow: 0 0 0 15px transparent;
+    }
+
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+        box-shadow: 0 0 0 0 transparent;
+    }
 }
