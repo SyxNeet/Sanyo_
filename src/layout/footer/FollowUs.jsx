@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 
 function FollowUs({data}) {
@@ -9,45 +8,48 @@ function FollowUs({data}) {
       </p>
 
       <div className='flex flex-row'>
-        <Link
+        <a
           href={
             data?.lien_ket_facebook ||
             'https://www.facebook.com/ThangmaySanyoYusokiVietNam?mibextid=ZbWKwL'
           }
           className='block w-[2.25rem] h-[2.25rem] mr-[0.6rem] group'
           target='_blank'
+          rel='noopener noreferrer'
         >
           <img
             src='/images/layout/footer/facebook.png'
             alt=''
             className='object-cover w-full h-full'
           />
-        </Link>
-        <Link
+        </a>
+        <a
           href={
             data?.lien_ket_in ||
             'https://www.linkedin.com/in/sanyo-yusoki-vi%E1%BB%87t-nam-4283592a5/'
           }
           className='block w-[2.25rem] h-[2.25rem] mr-[0.6rem] group'
           target='_blank'
+          rel='noopener noreferrer'
         >
           <img
             src='/images/layout/footer/linkedin.png'
             alt=''
             className='object-cover w-full h-full'
           />
-        </Link>
-        <Link
+        </a>
+        <a
           href={data?.lien_ket_zalo || 'https://zalo.me/4574140570292753526'}
           className='block w-[2.25rem] h-[2.25rem] mr-[0.6rem] group'
           target='_blank'
+          rel='noopener noreferrer'
         >
           <img
             src='/images/layout/footer/zalo.png'
             alt=''
             className='object-cover w-full h-full'
           />
-        </Link>
+        </a>
       </div>
     </div>
   )

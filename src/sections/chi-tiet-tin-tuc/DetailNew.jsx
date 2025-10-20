@@ -47,7 +47,7 @@ export default function DetailNew({ isMobile, data }) {
   useEffect(() => {
   }, [headingArray])
   return (
-    <section className='pt-5 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3'>
+    <section className='pt-14 md:pt-[3rem] md:w-[74rem] mx-auto pb-[3rem] md:pb-[6rem] max-md:px-3 xsm:!pt-[3rem]'>
       <Fade
         direction='up'
         triggerOnce
@@ -99,7 +99,7 @@ export default function DetailNew({ isMobile, data }) {
         </nav>
       </div>
       <div
-        className='min-w-full prose content-container prose-neutral [&_img]:w-full [&.aligncenter]:mx-auto prose-base [&_ul]:ml-6 lg:text-[1.2rem] [&_td]:text-center [&_td]:align-middle'
+        className='min-w-full prose content-container prose-neutral [&_iframe]:!w-full [&_figure]:!w-full [&_img]:w-full [&.aligncenter]:mx-auto prose-base [&_ul]:ml-6 lg:text-[1.2rem] [&_td]:text-center [&_td]:align-middle'
         dangerouslySetInnerHTML={{ __html: data?.posts[0].content }}
       ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>
