@@ -99,7 +99,7 @@ export default function DetailNew({ isMobile, data }) {
         </nav>
       </div>
       <div
-        className='min-w-full prose content-container prose-neutral [&_iframe]:!w-full [&_figure]:!w-full [&_img]:w-full [&.aligncenter]:mx-auto prose-base [&_ul]:ml-6 lg:text-[1.2rem] [&_td]:text-center [&_td]:align-middle'
+        className='min-w-full  prose content-container prose-neutral [&_iframe]:!w-full [&_img]:w-full [&_figure]:!w-full sm:[&_img]:w-[80%] [&_img]:max-h-[30rem] [&_img]:object-cover [&_img]:mx-auto [&.aligncenter]:mx-auto prose-base [&_ul]:ml-6 lg:text-[1.2rem] [&_td]:text-center [&_td]:align-middle'
         dangerouslySetInnerHTML={{ __html: data?.posts[0].content }}
       ></div>
       <div className='flex flex-row items-center ml-auto w-fit'>

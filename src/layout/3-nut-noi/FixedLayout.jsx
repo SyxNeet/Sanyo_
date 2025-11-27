@@ -44,7 +44,7 @@ export default function FixedLayout({ isMobile }) {
     <div className='z-30 fixed bottom-3.5 right-3 md:bottom-6 md:right-6 flex flex-col gap-[0.88rem] md:gap-[1.38rem]'>
       <div className='relative group'>
         <div className='amiation-zoom'></div>
-        <Link href={`tel:0393580688`}>
+        <Link href={`tel:0983859969`}>
           <Image
             src={`/images/layout/3-nut-noi/call.svg`}
             alt='call us'
@@ -55,7 +55,7 @@ export default function FixedLayout({ isMobile }) {
         </Link>
         {/* Hiển thị số điện thoại khi hover */}
         <span className='absolute right-full mr-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-[1.25rem] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap'>
-          0393 580 688
+        0983.859.969
         </span>
       </div>
       <div className='relative'>
